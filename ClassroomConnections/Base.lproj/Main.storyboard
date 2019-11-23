@@ -179,6 +179,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cc6-Vg-guD"/>
                     </view>
+                    <connections>
+                        <outlet property="Email" destination="Lam-JF-a5K" id="Ulw-Yi-hhV"/>
+                        <outlet property="FirstName" destination="0k9-8d-eB9" id="bnL-pf-cXx"/>
+                        <outlet property="LastName" destination="z9x-x0-NvJ" id="j0w-D3-hxZ"/>
+                        <outlet property="Password" destination="ICx-IG-b1j" id="nCE-kA-Vwd"/>
+                        <outlet property="TeachersButton" destination="MWR-6F-yS1" id="WKY-I5-m6W"/>
+                        <outlet property="studentButton" destination="VJc-6k-dmx" id="Xxe-Us-bFO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dd0-eb-nH0" sceneMemberID="firstResponder"/>
             </objects>
