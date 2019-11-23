@@ -31,7 +31,7 @@ class RegisterViewController: UIViewController {
         
         adjustButtons()
         
-        ref
+        ref = Database.database().reference()
         
         
         
