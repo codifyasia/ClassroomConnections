@@ -21,7 +21,7 @@ class ClassChatViewController: UIViewController {
     
     override func viewDidLoad() {
         tableView.dataSource = self
-        tableView.delegate= self
+        tableView.delegate = self
         
     }
 }
@@ -39,5 +39,7 @@ extension ClassChatViewController: UITableViewDataSource {
     
 }
 extension ClassChatViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("person selected row : " + String(indexPath.row) + " (starts from 0)")
+    }
 }
