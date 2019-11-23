@@ -10,9 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    var isStudent : Boolean = true
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func adjustButton(){
+        
     }
 
 
