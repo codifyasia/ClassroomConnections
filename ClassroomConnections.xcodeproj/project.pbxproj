@@ -18,6 +18,7 @@
 		47D507AA2389D955006E46EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D507A82389D955006E46EE /* Main.storyboard */; };
 		47D507AC2389D956006E46EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D507AB2389D956006E46EE /* Assets.xcassets */; };
 		47D507AF2389D956006E46EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D507AD2389D956006E46EE /* LaunchScreen.storyboard */; };
+		9C6D239C2389F44F0072CE2B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D239B2389F44F0072CE2B /* Message.swift */; };
 		CA9DB956013315A567F8CA87 /* Pods_ClassroomConnections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D18991844FE128D42C95D7F /* Pods_ClassroomConnections.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		47D507AB2389D956006E46EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47D507AE2389D956006E46EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47D507B02389D956006E46EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C6D239B2389F44F0072CE2B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		BB0E733F32220B8D3FDC306D /* Pods-ClassroomConnections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassroomConnections.debug.xcconfig"; path = "Target Support Files/Pods-ClassroomConnections/Pods-ClassroomConnections.debug.xcconfig"; sourceTree = "<group>"; };
 		F01804A34C0B7B8C09D1C5F7 /* Pods-ClassroomConnections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassroomConnections.release.xcconfig"; path = "Target Support Files/Pods-ClassroomConnections/Pods-ClassroomConnections.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 				47719D832389E9C500FC5350 /* ClassChatViewController.swift */,
 				47719D852389EA0000FC5350 /* ConflictCalendarViewController.swift */,
 				47719D872389EA1300FC5350 /* ChecklistViewController.swift */,
+				9C6D239B2389F44F0072CE2B /* Message.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				47D507A72389D955006E46EE /* RegisterViewController.swift in Sources */,
 				47719D862389EA0000FC5350 /* ConflictCalendarViewController.swift in Sources */,
 				47D507A32389D955006E46EE /* AppDelegate.swift in Sources */,
+				9C6D239C2389F44F0072CE2B /* Message.swift in Sources */,
 				47719D842389E9C500FC5350 /* ClassChatViewController.swift in Sources */,
 				47D507A52389D955006E46EE /* SceneDelegate.swift in Sources */,
 			);
