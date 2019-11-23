@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47719D752389DF0200FC5350 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47719D742389DF0200FC5350 /* GoogleService-Info.plist */; };
 		47D507A32389D955006E46EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D507A22389D955006E46EE /* AppDelegate.swift */; };
 		47D507A52389D955006E46EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D507A42389D955006E46EE /* SceneDelegate.swift */; };
 		47D507A72389D955006E46EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D507A62389D955006E46EE /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		3D18991844FE128D42C95D7F /* Pods_ClassroomConnections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassroomConnections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47719D742389DF0200FC5350 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		47D5079F2389D955006E46EE /* ClassroomConnections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassroomConnections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D507A22389D955006E46EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47D507A42389D955006E46EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				47D507AB2389D956006E46EE /* Assets.xcassets */,
 				47D507AD2389D956006E46EE /* LaunchScreen.storyboard */,
 				47D507B02389D956006E46EE /* Info.plist */,
+				47719D742389DF0200FC5350 /* GoogleService-Info.plist */,
 			);
 			path = ClassroomConnections;
 			sourceTree = "<group>";
@@ -80,7 +83,6 @@
 				BB0E733F32220B8D3FDC306D /* Pods-ClassroomConnections.debug.xcconfig */,
 				F01804A34C0B7B8C09D1C5F7 /* Pods-ClassroomConnections.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -153,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47D507AF2389D956006E46EE /* LaunchScreen.storyboard in Resources */,
+				47719D752389DF0200FC5350 /* GoogleService-Info.plist in Resources */,
 				47D507AC2389D956006E46EE /* Assets.xcassets in Resources */,
 				47D507AA2389D955006E46EE /* Main.storyboard in Resources */,
 			);

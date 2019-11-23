@@ -10,6 +10,7 @@ target 'ClassroomConnections' do
     pod 'Firebase'
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
+    pod 'Firebase/Firestore'
     pod 'SVProgressHUD'
     pod 'PKRevealController'
 end
