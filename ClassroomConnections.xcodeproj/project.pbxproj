@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		47719D752389DF0200FC5350 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47719D742389DF0200FC5350 /* GoogleService-Info.plist */; };
+		47719D822389E9A600FC5350 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D812389E9A600FC5350 /* LoginViewController.swift */; };
+		47719D842389E9C500FC5350 /* ClassChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D832389E9C500FC5350 /* ClassChatViewController.swift */; };
+		47719D862389EA0000FC5350 /* ConflictCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D852389EA0000FC5350 /* ConflictCalendarViewController.swift */; };
+		47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D872389EA1300FC5350 /* ChecklistViewController.swift */; };
 		47D507A32389D955006E46EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D507A22389D955006E46EE /* AppDelegate.swift */; };
 		47D507A52389D955006E46EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D507A42389D955006E46EE /* SceneDelegate.swift */; };
 		47D507A72389D955006E46EE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D507A62389D955006E46EE /* RegisterViewController.swift */; };
@@ -20,6 +24,10 @@
 /* Begin PBXFileReference section */
 		3D18991844FE128D42C95D7F /* Pods_ClassroomConnections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassroomConnections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47719D742389DF0200FC5350 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		47719D812389E9A600FC5350 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		47719D832389E9C500FC5350 /* ClassChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassChatViewController.swift; sourceTree = "<group>"; };
+		47719D852389EA0000FC5350 /* ConflictCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConflictCalendarViewController.swift; sourceTree = "<group>"; };
+		47719D872389EA1300FC5350 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		47D5079F2389D955006E46EE /* ClassroomConnections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassroomConnections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D507A22389D955006E46EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47D507A42389D955006E46EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +89,10 @@
 			isa = PBXGroup;
 			children = (
 				47D507A62389D955006E46EE /* RegisterViewController.swift */,
+				47719D812389E9A600FC5350 /* LoginViewController.swift */,
+				47719D832389E9C500FC5350 /* ClassChatViewController.swift */,
+				47719D852389EA0000FC5350 /* ConflictCalendarViewController.swift */,
+				47719D872389EA1300FC5350 /* ChecklistViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -218,8 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47719D822389E9A600FC5350 /* LoginViewController.swift in Sources */,
+				47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */,
 				47D507A72389D955006E46EE /* RegisterViewController.swift in Sources */,
+				47719D862389EA0000FC5350 /* ConflictCalendarViewController.swift in Sources */,
 				47D507A32389D955006E46EE /* AppDelegate.swift in Sources */,
+				47719D842389E9C500FC5350 /* ClassChatViewController.swift in Sources */,
 				47D507A52389D955006E46EE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
