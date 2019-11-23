@@ -31,6 +31,8 @@ class RegisterViewController: UIViewController {
         
         adjustButtons()
         
+        ref
+        
         
         
         
@@ -38,11 +40,24 @@ class RegisterViewController: UIViewController {
     
     
     func adjustButtons(){
-        studentButton.backgroundColor = UIColor(red: 88.0/255.0, green: 86.0/255.0, blue: 214.0/255.0, alpha: 1.0)
+        studentButton.backgroundColor = UIColor(red: (88.0 * 0.75)/255.0, green: (86.0*0.75)/255.0, blue: (214.0*0.75)/255.0, alpha: 1.0)
         TeachersButton.backgroundColor = UIColor(red: 88.0/255.0, green: 86.0/255.0, blue: 214.0/255.0, alpha: 1.0)
-        studentButton.layer.cornerRadius = 10
-        TeachersButton.layer.cornerRadius = 10
+//        studentButton.layer.corne = 10
+//        TeachersButton.layer.cornerRadius = 10
     }
+    
+    @IBAction func studentPressed(_ sender: Any) {
+        isStudent = true
+        studentButton.backgroundColor = UIColor(red: (88.0 * 0.75)/255.0, green: (86.0*0.75)/255.0, blue: (214.0*0.75)/255.0, alpha: 1.0)
+        TeachersButton.backgroundColor = UIColor(red: 88.0/255.0, green: 86.0/255.0, blue: 214.0/255.0, alpha: 1.0)
+    }
+    
+    @IBAction func teacherPressed(_ sender: Any) {
+        isStudent = false
+        TeachersButton.backgroundColor = UIColor(red: (88.0 * 0.75)/255.0, green: (86.0*0.75)/255.0, blue: (214.0*0.75)/255.0, alpha: 1.0)
+        studentButton.backgroundColor = UIColor(red: 88.0/255.0, green: 86.0/255.0, blue: 214.0/255.0, alpha: 1.0)
+    }
+    
     
     
     
