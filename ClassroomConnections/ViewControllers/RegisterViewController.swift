@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RegisterViewController: UIViewController {
 
-    
+    //Variables
     var isStudent : Boolean = true
-    
-    
+    //Firebase
+    var ref: DatabaseReference!
     
     
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
     
     
-    func adjustButton(){
+    func adjustButtons(){
         
     }
 
