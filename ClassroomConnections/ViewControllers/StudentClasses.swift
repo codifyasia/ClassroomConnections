@@ -214,6 +214,16 @@ extension StudentClasses: UITableViewDelegate {
         configuration.performsFirstActionWithFullSwipe = false
         return configuration
     }
+    
+    
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "studentToTabBar" {
+//            let destinationVC = segue.destination as! StudentConflictCalendar
+//            destinationVC.ClassID = textField.text!
+//            print(textField.text!)
+//        }
+//    }
     //
     //    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     //
