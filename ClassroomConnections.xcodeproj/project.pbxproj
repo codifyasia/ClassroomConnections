@@ -21,7 +21,7 @@
 		47D507AA2389D955006E46EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D507A82389D955006E46EE /* Main.storyboard */; };
 		47D507AC2389D956006E46EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D507AB2389D956006E46EE /* Assets.xcassets */; };
 		47D507AF2389D956006E46EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D507AD2389D956006E46EE /* LaunchScreen.storyboard */; };
-		8951D3B1238A5324002EC4F5 /* StudentClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951D3B0238A5324002EC4F5 /* StudentClasses.swift */; };
+		8951D3B3238A56D1002EC4F5 /* StudentClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951D3B2238A56D1002EC4F5 /* StudentClasses.swift */; };
 		9C6D239C2389F44F0072CE2B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D239B2389F44F0072CE2B /* Message.swift */; };
 		9C6D23AB238A02620072CE2B /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D23A9238A02620072CE2B /* MessageCell.swift */; };
 		9C6D23AC238A02620072CE2B /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6D23AA238A02620072CE2B /* MessageCell.xib */; };
@@ -47,7 +47,7 @@
 		47D507AB2389D956006E46EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47D507AE2389D956006E46EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47D507B02389D956006E46EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8951D3B0238A5324002EC4F5 /* StudentClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClasses.swift; sourceTree = "<group>"; };
+		8951D3B2238A56D1002EC4F5 /* StudentClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClasses.swift; sourceTree = "<group>"; };
 		9C6D239B2389F44F0072CE2B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9C6D23A9238A02620072CE2B /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		9C6D23AA238A02620072CE2B /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
@@ -139,8 +139,8 @@
 				47719D812389E9A600FC5350 /* LoginViewController.swift */,
 				47719D832389E9C500FC5350 /* ClassChatViewController.swift */,
 				47719D872389EA1300FC5350 /* ChecklistViewController.swift */,
+				8951D3B2238A56D1002EC4F5 /* StudentClasses.swift */,
 				47BD5870238A2D2C008FC1D7 /* TeacherClasses.swift */,
-				8951D3B0238A5324002EC4F5 /* StudentClasses.swift */,
 				9CD6EB98238A4EC1000A6A33 /* StudentConflictCalendar.swift */,
 			);
 			path = ViewControllers;
@@ -293,7 +293,7 @@
 				47719D842389E9C500FC5350 /* ClassChatViewController.swift in Sources */,
 				47D507A52389D955006E46EE /* SceneDelegate.swift in Sources */,
 				9C6D23AB238A02620072CE2B /* MessageCell.swift in Sources */,
-				8951D3B1238A5324002EC4F5 /* StudentClasses.swift in Sources */,
+				8951D3B3238A56D1002EC4F5 /* StudentClasses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
