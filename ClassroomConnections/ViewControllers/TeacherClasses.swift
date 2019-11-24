@@ -18,6 +18,11 @@ class TeacherClasses: UIViewController {
     
     
     var textField = UITextField()
+    var topicTextField = UITextField()
+    var titleTextField = UITextField()
+    
+    var name : String = ""
+    
     var classes : [Class] = [
         Class(classTitle: "APLAC", teacher: "Seike"),
         Class(classTitle: "AP Minecraft" , teacher: "Your mom")
@@ -33,8 +38,26 @@ class TeacherClasses: UIViewController {
         tableView.register(UINib(nibName: "AddClass", bundle: nil), forCellReuseIdentifier: "Cell")
         ref = Database.database().reference()
         
-//        updateClasses()
+        updateClasses()
+        getInfo()
     }
+    
+    
+    func getInfo() {
+        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
+            let lastName = value["LastName"] as! String
+            self.name = lastName
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+    }
+    
     
     
     func updateClasses() {
@@ -51,7 +74,7 @@ class TeacherClasses: UIViewController {
                 }
                 let title = value["Title"] as! String
                 print(title)
-                self.classes.append(Class(classTitle: title , teacher: "Fulk"))
+                self.classes.append(Class(classTitle: title , teacher: self.name))
                 self.tableView.reloadData()
             }
             
@@ -114,10 +137,10 @@ extension TeacherClasses: UITableViewDelegate {
             let alert = UIAlertController(title: "Enter code to join class", message: "", preferredStyle: .alert)
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
                 print(self.textField.text!)
-//                self.classes.append(Class(classTitle: "APCSA", teacher: "Fulk"))
-//                self.tableView.reloadData()
+                //                self.classes.append(Class(classTitle: "APCSA", teacher: "Fulk"))
+                //                self.tableView.reloadData()
                 
-                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : "History"])
+                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : self.topicTextField.text!, "Teacher" : self.name])
                 //update
                 self.updateClasses()
                 
@@ -129,6 +152,11 @@ extension TeacherClasses: UITableViewDelegate {
             alert.addTextField { (alertTextField) in
                 alertTextField.placeholder = "Class code"
                 self.textField = alertTextField
+                //                /Users/michaelpeng/Desktop/ClassroomConnections/Pods/PKRevealController/Source/PKRevealController/PKRevealController.m:1363:1: Conflicting return type in implementation of 'supportedInterfaceOrientations': 'UIInterfaceOrientationMask' (aka 'enum UIInterfaceOrientationMask') vs 'NSUInteger' (aka 'unsigned long')
+            }
+            alert.addTextField { (alertTextField1) in
+                alertTextField1.placeholder = "Class Topic"
+                self.topicTextField = alertTextField1
                 //                /Users/michaelpeng/Desktop/ClassroomConnections/Pods/PKRevealController/Source/PKRevealController/PKRevealController.m:1363:1: Conflicting return type in implementation of 'supportedInterfaceOrientations': 'UIInterfaceOrientationMask' (aka 'enum UIInterfaceOrientationMask') vs 'NSUInteger' (aka 'unsigned long')
             }
             
