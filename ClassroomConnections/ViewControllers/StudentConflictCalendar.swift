@@ -54,19 +54,34 @@ class StudentConflictCalendar: UIViewController {
     
     @IBAction func submitPressed(_ sender: Any) {
         var numForADay : Int = 0
-        ref.child("Classrooms").child(ClassID).child("Calendar").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("Classrooms").child(ClassID).child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             guard let value = snapshot.value as? NSDictionary else {
                 print("no data in calendar")
                 return
             }
-            
-            numForADay = value[self.day] as! Int
+            var didStudentAlreadySubmit = value["SubmitStatus"] as! Bool
+            if (didStudentAlreadySubmit == false)
+            {
+                self.ref.child("Classrooms").child(self.ClassID).child("Calendar").observeSingleEvent(of: .value, with: { (snapshot) in
+                    // Get user value
+                    guard let value = snapshot.value as? NSDictionary else {
+                        print("no data in calendar")
+                        return
+                    }
+                    
+                    numForADay = value[self.day] as! Int
+                    self.ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues([self.day : numForADay + 1])
+                    self.ref.child("Classrooms").child(self.ClassID).child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : true])
+                    
+                }) { (error) in
+                    print("error:\(error.localizedDescription)")
+                }
+            }
             
         }) { (error) in
             print("error:\(error.localizedDescription)")
         }
-        ref.child("Classrooms").child(ClassID).child("Calendar").updateChildValues([day : numForADay + 1])
     }
     
     /*

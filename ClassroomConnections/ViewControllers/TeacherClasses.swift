@@ -144,7 +144,7 @@ extension TeacherClasses: UITableViewDelegate {
                 
                 self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : self.topicTextField.text!, "Teacher" : self.name])
                 
-                self.ref.child("Classrooms").child(self.textField.text?)
+                self.ref.child("Classrooms").child(self.textField.text!).updateChildValues(["Teahcer" : self.name])
                 //update
                 self.updateClasses()
                 
