@@ -66,8 +66,10 @@ class StudentClasses: UIViewController {
                                 return
                             }
                             let title = value["Title"] as! String
+                            let iden = value["ID"] as! String
+                            
                             print(title)
-                            self.classes.append(Class(classTitle: title , teacher: lastName, id: self.textField.text!))
+                            self.classes.append(Class(classTitle: title , teacher: lastName, id: iden))
                             self.tableView.reloadData()
             //                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
                         }
@@ -98,9 +100,22 @@ class StudentClasses: UIViewController {
                     return
                 }
                 let title = value["Title"] as! String
+                let iden = value["ID"] as! String
                 print(title)
-                self.classes.append(Class(classTitle: title , teacher: self.name, id: self.textField.text!))
+                self.ref.child("Classrooms").child(iden).observeSingleEvent(of: .value, with: { (snapshot1) in
+                
+                guard let value1 = snapshot.value as? NSDictionary else {
+                    print("No Data!!!")
+                    return
+                }
+                    
+                    let teacherName = value1["Teacher"] as! String
+                    
+                self.classes.append(Class(classTitle: title , teacher: teacherName, id: iden))
                 self.tableView.reloadData()
+                    }) { (error) in
+                        print("error:\(error.localizedDescription)")
+                    }
 //                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
             }
             
@@ -176,7 +191,7 @@ extension StudentClasses: UITableViewDelegate {
                     
                     
                     self.topic = titleValue
-            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue])
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue])
                     
                 }) { (error) in
                     print("error:\(error.localizedDescription)")
@@ -199,6 +214,7 @@ extension StudentClasses: UITableViewDelegate {
         else {
             let identification = classes[indexPath.row].id
                 
+            
             
                 print(identification)
             ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").updateChildValues(["ID" : identification, "Title" : classes[indexPath.row].classTitle ])
