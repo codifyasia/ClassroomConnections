@@ -90,10 +90,11 @@ class TeacherConflictCalendar: UIViewController {
         }
     }
     func processDays() {
-        let dict = [monValue, tuesValue, wedValue, thursValue, friValue]
-        for i in 0..<5 {
-            
-        }
+        mon.backgroundColor = UIColor(red: CGFloat((88.0 * (1-monValue))/255.0), green: CGFloat((86.0*(1-monValue))/255.0), blue: CGFloat((214.0*(1-monValue))/255.0), alpha: 1.0)
+        tues.backgroundColor = UIColor(red: CGFloat((88.0 * (1-tuesValue))/255.0), green: CGFloat((86.0*(1-tuesValue))/255.0), blue: CGFloat((214.0*(1-tuesValue))/255.0), alpha: 1.0)
+        wed.backgroundColor = UIColor(red: CGFloat((88.0 * (1-wedValue))/255.0), green: CGFloat((86.0*(1-wedValue))/255.0), blue: CGFloat((214.0*(1-wedValue))/255.0), alpha: 1.0)
+        thurs.backgroundColor = UIColor(red: CGFloat((88.0 * (1-thursValue))/255.0), green: CGFloat((86.0*(1-thursValue))/255.0), blue: CGFloat((214.0*(1-thursValue))/255.0), alpha: 1.0)
+        fri.backgroundColor = UIColor(red: CGFloat((88.0 * (1-friValue))/255.0), green: CGFloat((86.0*(1-friValue))/255.0), blue: CGFloat((214.0*(1-friValue))/255.0), alpha: 1.0)
     }
     
 
