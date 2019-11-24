@@ -17,33 +17,41 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
-        
+        ref = Database.database().reference()
     }
     @IBAction func loginPressed(_ sender: Any) {
         SVProgressHUD.show()
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
             if (error == nil) {
                 
-//                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-//
-//                    guard let value = snapshot.value as? NSDictionary else {
-//                        print("No Data!!!")
-//                        return
-//                    }
-//                    let status = value["Status"] as! String
-//
-//
-////                    if (Status)
-//
-//
-//                }) { (error) in
-//                    print("error:\(error.localizedDescription)")
-//                }
+                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+
+                    guard let value = snapshot.value as? NSDictionary else {
+                        print("No Data!!!")
+                        return
+                    }
+                    let status = value["Status"] as! String
+
+
+                    print (status)
+                    if (status == "Teacher") {
+                        self.performSegue(withIdentifier: "teacherLogin", sender: self)
+                    }
+                    else {
+                        self.performSegue(withIdentifier: "studentLogin", sender: self)
+                    }
+
+
+                }) { (error) in
+                    print("error:\(error.localizedDescription)")
+                }
 //                
                 
                 SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "goToMainMenu", sender: self)
+//                self.performSegue(withIdentifier: "goToMainMenu", sender: self)
             } else {
                 
                 SVProgressHUD.dismiss()
