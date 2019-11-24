@@ -110,6 +110,7 @@ class StudentClassChatViewController: UIViewController {
                        print("Message saved successfully!")
                    }
                }
+        messageTextField.text = ""
     }
     
 }
@@ -147,7 +148,15 @@ extension StudentClassChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
         cell.label.text = messages[indexPath.row].body
-        cell.senderName.text = messages[indexPath.row].senderID
+        cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
+        
+        
+        if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
+            cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+            cell.rightImage?.tintColor = UIColor.systemTeal
+        } else if cell.senderName.text == "five" {
+            
+        }
         return cell
     }
 }

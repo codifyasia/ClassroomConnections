@@ -144,8 +144,8 @@
 				47719D832389E9C500FC5350 /* TeachersClassChatViewController.swift */,
 				4707C9F0238A5B6F00871B0A /* StudentClassChatViewController.swift */,
 				47719D872389EA1300FC5350 /* ChecklistViewController.swift */,
-				8951D3B2238A56D1002EC4F5 /* StudentClasses.swift */,
 				47BD5870238A2D2C008FC1D7 /* TeacherClasses.swift */,
+				8951D3B2238A56D1002EC4F5 /* StudentClasses.swift */,
 				9CD6EB98238A4EC1000A6A33 /* StudentConflictCalendar.swift */,
 				9CD6EB9A238A8129000A6A33 /* TeacherConflictCalendar.swift */,
 			);
