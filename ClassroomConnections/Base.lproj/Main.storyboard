@@ -492,7 +492,7 @@
             </objects>
             <point key="canvasLocation" x="687" y="-453"/>
         </scene>
-        <!--Student Conflict Calendar-->
+        <!--Calendar-->
         <scene sceneID="yuA-V1-xEg">
             <objects>
                 <viewController id="J99-fh-5bN" customClass="StudentConflictCalendar" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
@@ -598,7 +598,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="7JB-kl-woh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" selectedImage="calendar" catalog="system" id="qR5-Ef-Gay"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" selectedImage="calendar" id="qR5-Ef-Gay"/>
                     <connections>
                         <outlet property="Submit" destination="Sbo-Oj-BNA" id="bvo-YU-8yn"/>
                         <outlet property="fri" destination="iCz-jz-Eb8" id="jJT-3U-BgK"/>
@@ -684,7 +684,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="yqu-P9-zmW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calendar" id="G0w-tM-8X1"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" id="G0w-tM-8X1"/>
                     <connections>
                         <outlet property="fri" destination="LcK-lQ-pwG" id="5Ed-eF-cMk"/>
                         <outlet property="mon" destination="6N7-ha-Vfm" id="pP5-dP-duI"/>
