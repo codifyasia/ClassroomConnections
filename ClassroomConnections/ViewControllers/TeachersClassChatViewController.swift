@@ -24,7 +24,7 @@ class TeacherClassChatViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         ref = Database.database().reference()
-        let messageDictionary = ["Sender" : Auth.auth().currentUser?.email, "MessageBody" : "Welcome to my class!", "SenderID" : Auth.auth().currentUser?.uid]
+        let messageDictionary : NSDictionary = ["Sender" : Auth.auth().currentUser?.email, "MessageBody" : "Welcome to my class!", "SenderID" : Auth.auth().currentUser?.uid]
         
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value, with: { (snapshot) in
             
@@ -37,7 +37,7 @@ class TeacherClassChatViewController: UIViewController {
             self.classRoomCode = identity
             
             
-            self.ref.child("Classrooms").child(identity).child("Messages").child(Auth.auth().currentUser!.uid).updateChildValues(messageDictionary) {
+            self.ref.child("Classrooms").child(identity).child("Messages").child(Auth.auth().currentUser!.uid).setValue(messageDictionary) {
                 (error, reference) in
                 
                 if error != nil {
@@ -73,18 +73,16 @@ class TeacherClassChatViewController: UIViewController {
             
             self.ref.child("Classrooms").child(identity).child("Messages").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot1) in
                 
-                print(snapshot1.childrenCount)
                 
-                for rest in snapshot1.children.allObjects as! [DataSnapshot] {
-                guard let value = rest.value as? NSDictionary else {
-                    print("could not collect label data")
+                guard let value1 = snapshot1.value as? NSDictionary else {
+                    print("No Data!!!")
                     return
                 }
                 
-                let Text = value["MessageBody"]!
+                let Text = value1["MessageBody"]!
                 print(Text)
-                let Sender = value["Sender"]!
-                let SenderID = value["SenderID"]
+                let Sender = value1["Sender"]!
+                let SenderID = value1["SenderID"]
                 
                     print("ooooga \(Sender) \(Text) \(SenderID!)")
                     
@@ -93,7 +91,7 @@ class TeacherClassChatViewController: UIViewController {
                 
                 self.tableView.reloadData()
                 
-                }
+                
                 
             }) { (error) in
                 print("error:\(error.localizedDescription)")
