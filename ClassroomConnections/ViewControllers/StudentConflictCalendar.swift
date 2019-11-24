@@ -53,22 +53,20 @@ class StudentConflictCalendar: UIViewController {
     }
     
     @IBAction func submitPressed(_ sender: Any) {
-        ref.child(ClassID).child().observeSingleEvent(of: .value, with: { (snapshot) in
+        var numForADay : Int = 0
+        ref.child("Classrooms").child(ClassID).child("Calendar").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             guard let value = snapshot.value as? NSDictionary else {
-                print("No Data!!!!!!")
+                print("no data in calendar")
                 return
             }
             
-            self.name = value["Username"] as! String
-            self.helloLabel.text = "Hello \(self.name)!"
-            
-            let distanceTraveled = value["TotalDistance"] as! Double
-            let goalDistance = value["DistanceGoal"] as! Double
+            numForADay = value[self.day] as! Int
             
         }) { (error) in
             print("error:\(error.localizedDescription)")
         }
+        ref.child("Classrooms").child(ClassID).child("Calendar").updateChildValues([day : numForADay + 1])
     }
     
     /*
