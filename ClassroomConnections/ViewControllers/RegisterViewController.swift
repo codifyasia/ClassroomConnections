@@ -11,7 +11,7 @@ import Firebase
 import SVProgressHUD
 
 class RegisterViewController: UIViewController {
-
+    
     //Variables
     var isStudent : Bool = true
     @IBOutlet weak var FirstName: UITextField!
@@ -43,8 +43,8 @@ class RegisterViewController: UIViewController {
     func adjustButtons(){
         studentButton.backgroundColor = UIColor(red: (88.0 * 0.75)/255.0, green: (86.0*0.75)/255.0, blue: (214.0*0.75)/255.0, alpha: 1.0)
         TeachersButton.backgroundColor = UIColor(red: 88.0/255.0, green: 86.0/255.0, blue: 214.0/255.0, alpha: 1.0)
-//        studentButton.layer.corne = 10
-//        TeachersButton.layer.cornerRadius = 10
+        //        studentButton.layer.corne = 10
+        //        TeachersButton.layer.cornerRadius = 10
     }
     
     @IBAction func studentPressed(_ sender: Any) {
@@ -61,6 +61,48 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func signUpPressed(_ sender: Any) {
+        SVProgressHUD.show()
+        if (FirstName.text?.isEmpty ?? true || LastName.text?.isEmpty ?? true || Email.text?.isEmpty ?? true || Password.text?.isEmpty ?? true) {
+            SVProgressHUD.dismiss()
+            print("THERE IS AN ERROR")
+            let alert = UIAlertController(title: "Registration Error", message: "Please make sure you have completed filled out every textfield", preferredStyle: .alert)
+            
+            let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
+                return
+            }
+            
+            alert.addAction(OK)
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            Auth.auth().createUser(withEmail: Email.text!, password: Password.text!) { (user, error) in
+                if (error == nil) {
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text])
+                    if (self.isStudent) {
+                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).updateChildValues(["Status" : "Student"])
+                    }
+                    else {
+                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).updateChildValues(["Status" : "Teacher"])
+                    }
+                    SVProgressHUD.dismiss()
+                    print("Going to MAIN MENU")
+                    //                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)
+                } else {
+                    SVProgressHUD.dismiss()
+                    
+                    let alert = UIAlertController(title: "Registration Error", message: "Please check to make sure you have met all the registration guidelines", preferredStyle: .alert)
+                    
+                    let OK = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+                        self.Password.text = ""
+                    })
+                    
+                    alert.addAction(OK)
+                    self.present(alert, animated: true, completion: nil)
+                    //
+                    print("Error: \(error)")
+                }
+            }
+        }
     }
     
     
@@ -69,7 +111,7 @@ class RegisterViewController: UIViewController {
     
     
     
-
-
+    
+    
 }
 
