@@ -19,8 +19,8 @@ class StudentClasses: UIViewController {
     
     
     var textField = UITextField()
-//    var topicTextField = UITextField()
-//    var titleTextField = UITextField()
+    //    var topicTextField = UITextField()
+    //    var titleTextField = UITextField()
     
     var name : String = ""
     
@@ -39,54 +39,15 @@ class StudentClasses: UIViewController {
         
         
         getInfo()
-//        updateClasses()
+        //        updateClasses()
         
     }
     
     
     func getInfo() {
-        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            guard let value = snapshot.value as? NSDictionary else {
-                print("No Data!!!")
-                return
-            }
-            let lastName = value["LastName"] as! String
-            self.name = lastName
-            
-            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
-                        
-                        self.classes.removeAll()
-                        
-                        print("retrieve data: " + String(snapshot.childrenCount))
-                        
-                        for rest in snapshot.children.allObjects as! [DataSnapshot] {
-                            guard let value = rest.value as? NSDictionary else {
-                                print("could not collect label data")
-                                return
-                            }
-                            let title = value["Title"] as! String
-                            let iden = value["ID"] as! String
-                            
-                            print(title)
-                            self.classes.append(Class(classTitle: title , teacher: lastName, id: iden))
-                            self.tableView.reloadData()
-            //                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
-                        }
-                        
-                    }) { (error) in
-                        print("error:\(error.localizedDescription)")
-                    }
-            
-            
-        }) { (error) in
-            print("error:\(error.localizedDescription)")
-        }
-    }
-    
-    
-    
-    func updateClasses() {
+        
+//        let lastName = value["LastName"] as! String
+//        self.name = lastName
         
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
             
@@ -101,22 +62,48 @@ class StudentClasses: UIViewController {
                 }
                 let title = value["Title"] as! String
                 let iden = value["ID"] as! String
-                print(title)
-                self.ref.child("Classrooms").child(iden).observeSingleEvent(of: .value, with: { (snapshot1) in
+                let teacherName = value["Teacher"] as! String
                 
-                guard let value1 = snapshot.value as? NSDictionary else {
-                    print("No Data!!!")
-                    return
-                }
-                    
-                    let teacherName = value1["Teacher"] as! String
-                    
+                print(title)
                 self.classes.append(Class(classTitle: title , teacher: teacherName, id: iden))
                 self.tableView.reloadData()
-                    }) { (error) in
-                        print("error:\(error.localizedDescription)")
+                //                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
+            }
+            
+            
+            
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+    }
+    
+    
+    
+    func updateClasses() {
+
+//            let teacherName = value1["Teacher"] as! String
+            
+            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                self.classes.removeAll()
+                
+                print("retrieve data: " + String(snapshot.childrenCount))
+                
+                for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                    guard let value = rest.value as? NSDictionary else {
+                        print("could not collect label data")
+                        return
                     }
-//                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
+                    let title = value["Title"] as! String
+                    let iden = value["ID"] as! String
+                    let teacherName = value["Teacher"] as! String
+                    print(title)
+                    
+                    
+                    self.classes.append(Class(classTitle: title , teacher: teacherName, id: iden))
+                    self.tableView.reloadData()
+                //                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
             }
             
         }) { (error) in
@@ -188,14 +175,20 @@ extension StudentClasses: UITableViewDelegate {
                         return
                     }
                     let titleValue = value["Title"] as! String
-                    
+                    let teacher = value["Teacher"] as! String
                     
                     self.topic = titleValue
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue])
+                   
+                    
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue, "Teacher" : teacher])
                     
                 }) { (error) in
                     print("error:\(error.localizedDescription)")
-                };                 self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false])
+                };
+               
+                   
+                
+                self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false])
                 //update
                 self.updateClasses()
             }
@@ -213,13 +206,13 @@ extension StudentClasses: UITableViewDelegate {
         }
         else {
             let identification = classes[indexPath.row].id
-                
             
             
-                print(identification)
+            
+            print(identification)
             ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").updateChildValues(["ID" : identification, "Title" : classes[indexPath.row].classTitle ])
             
-                performSegue(withIdentifier: "studentToTabBar", sender: self)
+            performSegue(withIdentifier: "studentToTabBar", sender: self)
             
         }
         print(indexPath.row)
@@ -243,13 +236,13 @@ extension StudentClasses: UITableViewDelegate {
     
     
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "studentToTabBar" {
-//            let destinationVC = segue.destination as! StudentConflictCalendar
-//            destinationVC.ClassID = textField.text!
-//            print(textField.text!)
-//        }
-//    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "studentToTabBar" {
+    //            let destinationVC = segue.destination as! StudentConflictCalendar
+    //            destinationVC.ClassID = textField.text!
+    //            print(textField.text!)
+    //        }
+    //    }
     //
     //    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     //
