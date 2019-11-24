@@ -144,7 +144,12 @@ extension StudentClasses: UITableViewDelegate {
                 
                 self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : self.topicTextField.text!, "Teacher" : self.name])
                 
+                
+                
                 self.ref.child("Classrooms").child(self.textField.text!).updateChildValues(["Teacher" : self.name])
+                
+                self.ref.child("Classrooms").child(self.textField.text!).child("Calender").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0])
+                
                 //update
                 self.updateClasses()
                 
