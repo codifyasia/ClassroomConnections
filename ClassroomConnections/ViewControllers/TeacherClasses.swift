@@ -42,6 +42,29 @@ class TeacherClasses: UIViewController {
         
     }
     
+//    func removeEverything(index: Int ) {
+//        print("\(classes.count) \(index)")
+//        self.ref.child("Classrooms").child(classes[index].id).child("Students").observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//
+//
+//            print("retrieve data: " + String(snapshot.childrenCount))
+//
+//            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+//                guard let value = rest.value as? NSDictionary else {
+//                    print("could not collect label data")
+//                    return
+//                }
+//                let iden = value["id"] as! String
+//
+//                self.ref.child("UserInfo").child(iden).child("Classrooms").child(self.classes[index].id).removeValue()
+//            }
+//
+//        }) { (error) in
+//            print("error:\(error.localizedDescription)")
+//        }
+//    }
+    
     
     func getInfo() {
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -52,27 +75,27 @@ class TeacherClasses: UIViewController {
             }
             let lastName = value["LastName"] as! String
             self.name = lastName
-             self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
-                       
-                       self.classes.removeAll()
-                       
-                       print("retrieve data: " + String(snapshot.childrenCount))
-                       
-                       for rest in snapshot.children.allObjects as! [DataSnapshot] {
-                           guard let value = rest.value as? NSDictionary else {
-                               print("could not collect label data")
-                               return
-                           }
-                           let title = value["Title"] as! String
-                            let inden = value["ID"] as! String
-                           print("\(lastName) hi hi")
-                           self.classes.append(Class(classTitle: title , teacher: lastName, id:inden))
-                           self.tableView.reloadData()
-                       }
-                       
-                   }) { (error) in
-                       print("error:\(error.localizedDescription)")
-                   }
+            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                self.classes.removeAll()
+                
+                print("retrieve data: " + String(snapshot.childrenCount))
+                
+                for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                    guard let value = rest.value as? NSDictionary else {
+                        print("could not collect label data")
+                        return
+                    }
+                    let title = value["Title"] as! String
+                    let inden = value["ID"] as! String
+                    print("\(lastName) hi hi")
+                    self.classes.append(Class(classTitle: title , teacher: lastName, id:inden))
+                    self.tableView.reloadData()
+                }
+                
+            }) { (error) in
+                print("error:\(error.localizedDescription)")
+            }
             
         }) { (error) in
             print("error:\(error.localizedDescription)")
@@ -146,11 +169,11 @@ extension TeacherClasses: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
             cell.textLabel?.text = classes[indexPath.row].classTitle
             cell.detailTextLabel?.text = classes[indexPath.row].teacher
-//            let identification = classes[indexPath.row].id
-//
-//
-//            print(identification)
-//            performSegue(withIdentifier: "teacherToTabView", sender: self)
+            //            let identification = classes[indexPath.row].id
+            //
+            //
+            //            print(identification)
+            //            performSegue(withIdentifier: "teacherToTabView", sender: self)
             //            cell.backgroundColor = colors[indexPath.row]
             return cell
         }
@@ -173,7 +196,7 @@ extension TeacherClasses: UITableViewDelegate {
                 
                 self.ref.child("Classrooms").child(self.textField.text!).updateChildValues(["Teacher" : self.name, "Title" : self.topicTextField.text!, "ID" : self.textField.text!])
                 
-                    self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0])
+                self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0])
                 //update
                 self.updateClasses()
                 
@@ -201,9 +224,9 @@ extension TeacherClasses: UITableViewDelegate {
             let identification = classes[indexPath.row].id
             
             ide = identification
-                
             
-                print("id : \(identification)")
+            
+            print("id : \(identification)")
             
             ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").updateChildValues(["ID" : identification, "Title" : classes[indexPath.row].classTitle ])
             
@@ -218,6 +241,11 @@ extension TeacherClasses: UITableViewDelegate {
                                         handler: { (action, view, completionHandler) in
                                             // Update data source when user taps action
                                             self.classes.remove(at: indexPath.row)
+                                            
+                                            
+//                                            self.removeEverything(index: indexPath.row)
+                                            
+                                            
                                             self.tableView.reloadData()
                                             completionHandler(true)
         })
@@ -230,12 +258,14 @@ extension TeacherClasses: UITableViewDelegate {
     
     
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "teacherToTabView" {
-//            let destinationVC = segue.destination as! TeacherClassChatViewController
-//            destinationVC.classRoomCode = ide
-//        }
-//    }
+    
+    
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "teacherToTabView" {
+    //            let destinationVC = segue.destination as! TeacherClassChatViewController
+    //            destinationVC.classRoomCode = ide
+    //        }
+    //    }
     //
     //    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     //
