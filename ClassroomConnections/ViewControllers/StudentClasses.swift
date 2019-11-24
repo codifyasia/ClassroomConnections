@@ -40,9 +40,9 @@ class StudentClasses: UIViewController {
         ref = Database.database().reference()
         
         
-        
-        updateClasses()
         getInfo()
+//        updateClasses()
+        
     }
     
     
@@ -56,6 +56,29 @@ class StudentClasses: UIViewController {
             let lastName = value["LastName"] as! String
             self.name = lastName
             
+            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
+                        
+                        self.classes.removeAll()
+                        
+                        print("retrieve data: " + String(snapshot.childrenCount))
+                        
+                        for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                            guard let value = rest.value as? NSDictionary else {
+                                print("could not collect label data")
+                                return
+                            }
+                            let title = value["Title"] as! String
+                            print(title)
+                            self.classes.append(Class(classTitle: title , teacher: lastName, id: self.topic))
+                            self.tableView.reloadData()
+            //                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
+                        }
+                        
+                    }) { (error) in
+                        print("error:\(error.localizedDescription)")
+                    }
+            
+            
         }) { (error) in
             print("error:\(error.localizedDescription)")
         }
@@ -64,6 +87,7 @@ class StudentClasses: UIViewController {
     
     
     func updateClasses() {
+        
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
             
             self.classes.removeAll()
@@ -126,13 +150,6 @@ extension StudentClasses: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
             cell.textLabel?.text = classes[indexPath.row].classTitle
             cell.detailTextLabel?.text = classes[indexPath.row].teacher
-            let identification = classes[indexPath.row].id
-                
-            
-                print(identification)
-            ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").updateChildValues(["ID" : identification, "Title" : classes[indexPath.row].classTitle ])
-            
-                performSegue(withIdentifier: "studentToTabBar", sender: self)
             
             //            cell.backgroundColor = colors[indexPath.row]
             return cell
@@ -161,30 +178,13 @@ extension StudentClasses: UITableViewDelegate {
                     
                     
                     self.topic = titleValue
-                    
-                    
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue])
+            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue])
                     
                 }) { (error) in
                     print("error:\(error.localizedDescription)")
-                }
-                
-                
-                
-                
-                
-                
-                self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false])
-                
-                
-                
-            
-                
+                };                 self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false])
                 //update
                 self.updateClasses()
-                
-                
-                
             }
             
             alert.addAction(doneButton)
@@ -196,6 +196,16 @@ extension StudentClasses: UITableViewDelegate {
             
             
             self.present(alert, animated: true, completion: nil)
+            
+        }
+        else {
+            let identification = classes[indexPath.row].id
+                
+            
+                print(identification)
+            ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").updateChildValues(["ID" : identification, "Title" : classes[indexPath.row].classTitle ])
+            
+                performSegue(withIdentifier: "studentToTabBar", sender: self)
             
         }
         print(indexPath.row)

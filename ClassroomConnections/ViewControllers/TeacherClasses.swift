@@ -39,9 +39,9 @@ class TeacherClasses: UIViewController {
         ref = Database.database().reference()
         
         
-        
-        updateClasses()
         getInfo()
+        updateClasses()
+        
     }
     
     
@@ -54,6 +54,26 @@ class TeacherClasses: UIViewController {
             }
             let lastName = value["LastName"] as! String
             self.name = lastName
+             self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
+                       
+                       self.classes.removeAll()
+                       
+                       print("retrieve data: " + String(snapshot.childrenCount))
+                       
+                       for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                           guard let value = rest.value as? NSDictionary else {
+                               print("could not collect label data")
+                               return
+                           }
+                           let title = value["Title"] as! String
+                           print("\(lastName) hi hi")
+                           self.classes.append(Class(classTitle: title , teacher: lastName, id:self.textField.text!))
+                           self.tableView.reloadData()
+                       }
+                       
+                   }) { (error) in
+                       print("error:\(error.localizedDescription)")
+                   }
             
         }) { (error) in
             print("error:\(error.localizedDescription)")
@@ -75,7 +95,7 @@ class TeacherClasses: UIViewController {
                     return
                 }
                 let title = value["Title"] as! String
-                print(title)
+                print("\(self.name) hi hi")
                 self.classes.append(Class(classTitle: title , teacher: self.name, id:self.textField.text!))
                 self.tableView.reloadData()
             }
@@ -177,7 +197,7 @@ extension TeacherClasses: UITableViewDelegate {
             self.present(alert, animated: true, completion: nil)
             
         }
-        else {
+        else if (indexPath.row < classes.count){
             let identification = classes[indexPath.row].id
                 
             
