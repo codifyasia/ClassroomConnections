@@ -53,6 +53,18 @@ class StudentConflictCalendar: UIViewController {
     }
     
     @IBAction func submitPressed(_ sender: Any) {
+        ref.child("Classrooms").child(ClassID).child("Calendar").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("no data in calendar")
+                return
+            }
+            
+            
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
         var numForADay : Int = 0
         ref.child("Classrooms").child(ClassID).child("Calendar").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
