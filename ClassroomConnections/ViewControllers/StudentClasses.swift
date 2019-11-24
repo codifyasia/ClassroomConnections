@@ -78,8 +78,8 @@ class StudentClasses: UIViewController {
                 let title = value["Title"] as! String
                 print(title)
                 self.classes.append(Class(classTitle: title , teacher: self.name, id: self.topic))
-//                self.tableView.reloadData()
-                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
+                self.tableView.reloadData()
+//                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
             }
             
         }) { (error) in

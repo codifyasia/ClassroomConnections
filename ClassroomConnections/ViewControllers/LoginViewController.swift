@@ -25,7 +25,23 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
             if (error == nil) {
                 
-                print(Auth.auth().currentUser!.uid)
+//                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//                    guard let value = snapshot.value as? NSDictionary else {
+//                        print("No Data!!!")
+//                        return
+//                    }
+//                    let status = value["Status"] as! String
+//
+//
+////                    if (Status)
+//
+//
+//                }) { (error) in
+//                    print("error:\(error.localizedDescription)")
+//                }
+//                
+                
                 SVProgressHUD.dismiss()
                 self.performSegue(withIdentifier: "goToMainMenu", sender: self)
             } else {
