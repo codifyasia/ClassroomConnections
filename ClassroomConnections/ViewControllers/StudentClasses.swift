@@ -15,6 +15,7 @@ class StudentClasses: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var topic : String = ""
     
     
     var textField = UITextField()
@@ -24,8 +25,8 @@ class StudentClasses: UIViewController {
     var name : String = ""
     
     var classes : [Class] = [
-        Class(classTitle: "APLAC", teacher: "Seike"),
-        Class(classTitle: "AP Minecraft" , teacher: "Your mom")
+        Class(classTitle: "APLAC", teacher: "Seike", id: "asdf"),
+        Class(classTitle: "AP Minecraft" , teacher: "Your mom", id :"sdf")
     ]
     
     
@@ -76,8 +77,9 @@ class StudentClasses: UIViewController {
                 }
                 let title = value["Title"] as! String
                 print(title)
-                self.classes.append(Class(classTitle: title , teacher: self.name))
+                self.classes.append(Class(classTitle: title , teacher: self.name, id: self.topic))
 //                self.tableView.reloadData()
+                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
             }
             
         }) { (error) in
@@ -124,6 +126,12 @@ extension StudentClasses: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
             cell.textLabel?.text = classes[indexPath.row].classTitle
             cell.detailTextLabel?.text = classes[indexPath.row].teacher
+            let identification = classes[indexPath.row].id
+                
+            
+                print(identification)
+                performSegue(withIdentifier: "studentToTabView", sender: self)
+            
             //            cell.backgroundColor = colors[indexPath.row]
             return cell
         }
@@ -148,6 +156,9 @@ extension StudentClasses: UITableViewDelegate {
                         return
                     }
                     let titleValue = value["Title"] as! String
+                    
+                    
+                    self.topic = titleValue
                     
                     
                     self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue])

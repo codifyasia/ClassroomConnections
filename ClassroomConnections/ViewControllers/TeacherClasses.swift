@@ -24,8 +24,8 @@ class TeacherClasses: UIViewController {
     var name : String = ""
     
     var classes : [Class] = [
-        Class(classTitle: "APLAC", teacher: "Seike"),
-        Class(classTitle: "AP Minecraft" , teacher: "Your mom")
+        Class(classTitle: "APLAC", teacher: "Seike", id: "123"),
+        Class(classTitle: "AP Minecraft" , teacher: "Your mom", id: "123")
     ]
     
     
@@ -76,7 +76,7 @@ class TeacherClasses: UIViewController {
                 }
                 let title = value["Title"] as! String
                 print(title)
-                self.classes.append(Class(classTitle: title , teacher: self.name))
+                self.classes.append(Class(classTitle: title , teacher: self.name, id:self.textField.text!))
                 self.tableView.reloadData()
             }
             
@@ -120,10 +120,17 @@ extension TeacherClasses: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AddClass
             return cell
             
+            
+            
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
             cell.textLabel?.text = classes[indexPath.row].classTitle
             cell.detailTextLabel?.text = classes[indexPath.row].teacher
+            let identification = classes[indexPath.row].id
+            
+        
+            print(identification)
+//            performSegue(withIdentifier: "teacherToTabView", sender: self)
             //            cell.backgroundColor = colors[indexPath.row]
             return cell
         }
@@ -150,6 +157,7 @@ extension TeacherClasses: UITableViewDelegate {
                 //update
                 self.updateClasses()
                 
+                print("hi")
                 
                 
             }
@@ -169,7 +177,7 @@ extension TeacherClasses: UITableViewDelegate {
             self.present(alert, animated: true, completion: nil)
             
         }
-        print(indexPath.row)
+        print("\(indexPath.row) row")
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

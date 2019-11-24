@@ -11,4 +11,5 @@ import Foundation
 struct Class {
     let classTitle : String
     let teacher : String
+    let id : String
 }
