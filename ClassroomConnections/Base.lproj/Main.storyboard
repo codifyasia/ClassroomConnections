@@ -688,6 +688,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="yqu-P9-zmW"/>
                     </view>
+                    <connections>
+                        <outlet property="fri" destination="LcK-lQ-pwG" id="5Ed-eF-cMk"/>
+                        <outlet property="mon" destination="6N7-ha-Vfm" id="pP5-dP-duI"/>
+                        <outlet property="thurs" destination="xuO-Rx-rYS" id="9RP-W0-1Wf"/>
+                        <outlet property="tues" destination="V7D-Gd-I7z" id="9gC-QD-qPs"/>
+                        <outlet property="wed" destination="nrq-4h-g5m" id="tL7-Bf-opq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Tt-JY-HhL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

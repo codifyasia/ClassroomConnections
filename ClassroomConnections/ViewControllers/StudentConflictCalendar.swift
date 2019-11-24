@@ -30,7 +30,6 @@ class StudentConflictCalendar: UIViewController {
         thurs.layer.cornerRadius = thurs.frame.size.height / 5
         fri.layer.cornerRadius = fri.frame.size.height / 5
         Submit.layer.cornerRadius = Submit.frame.size.height / 5
-        updateSubmitButtonStatus()
 
         // Do any additional setup after loading the view.
     }
@@ -140,6 +139,7 @@ class StudentConflictCalendar: UIViewController {
                 return
             }
             self.ClassID = value["ID"] as? String
+            self.updateSubmitButtonStatus()
         }) { (error) in
             print("error:\(error.localizedDescription)")
         }
