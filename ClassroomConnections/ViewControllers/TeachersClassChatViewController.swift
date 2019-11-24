@@ -56,9 +56,48 @@ class TeacherClassChatViewController: UIViewController {
         
         
     }
-
+    @IBAction func sendMessage(_ sender: Any) {
+        
+        
+        
+        if (messageTextField != nil) {
+            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                guard let value = snapshot.value as? NSDictionary else {
+                    print("No Data!!!")
+                    return
+                }
+                let identity = value["ID"] as! String
+                
+                self.classRoomCode = identity
+                
+                let messageDictionary : NSDictionary = ["Sender" : Auth.auth().currentUser?.email, "MessageBody" : self.messageTextField.text!, "SenderID" : Auth.auth().currentUser?.uid]
+                
+                
+                self.ref.child("Classrooms").child(identity).child("Messages").child(Auth.auth().currentUser!.uid).setValue(messageDictionary) {
+                    (error, reference) in
+                    
+                    if error != nil {
+                        print(error!)
+                    } else {
+                        print("Message saved succesfully")
+                    }
+                }
+                self.retrieveMessages()
+                
+            }) { (error) in
+                print("error:\(error.localizedDescription)")
+            }
+            
+            
+            
+            retrieveMessages()
+        }
+        
+    }
+    
     func retrieveMessages() {
-//        let messageDB =
+        //        let messageDB =
         
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value, with: { (snapshot) in
             
@@ -84,9 +123,9 @@ class TeacherClassChatViewController: UIViewController {
                 let Sender = value1["Sender"]!
                 let SenderID = value1["SenderID"]
                 
-                    print("ooooga \(Sender) \(Text) \(SenderID!)")
-                    
-                    let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID! as! String)
+                print("ooooga \(Sender) \(Text) \(SenderID!)")
+                
+                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID! as! String)
                 self.messages.append(message)
                 
                 self.tableView.reloadData()
