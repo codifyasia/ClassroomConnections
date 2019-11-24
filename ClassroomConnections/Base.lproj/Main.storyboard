@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XVg-8X-N20">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -423,10 +423,10 @@
             </objects>
             <point key="canvasLocation" x="948" y="70"/>
         </scene>
-        <!--Classes-->
+        <!--Student Classes-->
         <scene sceneID="fTh-yx-fH2">
             <objects>
-                <viewController id="Dcl-mV-d4c" customClass="Classes" customModule="ClassroomConnections" sceneMemberID="viewController">
+                <viewController id="Dcl-mV-d4c" customClass="StudentClasses" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HHd-bv-gq0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -467,7 +467,7 @@
                         <viewLayoutGuide key="safeArea" id="iHc-fW-kMc"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="lMw-T8-Rii" id="OlO-hk-djQ"/>
+                        <outlet property="tableView" destination="lMw-T8-Rii" id="QGJ-N0-Nwv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9j-b7-p4u" sceneMemberID="firstResponder"/>
