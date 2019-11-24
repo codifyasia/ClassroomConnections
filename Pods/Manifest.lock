@@ -296,7 +296,7 @@ DEPENDENCIES:
   - TextFieldEffects
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - abseil
     - BoringSSL-GRPC
     - Firebase
@@ -352,4 +352,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: bf72badc9af82eb02e8bc03039289982516ea48f
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
