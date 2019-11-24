@@ -126,10 +126,10 @@ extension TeacherClasses: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
             cell.textLabel?.text = classes[indexPath.row].classTitle
             cell.detailTextLabel?.text = classes[indexPath.row].teacher
-            let identification = classes[indexPath.row].id
-            
-        
-            print(identification)
+//            let identification = classes[indexPath.row].id
+//
+//
+//            print(identification)
 //            performSegue(withIdentifier: "teacherToTabView", sender: self)
             //            cell.backgroundColor = colors[indexPath.row]
             return cell
@@ -176,6 +176,13 @@ extension TeacherClasses: UITableViewDelegate {
             
             self.present(alert, animated: true, completion: nil)
             
+        }
+        else {
+            let identification = classes[indexPath.row].id
+                
+            
+                print("id : \(identification)")
+            performSegue(withIdentifier: "teacherToTabView", sender: self)
         }
         print("\(indexPath.row) row")
     }
