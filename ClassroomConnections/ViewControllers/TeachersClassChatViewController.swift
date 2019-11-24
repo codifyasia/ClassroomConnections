@@ -34,6 +34,8 @@ class TeacherClassChatViewController: UIViewController {
                 print("Message saved succesfully")
             }
         }
+        print("retrieving")
+        self.tableView.reloadData()
         retrieveMessages()
     }
     func retrieveMessages() {
@@ -44,6 +46,7 @@ class TeacherClassChatViewController: UIViewController {
             let snapshotvalue = snapshot.value as! Dictionary<String, String>
             
             let Text = snapshotvalue["MessageBody"]!
+            print(Text)
             let Sender = snapshotvalue["Sender"]!
             let SenderID = snapshotvalue["SenderID"]
             
