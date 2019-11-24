@@ -163,8 +163,6 @@ extension StudentClassChatViewController: UITableViewDataSource {
         if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
             cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
             cell.rightImage?.tintColor = UIColor.systemTeal
-        } else if cell.senderName.text == "five" {
-            
         }
         return cell
     }
