@@ -12,6 +12,7 @@ import Firebase
 class StudentConflictCalendar: UIViewController {
     var ref : DatabaseReference!
     var day: String = ""
+    var ClassID: String!
     @IBOutlet weak var mon: UIButton!
     @IBOutlet weak var tues: UIButton!
     @IBOutlet weak var wed: UIButton!
@@ -52,7 +53,7 @@ class StudentConflictCalendar: UIViewController {
     }
     
     @IBAction func submitPressed(_ sender: Any) {
-        ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child(ClassID).child().observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             guard let value = snapshot.value as? NSDictionary else {
                 print("No Data!!!!!!")
@@ -63,7 +64,7 @@ class StudentConflictCalendar: UIViewController {
             self.helloLabel.text = "Hello \(self.name)!"
             
             let distanceTraveled = value["TotalDistance"] as! Double
-            let goalDistance = value["DistanceGoal"] as! Double     
+            let goalDistance = value["DistanceGoal"] as! Double
             
         }) { (error) in
             print("error:\(error.localizedDescription)")
