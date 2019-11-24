@@ -130,7 +130,9 @@ extension StudentClasses: UITableViewDataSource {
                 
             
                 print(identification)
-                performSegue(withIdentifier: "studentToTabView", sender: self)
+            ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").updateChildValues(["ID" : identification, "Title" : classes[indexPath.row].classTitle ])
+            
+                performSegue(withIdentifier: "studentToTabBar", sender: self)
             
             //            cell.backgroundColor = colors[indexPath.row]
             return cell
