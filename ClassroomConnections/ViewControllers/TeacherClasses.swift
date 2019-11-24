@@ -136,7 +136,7 @@ extension TeacherClasses: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (indexPath.row == classes.count) {
-            let alert = UIAlertController(title: "Enter code to join class", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Enter code to create class", message: "", preferredStyle: .alert)
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
                 print(self.textField.text!)
                 //                self.classes.append(Class(classTitle: "APCSA", teacher: "Fulk"))
@@ -144,9 +144,9 @@ extension TeacherClasses: UITableViewDelegate {
                 
                 self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : self.topicTextField.text!, "Teacher" : self.name])
                 
-                self.ref.child("Classrooms").child(self.textField.text!).updateChildValues(["Teahcer" : self.name])
+                self.ref.child("Classrooms").child(self.textField.text!).updateChildValues(["Teacher" : self.name, "Title" : self.topicTextField.text!])
                 
-                    self.ref.child("Classrooms").child(self.textField.text!).child("Calender").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0])
+                    self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0])
                 //update
                 self.updateClasses()
                 

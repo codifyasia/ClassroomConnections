@@ -18,8 +18,8 @@ class StudentClasses: UIViewController {
     
     
     var textField = UITextField()
-    var topicTextField = UITextField()
-    var titleTextField = UITextField()
+//    var topicTextField = UITextField()
+//    var titleTextField = UITextField()
     
     var name : String = ""
     
@@ -77,7 +77,7 @@ class StudentClasses: UIViewController {
                 let title = value["Title"] as! String
                 print(title)
                 self.classes.append(Class(classTitle: title , teacher: self.name))
-                self.tableView.reloadData()
+//                self.tableView.reloadData()
             }
             
         }) { (error) in
@@ -141,12 +141,29 @@ extension StudentClasses: UITableViewDelegate {
                 print(self.textField.text!)
                 //                self.classes.append(Class(classTitle: "APCSA", teacher: "Fulk"))
                 //                self.tableView.reloadData()
+                self.ref.child("Classrooms").child(self.textField.text!).observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    guard let value = snapshot.value as? NSDictionary else {
+                        print("No Data!!!")
+                        return
+                    }
+                    let titleValue = value["Title"] as! String
+                    
+                    
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue])
+                    
+                }) { (error) in
+                    print("error:\(error.localizedDescription)")
+                }
                 
-                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : self.topicTextField.text!, "Teacher" : self.name])
                 
                 
                 
-                self.ref.child("Classrooms").child(self.textField.text!).updateChildValues(["Teacher" : self.name])
+                
+                
+                self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false])
+                
+                
                 
             
                 
@@ -163,11 +180,7 @@ extension StudentClasses: UITableViewDelegate {
                 self.textField = alertTextField
                 //                /Users/michaelpeng/Desktop/ClassroomConnections/Pods/PKRevealController/Source/PKRevealController/PKRevealController.m:1363:1: Conflicting return type in implementation of 'supportedInterfaceOrientations': 'UIInterfaceOrientationMask' (aka 'enum UIInterfaceOrientationMask') vs 'NSUInteger' (aka 'unsigned long')
             }
-            alert.addTextField { (alertTextField1) in
-                alertTextField1.placeholder = "Class Topic"
-                self.topicTextField = alertTextField1
-                //                /Users/michaelpeng/Desktop/ClassroomConnections/Pods/PKRevealController/Source/PKRevealController/PKRevealController.m:1363:1: Conflicting return type in implementation of 'supportedInterfaceOrientations': 'UIInterfaceOrientationMask' (aka 'enum UIInterfaceOrientationMask') vs 'NSUInteger' (aka 'unsigned long')
-            }
+            
             
             self.present(alert, animated: true, completion: nil)
             
