@@ -64,6 +64,15 @@ class TeacherClasses: UIViewController {
 //            print("error:\(error.localizedDescription)")
 //        }
 //    }
+    @IBAction func signOut(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "back2", sender: self)
+            
+        }catch let signOutError as NSError {
+            print("Logout Error")
+        }
+    }
     
     
     func getInfo() {

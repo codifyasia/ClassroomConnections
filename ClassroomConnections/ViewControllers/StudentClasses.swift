@@ -43,6 +43,15 @@ class StudentClasses: UIViewController {
         
     }
     
+    @IBAction func signOut(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "back1", sender: self)
+            
+        }catch let signOutError as NSError {
+            print("Logout Error")
+        }
+    }
     
     func getInfo() {
         
