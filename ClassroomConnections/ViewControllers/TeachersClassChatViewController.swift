@@ -148,7 +148,7 @@ extension TeacherClassChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
         cell.label.text = messages[indexPath.row].body
-        cell.senderName.text = messages[indexPath.row].senderID
+        cell.senderName.text = "Sender:" + messages[indexPath.row].sender
         return cell
     }
 }
