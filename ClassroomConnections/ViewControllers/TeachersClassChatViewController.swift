@@ -25,38 +25,85 @@ class TeacherClassChatViewController: UIViewController {
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         ref = Database.database().reference()
         let messageDictionary = ["Sender" : Auth.auth().currentUser?.email, "MessageBody" : "Welcome to my class!", "SenderID" : Auth.auth().currentUser?.uid]
-        self.ref.child("Classrooms").child(classRoomCode).child("Messages").childByAutoId().setValue(messageDictionary) {
-            (error, reference) in
+        
+        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            if error != nil {
-                print(error!)
-            } else {
-                print("Message saved succesfully")
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
             }
+            let identity = value["ID"] as! String
+            
+            self.classRoomCode = identity
+            
+            
+            self.ref.child("Classrooms").child(identity).child("Messages").child(Auth.auth().currentUser!.uid).updateChildValues(messageDictionary) {
+                (error, reference) in
+                
+                if error != nil {
+                    print(error!)
+                } else {
+                    print("Message saved succesfully")
+                }
+            }
+            self.retrieveMessages()
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
         }
         print("retrieving")
         self.tableView.reloadData()
-        retrieveMessages()
-    }
-    func retrieveMessages() {
-        let messageDB = ref.child("Messages")
         
-        messageDB.observe(.childAdded) { (snapshot) in
+        
+    }
+
+    func retrieveMessages() {
+//        let messageDB =
+        
+        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            let snapshotvalue = snapshot.value as! Dictionary<String, String>
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
+            let identity = value["ID"] as! String
             
-            let Text = snapshotvalue["MessageBody"]!
-            print(Text)
-            let Sender = snapshotvalue["Sender"]!
-            let SenderID = snapshotvalue["SenderID"]
-            
-            let message = Message(sender: Sender, body: Text, senderID: SenderID!)
-            self.messages.append(message)
-            
-            self.tableView.reloadData()
+            self.classRoomCode = identity
             
             
+            self.ref.child("Classrooms").child(identity).child("Messages").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot1) in
+                
+                print(snapshot1.childrenCount)
+                
+                for rest in snapshot1.children.allObjects as! [DataSnapshot] {
+                guard let value = rest.value as? NSDictionary else {
+                    print("could not collect label data")
+                    return
+                }
+                
+                let Text = value["MessageBody"]!
+                print(Text)
+                let Sender = value["Sender"]!
+                let SenderID = value["SenderID"]
+                
+                    print("ooooga \(Sender) \(Text) \(SenderID!)")
+                    
+                    let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID! as! String)
+                self.messages.append(message)
+                
+                self.tableView.reloadData()
+                
+                }
+                
+            }) { (error) in
+                print("error:\(error.localizedDescription)")
+            }
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
         }
+        
+        
     }
 }
 extension TeacherClassChatViewController: UITableViewDataSource {

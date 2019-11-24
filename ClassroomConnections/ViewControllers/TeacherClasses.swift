@@ -20,13 +20,11 @@ class TeacherClasses: UIViewController {
     var textField = UITextField()
     var topicTextField = UITextField()
     var titleTextField = UITextField()
+    var ide : String = ""
     
     var name : String = ""
     
-    var classes : [Class] = [
-        Class(classTitle: "APLAC", teacher: "Seike", id: "123"),
-        Class(classTitle: "AP Minecraft" , teacher: "Your mom", id: "123")
-    ]
+    var classes : [Class] = []
     
     
     
@@ -199,6 +197,8 @@ extension TeacherClasses: UITableViewDelegate {
         }
         else if (indexPath.row < classes.count){
             let identification = classes[indexPath.row].id
+            
+            ide = identification
                 
             
                 print("id : \(identification)")
@@ -225,6 +225,15 @@ extension TeacherClasses: UITableViewDelegate {
         configuration.performsFirstActionWithFullSwipe = false
         return configuration
     }
+    
+    
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "teacherToTabView" {
+//            let destinationVC = segue.destination as! TeacherClassChatViewController
+//            destinationVC.classRoomCode = ide
+//        }
+//    }
     //
     //    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     //

@@ -25,8 +25,6 @@ class StudentClasses: UIViewController {
     var name : String = ""
     
     var classes : [Class] = [
-        Class(classTitle: "APLAC", teacher: "Seike", id: "asdf"),
-        Class(classTitle: "AP Minecraft" , teacher: "Your mom", id :"sdf")
     ]
     
     
