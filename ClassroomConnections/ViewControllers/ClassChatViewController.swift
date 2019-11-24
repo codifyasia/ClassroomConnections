@@ -16,12 +16,16 @@ class ClassChatViewController: UIViewController {
     
     var messages: [Message] = [
         Message(sender: "1@2.com", body: "buh!"),
-        Message(sender: "2@3.COM", body: "BOOH")
+        Message(sender: "2@3.COM", body: "BOOHeghhhhfhridgjoergoirgroigrgoidugdroigdruigf")
     ]
     
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
         
     }
 }
@@ -31,12 +35,10 @@ extension ClassChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
-        cell.textLabel?.text = messages[indexPath.row].body
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
+        cell.label.text = messages[indexPath.row].body
         return cell
     }
-    
-    
 }
 extension ClassChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
