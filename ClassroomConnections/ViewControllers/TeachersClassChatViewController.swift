@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class TeacherClassChatViewController: UIViewController {
     
+    var ref: DatabaseReference!
     
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    var classRoomCode : String = "stuff"
     
     var messages: [Message] = [
         Message(sender: "1@2.com", body: "buh!", question: false, senderID: 510),
@@ -23,7 +26,8 @@ class TeacherClassChatViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
-        
+        ref = Database.database().reference()
+        self.ref.child("Classrooms").child(classRoomCode).child("Messages")
         
     }
 }
