@@ -102,26 +102,6 @@ class StudentConflictCalendar: UIViewController {
         }
     }
     
-    func updateSubmitButtonStatus() {
-        print("uid: " + Auth.auth().currentUser!.uid)
-        print("classid: " + ClassID)
-        ref.child("Classrooms").child(self.ClassID).child("Students").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            guard let value = snapshot.value as? NSDictionary else {
-                print("no data in uid in classrooms in students in updatesubmitbutton status")
-                return
-            }
-            var SubmittedStatus = value["SubmitStatus"] as! Bool
-            if (SubmittedStatus == true) {
-                self.Submit.isHidden = true
-            } else {
-                self.submittedMessage.isHidden = true
-            }
-            
-        }) { (error) in
-            print("error:\(error.localizedDescription)")
-        }
-    }
     
     func resetAllButtonColors() {
         mon.backgroundColor = UIColor(red: 88.0/255.0, green: 86.0/255.0, blue: 214.0/255.0, alpha: 1.0)
@@ -139,7 +119,24 @@ class StudentConflictCalendar: UIViewController {
                 return
             }
             self.ClassID = value["ID"] as? String
-            self.updateSubmitButtonStatus()
+            print("uid: " + Auth.auth().currentUser!.uid)
+            print("classid: " + self.ClassID)
+            self.ref.child("Classrooms").child(self.ClassID).child("Students").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                guard let value = snapshot.value as? NSDictionary else {
+                    print("no data in uid in classrooms in students in updatesubmitbutton status")
+                    return
+                }
+                var SubmittedStatus = value["SubmitStatus"] as! Bool
+                if (SubmittedStatus == true) {
+                    self.Submit.isHidden = true
+                } else {
+                    self.submittedMessage.isHidden = true
+                }
+                
+            }) { (error) in
+                print("error:\(error.localizedDescription)")
+            }
         }) { (error) in
             print("error:\(error.localizedDescription)")
         }

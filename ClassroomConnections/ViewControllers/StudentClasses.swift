@@ -67,7 +67,7 @@ class StudentClasses: UIViewController {
                             }
                             let title = value["Title"] as! String
                             print(title)
-                            self.classes.append(Class(classTitle: title , teacher: lastName, id: self.topic))
+                            self.classes.append(Class(classTitle: title , teacher: lastName, id: self.textField.text!))
                             self.tableView.reloadData()
             //                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
                         }
@@ -99,7 +99,7 @@ class StudentClasses: UIViewController {
                 }
                 let title = value["Title"] as! String
                 print(title)
-                self.classes.append(Class(classTitle: title , teacher: self.name, id: self.topic))
+                self.classes.append(Class(classTitle: title , teacher: self.name, id: self.textField.text!))
                 self.tableView.reloadData()
 //                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
             }
