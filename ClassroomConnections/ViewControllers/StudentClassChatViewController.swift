@@ -11,11 +11,11 @@ import Firebase
 
 class StudentClassChatViewController: UIViewController {
     
+    var ref: DatabaseReference!
     
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var classRoomCode : String = "stuff"
-    var ref: DatabaseReference!
     
     var messages: [Message] = [Message]()
     
@@ -24,27 +24,120 @@ class StudentClassChatViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         ref = Database.database().reference()
-        retrieveMessages()
+//        var messageDictionary = ["Sender" : Auth.auth().currentUser!.email, "MessageBody" : "Welcome to my class", "SenderID" : Auth.auth().currentUser!.uid]
+//        ref.child("Classroom")
+        
+        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
+            let identity = value["ID"] as! String
+            
+            self.classRoomCode = identity
+            
+            
+//            self.ref.child("Classrooms").child(identity).child("Messages").child("Message1").setValue(messageDictionary) {
+//                (error, reference) in
+//
+//                if error != nil {
+//                    print(error!)
+//                } else {
+//                    print("Message saved succesfully")
+//                }
+//            }
+            self.retrieveMessages()
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+        print("retrieving")
+        self.tableView.reloadData()
+        
         
     }
+
     func retrieveMessages() {
-        let messageDB = ref.child("Messages")
+//        let messageDB =
         
-        messageDB.observe(.childAdded) { (snapshot) in
+        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value) { (snapshot) in
             
-            let snapshotvalue = snapshot.value as! Dictionary<String, String>
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
+            let identity = value["ID"] as! String
             
-            let Text = snapshotvalue["MessageBody"]!
-            let Sender = snapshotvalue["Sender"]!
-            let SenderID = snapshotvalue["SenderID"]
+            self.classRoomCode = identity
+            let messageDB = self.ref.child("Classrooms").child(identity).child("Messages")
             
-            let message = Message(sender: Sender, body: Text, senderID: SenderID!)
-            self.messages.append(message)
+                    messageDB.observe(.childAdded) { (snapshot) in
+            
+                        let snapshotValue = snapshot.value as! Dictionary<String,String>
+                        let Text = snapshotValue["MessageBody"]!
+                        let Sender = snapshotValue["Sender"]!
+                        let SenderID = snapshotValue["SenderID"]!
+            
+                        let message = Message(sender: Sender, body: Text, senderID: SenderID)
+            
+                        self.messages.append(message)
             
             
+                            self.tableView.reloadData()
+            
+
+                }
+
         }
     }
+    @IBAction func sendMessage(_ sender: UIButton) {
+        
+        let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
+        print(messageTextField.text!)
+        let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+                                 "MessageBody": messageTextField.text!,
+                                "SenderID": Auth.auth().currentUser?.uid]
+        
+        messagesDB.childByAutoId().setValue(messageDictionary) {
+            (error, reference) in
+            
+            if error != nil {
+                print(error!)
+            }
+            else {
+                print("Message saved successfully!")
+            }
+        }
+    }
+    
 }
+        //
+        //                self.ref.child("Classrooms").child(identity).child("Messages").child("Message \(index)").observeSingleEvent(of: .value, with: { (snapshot1) in
+        //
+        //
+        //                    guard let value1 = snapshot1.value as? NSDictionary else {
+        //                        print("No Data!!!")
+        //                        return
+        //                    }
+        //
+        //                    let Text = value1["MessageBody"]!
+        //                    print(Text)
+        //                    let Sender = value1["Sender"]!
+        //                    let SenderID = value1["SenderID"]
+        //
+        //                        print("ooooga \(Sender) \(Text) \(SenderID!)")
+        //
+        //                        let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID! as! String)
+        //                    self.messages.append(message)
+        //
+        //                    self.tableView.reloadData()
+        //
+        //
+        //
+        //                }) { (error) in
+        //                    print("error:\(error.localizedDescription)")
+        //                }
 extension StudentClassChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
