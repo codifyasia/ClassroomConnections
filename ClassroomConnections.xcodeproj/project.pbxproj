@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4707C9F1238A5B6F00871B0A /* StudentClassChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4707C9F0238A5B6F00871B0A /* StudentClassChatViewController.swift */; };
 		47719D752389DF0200FC5350 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47719D742389DF0200FC5350 /* GoogleService-Info.plist */; };
 		47719D822389E9A600FC5350 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D812389E9A600FC5350 /* LoginViewController.swift */; };
-		47719D842389E9C500FC5350 /* ClassChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D832389E9C500FC5350 /* ClassChatViewController.swift */; };
+		47719D842389E9C500FC5350 /* TeachersClassChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D832389E9C500FC5350 /* TeachersClassChatViewController.swift */; };
 		47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D872389EA1300FC5350 /* ChecklistViewController.swift */; };
 		47BD5872238A2D2C008FC1D7 /* AddClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD586E238A2D2C008FC1D7 /* AddClass.swift */; };
 		47BD5873238A2D2C008FC1D7 /* AddClass.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47BD586F238A2D2C008FC1D7 /* AddClass.xib */; };
@@ -31,9 +32,10 @@
 
 /* Begin PBXFileReference section */
 		3D18991844FE128D42C95D7F /* Pods_ClassroomConnections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassroomConnections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4707C9F0238A5B6F00871B0A /* StudentClassChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassChatViewController.swift; sourceTree = "<group>"; };
 		47719D742389DF0200FC5350 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		47719D812389E9A600FC5350 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		47719D832389E9C500FC5350 /* ClassChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassChatViewController.swift; sourceTree = "<group>"; };
+		47719D832389E9C500FC5350 /* TeachersClassChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersClassChatViewController.swift; sourceTree = "<group>"; };
 		47719D872389EA1300FC5350 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		47BD586E238A2D2C008FC1D7 /* AddClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClass.swift; sourceTree = "<group>"; };
 		47BD586F238A2D2C008FC1D7 /* AddClass.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddClass.xib; sourceTree = "<group>"; };
@@ -137,7 +139,8 @@
 			children = (
 				47D507A62389D955006E46EE /* RegisterViewController.swift */,
 				47719D812389E9A600FC5350 /* LoginViewController.swift */,
-				47719D832389E9C500FC5350 /* ClassChatViewController.swift */,
+				47719D832389E9C500FC5350 /* TeachersClassChatViewController.swift */,
+				4707C9F0238A5B6F00871B0A /* StudentClassChatViewController.swift */,
 				47719D872389EA1300FC5350 /* ChecklistViewController.swift */,
 				8951D3B2238A56D1002EC4F5 /* StudentClasses.swift */,
 				47BD5870238A2D2C008FC1D7 /* TeacherClasses.swift */,
@@ -290,7 +293,8 @@
 				47D507A32389D955006E46EE /* AppDelegate.swift in Sources */,
 				9C6D239C2389F44F0072CE2B /* Message.swift in Sources */,
 				47BD5874238A2D2C008FC1D7 /* TeacherClasses.swift in Sources */,
-				47719D842389E9C500FC5350 /* ClassChatViewController.swift in Sources */,
+				4707C9F1238A5B6F00871B0A /* StudentClassChatViewController.swift in Sources */,
+				47719D842389E9C500FC5350 /* TeachersClassChatViewController.swift in Sources */,
 				47D507A52389D955006E46EE /* SceneDelegate.swift in Sources */,
 				9C6D23AB238A02620072CE2B /* MessageCell.swift in Sources */,
 				8951D3B3238A56D1002EC4F5 /* StudentClasses.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClassChatViewController: UIViewController {
+class StudentClassChatViewController: UIViewController {
     
     
     @IBOutlet weak var messageTextField: UITextField!
@@ -24,12 +24,10 @@ class ClassChatViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 600
         
     }
 }
-extension ClassChatViewController: UITableViewDataSource {
+extension StudentClassChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
@@ -40,7 +38,7 @@ extension ClassChatViewController: UITableViewDataSource {
         return cell
     }
 }
-extension ClassChatViewController: UITableViewDelegate {
+extension StudentClassChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("person selected row : " + String(indexPath.row) + " (starts from 0)")
     }

@@ -1,0 +1,45 @@
+//
+//  ClassChatViewController.swift
+//  ClassroomConnections
+//
+//  Created by Gavin Wong on 11/23/19.
+//  Copyright © 2019 CodifyAsia. All rights reserved.
+//
+
+import UIKit
+
+class TeacherClassChatViewController: UIViewController {
+    
+    
+    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var messages: [Message] = [
+        Message(sender: "1@2.com", body: "buh!"),
+        Message(sender: "2@3.COM", body: "BOOHeghhhhfhridgjoergoirgroigrgoidugdroigdruigf")
+    ]
+    
+    override func viewDidLoad() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        
+        
+    }
+}
+extension TeacherClassChatViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
+        cell.label.text = messages[indexPath.row].body
+        return cell
+    }
+}
+extension TeacherClassChatViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("person selected row : " + String(indexPath.row) + " (starts from 0)")
+    }
+}
