@@ -38,6 +38,8 @@ class TeacherClasses: UIViewController {
         tableView.register(UINib(nibName: "AddClass", bundle: nil), forCellReuseIdentifier: "Cell")
         ref = Database.database().reference()
         
+        
+        
         updateClasses()
         getInfo()
     }
@@ -141,6 +143,8 @@ extension TeacherClasses: UITableViewDelegate {
                 //                self.tableView.reloadData()
                 
                 self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : self.topicTextField.text!, "Teacher" : self.name])
+                
+                self.ref.child("Classrooms").child(self.textField.text?)
                 //update
                 self.updateClasses()
                 
