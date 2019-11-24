@@ -15,8 +15,8 @@ class StudentClassChatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var messages: [Message] = [
-        Message(sender: "1@2.com", body: "buh!"),
-        Message(sender: "2@3.COM", body: "BOOHeghhhhfhridgjoergoirgroigrgoidugdroigdruigf")
+        Message(sender: "1@2.com", body: "buh!", question: false, senderID: 510),
+        Message(sender: "2@3.COM", body: "BOOHeghhhhfhridgjoergoirgroigrgoidugdroigdruigf", question: false, senderID: 510)
     ]
     
     override func viewDidLoad() {

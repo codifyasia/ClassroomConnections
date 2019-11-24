@@ -319,10 +319,10 @@
             </objects>
             <point key="canvasLocation" x="3126" y="240"/>
         </scene>
-        <!--Messages-->
+        <!--TeacherClassChatViewController-->
         <scene sceneID="tdD-1l-uKy">
             <objects>
-                <viewController id="EKz-8Q-GH6" customClass="ClassChatViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="TeacherClassChatViewController" id="EKz-8Q-GH6" customClass="TeacherClassChatViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LB5-eq-gtZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -662,6 +662,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Tt-JY-HhL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4032" y="654"/>
+        </scene>
+        <!--StudentClassChatViewController-->
+        <scene sceneID="Dt7-1n-sMs">
+            <objects>
+                <viewController title="StudentClassChatViewController" id="LRU-J3-kCs" customClass="StudentClassChatViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GUy-sT-H2m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cOL-Xf-OqT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="799"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yBV-l9-fA5">
+                                <rect key="frame" x="20" y="807" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="PBR-30-Drz"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Messages" image="message.fill" catalog="system" badgeValue="2" id="3Le-fN-lRd"/>
+                    <connections>
+                        <outlet property="messageTextField" destination="yBV-l9-fA5" id="aFJ-Fo-S9O"/>
+                        <outlet property="tableView" destination="cOL-Xf-OqT" id="h53-BU-jDt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLn-tX-f6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2483" y="1124"/>
         </scene>
     </scenes>
     <resources>
