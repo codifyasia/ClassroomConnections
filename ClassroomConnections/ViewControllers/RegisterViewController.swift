@@ -80,12 +80,19 @@ class RegisterViewController: UIViewController {
                     self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text])
                     if (self.isStudent) {
                         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).updateChildValues(["Status" : "Student"])
+                    
                     }
                     else {
                         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).updateChildValues(["Status" : "Teacher"])
                     }
+                    
                     SVProgressHUD.dismiss()
-                    print("Going to MAIN MENU")
+                    if (self.isStudent) {
+                        self.performSegue(withIdentifier: "studentToClassSelection", sender: self)
+                    }
+                    else {
+                        self.performSegue(withIdentifier: "teacherToClassSelection", sender: self)
+                    }
                     //                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)
                 } else {
                     SVProgressHUD.dismiss()

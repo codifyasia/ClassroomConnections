@@ -14,7 +14,7 @@
 		47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D872389EA1300FC5350 /* ChecklistViewController.swift */; };
 		47BD5872238A2D2C008FC1D7 /* AddClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD586E238A2D2C008FC1D7 /* AddClass.swift */; };
 		47BD5873238A2D2C008FC1D7 /* AddClass.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47BD586F238A2D2C008FC1D7 /* AddClass.xib */; };
-		47BD5874238A2D2C008FC1D7 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD5870238A2D2C008FC1D7 /* Classes.swift */; };
+		47BD5874238A2D2C008FC1D7 /* TeacherClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD5870238A2D2C008FC1D7 /* TeacherClasses.swift */; };
 		47BD5875238A2D2C008FC1D7 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD5871238A2D2C008FC1D7 /* Class.swift */; };
 		47D507A32389D955006E46EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D507A22389D955006E46EE /* AppDelegate.swift */; };
 		47D507A52389D955006E46EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D507A42389D955006E46EE /* SceneDelegate.swift */; };
@@ -37,7 +37,7 @@
 		47719D872389EA1300FC5350 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		47BD586E238A2D2C008FC1D7 /* AddClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClass.swift; sourceTree = "<group>"; };
 		47BD586F238A2D2C008FC1D7 /* AddClass.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddClass.xib; sourceTree = "<group>"; };
-		47BD5870238A2D2C008FC1D7 /* Classes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		47BD5870238A2D2C008FC1D7 /* TeacherClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherClasses.swift; sourceTree = "<group>"; };
 		47BD5871238A2D2C008FC1D7 /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		47D5079F2389D955006E46EE /* ClassroomConnections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassroomConnections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D507A22389D955006E46EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 				47719D832389E9C500FC5350 /* ClassChatViewController.swift */,
 				47719D852389EA0000FC5350 /* ConflictCalendarViewController.swift */,
 				47719D872389EA1300FC5350 /* ChecklistViewController.swift */,
-				47BD5870238A2D2C008FC1D7 /* Classes.swift */,
+				47BD5870238A2D2C008FC1D7 /* TeacherClasses.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 				47719D862389EA0000FC5350 /* ConflictCalendarViewController.swift in Sources */,
 				47D507A32389D955006E46EE /* AppDelegate.swift in Sources */,
 				9C6D239C2389F44F0072CE2B /* Message.swift in Sources */,
-				47BD5874238A2D2C008FC1D7 /* Classes.swift in Sources */,
+				47BD5874238A2D2C008FC1D7 /* TeacherClasses.swift in Sources */,
 				47719D842389E9C500FC5350 /* ClassChatViewController.swift in Sources */,
 				47D507A52389D955006E46EE /* SceneDelegate.swift in Sources */,
 				9C6D23AB238A02620072CE2B /* MessageCell.swift in Sources */,

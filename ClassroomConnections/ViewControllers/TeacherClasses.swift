@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
-class Classes: UIViewController {
+class TeacherClasses: UIViewController {
+    
+    var ref: DatabaseReference!
 
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    
     var textField = UITextField()
     var classes : [Class] = [
         Class(classTitle: "APLAC", teacher: "Seike"),
@@ -20,16 +26,18 @@ class Classes: UIViewController {
 //    var colors : [UIColor] = [UIColor.brown, UIColor.green]
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self;
-        tableView.dataSource = self;
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.register(UINib(nibName: "AddClass", bundle: nil), forCellReuseIdentifier: "Cell")
+        
+        ref = Database.database().reference()
         
     }
 
 
 }
 
-extension Classes: UITableViewDataSource {
+extension TeacherClasses: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return classes.count + 1
     }
@@ -51,7 +59,7 @@ extension Classes: UITableViewDataSource {
     
 }
 
-extension Classes: UITableViewDelegate {
+extension TeacherClasses: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (indexPath.row == classes.count) {
@@ -60,13 +68,15 @@ extension Classes: UITableViewDelegate {
                 print(self.textField.text!)
                 self.classes.append(Class(classTitle: "AP CSA", teacher: "Fulk"))
                 self.tableView.reloadData()
+                
+//                ref.child("")
             }
             
             alert.addAction(doneButton)
             alert.addTextField { (alertTextField) in
                 alertTextField.placeholder = "Class code"
                 self.textField = alertTextField
-                
+//                /Users/michaelpeng/Desktop/ClassroomConnections/Pods/PKRevealController/Source/PKRevealController/PKRevealController.m:1363:1: Conflicting return type in implementation of 'supportedInterfaceOrientations': 'UIInterfaceOrientationMask' (aka 'enum UIInterfaceOrientationMask') vs 'NSUInteger' (aka 'unsigned long')
             }
             
             self.present(alert, animated: true, completion: nil)
