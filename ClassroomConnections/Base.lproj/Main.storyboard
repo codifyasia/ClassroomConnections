@@ -743,7 +743,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="paperplane.fill" catalog="system"/>
                                         <connections>
-                                            <action selector="sendMessage:" destination="EKz-8Q-GH6" eventType="touchUpInside" id="qMY-YV-XDc"/>
+                                            <action selector="sendMessage:" destination="LRU-J3-kCs" eventType="touchUpInside" id="9UC-zZ-Mx7"/>
                                         </connections>
                                     </button>
                                 </subviews>

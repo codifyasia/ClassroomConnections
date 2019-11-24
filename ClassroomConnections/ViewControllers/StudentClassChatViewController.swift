@@ -92,24 +92,24 @@ class StudentClassChatViewController: UIViewController {
 
         }
     }
+    
     @IBAction func sendMessage(_ sender: UIButton) {
-        
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
-        print(messageTextField.text!)
-        let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
-                                 "MessageBody": messageTextField.text!,
-                                "SenderID": Auth.auth().currentUser?.uid]
-        
-        messagesDB.childByAutoId().setValue(messageDictionary) {
-            (error, reference) in
-            
-            if error != nil {
-                print(error!)
-            }
-            else {
-                print("Message saved successfully!")
-            }
-        }
+               print(messageTextField.text!)
+               let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+                                        "MessageBody": messageTextField.text!,
+                                       "SenderID": Auth.auth().currentUser?.uid]
+               
+               messagesDB.childByAutoId().setValue(messageDictionary) {
+                   (error, reference) in
+                   
+                   if error != nil {
+                       print(error!)
+                   }
+                   else {
+                       print("Message saved successfully!")
+                   }
+               }
     }
     
 }
