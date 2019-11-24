@@ -28,7 +28,6 @@ class TeacherConflictCalendar: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         getClassID()
-        updateDays()
         processDays()
         mon.layer.cornerRadius = mon.frame.size.height / 5
         tues.layer.cornerRadius = tues.frame.size.height / 5
@@ -56,39 +55,37 @@ class TeacherConflictCalendar: UIViewController {
                 return
             }
             self.ClassID = value["ID"] as? String
+            self.ref.child("Classrooms").child(self.ClassID).child("Calendar").observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                guard let value = snapshot.value as? NSDictionary else {
+                    print("no data in uid in classrooms in students in updatesubmitbutton status")
+                    return
+                }
+                self.numStudents = Int(snapshot.childrenCount)
+            }) { (error) in
+                print("error:\(error.localizedDescription)")
+            }
+            self.ref.child("Classrooms").child(self.ClassID).child("Calendar").observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                guard let value = snapshot.value as? NSDictionary else {
+                    print("no data in uid in classrooms in students in updatesubmitbutton status")
+                    return
+                }
+                self.monValue = Double((value["monday"] as! Int) / self.numStudents)
+                self.tuesValue = Double((value["tuesday"] as! Int) / self.numStudents)
+                self.wedValue = Double((value["wednesday"] as! Int) / self.numStudents)
+                self.thursValue = Double((value["thursday"] as! Int) / self.numStudents)
+                self.friValue = Double((value["friday"] as! Int) / self.numStudents)
+                
+            }) { (error) in
+                print("error:\(error.localizedDescription)")
+            }
         }) { (error) in
             print("error:\(error.localizedDescription)")
         }
 
     }
-    
-    func updateDays() {
-        ref.child("Classrooms").child(ClassID).child("Calendar").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            guard let value = snapshot.value as? NSDictionary else {
-                print("no data in uid in classrooms in students in updatesubmitbutton status")
-                return
-            }
-            self.numStudents = Int(snapshot.childrenCount)
-        }) { (error) in
-            print("error:\(error.localizedDescription)")
-        }
-        ref.child("Classrooms").child(ClassID).child("Calendar").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            guard let value = snapshot.value as? NSDictionary else {
-                print("no data in uid in classrooms in students in updatesubmitbutton status")
-                return
-            }
-            self.monValue = Double((value["monday"] as! Int) / self.numStudents)
-            self.tuesValue = Double((value["tuesday"] as! Int) / self.numStudents)
-            self.wedValue = Double((value["wednesday"] as! Int) / self.numStudents)
-            self.thursValue = Double((value["thursday"] as! Int) / self.numStudents)
-            self.friValue = Double((value["friday"] as! Int) / self.numStudents)
-            
-        }) { (error) in
-            print("error:\(error.localizedDescription)")
-        }
-    }
+
     func processDays() {
         mon.backgroundColor = UIColor(red: CGFloat((88.0 * (1-monValue))/255.0), green: CGFloat((86.0*(1-monValue))/255.0), blue: CGFloat((214.0*(1-monValue))/255.0), alpha: 1.0)
         tues.backgroundColor = UIColor(red: CGFloat((88.0 * (1-tuesValue))/255.0), green: CGFloat((86.0*(1-tuesValue))/255.0), blue: CGFloat((214.0*(1-tuesValue))/255.0), alpha: 1.0)
