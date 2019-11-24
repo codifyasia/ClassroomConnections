@@ -10,7 +10,6 @@
 		47719D752389DF0200FC5350 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47719D742389DF0200FC5350 /* GoogleService-Info.plist */; };
 		47719D822389E9A600FC5350 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D812389E9A600FC5350 /* LoginViewController.swift */; };
 		47719D842389E9C500FC5350 /* ClassChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D832389E9C500FC5350 /* ClassChatViewController.swift */; };
-		47719D862389EA0000FC5350 /* ConflictCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D852389EA0000FC5350 /* ConflictCalendarViewController.swift */; };
 		47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D872389EA1300FC5350 /* ChecklistViewController.swift */; };
 		47BD5872238A2D2C008FC1D7 /* AddClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD586E238A2D2C008FC1D7 /* AddClass.swift */; };
 		47BD5873238A2D2C008FC1D7 /* AddClass.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47BD586F238A2D2C008FC1D7 /* AddClass.xib */; };
@@ -25,6 +24,7 @@
 		9C6D239C2389F44F0072CE2B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D239B2389F44F0072CE2B /* Message.swift */; };
 		9C6D23AB238A02620072CE2B /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D23A9238A02620072CE2B /* MessageCell.swift */; };
 		9C6D23AC238A02620072CE2B /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6D23AA238A02620072CE2B /* MessageCell.xib */; };
+		9CD6EB99238A4EC1000A6A33 /* StudentConflictCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6EB98238A4EC1000A6A33 /* StudentConflictCalendar.swift */; };
 		CA9DB956013315A567F8CA87 /* Pods_ClassroomConnections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D18991844FE128D42C95D7F /* Pods_ClassroomConnections.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +33,6 @@
 		47719D742389DF0200FC5350 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		47719D812389E9A600FC5350 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		47719D832389E9C500FC5350 /* ClassChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassChatViewController.swift; sourceTree = "<group>"; };
-		47719D852389EA0000FC5350 /* ConflictCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConflictCalendarViewController.swift; sourceTree = "<group>"; };
 		47719D872389EA1300FC5350 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		47BD586E238A2D2C008FC1D7 /* AddClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClass.swift; sourceTree = "<group>"; };
 		47BD586F238A2D2C008FC1D7 /* AddClass.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddClass.xib; sourceTree = "<group>"; };
@@ -50,6 +49,7 @@
 		9C6D239B2389F44F0072CE2B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9C6D23A9238A02620072CE2B /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		9C6D23AA238A02620072CE2B /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		9CD6EB98238A4EC1000A6A33 /* StudentConflictCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentConflictCalendar.swift; sourceTree = "<group>"; };
 		BB0E733F32220B8D3FDC306D /* Pods-ClassroomConnections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassroomConnections.debug.xcconfig"; path = "Target Support Files/Pods-ClassroomConnections/Pods-ClassroomConnections.debug.xcconfig"; sourceTree = "<group>"; };
 		F01804A34C0B7B8C09D1C5F7 /* Pods-ClassroomConnections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassroomConnections.release.xcconfig"; path = "Target Support Files/Pods-ClassroomConnections/Pods-ClassroomConnections.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,9 +136,9 @@
 				47D507A62389D955006E46EE /* RegisterViewController.swift */,
 				47719D812389E9A600FC5350 /* LoginViewController.swift */,
 				47719D832389E9C500FC5350 /* ClassChatViewController.swift */,
-				47719D852389EA0000FC5350 /* ConflictCalendarViewController.swift */,
 				47719D872389EA1300FC5350 /* ChecklistViewController.swift */,
 				47BD5870238A2D2C008FC1D7 /* TeacherClasses.swift */,
+				9CD6EB98238A4EC1000A6A33 /* StudentConflictCalendar.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -280,10 +280,10 @@
 			files = (
 				47BD5875238A2D2C008FC1D7 /* Class.swift in Sources */,
 				47BD5872238A2D2C008FC1D7 /* AddClass.swift in Sources */,
+				9CD6EB99238A4EC1000A6A33 /* StudentConflictCalendar.swift in Sources */,
 				47719D822389E9A600FC5350 /* LoginViewController.swift in Sources */,
 				47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */,
 				47D507A72389D955006E46EE /* RegisterViewController.swift in Sources */,
-				47719D862389EA0000FC5350 /* ConflictCalendarViewController.swift in Sources */,
 				47D507A32389D955006E46EE /* AppDelegate.swift in Sources */,
 				9C6D239C2389F44F0072CE2B /* Message.swift in Sources */,
 				47BD5874238A2D2C008FC1D7 /* TeacherClasses.swift in Sources */,
