@@ -57,45 +57,6 @@ class TeacherClassChatViewController: UIViewController {
         
         
     }
-    @IBAction func sendMessage(_ sender: Any) {
-        
-        
-        
-        if (messageTextField != nil) {
-            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                guard let value = snapshot.value as? NSDictionary else {
-                    print("No Data!!!")
-                    return
-                }
-                let identity = value["ID"] as! String
-                
-                self.classRoomCode = identity
-                
-                let messageDictionary : NSDictionary = ["Sender" : Auth.auth().currentUser?.email, "MessageBody" : self.messageTextField.text!, "SenderID" : Auth.auth().currentUser?.uid]
-                
-                
-                self.ref.child("Classrooms").child(identity).child("Messages").child(Auth.auth().currentUser!.uid).setValue(messageDictionary) {
-                    (error, reference) in
-                    
-                    if error != nil {
-                        print(error!)
-                    } else {
-                        print("Message saved succesfully")
-                    }
-                }
-                self.retrieveMessages()
-                
-            }) { (error) in
-                print("error:\(error.localizedDescription)")
-            }
-            
-            
-            
-            retrieveMessages()
-        }
-        
-    }
     
     func retrieveMessages() {
         //        let messageDB =
@@ -112,39 +73,12 @@ class TeacherClassChatViewController: UIViewController {
             let messageDB = self.ref.child("Classrooms").child(identity).child("Messages")
             
                     messageDB.observe(.childAdded) { (snapshot) in
-            
-<<<<<<< HEAD
+
                         let snapshotValue = snapshot.value as! Dictionary<String,String>
                         let Text = snapshotValue["MessageBody"]!
                         let Sender = snapshotValue["Sender"]!
                         let SenderID = snapshotValue["SenderID"]!
-=======
-            self.ref.child("Classrooms").child(identity).child("Messages").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot1) in
-                
-                
-                guard let value1 = snapshot1.value as? NSDictionary else {
-                    print("No Data!!!")
-                    return
-                }
-                
-                let Text = value1["MessageBody"]!
-                print(Text)
-                let Sender = value1["Sender"]!
-                let SenderID = value1["SenderID"]
-                
-                print("ooooga \(Sender) \(Text) \(SenderID!)")
-                
-                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID! as! String)
-                self.messages.append(message)
-                
-                self.tableView.reloadData()
-                
-                
-                
-            }) { (error) in
-                print("error:\(error.localizedDescription)")
-            }
->>>>>>> fbfa724b803e7e2adcc1203bdf63c3223aee2df5
+
             
                         let message = Message(sender: Sender, body: Text, senderID: SenderID)
             
@@ -158,8 +92,9 @@ class TeacherClassChatViewController: UIViewController {
 
         }
     }
+    
     @IBAction func sendMessage(_ sender: UIButton) {
-        
+            
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
         print(messageTextField.text!)
         let messageDictionary = ["Sender": Auth.auth().currentUser?.email,

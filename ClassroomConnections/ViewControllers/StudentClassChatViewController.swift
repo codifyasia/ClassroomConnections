@@ -13,15 +13,16 @@ class StudentClassChatViewController: UIViewController {
     
     var ref: DatabaseReference!
     
+
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    var classRoomCode : String = "stuff"
+    var classRoomCode: String = "stuff"
     
     var messages: [Message] = [Message]()
     
     override func viewDidLoad() {
         tableView.dataSource = self
-        tableView.delegate = self
+        tableView.delegate = self 
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         ref = Database.database().reference()
 //        var messageDictionary = ["Sender" : Auth.auth().currentUser!.email, "MessageBody" : "Welcome to my class", "SenderID" : Auth.auth().currentUser!.uid]
