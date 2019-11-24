@@ -23,6 +23,7 @@ class StudentConflictCalendar: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        getClassID()
         mon.layer.cornerRadius = mon.frame.size.height / 5
         tues.layer.cornerRadius = tues.frame.size.height / 5
         wed.layer.cornerRadius = wed.frame.size.height / 5
@@ -103,6 +104,8 @@ class StudentConflictCalendar: UIViewController {
     }
     
     func updateSubmitButtonStatus() {
+        print("uid: " + Auth.auth().currentUser!.uid)
+        print("classid: " + ClassID)
         ref.child("Classrooms").child(self.ClassID).child("Students").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             guard let value = snapshot.value as? NSDictionary else {
@@ -128,9 +131,24 @@ class StudentConflictCalendar: UIViewController {
         thurs.backgroundColor = UIColor(red: 88.0/255.0, green: 86.0/255.0, blue: 214.0/255.0, alpha: 1.0)
         wed.backgroundColor = UIColor(red: 88.0/255.0, green: 86.0/255.0, blue: 214.0/255.0, alpha: 1.0)
     }
+    
+    func getClassID() {
+        ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("no data in uid in classrooms in students in updatesubmitbutton status")
+                return
+            }
+            self.ClassID = value["ID"] as? String
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+
+    }
     /*
     // MARK: - Navigation
 
+     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
