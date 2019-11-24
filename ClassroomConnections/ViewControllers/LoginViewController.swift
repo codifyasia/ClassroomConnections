@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
         SVProgressHUD.show()
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
             if (error == nil) {
+                
+                print(Auth.auth().currentUser!.uid)
                 SVProgressHUD.dismiss()
                 self.performSegue(withIdentifier: "goToMainMenu", sender: self)
             } else {

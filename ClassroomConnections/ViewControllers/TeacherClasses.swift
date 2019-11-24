@@ -182,6 +182,9 @@ extension TeacherClasses: UITableViewDelegate {
                 
             
                 print("id : \(identification)")
+            
+            ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").updateChildValues(["ID" : identification, "Title" : classes[indexPath.row].classTitle ])
+            
             performSegue(withIdentifier: "teacherToTabView", sender: self)
         }
         print("\(indexPath.row) row")
