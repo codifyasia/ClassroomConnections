@@ -13,6 +13,7 @@ class StudentClassChatViewController: UIViewController {
     
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    var classRoomCode : String = "stuff"
     
     var messages: [Message] = [
         Message(sender: "1@2.com", body: "buh!", question: false, senderID: 510),
@@ -23,6 +24,7 @@ class StudentClassChatViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        
         
         
     }
