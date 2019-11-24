@@ -11,7 +11,6 @@ import Foundation
 struct Message {
     var sender : String
     var body : String
-    var question : Bool
-    var senderID : Int
+    var senderID : String
     
 }
