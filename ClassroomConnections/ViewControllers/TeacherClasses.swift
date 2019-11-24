@@ -12,7 +12,7 @@ import Firebase
 class TeacherClasses: UIViewController {
     
     var ref: DatabaseReference!
-
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,19 +23,67 @@ class TeacherClasses: UIViewController {
         Class(classTitle: "AP Minecraft" , teacher: "Your mom")
     ]
     
-//    var colors : [UIColor] = [UIColor.brown, UIColor.green]
+    
+    
+    //    var colors : [UIColor] = [UIColor.brown, UIColor.green]
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "AddClass", bundle: nil), forCellReuseIdentifier: "Cell")
-        
         ref = Database.database().reference()
         
+//        updateClasses()
     }
-
-
+    
+    
+    func updateClasses() {
+        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            self.classes.removeAll()
+            
+            print("retrieve data: " + String(snapshot.childrenCount))
+            
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let value = rest.value as? NSDictionary else {
+                    print("could not collect label data")
+                    return
+                }
+                let title = value["Title"] as! String
+                print(title)
+                self.classes.append(Class(classTitle: title , teacher: "Fulk"))
+                self.tableView.reloadData()
+            }
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+    }
+    
+    
 }
+//
+//func updateClasses() {
+//    ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//
+//        print("retrieve data: " + String(snapshot.childrenCount))
+//
+//        for rest in snapshot.children.allObjects as! [DataSnapshot] {
+//            guard let value = rest.value as? NSDictionary else {
+//                print("could not collect label data")
+//                return
+//            }
+//            let title = value["Title"] as! String
+//            let username = value["Username"] as! String
+//
+//
+//        }
+//
+//    }) { (error) in
+//        print("error:\(error.localizedDescription)")
+//    }
+//}
 
 extension TeacherClasses: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,12 +94,12 @@ extension TeacherClasses: UITableViewDataSource {
         if (indexPath.row == classes.count) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AddClass
             return cell
-
+            
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
             cell.textLabel?.text = classes[indexPath.row].classTitle
             cell.detailTextLabel?.text = classes[indexPath.row].teacher
-//            cell.backgroundColor = colors[indexPath.row]
+            //            cell.backgroundColor = colors[indexPath.row]
             return cell
         }
         
@@ -66,17 +114,22 @@ extension TeacherClasses: UITableViewDelegate {
             let alert = UIAlertController(title: "Enter code to join class", message: "", preferredStyle: .alert)
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
                 print(self.textField.text!)
-                self.classes.append(Class(classTitle: "AP CSA", teacher: "Fulk"))
-                self.tableView.reloadData()
+//                self.classes.append(Class(classTitle: "APCSA", teacher: "Fulk"))
+//                self.tableView.reloadData()
                 
-//                ref.child("")
+                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : "History"])
+                //update
+                self.updateClasses()
+                
+                
+                
             }
             
             alert.addAction(doneButton)
             alert.addTextField { (alertTextField) in
                 alertTextField.placeholder = "Class code"
                 self.textField = alertTextField
-//                /Users/michaelpeng/Desktop/ClassroomConnections/Pods/PKRevealController/Source/PKRevealController/PKRevealController.m:1363:1: Conflicting return type in implementation of 'supportedInterfaceOrientations': 'UIInterfaceOrientationMask' (aka 'enum UIInterfaceOrientationMask') vs 'NSUInteger' (aka 'unsigned long')
+                //                /Users/michaelpeng/Desktop/ClassroomConnections/Pods/PKRevealController/Source/PKRevealController/PKRevealController.m:1363:1: Conflicting return type in implementation of 'supportedInterfaceOrientations': 'UIInterfaceOrientationMask' (aka 'enum UIInterfaceOrientationMask') vs 'NSUInteger' (aka 'unsigned long')
             }
             
             self.present(alert, animated: true, completion: nil)
@@ -88,11 +141,11 @@ extension TeacherClasses: UITableViewDelegate {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let action = UIContextualAction(style: .normal, title: title,
-          handler: { (action, view, completionHandler) in
-          // Update data source when user taps action
-            self.classes.remove(at: indexPath.row)
-            self.tableView.reloadData()
-          completionHandler(true)
+                                        handler: { (action, view, completionHandler) in
+                                            // Update data source when user taps action
+                                            self.classes.remove(at: indexPath.row)
+                                            self.tableView.reloadData()
+                                            completionHandler(true)
         })
         action.backgroundColor = UIColor.red
         action.title = "Delete"
@@ -100,9 +153,9 @@ extension TeacherClasses: UITableViewDelegate {
         configuration.performsFirstActionWithFullSwipe = false
         return configuration
     }
-//
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//
-//    }
+    //
+    //    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    //
+    //    }
 }
 
