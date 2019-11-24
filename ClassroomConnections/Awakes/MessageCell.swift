@@ -13,6 +13,7 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
 //
 //    @IBOutlet weak var rightImage: UIImageView!
+    @IBOutlet weak var senderName: UILabel!
     @IBOutlet weak var messageBubble: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()

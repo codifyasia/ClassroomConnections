@@ -13,4 +13,5 @@ target 'ClassroomConnections' do
     pod 'Firebase/Firestore'
     pod 'SVProgressHUD'
     pod 'PKRevealController'
+    pod 'IQKeyboardManagerSwift'
 end
