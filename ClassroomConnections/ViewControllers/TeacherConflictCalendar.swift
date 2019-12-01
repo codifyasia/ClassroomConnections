@@ -110,6 +110,17 @@ class TeacherConflictCalendar: UIViewController {
 
     @IBAction func resetPressed(_ sender: Any) {
         resetAllButtonColors()
+        ref.child("Classrooms").child(self.ClassID).child("Students").observeSingleEvent(of: .value) { snapshot in
+                for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                    guard let value = rest.value as? NSDictionary else {
+                        print("No Data!!!")
+                        return
+                    }
+                    let id = value["id"] as! String
+                    self.ref.child("Classrooms").child(self.ClassID).child("Students").child(id).updateChildValues(["SubmitStatus" : false])
+                    
+                }
+        }
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["monday" : 0])
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["tuesday" : 0])
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["wednesday" : 0])
