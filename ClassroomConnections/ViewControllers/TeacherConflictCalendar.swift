@@ -23,17 +23,19 @@ class TeacherConflictCalendar: UIViewController {
     var wedValue: Double = 0
     var thursValue: Double = 0
     var friValue: Double = 0
+    @IBOutlet weak var resetButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
         getClassID()
-        processDays()
+
         mon.layer.cornerRadius = mon.frame.size.height / 5
         tues.layer.cornerRadius = tues.frame.size.height / 5
         wed.layer.cornerRadius = wed.frame.size.height / 5
         thurs.layer.cornerRadius = thurs.frame.size.height / 5
         fri.layer.cornerRadius = fri.frame.size.height / 5
+        resetButton.layer.cornerRadius = fri.frame.size.height / 5
         
 
         // Do any additional setup after loading the view.
@@ -55,13 +57,15 @@ class TeacherConflictCalendar: UIViewController {
                 return
             }
             self.ClassID = value["ID"] as? String
-            self.ref.child("Classrooms").child(self.ClassID).child("Calendar").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.ref.child("Classrooms").child(self.ClassID).child("Students").observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 guard let value = snapshot.value as? NSDictionary else {
                     print("no data in uid in classrooms in students in updatesubmitbutton status")
                     return
                 }
+                print("Int(snapshot.childrenCount): " + String(Int(snapshot.childrenCount)))
                 self.numStudents = Int(snapshot.childrenCount)
+                print("numstudents inside closure: " + String(self.numStudents))
             }) { (error) in
                 print("error:\(error.localizedDescription)")
             }
@@ -71,11 +75,28 @@ class TeacherConflictCalendar: UIViewController {
                     print("no data in uid in classrooms in students in updatesubmitbutton status")
                     return
                 }
-                self.monValue = Double((value["monday"] as! Int) / self.numStudents)
-                self.tuesValue = Double((value["tuesday"] as! Int) / self.numStudents)
-                self.wedValue = Double((value["wednesday"] as! Int) / self.numStudents)
-                self.thursValue = Double((value["thursday"] as! Int) / self.numStudents)
-                self.friValue = Double((value["friday"] as! Int) / self.numStudents)
+                print("numStudent" + String(self.numStudents))
+                if (self.numStudents != 0)
+                {
+                self.monValue = Double((value["monday"] as! Double) / Double(self.numStudents))
+                self.tuesValue = Double((value["tuesday"] as! Double) / Double(self.numStudents))
+                self.wedValue = Double((value["wednesday"] as! Double) / Double(self.numStudents))
+                self.thursValue = Double((value["thursday"] as! Double) / Double(self.numStudents))
+                self.friValue = Double((value["friday"] as! Double) / Double(self.numStudents))
+                }
+                print("**************")
+                print(1-self.monValue)
+                print(1-self.tuesValue)
+                print(1-self.wedValue)
+                print(1-self.thursValue)
+                print(1-self.friValue)
+                print("**************")
+                
+                self.mon.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.monValue))/255.0), green: CGFloat((86.0*(1-self.monValue))/255.0), blue: CGFloat((214.0*(1-self.monValue))/255.0), alpha: 1.0)
+                self.tues.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.tuesValue))/255.0), green: CGFloat((86.0*(1-self.tuesValue))/255.0), blue: CGFloat((214.0*(1-self.tuesValue))/255.0), alpha: 1.0)
+                self.wed.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.wedValue))/255.0), green: CGFloat((86.0*(1-self.wedValue))/255.0), blue: CGFloat((214.0*(1-self.wedValue))/255.0), alpha: 1.0)
+                self.thurs.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.thursValue))/255.0), green: CGFloat((86.0*(1-self.thursValue))/255.0), blue: CGFloat((214.0*(1-self.thursValue))/255.0), alpha: 1.0)
+                self.fri.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.friValue))/255.0), green: CGFloat((86.0*(1-self.friValue))/255.0), blue: CGFloat((214.0*(1-self.friValue))/255.0), alpha: 1.0)
                 
             }) { (error) in
                 print("error:\(error.localizedDescription)")
@@ -83,15 +104,18 @@ class TeacherConflictCalendar: UIViewController {
         }) { (error) in
             print("error:\(error.localizedDescription)")
         }
-
+        print("numstudents: " + String(numStudents))
+        
     }
 
-    func processDays() {
-        mon.backgroundColor = UIColor(red: CGFloat((88.0 * (1-monValue))/255.0), green: CGFloat((86.0*(1-monValue))/255.0), blue: CGFloat((214.0*(1-monValue))/255.0), alpha: 1.0)
-        tues.backgroundColor = UIColor(red: CGFloat((88.0 * (1-tuesValue))/255.0), green: CGFloat((86.0*(1-tuesValue))/255.0), blue: CGFloat((214.0*(1-tuesValue))/255.0), alpha: 1.0)
-        wed.backgroundColor = UIColor(red: CGFloat((88.0 * (1-wedValue))/255.0), green: CGFloat((86.0*(1-wedValue))/255.0), blue: CGFloat((214.0*(1-wedValue))/255.0), alpha: 1.0)
-        thurs.backgroundColor = UIColor(red: CGFloat((88.0 * (1-thursValue))/255.0), green: CGFloat((86.0*(1-thursValue))/255.0), blue: CGFloat((214.0*(1-thursValue))/255.0), alpha: 1.0)
-        fri.backgroundColor = UIColor(red: CGFloat((88.0 * (1-friValue))/255.0), green: CGFloat((86.0*(1-friValue))/255.0), blue: CGFloat((214.0*(1-friValue))/255.0), alpha: 1.0)
+    @IBAction func resetPressed(_ sender: Any) {
+        resetAllButtonColors()
+        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["monday" : 0])
+        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["tuesday" : 0])
+        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["wednesday" : 0])
+        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["thursday" : 0])
+        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["friday" : 0])
+        
     }
     
 
