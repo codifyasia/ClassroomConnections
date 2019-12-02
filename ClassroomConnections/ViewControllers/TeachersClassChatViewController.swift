@@ -9,19 +9,22 @@
 import UIKit
 import Firebase
 
-class TeacherClassChatViewController: UIViewController {
+class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     
     var ref: DatabaseReference!
     
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var classRoomCode : String = "stuff"
+
     
     var messages: [Message] = [Message]()
     
     override func viewDidLoad() {
+
         tableView.dataSource = self
         tableView.delegate = self
+        messageTextField.delegate = self
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         ref = Database.database().reference()
 //        var messageDictionary = ["Sender" : Auth.auth().currentUser!.email, "MessageBody" : "Welcome to my class", "SenderID" : Auth.auth().currentUser!.uid]
@@ -57,6 +60,13 @@ class TeacherClassChatViewController: UIViewController {
         
         
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     @IBAction func signOut(_ sender: Any) {
     do {
@@ -66,6 +76,7 @@ class TeacherClassChatViewController: UIViewController {
     }catch let signOutError as NSError {
         print("Logout Error")
     }
+        
     }
     func retrieveMessages() {
         //        let messageDB =
@@ -95,6 +106,8 @@ class TeacherClassChatViewController: UIViewController {
             
             
                             self.tableView.reloadData()
+                        let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                        self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
             
 
                 }
