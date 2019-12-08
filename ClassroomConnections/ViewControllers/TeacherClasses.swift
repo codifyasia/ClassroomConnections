@@ -42,28 +42,39 @@ class TeacherClasses: UIViewController {
         
     }
     
-//    func removeEverything(index: Int ) {
-//        print("\(classes.count) \(index)")
-//        self.ref.child("Classrooms").child(classes[index].id).child("Students").observeSingleEvent(of: .value, with: { (snapshot) in
-//
-//
-//
-//            print("retrieve data: " + String(snapshot.childrenCount))
-//
-//            for rest in snapshot.children.allObjects as! [DataSnapshot] {
-//                guard let value = rest.value as? NSDictionary else {
-//                    print("could not collect label data")
-//                    return
-//                }
-//                let iden = value["id"] as! String
-//
-//                self.ref.child("UserInfo").child(iden).child("Classrooms").child(self.classes[index].id).removeValue()
-//            }
-//
-//        }) { (error) in
-//            print("error:\(error.localizedDescription)")
-//        }
-//    }
+    func removeEverything(index: Int ) {
+        print("\(classes.count) \(index)")
+        print("id of remove:\(classes[index].id)")
+        let removeID = classes[index].id
+        self.ref.child("Classrooms").child(classes[index].id).child("Students").observeSingleEvent(of: .value, with: { (snapshot) in
+
+
+            
+
+            print("retrieve data: " + String(snapshot.childrenCount))
+
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let value = rest.value as? NSDictionary else {
+                    print("could not collect label data")
+                    return
+                }
+                let iden = value["id"] as! String
+
+                self.ref.child("UserInfo").child(iden).child("Classrooms").child(removeID).removeValue()
+                self.getInfo()
+            }
+
+            self.ref.child("Classrooms").child(removeID).removeValue()
+            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(removeID).removeValue()
+
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+        
+        
+    }
+    
+    //
     @IBAction func signOut(_ sender: Any) {
         do {
             try Auth.auth().signOut()
@@ -249,10 +260,11 @@ extension TeacherClasses: UITableViewDelegate {
         let action = UIContextualAction(style: .normal, title: title,
                                         handler: { (action, view, completionHandler) in
                                             // Update data source when user taps action
+//                                            self.classes.remove(at: indexPath.row)
+                                            
+                                            
+                                            self.removeEverything(index: indexPath.row)
                                             self.classes.remove(at: indexPath.row)
-                                            
-                                            
-//                                            self.removeEverything(index: indexPath.row)
                                             
                                             
                                             self.tableView.reloadData()

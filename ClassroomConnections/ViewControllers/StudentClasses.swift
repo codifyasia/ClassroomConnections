@@ -87,6 +87,14 @@ class StudentClasses: UIViewController {
         }
     }
     
+    func removeStudent(index: Int) {
+        let removeID = classes[index].id
+        
+        ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(removeID).removeValue()
+        ref.child("Classrooms").child(removeID).child("Students").child(Auth.auth().currentUser!.uid).removeValue()
+        getInfo()
+    }
+    
     
     
     func updateClasses() {
@@ -198,6 +206,7 @@ extension StudentClasses: UITableViewDelegate {
                    
                 
                 self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false])
+                self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false, "id" : Auth.auth().currentUser!.uid])
                 //update
                 self.updateClasses()
             }
@@ -232,6 +241,7 @@ extension StudentClasses: UITableViewDelegate {
         let action = UIContextualAction(style: .normal, title: title,
                                         handler: { (action, view, completionHandler) in
                                             // Update data source when user taps action
+                                            self.removeStudent(index : indexPath.row)
                                             self.classes.remove(at: indexPath.row)
                                             self.tableView.reloadData()
                                             completionHandler(true)
