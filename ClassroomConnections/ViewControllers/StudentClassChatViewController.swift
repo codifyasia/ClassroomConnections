@@ -58,6 +58,9 @@ class StudentClassChatViewController: UIViewController {
         
         
     }
+    
+    @IBAction func QuestionButton(_ sender: Any) {
+    }
     @IBAction func signOut(_ sender: Any) {
     do {
         try Auth.auth().signOut()
@@ -100,6 +103,7 @@ class StudentClassChatViewController: UIViewController {
                 }
 
         }
+        
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {

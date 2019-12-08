@@ -63,7 +63,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.tabBarController?.tabBar.isHidden = true
     }
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.tabBarController?.tabBar.isHidden = false
     }
@@ -136,6 +136,10 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
         messageTextField.text = ""
     }
     
+    @IBAction func QuestionButton(_ sender: Any) {
+        
+    }
+    
 }
         //
         //                self.ref.child("Classrooms").child(identity).child("Messages").child("Message \(index)").observeSingleEvent(of: .value, with: { (snapshot1) in
@@ -179,6 +183,7 @@ extension TeacherClassChatViewController: UITableViewDataSource {
         }
         return cell
     }
+    
 }
 extension TeacherClassChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
