@@ -92,7 +92,7 @@ class StudentClassChatViewController: UIViewController {
                         let Sender = snapshotValue["Sender"]!
                         let SenderID = snapshotValue["SenderID"]!
             
-                        let message = Message(sender: Sender, body: Text, senderID: SenderID)
+                        let message = Message(sender: Sender, body: Text, senderID: SenderID, isQuestion: true)
             
                         self.messages.append(message)
             

@@ -100,7 +100,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                         let SenderID = snapshotValue["SenderID"]!
 
             
-                        let message = Message(sender: Sender, body: Text, senderID: SenderID)
+                        let message = Message(sender: Sender, body: Text, senderID: SenderID, isQuestion: true)
             
                         self.messages.append(message)
             
@@ -189,4 +189,9 @@ extension TeacherClassChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("person selected row : " + String(indexPath.row) + " (starts from 0)")
     }
+    
+//    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        print("person swiped row: " + String(indexPath.row) +)
+//        
+//    }
 }
