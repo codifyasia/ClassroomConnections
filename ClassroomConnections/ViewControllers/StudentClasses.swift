@@ -183,32 +183,57 @@ extension StudentClasses: UITableViewDelegate {
             let alert = UIAlertController(title: "Enter code to join class", message: "", preferredStyle: .alert)
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
                 print(self.textField.text!)
+                
+                self.ref.child("Classrooms").child(self.textField.text!).observeSingleEvent(of: .value) { (Data) in
+                    
+                    print("retrieve data: " + String(Data.childrenCount))
+                    
+                    for children in Data.children.allObjects as! [DataSnapshot] {
+                        
+                       guard let classroom = children.value as? NSDictionary else {
+                            print("could not collect label data")
+                            return
+                        }
+                        
+                        let identification = classroom["ID"] as! String
+                        
+                        let isEqual = (identification == self.textField.text!)
+                        
+                        if (isEqual) {
+                            self.ref.child("Classrooms").child(self.textField.text!).observeSingleEvent(of: .value, with: { (snapshot) in
+                                 
+                                 guard let value = snapshot.value as? NSDictionary else {
+                                     print("No Data!!!")
+                                     return
+                                 }
+                                 let titleValue = value["Title"] as! String
+                                 let teacher = value["Teacher"] as! String
+                                 
+                                 self.topic = titleValue
+                                
+                                 
+                                 self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue, "Teacher" : teacher])
+                                 
+                             }) { (error) in
+                                 print("error:\(error.localizedDescription)")
+                             };
+                            
+                                
+                             
+                             self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false])
+                             self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false, "id" : Auth.auth().currentUser!.uid])
+                             //update
+                             self.updateClasses()
+                            return
+                        }
+                        
+                    
+                    }
+                    
+                }
                 //                self.classes.append(Class(classTitle: "APCSA", teacher: "Fulk"))
                 //                self.tableView.reloadData()
-                self.ref.child("Classrooms").child(self.textField.text!).observeSingleEvent(of: .value, with: { (snapshot) in
-                    
-                    guard let value = snapshot.value as? NSDictionary else {
-                        print("No Data!!!")
-                        return
-                    }
-                    let titleValue = value["Title"] as! String
-                    let teacher = value["Teacher"] as! String
-                    
-                    self.topic = titleValue
-                   
-                    
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue, "Teacher" : teacher])
-                    
-                }) { (error) in
-                    print("error:\(error.localizedDescription)")
-                };
-               
-                   
                 
-                self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false])
-                self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false, "id" : Auth.auth().currentUser!.uid])
-                //update
-                self.updateClasses()
             }
             
             alert.addAction(doneButton)
