@@ -23,6 +23,8 @@
 		47D507AC2389D956006E46EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D507AB2389D956006E46EE /* Assets.xcassets */; };
 		47D507AF2389D956006E46EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D507AD2389D956006E46EE /* LaunchScreen.storyboard */; };
 		8951D3B3238A56D1002EC4F5 /* StudentClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951D3B2238A56D1002EC4F5 /* StudentClasses.swift */; };
+		898942E223AFF2DA00DF152B /* questionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898942E023AFF2D900DF152B /* questionCell.swift */; };
+		898942E323AFF2DA00DF152B /* questionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 898942E123AFF2DA00DF152B /* questionCell.xib */; };
 		9C6D239C2389F44F0072CE2B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D239B2389F44F0072CE2B /* Message.swift */; };
 		9C6D23AB238A02620072CE2B /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D23A9238A02620072CE2B /* MessageCell.swift */; };
 		9C6D23AC238A02620072CE2B /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6D23AA238A02620072CE2B /* MessageCell.xib */; };
@@ -54,6 +56,8 @@
 		47D507AE2389D956006E46EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47D507B02389D956006E46EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8951D3B2238A56D1002EC4F5 /* StudentClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClasses.swift; sourceTree = "<group>"; };
+		898942E023AFF2D900DF152B /* questionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = questionCell.swift; sourceTree = "<group>"; };
+		898942E123AFF2DA00DF152B /* questionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = questionCell.xib; sourceTree = "<group>"; };
 		9C6D239B2389F44F0072CE2B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9C6D23A9238A02620072CE2B /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		9C6D23AA238A02620072CE2B /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 		47BD5876238A2D45008FC1D7 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				898942E123AFF2DA00DF152B /* questionCell.xib */,
 				47BD586F238A2D2C008FC1D7 /* AddClass.xib */,
 				9C6D23AA238A02620072CE2B /* MessageCell.xib */,
 			);
@@ -102,6 +107,7 @@
 			children = (
 				47BD586E238A2D2C008FC1D7 /* AddClass.swift */,
 				9C6D23A9238A02620072CE2B /* MessageCell.swift */,
+				898942E023AFF2D900DF152B /* questionCell.swift */,
 			);
 			path = Awakes;
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				898942E323AFF2DA00DF152B /* questionCell.xib in Resources */,
 				47BD5873238A2D2C008FC1D7 /* AddClass.xib in Resources */,
 				9C6D23AC238A02620072CE2B /* MessageCell.xib in Resources */,
 				47D507AF2389D956006E46EE /* LaunchScreen.storyboard in Resources */,
@@ -305,6 +312,7 @@
 				47D507A72389D955006E46EE /* RegisterViewController.swift in Sources */,
 				9C79F79A23AEE9A9000CA232 /* AuthHandler.swift in Sources */,
 				47D507A32389D955006E46EE /* AppDelegate.swift in Sources */,
+				898942E223AFF2DA00DF152B /* questionCell.swift in Sources */,
 				9C6D239C2389F44F0072CE2B /* Message.swift in Sources */,
 				47BD5874238A2D2C008FC1D7 /* TeacherClasses.swift in Sources */,
 				4707C9F1238A5B6F00871B0A /* StudentClassChatViewController.swift in Sources */,
