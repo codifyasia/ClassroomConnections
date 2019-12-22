@@ -26,6 +26,9 @@
 		9C6D239C2389F44F0072CE2B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D239B2389F44F0072CE2B /* Message.swift */; };
 		9C6D23AB238A02620072CE2B /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D23A9238A02620072CE2B /* MessageCell.swift */; };
 		9C6D23AC238A02620072CE2B /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6D23AA238A02620072CE2B /* MessageCell.xib */; };
+		9C79F79823AEE96C000CA232 /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79F79723AEE96C000CA232 /* AuthHandler.swift */; };
+		9C79F79A23AEE9A9000CA232 /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79F79923AEE9A9000CA232 /* AuthHandler.swift */; };
+		9C79F79C23AEE9F6000CA232 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79F79B23AEE9F6000CA232 /* AuthManager.swift */; };
 		9CD6EB99238A4EC1000A6A33 /* StudentConflictCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6EB98238A4EC1000A6A33 /* StudentConflictCalendar.swift */; };
 		9CD6EB9B238A8129000A6A33 /* TeacherConflictCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6EB9A238A8129000A6A33 /* TeacherConflictCalendar.swift */; };
 		CA9DB956013315A567F8CA87 /* Pods_ClassroomConnections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D18991844FE128D42C95D7F /* Pods_ClassroomConnections.framework */; };
@@ -54,6 +57,9 @@
 		9C6D239B2389F44F0072CE2B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9C6D23A9238A02620072CE2B /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		9C6D23AA238A02620072CE2B /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		9C79F79723AEE96C000CA232 /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthHandler.swift; path = ClassroomConnections/ViewControllers/AuthHandler.swift; sourceTree = "<group>"; };
+		9C79F79923AEE9A9000CA232 /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
+		9C79F79B23AEE9F6000CA232 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		9CD6EB98238A4EC1000A6A33 /* StudentConflictCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentConflictCalendar.swift; sourceTree = "<group>"; };
 		9CD6EB9A238A8129000A6A33 /* TeacherConflictCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherConflictCalendar.swift; sourceTree = "<group>"; };
 		BB0E733F32220B8D3FDC306D /* Pods-ClassroomConnections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassroomConnections.debug.xcconfig"; path = "Target Support Files/Pods-ClassroomConnections/Pods-ClassroomConnections.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 		47D507962389D955006E46EE = {
 			isa = PBXGroup;
 			children = (
+				9C79F79723AEE96C000CA232 /* AuthHandler.swift */,
 				47D507A12389D955006E46EE /* ClassroomConnections */,
 				47D507A02389D955006E46EE /* Products */,
 				BB96B460F465233A28DA9A08 /* Pods */,
@@ -121,6 +128,7 @@
 		47D507A12389D955006E46EE /* ClassroomConnections */ = {
 			isa = PBXGroup;
 			children = (
+				9C79F79B23AEE9F6000CA232 /* AuthManager.swift */,
 				47D507A22389D955006E46EE /* AppDelegate.swift */,
 				47D507A42389D955006E46EE /* SceneDelegate.swift */,
 				8951D3AB2389E7BB002EC4F5 /* ViewControllers */,
@@ -139,6 +147,7 @@
 		8951D3AB2389E7BB002EC4F5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9C79F79923AEE9A9000CA232 /* AuthHandler.swift */,
 				47D507A62389D955006E46EE /* RegisterViewController.swift */,
 				47719D812389E9A600FC5350 /* LoginViewController.swift */,
 				47719D832389E9C500FC5350 /* TeachersClassChatViewController.swift */,
@@ -288,17 +297,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				47BD5875238A2D2C008FC1D7 /* Class.swift in Sources */,
+				9C79F79C23AEE9F6000CA232 /* AuthManager.swift in Sources */,
 				47BD5872238A2D2C008FC1D7 /* AddClass.swift in Sources */,
 				9CD6EB99238A4EC1000A6A33 /* StudentConflictCalendar.swift in Sources */,
 				47719D822389E9A600FC5350 /* LoginViewController.swift in Sources */,
 				47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */,
 				47D507A72389D955006E46EE /* RegisterViewController.swift in Sources */,
+				9C79F79A23AEE9A9000CA232 /* AuthHandler.swift in Sources */,
 				47D507A32389D955006E46EE /* AppDelegate.swift in Sources */,
 				9C6D239C2389F44F0072CE2B /* Message.swift in Sources */,
 				47BD5874238A2D2C008FC1D7 /* TeacherClasses.swift in Sources */,
 				4707C9F1238A5B6F00871B0A /* StudentClassChatViewController.swift in Sources */,
 				9CD6EB9B238A8129000A6A33 /* TeacherConflictCalendar.swift in Sources */,
 				47719D842389E9C500FC5350 /* TeachersClassChatViewController.swift in Sources */,
+				9C79F79823AEE96C000CA232 /* AuthHandler.swift in Sources */,
 				47D507A52389D955006E46EE /* SceneDelegate.swift in Sources */,
 				9C6D23AB238A02620072CE2B /* MessageCell.swift in Sources */,
 				8951D3B3238A56D1002EC4F5 /* StudentClasses.swift in Sources */,
