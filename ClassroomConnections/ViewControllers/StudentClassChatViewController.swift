@@ -20,6 +20,10 @@ class StudentClassChatViewController: UIViewController {
     
     var messages: [Message] = [Message]()
     
+    //if question is on
+    var questionOn : Bool = false
+    
+    
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.delegate = self 
@@ -59,8 +63,15 @@ class StudentClassChatViewController: UIViewController {
         
     }
     
-    @IBAction func QuestionButton(_ sender: Any) {
+    @IBAction func questionSwitch(_ sender: UISwitch) {
+        if (sender.isOn) {
+            questionOn = true
+        }
+        else {
+            questionOn = false
+        }
     }
+    
     @IBAction func signOut(_ sender: Any) {
     do {
         try Auth.auth().signOut()
@@ -109,9 +120,17 @@ class StudentClassChatViewController: UIViewController {
     @IBAction func sendMessage(_ sender: UIButton) {
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
                print(messageTextField.text!)
+        var messageDictionary = ["" : ""]
+        if (questionOn) {
                let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                         "MessageBody": messageTextField.text!,
-                                       "SenderID": Auth.auth().currentUser?.uid]
+                                        "SenderID": Auth.auth().currentUser?.uid, "messageType" : "Question"]
+        }
+        else {
+            let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+            "MessageBody": messageTextField.text!,
+            "SenderID": Auth.auth().currentUser?.uid, "messageType" : "Normal"]
+        }
                
                messagesDB.childByAutoId().setValue(messageDictionary) {
                    (error, reference) in

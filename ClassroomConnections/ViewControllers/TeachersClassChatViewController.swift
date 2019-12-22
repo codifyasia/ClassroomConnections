@@ -60,6 +60,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
         
         
     }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.tabBarController?.tabBar.isHidden = true
     }
