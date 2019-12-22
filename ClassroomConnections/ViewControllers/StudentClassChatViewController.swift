@@ -21,7 +21,7 @@ class StudentClassChatViewController: UIViewController {
     var messages: [Message] = [Message]()
     
     //if question is on
-    var questionOn : Bool = false
+    var questionOn : Bool = true
     
     
     override func viewDidLoad() {
@@ -102,8 +102,9 @@ class StudentClassChatViewController: UIViewController {
                         let Text = snapshotValue["MessageBody"]!
                         let Sender = snapshotValue["Sender"]!
                         let SenderID = snapshotValue["SenderID"]!
+                        let messageT = snapshotValue["messageType"]!
             
-                        let message = Message(sender: Sender, body: Text, senderID: SenderID, isQuestion: true)
+                        let message = Message(sender: Sender, body: Text, senderID: SenderID, messageType: messageT)
             
                         self.messages.append(message)
             
@@ -118,18 +119,23 @@ class StudentClassChatViewController: UIViewController {
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {
+        print("attempting to send message")
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
                print(messageTextField.text!)
-        var messageDictionary = ["" : ""]
+        var messageDictionary : [String : String] = [:]
         if (questionOn) {
-               let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
-                                        "MessageBody": messageTextField.text!,
-                                        "SenderID": Auth.auth().currentUser?.uid, "messageType" : "Question"]
+            print("question is On")
+            messageDictionary = ["Sender": (Auth.auth().currentUser?.email!)!,
+                                "MessageBody": messageTextField.text!,
+                                "SenderID": (Auth.auth().currentUser!.uid),
+                                "messageType" : "Question"]
         }
         else {
-            let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+            print("question is Off")
+            messageDictionary = ["Sender": (Auth.auth().currentUser?.email!)!,
             "MessageBody": messageTextField.text!,
-            "SenderID": Auth.auth().currentUser?.uid, "messageType" : "Normal"]
+            "SenderID": (Auth.auth().currentUser!.uid),
+            "messageType" : "Normal"]
         }
                
                messagesDB.childByAutoId().setValue(messageDictionary) {

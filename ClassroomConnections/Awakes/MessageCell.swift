@@ -19,6 +19,8 @@ class MessageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 5
+        
+        rightImage.image = UIImage(systemName: "house")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
