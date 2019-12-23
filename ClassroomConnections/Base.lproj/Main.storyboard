@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XVg-8X-N20">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GKQ-ou-B53">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -413,7 +413,7 @@
         <!--Teacher Classes-->
         <scene sceneID="V4b-bk-FZi">
             <objects>
-                <viewController id="xgg-yK-e4F" customClass="TeacherClasses" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TeacherClasses" id="xgg-yK-e4F" customClass="TeacherClasses" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MTS-OW-x4U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -485,7 +485,7 @@
         <!--Student Classes-->
         <scene sceneID="fTh-yx-fH2">
             <objects>
-                <viewController id="Dcl-mV-d4c" customClass="StudentClasses" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudentClasses" id="Dcl-mV-d4c" customClass="StudentClasses" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HHd-bv-gq0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -940,6 +940,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="TKo-aY-hQL"/>
         <segue reference="xfJ-Tr-35X"/>
-        <segue reference="GjU-0t-bGD"/>
+        <segue reference="Ytm-u5-bOS"/>
     </inferredMetricsTieBreakers>
 </document>

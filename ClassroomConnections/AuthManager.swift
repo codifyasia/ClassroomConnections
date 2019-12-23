@@ -25,6 +25,7 @@ class AuthManager {
             viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
             authHandler.present(viewController, animated: false, completion: nil)
         } else {
+            print(Auth.auth().currentUser!.uid)
             self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 guard let value = snapshot.value as? NSDictionary else {
@@ -38,7 +39,7 @@ class AuthManager {
                     self.authHandler.present(viewController, animated: false, completion: nil)
                 } else {
                     print("status is teacher")
-                    let viewController: UIViewController = self.storyboard.instantiateViewController(withIdentifier: "StudentClasses")
+                    let viewController: UIViewController = self.storyboard.instantiateViewController(withIdentifier: "TeacherClasses")
                     self.authHandler.present(viewController, animated: false, completion: nil)
                 }
              
