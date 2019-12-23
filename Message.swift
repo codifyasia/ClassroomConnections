@@ -12,6 +12,6 @@ struct Message {
     var sender : String
     var body : String
     var senderID : String
-    var isQuestion : Bool
+    var messageType : String
     
 }
