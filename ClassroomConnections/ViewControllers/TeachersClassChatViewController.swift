@@ -101,7 +101,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                         let SenderID = snapshotValue["SenderID"]!
 
             
-                        let message = Message(sender: Sender, body: Text, senderID: SenderID, isQuestion: true)
+                        let message = Message(sender: Sender, body: Text, senderID: SenderID, messageType: "Normal")
             
                         self.messages.append(message)
             

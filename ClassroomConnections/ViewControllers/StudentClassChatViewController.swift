@@ -21,7 +21,7 @@ class StudentClassChatViewController: UIViewController {
     var messages: [Message] = [Message]()
     
     //if question is on
-    var questionOn : Bool = true
+    var questionOn : Bool = false
     
     
     override func viewDidLoad() {
@@ -96,7 +96,6 @@ class StudentClassChatViewController: UIViewController {
             self.classRoomCode = identity
             let messageDB = self.ref.child("Classrooms").child(identity).child("Messages")
             
-<<<<<<< HEAD
             messageDB.observe(.childAdded) { (snapshot) in
                 
                 let snapshotValue = snapshot.value as! Dictionary<String,String>
@@ -104,7 +103,7 @@ class StudentClassChatViewController: UIViewController {
                 let Sender = snapshotValue["Sender"]!
                 let SenderID = snapshotValue["SenderID"]!
                 
-                let message = Message(sender: Sender, body: Text, senderID: SenderID, isQuestion: true)
+                let message = Message(sender: Sender, body: Text, senderID: SenderID, messageType: "Norrmal")
                 
                 self.messages.append(message)
                 
@@ -113,31 +112,13 @@ class StudentClassChatViewController: UIViewController {
                 
                 
             }
-=======
-                    messageDB.observe(.childAdded) { (snapshot) in
-            
-                        let snapshotValue = snapshot.value as! Dictionary<String,String>
-                        let Text = snapshotValue["MessageBody"]!
-                        let Sender = snapshotValue["Sender"]!
-                        let SenderID = snapshotValue["SenderID"]!
-                        let messageT = snapshotValue["messageType"]!
-            
-                        let message = Message(sender: Sender, body: Text, senderID: SenderID, messageType: messageT)
-            
-                        self.messages.append(message)
-            
-            
-                            self.tableView.reloadData()
->>>>>>> 45b3d24134a9dc6e4172ebce7da08df484994c98
             
         }
         
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {
-        print("attempting to send message")
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
-<<<<<<< HEAD
         print(messageTextField.text!)
         if (questionOn) {
             let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
@@ -168,23 +149,6 @@ class StudentClassChatViewController: UIViewController {
                     print("Message saved successfully!")
                 }
             }
-=======
-               print(messageTextField.text!)
-        var messageDictionary : [String : String] = [:]
-        if (questionOn) {
-            print("question is On")
-            messageDictionary = ["Sender": (Auth.auth().currentUser?.email!)!,
-                                "MessageBody": messageTextField.text!,
-                                "SenderID": (Auth.auth().currentUser!.uid),
-                                "messageType" : "Question"]
-        }
-        else {
-            print("question is Off")
-            messageDictionary = ["Sender": (Auth.auth().currentUser?.email!)!,
-            "MessageBody": messageTextField.text!,
-            "SenderID": (Auth.auth().currentUser!.uid),
-            "messageType" : "Normal"]
->>>>>>> 45b3d24134a9dc6e4172ebce7da08df484994c98
         }
         
         
