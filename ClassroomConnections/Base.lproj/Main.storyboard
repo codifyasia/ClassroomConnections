@@ -224,7 +224,7 @@
         <!--Login View Controller-->
         <scene sceneID="W7Y-KE-JIh">
             <objects>
-                <viewController id="CMF-8L-1nv" customClass="LoginViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="CMF-8L-1nv" customClass="LoginViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cMh-kd-eaA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -940,6 +940,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="TKo-aY-hQL"/>
         <segue reference="xfJ-Tr-35X"/>
-        <segue reference="Ytm-u5-bOS"/>
+        <segue reference="xiQ-aa-cgN"/>
     </inferredMetricsTieBreakers>
 </document>
