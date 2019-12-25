@@ -239,7 +239,7 @@ extension StudentClassChatViewController: UITableViewDelegate {
             
            
             alert.addAction(answer)
-             alert.addAction(upvote)
+            alert.addAction(upvote)
             alert.addAction(cancel)
             present(alert, animated: true)
             
