@@ -251,4 +251,5 @@ extension StudentClassChatViewController: UITableViewDelegate {
         
         print("person selected row : " + String(indexPath.row) + " (starts from 0)")
     }
+
 }

@@ -929,7 +929,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5w-I7-HgT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3953.6231884057975" y="1555.5803571428571"/>
+            <point key="canvasLocation" x="6307" y="1052"/>
         </scene>
     </scenes>
     <resources>
@@ -938,9 +938,8 @@
         <image name="paperplane.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vPX-Gp-Lmx"/>
         <segue reference="TKo-aY-hQL"/>
         <segue reference="OYR-f7-Q6Y"/>
-        <segue reference="xiQ-aa-cgN"/>
+        <segue reference="z2q-rs-LFr"/>
     </inferredMetricsTieBreakers>
 </document>

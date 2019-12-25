@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4707C9F1238A5B6F00871B0A /* StudentClassChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4707C9F0238A5B6F00871B0A /* StudentClassChatViewController.swift */; };
+		4718962C23B320C800F34C17 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718962B23B320C800F34C17 /* Answer.swift */; };
 		47719D752389DF0200FC5350 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47719D742389DF0200FC5350 /* GoogleService-Info.plist */; };
 		47719D822389E9A600FC5350 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D812389E9A600FC5350 /* LoginViewController.swift */; };
 		47719D842389E9C500FC5350 /* TeachersClassChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D832389E9C500FC5350 /* TeachersClassChatViewController.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		3D18991844FE128D42C95D7F /* Pods_ClassroomConnections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassroomConnections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4707C9F0238A5B6F00871B0A /* StudentClassChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassChatViewController.swift; sourceTree = "<group>"; };
+		4718962B23B320C800F34C17 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		47719D742389DF0200FC5350 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		47719D812389E9A600FC5350 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		47719D832389E9C500FC5350 /* TeachersClassChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersClassChatViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		8951D3AB2389E7BB002EC4F5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4718962B23B320C800F34C17 /* Answer.swift */,
 				9C79F79923AEE9A9000CA232 /* AuthHandler.swift */,
 				47D507A62389D955006E46EE /* RegisterViewController.swift */,
 				47719D812389E9A600FC5350 /* LoginViewController.swift */,
@@ -310,6 +313,7 @@
 				47719D822389E9A600FC5350 /* LoginViewController.swift in Sources */,
 				47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */,
 				47D507A72389D955006E46EE /* RegisterViewController.swift in Sources */,
+				4718962C23B320C800F34C17 /* Answer.swift in Sources */,
 				9C79F79A23AEE9A9000CA232 /* AuthHandler.swift in Sources */,
 				47D507A32389D955006E46EE /* AppDelegate.swift in Sources */,
 				898942E223AFF2DA00DF152B /* questionCell.swift in Sources */,
