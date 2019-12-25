@@ -226,7 +226,7 @@ extension StudentClassChatViewController: UITableViewDelegate {
         let message = messages[selected]
         
         if (message.messageType == "Question") {
-            let alert = UIAlertController(title: "Respond to Question", message: "", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
             let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
                 
             }
@@ -236,9 +236,11 @@ extension StudentClassChatViewController: UITableViewDelegate {
             let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
                 
             }
-            alert.addAction(cancel)
-            alert.addAction(upvote)
+            
+           
             alert.addAction(answer)
+             alert.addAction(upvote)
+            alert.addAction(cancel)
             present(alert, animated: true)
             
         }
