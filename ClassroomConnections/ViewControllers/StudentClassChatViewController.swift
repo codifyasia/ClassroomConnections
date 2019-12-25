@@ -220,6 +220,33 @@ extension StudentClassChatViewController: UITableViewDataSource {
 }
 extension StudentClassChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selected = indexPath.row
+        
+        let message = messages[selected]
+        
+        if (message.messageType == "Question") {
+            let alert = UIAlertController(title: "Respond to Question", message: "", preferredStyle: .actionSheet)
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                
+            }
+            let upvote = UIAlertAction(title: "Upvote", style: .default) { (action) in
+                
+            }
+            let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
+                
+            }
+            alert.addAction(cancel)
+            alert.addAction(upvote)
+            alert.addAction(answer)
+            present(alert, animated: true)
+            
+        }
+        
+        print(message.body)
+        
+        
+        
         print("person selected row : " + String(indexPath.row) + " (starts from 0)")
     }
 }
