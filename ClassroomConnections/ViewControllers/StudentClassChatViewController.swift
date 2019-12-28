@@ -22,6 +22,7 @@ class StudentClassChatViewController: UIViewController {
     
     //if question is on
     var questionOn : Bool = false
+    var answerOn : Bool = false
     
     
     override func viewDidLoad() {
@@ -128,7 +129,7 @@ class StudentClassChatViewController: UIViewController {
             let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                      "MessageBody": messageTextField.text!,
                                      "SenderID": Auth.auth().currentUser?.uid,
-                                     "messageType" : "Question"]
+                                     "messageType" : "Question", "Upvotes" : 0]
             messagesDB.childByAutoId().setValue(messageDictionary) {
                 (error, reference) in
                 
