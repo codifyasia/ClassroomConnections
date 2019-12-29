@@ -101,13 +101,13 @@ class StudentClassChatViewController: UIViewController {
             
             messageDB.observe(.childAdded) { (snapshot) in
                 
-                let snapshotValue = snapshot.value as! Dictionary<String,String>
+                let snapshotValue = snapshot.value as! Dictionary<String,Any>
                 let Text = snapshotValue["MessageBody"]!
                 let Sender = snapshotValue["Sender"]!
                 let SenderID = snapshotValue["SenderID"]!
                 let messageT = snapshotValue["messageType"]!
                 
-                let message = Message(sender: Sender, body: Text, senderID: SenderID, messageType: messageT)
+                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String)
                 
                 self.messages.append(message)
                 
