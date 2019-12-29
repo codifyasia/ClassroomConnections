@@ -129,7 +129,7 @@ class StudentClassChatViewController: UIViewController {
             let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                      "MessageBody": messageTextField.text!,
                                      "SenderID": Auth.auth().currentUser?.uid,
-                                     "messageType" : "Question", "Upvotes" : 0]
+                                     "messageType" : "Question", "Upvotes" : 0] as [String : Any]
             messagesDB.childByAutoId().setValue(messageDictionary) {
                 (error, reference) in
                 
