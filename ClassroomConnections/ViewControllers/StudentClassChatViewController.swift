@@ -115,11 +115,17 @@ class StudentClassChatViewController: UIViewController {
                 let Text = snapshotValue["MessageBody"]!
                 let Sender = snapshotValue["Sender"]!
                 let SenderID = snapshotValue["SenderID"]!
-                let messageT = snapshotValue["messageType"]!
+                let messageT : String = snapshotValue["messageType"]! as! String
+                let messageIndex : Int = snapshotValue["Index"] as! Int
                 
                 let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String)
                 
-                self.messages.append(message)
+                if (messageT == "Answer") {
+                    self.messages.insert(message, at: messageIndex)
+                }
+                else {
+                    self.messages.append(message)
+                }
                 
                 
                 self.tableView.reloadData()
@@ -140,14 +146,26 @@ class StudentClassChatViewController: UIViewController {
             let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
             "MessageBody": messageTextField.text!,
             "SenderID": Auth.auth().currentUser?.uid,
-            "messageType" : "Answer", "Upvotes" : 0] as [String : Any]
+            "messageType" : "Answer", "Upvotes" : 0, "Index" : answerIndex] as [String : Any]
+            messagesDB.childByAutoId().setValue(messageDictionary) {
+                (error, reference) in
+                
+                if error != nil {
+                    print(error!)
+                }
+                else {
+                    print("Message saved successfully!")
+                }
+            }
+            answerOn = false
+            answerLabel.isHidden = true
         }
         else if (questionOn) {
             print("message type is saved as question")
             let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                      "MessageBody": messageTextField.text!,
                                      "SenderID": Auth.auth().currentUser?.uid,
-                                     "messageType" : "Question", "Upvotes" : 0] as [String : Any]
+                                     "messageType" : "Question", "Upvotes" : 0, "Index" : 0] as [String : Any]
             messagesDB.childByAutoId().setValue(messageDictionary) {
                 (error, reference) in
                 
@@ -164,7 +182,7 @@ class StudentClassChatViewController: UIViewController {
             let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                      "MessageBody": messageTextField.text!,
                                      "SenderID": Auth.auth().currentUser?.uid,
-                                     "messageType" : "Normal"]
+                                     "messageType" : "Normal", "Index" : 0] as [String : Any]
             messagesDB.childByAutoId().setValue(messageDictionary) {
                 (error, reference) in
                 
