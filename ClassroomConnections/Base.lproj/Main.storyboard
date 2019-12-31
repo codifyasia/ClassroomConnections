@@ -812,7 +812,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jv2-K3-uJZ">
-                                <rect key="frame" x="0.0" y="738" width="414" height="75"/>
+                                <rect key="frame" x="0.0" y="735" width="414" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M36-B1-w3g">
@@ -859,12 +859,24 @@
                                     <action selector="signUpPressed:" destination="XVg-8X-N20" eventType="touchUpInside" id="Om0-n5-yb4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0Y-Pj-lCQ">
+                                <rect key="frame" x="20" y="49" width="33" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="A">
+                                    <color key="titleColor" red="0.78713911800000003" green="0.22844523289999999" blue="0.17893076629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="answerOffSwitch:" destination="LRU-J3-kCs" eventType="touchUpInside" id="Tv6-jm-Ded"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PBR-30-Drz"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Messages" image="message.fill" catalog="system" badgeValue="2" id="3Le-fN-lRd"/>
                     <connections>
+                        <outlet property="answerLabel" destination="l0Y-Pj-lCQ" id="162-nz-ToK"/>
                         <outlet property="messageTextField" destination="M36-B1-w3g" id="b5S-l6-V74"/>
                         <outlet property="tableView" destination="cOL-Xf-OqT" id="h53-BU-jDt"/>
                         <segue destination="XVg-8X-N20" kind="presentation" identifier="backwards1" modalPresentationStyle="fullScreen" id="GjU-0t-bGD"/>

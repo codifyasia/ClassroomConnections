@@ -23,9 +23,12 @@ class StudentClassChatViewController: UIViewController {
     //if question is on
     var questionOn : Bool = false
     var answerOn : Bool = false
+    @IBOutlet weak var answerLabel: UIButton!
+    var answerIndex : Int = 0
     
     
     override func viewDidLoad() {
+        answerLabel.isHidden = true
         tableView.dataSource = self
         tableView.delegate = self 
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
@@ -64,8 +67,11 @@ class StudentClassChatViewController: UIViewController {
         
     }
     
-    @IBAction func questionSwitch(_ sender: UISwitch) {
-        if (sender.isOn) {
+    @IBAction func questionSwitch(_ sender: UISwitch?) {
+        if (sender == nil) {
+            questionOn = false
+        }
+        else if (sender!.isOn) {
             questionOn = true
             print("question switch is on")
         }
@@ -74,12 +80,16 @@ class StudentClassChatViewController: UIViewController {
             print("question switch is off")
         }
     }
+    @IBAction func answerOffSwitch(_ sender: Any) {
+        answerOn = false
+        answerLabel.isHidden = true
+        
+    }
     
     @IBAction func signOut(_ sender: Any) {
         do {
             try Auth.auth().signOut()
             performSegue(withIdentifier: "backwards1", sender: self)
-            
         }catch let signOutError as NSError {
             print("Logout Error")
         }
@@ -126,7 +136,13 @@ class StudentClassChatViewController: UIViewController {
     @IBAction func sendMessage(_ sender: UIButton) {
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
         print(messageTextField.text!)
-        if (questionOn) {
+        if (answerOn) {
+            let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+            "MessageBody": messageTextField.text!,
+            "SenderID": Auth.auth().currentUser?.uid,
+            "messageType" : "Answer", "Upvotes" : 0] as [String : Any]
+        }
+        else if (questionOn) {
             print("message type is saved as question")
             let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                      "MessageBody": messageTextField.text!,
@@ -237,7 +253,12 @@ extension StudentClassChatViewController: UITableViewDelegate {
                 
             }
             let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
-                
+//                if (self.questionOn) {
+//                    self.questionSwitch(nil)
+//                }
+                self.answerOn = true
+                self.answerLabel.isHidden = false
+                self.answerIndex = indexPath.row+1
             }
             
            
