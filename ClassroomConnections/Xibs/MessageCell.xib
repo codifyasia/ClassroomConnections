@@ -106,6 +106,8 @@
                 <outlet property="messageBubble" destination="lXM-da-ar8" id="Int-5K-Mlp"/>
                 <outlet property="rightImage" destination="3gC-4T-WMp" id="tl6-RX-FAx"/>
                 <outlet property="senderName" destination="atN-jn-OnV" id="lmL-Wx-0Te"/>
+                <outlet property="upvoteAmount" destination="8RS-bX-z49" id="Pze-wK-a0l"/>
+                <outlet property="upvoteImage" destination="Hm7-D7-ZsU" id="MwS-9n-ZJ5"/>
             </connections>
             <point key="canvasLocation" x="347.82608695652175" y="57.254464285714285"/>
         </tableViewCell>

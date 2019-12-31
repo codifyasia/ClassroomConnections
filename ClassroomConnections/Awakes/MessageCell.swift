@@ -10,6 +10,8 @@ import UIKit
 
 class MessageCell: UITableViewCell {
 
+    @IBOutlet weak var upvoteImage: UIImageView!
+    @IBOutlet weak var upvoteAmount: UILabel!
     @IBOutlet weak var label: UILabel!
 //
     @IBOutlet weak var rightImage: UIImageView!
