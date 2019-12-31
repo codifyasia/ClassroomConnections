@@ -24,7 +24,6 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
 
         tableView.dataSource = self
         tableView.delegate = self
-        messageTextField.delegate = self
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         ref = Database.database().reference()
 //        var messageDictionary = ["Sender" : Auth.auth().currentUser!.email, "MessageBody" : "Welcome to my class", "SenderID" : Auth.auth().currentUser!.uid]
@@ -61,14 +60,6 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.tabBarController?.tabBar.isHidden = true
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.tabBarController?.tabBar.isHidden = false
-    }
-    
     @IBAction func signOut(_ sender: Any) {
     do {
         try Auth.auth().signOut()
@@ -95,13 +86,14 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             
                     messageDB.observe(.childAdded) { (snapshot) in
 
-                        let snapshotValue = snapshot.value as! Dictionary<String,String>
+                        let snapshotValue = snapshot.value as! Dictionary<String,Any>
                         let Text = snapshotValue["MessageBody"]!
-                        let Sender = snapshotValue["Sender"]!
-                        let SenderID = snapshotValue["SenderID"]!
+                         let Sender = snapshotValue["Sender"]!
+                         let SenderID = snapshotValue["SenderID"]!
+                         let messageT = snapshotValue["messageType"]!
 
             
-                        let message = Message(sender: Sender, body: Text, senderID: SenderID, messageType: "Normal")
+                        let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String)
             
                         self.messages.append(message)
             
@@ -110,9 +102,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                         let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
                         self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
             
-
                 }
-
         }
     }
     
@@ -184,7 +174,6 @@ extension TeacherClassChatViewController: UITableViewDataSource {
         }
         return cell
     }
-    
 }
 extension TeacherClassChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
