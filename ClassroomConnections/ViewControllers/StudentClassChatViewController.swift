@@ -17,6 +17,7 @@ class StudentClassChatViewController: UIViewController {
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var classRoomCode: String = "stuff"
+    @IBOutlet weak var qSwitch: UISwitch!
     
     var messages: [Message] = [Message]()
     
@@ -268,12 +269,13 @@ extension StudentClassChatViewController: UITableViewDelegate {
                 
             }
             let upvote = UIAlertAction(title: "Upvote", style: .default) { (action) in
-                
+                self.ref.child("Classrooms").child(classRoomCode).child("Messages").child(<#T##pathString: String##String#>)
             }
             let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
 //                if (self.questionOn) {
 //                    self.questionSwitch(nil)
 //                }
+                self.qSwitch.isOn = false
                 self.answerOn = true
                 self.answerLabel.isHidden = false
                 self.answerIndex = indexPath.row+1

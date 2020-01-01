@@ -878,6 +878,7 @@
                     <connections>
                         <outlet property="answerLabel" destination="l0Y-Pj-lCQ" id="162-nz-ToK"/>
                         <outlet property="messageTextField" destination="M36-B1-w3g" id="b5S-l6-V74"/>
+                        <outlet property="qSwitch" destination="dT6-uS-3MM" id="wnC-iS-zQE"/>
                         <outlet property="tableView" destination="cOL-Xf-OqT" id="h53-BU-jDt"/>
                         <segue destination="XVg-8X-N20" kind="presentation" identifier="backwards1" modalPresentationStyle="fullScreen" id="GjU-0t-bGD"/>
                     </connections>
