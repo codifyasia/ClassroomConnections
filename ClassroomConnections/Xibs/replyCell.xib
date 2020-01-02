@@ -82,7 +82,10 @@
             <connections>
                 <outlet property="label" destination="VEe-uX-nAz" id="cfG-W8-UkJ"/>
                 <outlet property="messageBubble" destination="gUz-Bd-Mks" id="z8h-EG-yfo"/>
+                <outlet property="rightImage" destination="cQX-Ru-6rP" id="GIW-Lq-FRv"/>
                 <outlet property="senderName" destination="zJF-36-HSs" id="CkC-qF-K3V"/>
+                <outlet property="upvoteAmount" destination="2Oj-67-jYz" id="lNM-45-GoX"/>
+                <outlet property="upvoteImage" destination="I6a-6d-Wwd" id="2Wm-0t-fNr"/>
             </connections>
             <point key="canvasLocation" x="347.82608695652175" y="57.254464285714285"/>
         </tableViewCell>
