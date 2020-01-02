@@ -20,6 +20,7 @@ class StudentClassChatViewController: UIViewController {
     @IBOutlet weak var qSwitch: UISwitch!
     
     var messages: [Message] = [Message]()
+    var messagesID : [String] = [String]()
     
     //if question is on
     var questionOn : Bool = false
@@ -148,6 +149,7 @@ class StudentClassChatViewController: UIViewController {
             "MessageBody": messageTextField.text!,
             "SenderID": Auth.auth().currentUser?.uid,
             "messageType" : "Answer", "Upvotes" : 0, "Index" : answerIndex] as [String : Any]
+            let hi = 
             messagesDB.childByAutoId().setValue(messageDictionary) {
                 (error, reference) in
                 
@@ -167,6 +169,7 @@ class StudentClassChatViewController: UIViewController {
                                      "MessageBody": messageTextField.text!,
                                      "SenderID": Auth.auth().currentUser?.uid,
                                      "messageType" : "Question", "Upvotes" : 0, "Index" : 0] as [String : Any]
+            
             messagesDB.childByAutoId().setValue(messageDictionary) {
                 (error, reference) in
                 
