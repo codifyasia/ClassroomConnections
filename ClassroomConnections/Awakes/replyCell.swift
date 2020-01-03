@@ -12,15 +12,15 @@ class replyCell: UITableViewCell {
 
 
 //    @IBOutlet weak var upvoteImage: UIImageView!
-//    @IBOutlet weak var label: UILabel!
-//    @IBOutlet weak var senderName: UILabel!
-//    @IBOutlet weak var messageBubble: UIView!
-//
-//    @IBOutlet weak var upvoteAmount: UILabel!
-//    @IBOutlet weak var rightImage: UIImageView!
+    @IBOutlet weak var upvoteImage: UIImageView!
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var senderName: UILabel!
+    @IBOutlet weak var messageBubble: UIView!
+    @IBOutlet weak var upvoteAmount: UILabel!
+    @IBOutlet weak var rightImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

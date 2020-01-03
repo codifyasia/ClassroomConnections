@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nuV-tr-A2K" firstAttribute="top" secondItem="m6h-XI-M5q" secondAttribute="top" constant="6" id="CRj-oO-3dz"/>
                             <constraint firstAttribute="width" constant="101" id="DEP-m4-BIX"/>
@@ -51,15 +51,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHm-6i-4hl">
                                 <rect key="frame" x="0.0" y="0.0" width="341" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bruh" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWd-QM-2dI">
-                                        <rect key="frame" x="10" y="9" width="313" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bruh" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWd-QM-2dI">
+                                        <rect key="frame" x="10" y="10" width="321" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="pWd-QM-2dI" firstAttribute="leading" secondItem="zHm-6i-4hl" secondAttribute="leading" constant="10" id="5z8-Db-bvT"/>
+                                    <constraint firstAttribute="bottom" secondItem="pWd-QM-2dI" secondAttribute="bottom" constant="10" id="c9W-oW-aSO"/>
+                                    <constraint firstAttribute="trailing" secondItem="pWd-QM-2dI" secondAttribute="trailing" constant="10" id="njK-Mj-A5d"/>
+                                    <constraint firstItem="pWd-QM-2dI" firstAttribute="top" secondItem="zHm-6i-4hl" secondAttribute="top" constant="10" id="pYm-RI-3fy"/>
+                                </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="igt-Qo-DCM">
                                 <rect key="frame" x="351" y="1" width="40" height="37.5"/>
@@ -86,6 +91,7 @@
                     <constraint firstItem="SMj-y0-cSC" firstAttribute="leading" secondItem="m6h-XI-M5q" secondAttribute="trailing" id="HDo-ef-Ej5"/>
                     <constraint firstAttribute="trailing" secondItem="SMj-y0-cSC" secondAttribute="trailing" constant="10" id="eQM-jE-9oz"/>
                     <constraint firstItem="SMj-y0-cSC" firstAttribute="top" secondItem="4MY-vm-q7a" secondAttribute="top" constant="25" id="hwV-jr-S31"/>
+                    <constraint firstAttribute="bottom" secondItem="SMj-y0-cSC" secondAttribute="bottom" constant="18" id="jbP-1s-vOY"/>
                     <constraint firstItem="m6h-XI-M5q" firstAttribute="leading" secondItem="4MY-vm-q7a" secondAttribute="leading" id="kx8-pR-jbt"/>
                     <constraint firstItem="Utj-1V-3u7" firstAttribute="leading" secondItem="4MY-vm-q7a" secondAttribute="leading" constant="60" id="miK-tC-ngF"/>
                     <constraint firstItem="Utj-1V-3u7" firstAttribute="top" secondItem="4MY-vm-q7a" secondAttribute="top" constant="5" id="qMn-zV-iO0"/>
@@ -93,7 +99,15 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.90900618649999998" green="0.76342624830000005" blue="0.53388658529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <viewLayoutGuide key="safeArea" id="GgD-AJ-dfn"/>
-            <point key="canvasLocation" x="435" y="33"/>
+            <connections>
+                <outlet property="label" destination="pWd-QM-2dI" id="TvU-3w-edy"/>
+                <outlet property="messageBubble" destination="zHm-6i-4hl" id="9kd-Cz-Iwj"/>
+                <outlet property="rightImage" destination="igt-Qo-DCM" id="joQ-qz-IeH"/>
+                <outlet property="senderName" destination="Utj-1V-3u7" id="Uc9-yl-IfS"/>
+                <outlet property="upvoteAmount" destination="sJs-2c-hZK" id="ehi-xk-eGn"/>
+                <outlet property="upvoteImage" destination="nuV-tr-A2K" id="tyW-dX-EUp"/>
+            </connections>
+            <point key="canvasLocation" x="434.78260869565219" y="32.477678571428569"/>
         </tableViewCell>
     </objects>
     <resources>
