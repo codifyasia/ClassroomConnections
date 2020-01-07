@@ -246,11 +246,14 @@ extension StudentClassChatViewController: UITableViewDataSource {
             cell.label.text = messages[indexPath.row].body
                    cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
 
-            
+//
                    if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
-                       cell.messageBubble.backgroundColor = UIColor(red: 150/255.0, green: 120.0/255.0, blue: 255.0/255.0, alpha: 0.3)
-                       cell.rightImage?.tintColor = UIColor.systemTeal
-                   }
+                    cell.messageBubble.backgroundColor = UIColor(red: 0.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 0.3)
+                   } else {
+                        cell.messageBubble.backgroundColor = UIColor.systemTeal
+                    }
+            
+                    cell.rightImage?.tintColor = UIColor.systemTeal
 
                    if messages[indexPath.row].messageType == "Question" {
                        cell.rightImage.image = UIImage(systemName: "questionmark.square")
