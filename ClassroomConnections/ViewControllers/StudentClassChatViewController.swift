@@ -150,7 +150,7 @@ class StudentClassChatViewController: UIViewController {
             "MessageBody": messageTextField.text!,
             "SenderID": Auth.auth().currentUser?.uid,
             "messageType" : "Answer", "Upvotes" : 0, "Index" : answerIndex] as [String : Any]
-            let hi = 
+//            let hi =
             messagesDB.childByAutoId().setValue(messageDictionary) {
                 (error, reference) in
                 
@@ -303,7 +303,34 @@ extension StudentClassChatViewController: UITableViewDelegate {
                 
             }
             let upvote = UIAlertAction(title: "Upvote", style: .default) { (action) in
-//                self.ref.child("Classrooms").child(classRoomCode).child("Messages").child(<#T##pathString: String##String#>)
+                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").observeSingleEvent(of: .value, with: { (snapshot) in
+    
+                    guard let value = snapshot.value as? NSDictionary else {
+                        print("No Data!!!")
+                        return
+                    }
+                    
+                    
+                    let identity = value["ID"] as! String
+    
+                    self.classRoomCode = identity
+    
+    
+    //            self.ref.child("Classrooms").child(identity).child("Messages").child("Message1").setValue(messageDictionary) {
+    //                (error, reference) in
+    //
+    //                if error != nil {
+    //                    print(error!)
+    //                } else {
+    //                    print("Message saved succesfully")
+    //                }
+                //            }
+                    self.retrieveMessages()
+                
+                }) { (error) in
+                    print("error:\(error.localizedDescription)")
+                }
+                            
             }
             let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
 //                if (self.questionOn) {
