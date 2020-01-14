@@ -20,11 +20,17 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     
     var messages: [Message] = [Message]()
     
+    var answerOn: Bool = false
+    
+    @IBOutlet weak var answerLabel: UIButton!
+    var answerIndex: Int = 0
+    
     override func viewDidLoad() {
-
+        answerLabel.isHidden = false
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        tableView.register(UINib(nibName: "replyCell", bundle: nil), forCellReuseIdentifier: "ReusableCell1")
         ref = Database.database().reference()
 //        var messageDictionary = ["Sender" : Auth.auth().currentUser!.email, "MessageBody" : "Welcome to my class", "SenderID" : Auth.auth().currentUser!.uid]
 //        ref.child("Classroom")
@@ -60,6 +66,10 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func answerSwitch(_ sender: Any) {
+        answerLabel.isHidden = true
+        answerOn = false
+    }
     @IBAction func signOut(_ sender: Any) {
     do {
         try Auth.auth().signOut()
@@ -88,17 +98,22 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
 
                         let snapshotValue = snapshot.value as! Dictionary<String,Any>
                         let Text = snapshotValue["MessageBody"]!
-                         let Sender = snapshotValue["Sender"]!
-                         let SenderID = snapshotValue["SenderID"]!
-                         let messageT = snapshotValue["messageType"]!
-
-            
+                        let Sender = snapshotValue["Sender"]!
+                        let SenderID = snapshotValue["SenderID"]!
+                        let messageT : String = snapshotValue["messageType"]! as! String
+                        let messageIndex : Int = snapshotValue["Index"] as! Int
+                        
                         let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String)
-            
-                        self.messages.append(message)
-            
-            
-                            self.tableView.reloadData()
+                        
+                        if (messageT == "Answer") {
+                            self.messages.insert(message, at: messageIndex)
+                        }
+                        else {
+                            self.messages.append(message)
+                        }
+                        
+                        
+                        self.tableView.reloadData()
                         let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
                         self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
             
@@ -107,24 +122,51 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {
-            
+            // have to make separate xib for teacher messages
+        // have to make separate xib for teacher messages
+        // have to make separate xib for teacher messages
+        // have to make separate xib for teacher messages
+        // have to make separate xib for teacher messages
+        // have to make separate xib for teacher messages
+        // have to make separate xib for teacher messages
+        // have to make separate xib for teacher messages
+        
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
         print(messageTextField.text!)
-        let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
-                                 "MessageBody": messageTextField.text!,
-                                "SenderID": Auth.auth().currentUser?.uid]
-        
-        messagesDB.childByAutoId().setValue(messageDictionary) {
-            (error, reference) in
-            
-            if error != nil {
-                print(error!)
+        if (answerOn) {
+            let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+            "MessageBody": messageTextField.text!,
+            "SenderID": Auth.auth().currentUser?.uid,
+            "messageType" : "Answer", "Upvotes" : 0, "Index" : answerIndex] as [String : Any]
+            messagesDB.childByAutoId().setValue(messageDictionary) {
+                (error, reference) in
+                
+                if error != nil {
+                    print(error!)
+                }
+                else {
+                    print("Message saved successfully!")
+                }
             }
-            else {
-                print("Message saved successfully!")
+            answerOn = false
+            answerLabel.isHidden = true
+        } else {
+            print("message type is saved as normal")
+            let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+                                     "MessageBody": messageTextField.text!,
+                                     "SenderID": Auth.auth().currentUser?.uid,
+                                     "messageType" : "Normal", "Index" : 0] as [String : Any]
+            messagesDB.childByAutoId().setValue(messageDictionary) {
+                (error, reference) in
+                
+                if error != nil {
+                    print(error!)
+                }
+                else {
+                    print("Message saved successfully!")
+                }
             }
         }
-        messageTextField.text = ""
     }
     
     @IBAction func QuestionButton(_ sender: Any) {
