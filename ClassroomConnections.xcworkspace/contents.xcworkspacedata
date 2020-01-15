@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/gavinwong/Desktop/Repos/ClassroomConnections/ClassroomConnections/Awakes/MessageSelf.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/gavinwong/Desktop/Repos/ClassroomConnections/ClassroomConnections/Xibs/MessageSelf.xib">
+   </FileRef>
+   <FileRef
       location = "group:ClassroomConnections.xcodeproj">
    </FileRef>
    <FileRef

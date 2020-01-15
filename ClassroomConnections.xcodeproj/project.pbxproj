@@ -13,6 +13,7 @@
 		47719D822389E9A600FC5350 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D812389E9A600FC5350 /* LoginViewController.swift */; };
 		47719D842389E9C500FC5350 /* TeachersClassChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D832389E9C500FC5350 /* TeachersClassChatViewController.swift */; };
 		47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D872389EA1300FC5350 /* ChecklistViewController.swift */; };
+		4789B4CF23CEB13B00293268 /* MessageSelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4789B4CE23CEB13B00293268 /* MessageSelf.swift */; };
 		47BD5872238A2D2C008FC1D7 /* AddClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD586E238A2D2C008FC1D7 /* AddClass.swift */; };
 		47BD5873238A2D2C008FC1D7 /* AddClass.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47BD586F238A2D2C008FC1D7 /* AddClass.xib */; };
 		47BD5874238A2D2C008FC1D7 /* TeacherClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD5870238A2D2C008FC1D7 /* TeacherClasses.swift */; };
@@ -45,6 +46,8 @@
 		47719D812389E9A600FC5350 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		47719D832389E9C500FC5350 /* TeachersClassChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersClassChatViewController.swift; sourceTree = "<group>"; };
 		47719D872389EA1300FC5350 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
+		4789B4CD23CEB13700293268 /* MessageSelf.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MessageSelf.xib; path = /Users/gavinwong/Desktop/Repos/ClassroomConnections/ClassroomConnections/Xibs/MessageSelf.xib; sourceTree = "<absolute>"; };
+		4789B4CE23CEB13B00293268 /* MessageSelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageSelf.swift; path = /Users/gavinwong/Desktop/Repos/ClassroomConnections/ClassroomConnections/Awakes/MessageSelf.swift; sourceTree = "<absolute>"; };
 		47BD586E238A2D2C008FC1D7 /* AddClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClass.swift; sourceTree = "<group>"; };
 		47BD586F238A2D2C008FC1D7 /* AddClass.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddClass.xib; sourceTree = "<group>"; };
 		47BD5870238A2D2C008FC1D7 /* TeacherClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherClasses.swift; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 		47BD5876238A2D45008FC1D7 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				4789B4CD23CEB13700293268 /* MessageSelf.xib */,
 				898942E123AFF2DA00DF152B /* replyCell.xib */,
 				47BD586F238A2D2C008FC1D7 /* AddClass.xib */,
 				9C6D23AA238A02620072CE2B /* MessageCell.xib */,
@@ -110,6 +114,7 @@
 				47BD586E238A2D2C008FC1D7 /* AddClass.swift */,
 				9C6D23A9238A02620072CE2B /* MessageCell.swift */,
 				898942E023AFF2D900DF152B /* replyCell.swift */,
+				4789B4CE23CEB13B00293268 /* MessageSelf.swift */,
 			);
 			path = Awakes;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				9CD6EB99238A4EC1000A6A33 /* StudentConflictCalendar.swift in Sources */,
 				47719D822389E9A600FC5350 /* LoginViewController.swift in Sources */,
 				47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */,
+				4789B4CF23CEB13B00293268 /* MessageSelf.swift in Sources */,
 				47D507A72389D955006E46EE /* RegisterViewController.swift in Sources */,
 				4718962C23B320C800F34C17 /* Answer.swift in Sources */,
 				9C79F79A23AEE9A9000CA232 /* AuthHandler.swift in Sources */,
