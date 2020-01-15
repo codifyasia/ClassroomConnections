@@ -35,7 +35,8 @@ class StudentClassChatViewController: UIViewController {
         tableView.delegate = self 
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         tableView.register(UINib(nibName: "replyCell", bundle: nil), forCellReuseIdentifier: "ReusableCell1")
-        tableView.register(UINib(nibName: "MessageSelf", bundle: nil), forCellReuseIdentifier: "ReusableCell2")
+        tableView.register(UINib(nibName: "MessageSelf", bundle: nil), forCellReuseIdentifier: "RC")
+        tableView.register(UINib(nibName: "gayCell", bundle: nil), forCellReuseIdentifier: "gay")
         ref = Database.database().reference()
         //        var messageDictionary = ["Sender" : Auth.auth().currentUser!.email, "MessageBody" : "Welcome to my class", "SenderID" : Auth.auth().currentUser!.uid]
         //        ref.child("Classroom")
@@ -267,17 +268,18 @@ extension StudentClassChatViewController: UITableViewDataSource {
         } else {
             
             if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
-                print("-----------------------------")
-                print(messages[indexPath.row])
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell2", for: indexPath) as! MessageSelf
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
-                print("*****************************")
+                let cell = tableView.dequeueReusableCell(withIdentifier: "gay", for: indexPath) as! gayCell
+//                print("-----------------------------")
+//                print(messages[indexPath.row])
+//                let cell = tableView.dequeueReusableCell(withIdentifier: "RC", for: indexPath) as! MessageSelf
+////                let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
+//                print("*****************************")
                 cell.label.text = messages[indexPath.row].body
                 cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
-                
+
                 cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
                 cell.rightImage?.tintColor = UIColor.systemTeal
-                 
+
                  if messages[indexPath.row].messageType == "Question" {
                      cell.rightImage.image = UIImage(systemName: "questionmark.square")
                  } else if messages[indexPath.row].messageType == "Normal" {
