@@ -122,14 +122,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {
-            // have to make separate xib for teacher messages
-        // have to make separate xib for teacher messages
-        // have to make separate xib for teacher messages
-        // have to make separate xib for teacher messages
-        // have to make separate xib for teacher messages
-        // have to make separate xib for teacher messages
-        // have to make separate xib for teacher messages
-        // have to make separate xib for teacher messages
+
         
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
         print(messageTextField.text!)
@@ -169,9 +162,6 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func QuestionButton(_ sender: Any) {
-        
-    }
     
 }
         //
@@ -206,18 +196,65 @@ extension TeacherClassChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
-        cell.label.text = messages[indexPath.row].body
-        cell.senderName.text = "Sender: " + messages[indexPath.row].sender
-        
-        if cell.senderName.text == ("Sender: " + Auth.auth().currentUser!.email!) {
-            cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
-            cell.rightImage?.tintColor = UIColor.systemTeal
+        if (messages[indexPath.row].messageType == "Answer") {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell1", for: indexPath) as! replyCell
+
+                    cell.label.text = messages[indexPath.row].body
+                           cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
+
+        //
+                           if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
+                            cell.messageBubble.backgroundColor = UIColor(red: 235.0/255.0, green: 103.0/255.0, blue: 52.0/255.0, alpha: 0.3)
+                            cell.rightImage?.tintColor = UIColor.systemRed
+                           }
+                    
+                            //cell.rightImage?.tintColor = UIColor.systemTeal
+
+                           cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
+                           print("This message is an answer")
+                           return cell
+        } else {
+            if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
+                            let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell2", for: indexPath) as! messageSelfCell
+                            cell.label.text = messages[indexPath.row].body
+                            cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
+
+                            cell.messageBubble.backgroundColor =  UIColor(red: 235.0/255.0, green: 103.0/255.0, blue: 52.0/255.0, alpha: 0.3)
+                            cell.rightImage?.tintColor = UIColor.systemRed
+
+                             if messages[indexPath.row].messageType == "Question" {
+                                 cell.rightImage.image = UIImage(systemName: "questionmark.square")
+                             } else if messages[indexPath.row].messageType == "Normal" {
+                                 cell.rightImage.image = UIImage(systemName: "smiley")
+                        
+                        }
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
+                cell.label.text = messages[indexPath.row].body
+                cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
+                cell.messageBubble.backgroundColor = UIColor(red: 235.0/255.0, green: 103.0/255.0, blue: 52.0/255.0, alpha: 0.3)
+                cell.rightImage?.tintColor = UIColor.systemRed
+                 
+                 if messages[indexPath.row].messageType == "Question" {
+                     cell.rightImage.image = UIImage(systemName: "questionmark.square")
+                 } else if messages[indexPath.row].messageType == "Normal" {
+                     cell.rightImage.image = UIImage(systemName: "smiley")
+                 }
+                 return cell
+            }
         }
-        return cell
     }
+    
 }
 extension TeacherClassChatViewController: UITableViewDelegate {
+    // still need to do this
+    // still need to do this
+    // still need to do this
+    // still need to do this
+    // still need to do this
+    // still need to do this
+    // still need to do this
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("person selected row : " + String(indexPath.row) + " (starts from 0)")
     }
