@@ -13,6 +13,7 @@
 		47719D822389E9A600FC5350 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D812389E9A600FC5350 /* LoginViewController.swift */; };
 		47719D842389E9C500FC5350 /* TeachersClassChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D832389E9C500FC5350 /* TeachersClassChatViewController.swift */; };
 		47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D872389EA1300FC5350 /* ChecklistViewController.swift */; };
+		4789B4CF23CEB13B00293268 /* MessageSelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4789B4CE23CEB13B00293268 /* MessageSelf.swift */; };
 		4789B4D223CEC53000293268 /* gayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4789B4D023CEC53000293268 /* gayCell.swift */; };
 		4789B4D323CEC53000293268 /* gayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4789B4D123CEC53000293268 /* gayCell.xib */; };
 		47BD5872238A2D2C008FC1D7 /* AddClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD586E238A2D2C008FC1D7 /* AddClass.swift */; };
@@ -30,6 +31,7 @@
 		898942E323AFF2DA00DF152B /* replyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 898942E123AFF2DA00DF152B /* replyCell.xib */; };
 		9C6D239C2389F44F0072CE2B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D239B2389F44F0072CE2B /* Message.swift */; };
 		9C6D23AB238A02620072CE2B /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D23A9238A02620072CE2B /* MessageCell.swift */; };
+		9C6D23AC238A02620072CE2B /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6D23AA238A02620072CE2B /* MessageCell.xib */; };
 		9C79F79823AEE96C000CA232 /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79F79723AEE96C000CA232 /* AuthHandler.swift */; };
 		9C79F79A23AEE9A9000CA232 /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79F79923AEE9A9000CA232 /* AuthHandler.swift */; };
 		9C79F79C23AEE9F6000CA232 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79F79B23AEE9F6000CA232 /* AuthManager.swift */; };
@@ -47,6 +49,7 @@
 		47719D832389E9C500FC5350 /* TeachersClassChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersClassChatViewController.swift; sourceTree = "<group>"; };
 		47719D872389EA1300FC5350 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		4789B4CD23CEB13700293268 /* MessageSelf.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MessageSelf.xib; path = /Users/gavinwong/Desktop/Repos/ClassroomConnections/ClassroomConnections/Xibs/MessageSelf.xib; sourceTree = "<absolute>"; };
+		4789B4CE23CEB13B00293268 /* MessageSelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageSelf.swift; path = /Users/gavinwong/Desktop/Repos/ClassroomConnections/ClassroomConnections/Awakes/MessageSelf.swift; sourceTree = "<absolute>"; };
 		4789B4D023CEC53000293268 /* gayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gayCell.swift; sourceTree = "<group>"; };
 		4789B4D123CEC53000293268 /* gayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = gayCell.xib; sourceTree = "<group>"; };
 		47BD586E238A2D2C008FC1D7 /* AddClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClass.swift; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 		898942E123AFF2DA00DF152B /* replyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = replyCell.xib; sourceTree = "<group>"; };
 		9C6D239B2389F44F0072CE2B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9C6D23A9238A02620072CE2B /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		9C6D23AA238A02620072CE2B /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		9C79F79723AEE96C000CA232 /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthHandler.swift; path = ClassroomConnections/ViewControllers/AuthHandler.swift; sourceTree = "<group>"; };
 		9C79F79923AEE9A9000CA232 /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
 		9C79F79B23AEE9F6000CA232 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 				4789B4CD23CEB13700293268 /* MessageSelf.xib */,
 				898942E123AFF2DA00DF152B /* replyCell.xib */,
 				47BD586F238A2D2C008FC1D7 /* AddClass.xib */,
+				9C6D23AA238A02620072CE2B /* MessageCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 				47BD586E238A2D2C008FC1D7 /* AddClass.swift */,
 				9C6D23A9238A02620072CE2B /* MessageCell.swift */,
 				898942E023AFF2D900DF152B /* replyCell.swift */,
+				4789B4CE23CEB13B00293268 /* MessageSelf.swift */,
 				4789B4D023CEC53000293268 /* gayCell.swift */,
 			);
 			path = Awakes;
@@ -254,6 +260,7 @@
 			files = (
 				898942E323AFF2DA00DF152B /* replyCell.xib in Resources */,
 				47BD5873238A2D2C008FC1D7 /* AddClass.xib in Resources */,
+				9C6D23AC238A02620072CE2B /* MessageCell.xib in Resources */,
 				47D507AF2389D956006E46EE /* LaunchScreen.storyboard in Resources */,
 				47719D752389DF0200FC5350 /* GoogleService-Info.plist in Resources */,
 				4789B4D323CEC53000293268 /* gayCell.xib in Resources */,
@@ -318,6 +325,7 @@
 				47719D822389E9A600FC5350 /* LoginViewController.swift in Sources */,
 				4789B4D223CEC53000293268 /* gayCell.swift in Sources */,
 				47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */,
+				4789B4CF23CEB13B00293268 /* MessageSelf.swift in Sources */,
 				47D507A72389D955006E46EE /* RegisterViewController.swift in Sources */,
 				4718962C23B320C800F34C17 /* Answer.swift in Sources */,
 				9C79F79A23AEE9A9000CA232 /* AuthHandler.swift in Sources */,
