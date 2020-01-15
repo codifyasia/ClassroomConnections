@@ -35,7 +35,6 @@ class StudentClassChatViewController: UIViewController {
         tableView.delegate = self 
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         tableView.register(UINib(nibName: "replyCell", bundle: nil), forCellReuseIdentifier: "ReusableCell1")
-        tableView.register(UINib(nibName: "MessageSelf", bundle: nil), forCellReuseIdentifier: "RC")
         tableView.register(UINib(nibName: "gayCell", bundle: nil), forCellReuseIdentifier: "gay")
         ref = Database.database().reference()
         //        var messageDictionary = ["Sender" : Auth.auth().currentUser!.email, "MessageBody" : "Welcome to my class", "SenderID" : Auth.auth().currentUser!.uid]
