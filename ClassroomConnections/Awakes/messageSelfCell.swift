@@ -8,7 +8,7 @@
 
 import UIKit
 
-class gayCell: UITableViewCell {
+class messageSelfCell: UITableViewCell {
     
 //    @IBOutlet weak var upvoteImage: UIImageView!
 //    @IBOutlet weak var label: UILabel!

@@ -35,7 +35,7 @@ class StudentClassChatViewController: UIViewController {
         tableView.delegate = self 
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         tableView.register(UINib(nibName: "replyCell", bundle: nil), forCellReuseIdentifier: "ReusableCell1")
-        tableView.register(UINib(nibName: "gayCell", bundle: nil), forCellReuseIdentifier: "gay")
+        tableView.register(UINib(nibName: "messageSelfCell", bundle: nil), forCellReuseIdentifier: "ReusableCell2")
         ref = Database.database().reference()
         //        var messageDictionary = ["Sender" : Auth.auth().currentUser!.email, "MessageBody" : "Welcome to my class", "SenderID" : Auth.auth().currentUser!.uid]
         //        ref.child("Classroom")
@@ -267,7 +267,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
         } else {
             
             if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "gay", for: indexPath) as! gayCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell2", for: indexPath) as! messageSelfCell
 //                print("-----------------------------")
 //                print(messages[indexPath.row])
 //                let cell = tableView.dequeueReusableCell(withIdentifier: "RC", for: indexPath) as! MessageSelf
