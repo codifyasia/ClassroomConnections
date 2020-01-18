@@ -26,11 +26,13 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     var answerIndex: Int = 0
     
     override func viewDidLoad() {
+        print("buh")
         answerLabel.isHidden = false
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         tableView.register(UINib(nibName: "replyCell", bundle: nil), forCellReuseIdentifier: "ReusableCell1")
+        tableView.register(UINib(nibName: "messageSelfCell", bundle: nil), forCellReuseIdentifier: "ReusableCell2")
         ref = Database.database().reference()
 //        var messageDictionary = ["Sender" : Auth.auth().currentUser!.email, "MessageBody" : "Welcome to my class", "SenderID" : Auth.auth().currentUser!.uid]
 //        ref.child("Classroom")
@@ -126,6 +128,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
         
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
         print(messageTextField.text!)
+        print("entered sending message")
         if (answerOn) {
             let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
             "MessageBody": messageTextField.text!,
