@@ -16,33 +16,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="502" height="93"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6h-XI-M5q">
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m6h-XI-M5q">
                         <rect key="frame" x="0.0" y="25" width="101" height="40"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsup.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nuV-tr-A2K">
-                                <rect key="frame" x="63" y="5.5" width="28" height="27.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="28" id="0F4-6L-wTZ"/>
-                                    <constraint firstAttribute="height" constant="28" id="Apl-Gf-xZd"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJs-2c-hZK">
-                                <rect key="frame" x="42" y="6" width="15" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="nuV-tr-A2K" firstAttribute="top" secondItem="m6h-XI-M5q" secondAttribute="top" constant="6" id="CRj-oO-3dz"/>
                             <constraint firstAttribute="width" constant="101" id="DEP-m4-BIX"/>
-                            <constraint firstAttribute="bottom" secondItem="sJs-2c-hZK" secondAttribute="bottom" constant="6" id="KLh-Gc-I9f"/>
-                            <constraint firstItem="sJs-2c-hZK" firstAttribute="top" secondItem="m6h-XI-M5q" secondAttribute="top" constant="6" id="TeU-6G-ngb"/>
-                            <constraint firstItem="nuV-tr-A2K" firstAttribute="leading" secondItem="sJs-2c-hZK" secondAttribute="trailing" constant="6" id="na8-FX-Izl"/>
-                            <constraint firstAttribute="trailing" secondItem="nuV-tr-A2K" secondAttribute="trailing" constant="10" id="po1-Dl-O6r"/>
-                            <constraint firstAttribute="bottom" secondItem="nuV-tr-A2K" secondAttribute="bottom" constant="6" id="rDg-vL-fYZ"/>
-                            <constraint firstItem="nuV-tr-A2K" firstAttribute="leading" secondItem="sJs-2c-hZK" secondAttribute="trailing" constant="6" id="sDZ-7l-8Cr"/>
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SMj-y0-cSC">
@@ -78,14 +56,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utj-1V-3u7">
-                        <rect key="frame" x="60" y="5" width="60.5" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="@Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utj-1V-3u7">
+                        <rect key="frame" x="101" y="6" width="60.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.90900618649999998" green="0.89297852919999998" blue="0.90726412759999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="m6h-XI-M5q" firstAttribute="top" secondItem="4MY-vm-q7a" secondAttribute="top" constant="25" id="Eop-RK-azj"/>
                     <constraint firstItem="SMj-y0-cSC" firstAttribute="leading" secondItem="m6h-XI-M5q" secondAttribute="trailing" id="HDo-ef-Ej5"/>
@@ -104,14 +82,11 @@
                 <outlet property="messageBubble" destination="zHm-6i-4hl" id="9kd-Cz-Iwj"/>
                 <outlet property="rightImage" destination="igt-Qo-DCM" id="joQ-qz-IeH"/>
                 <outlet property="senderName" destination="Utj-1V-3u7" id="Uc9-yl-IfS"/>
-                <outlet property="upvoteAmount" destination="sJs-2c-hZK" id="ehi-xk-eGn"/>
-                <outlet property="upvoteImage" destination="nuV-tr-A2K" id="tyW-dX-EUp"/>
             </connections>
             <point key="canvasLocation" x="434.78260869565219" y="32.477678571428569"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="exclamationmark.square" catalog="system" width="64" height="56"/>
-        <image name="hand.thumbsup.fill" catalog="system" width="64" height="62"/>
     </resources>
 </document>

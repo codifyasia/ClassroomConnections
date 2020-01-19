@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,31 +18,9 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JiW-I7-8ep">
                         <rect key="frame" x="0.0" y="30" width="70" height="40"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8RS-bX-z49">
-                                <rect key="frame" x="11" y="6" width="15" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsup.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Hm7-D7-ZsU">
-                                <rect key="frame" x="32" y="5.5" width="28" height="27.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="28" id="xRi-CH-jJU"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="26z-4C-08x"/>
-                            <constraint firstItem="Hm7-D7-ZsU" firstAttribute="top" secondItem="JiW-I7-8ep" secondAttribute="top" constant="6" id="4Si-7r-J9g"/>
-                            <constraint firstAttribute="bottom" secondItem="8RS-bX-z49" secondAttribute="bottom" constant="6" id="6th-zW-3aC"/>
-                            <constraint firstItem="Hm7-D7-ZsU" firstAttribute="leading" secondItem="8RS-bX-z49" secondAttribute="trailing" constant="6" id="BIP-Pu-Hjx"/>
-                            <constraint firstAttribute="trailing" secondItem="Hm7-D7-ZsU" secondAttribute="trailing" constant="10" id="IO8-em-DWS"/>
-                            <constraint firstItem="8RS-bX-z49" firstAttribute="leading" secondItem="JiW-I7-8ep" secondAttribute="leading" constant="11" id="JlU-qt-oRp"/>
-                            <constraint firstAttribute="bottom" secondItem="Hm7-D7-ZsU" secondAttribute="bottom" constant="6" id="c7P-Eh-JPe"/>
-                            <constraint firstItem="8RS-bX-z49" firstAttribute="top" secondItem="JiW-I7-8ep" secondAttribute="top" constant="6" id="mkW-k7-NZ5"/>
-                            <constraint firstItem="Hm7-D7-ZsU" firstAttribute="leading" secondItem="8RS-bX-z49" secondAttribute="trailing" constant="6" id="uDJ-vr-sJq"/>
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2o8-eU-aSx">
@@ -79,13 +57,13 @@
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="@Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atN-jn-OnV">
-                        <rect key="frame" x="9" y="5" width="60.5" height="15"/>
+                        <rect key="frame" x="70" y="7" width="60.5" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.90900618654822329" green="0.89297852923362631" blue="0.90726412764551367" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="atN-jn-OnV" firstAttribute="top" secondItem="Xw8-bV-6c1" secondAttribute="top" constant="5" id="1M2-kT-dXZ"/>
                     <constraint firstItem="JiW-I7-8ep" firstAttribute="leading" secondItem="Xw8-bV-6c1" secondAttribute="leading" id="Glv-fQ-Q8k"/>
@@ -93,7 +71,6 @@
                     <constraint firstAttribute="bottom" secondItem="2o8-eU-aSx" secondAttribute="bottom" constant="10" id="TBG-27-dVr"/>
                     <constraint firstItem="2o8-eU-aSx" firstAttribute="leading" secondItem="JiW-I7-8ep" secondAttribute="trailing" id="UoU-el-jzh"/>
                     <constraint firstAttribute="trailing" secondItem="2o8-eU-aSx" secondAttribute="trailing" constant="10" id="b6s-3i-tf1"/>
-                    <constraint firstItem="2o8-eU-aSx" firstAttribute="leading" secondItem="JiW-I7-8ep" secondAttribute="leading" constant="70" id="gkf-gA-m00"/>
                     <constraint firstItem="2o8-eU-aSx" firstAttribute="top" secondItem="Xw8-bV-6c1" secondAttribute="top" constant="30" id="h3B-tG-gyS"/>
                     <constraint firstItem="2o8-eU-aSx" firstAttribute="top" secondItem="atN-jn-OnV" secondAttribute="bottom" constant="10" id="yK4-wq-Pkw"/>
                     <constraint firstItem="JiW-I7-8ep" firstAttribute="top" secondItem="atN-jn-OnV" secondAttribute="bottom" constant="10" id="yyH-h6-VAK"/>
@@ -106,14 +83,11 @@
                 <outlet property="messageBubble" destination="lXM-da-ar8" id="Int-5K-Mlp"/>
                 <outlet property="rightImage" destination="3gC-4T-WMp" id="tl6-RX-FAx"/>
                 <outlet property="senderName" destination="atN-jn-OnV" id="lmL-Wx-0Te"/>
-                <outlet property="upvoteAmount" destination="8RS-bX-z49" id="Pze-wK-a0l"/>
-                <outlet property="upvoteImage" destination="Hm7-D7-ZsU" id="MwS-9n-ZJ5"/>
             </connections>
             <point key="canvasLocation" x="347.82608695652175" y="57.254464285714285"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="exclamationmark.square" catalog="system" width="64" height="56"/>
-        <image name="hand.thumbsup.fill" catalog="system" width="64" height="62"/>
     </resources>
 </document>

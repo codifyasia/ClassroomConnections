@@ -201,9 +201,9 @@ extension TeacherClassChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (messages[indexPath.row].messageType == "Answer") {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell1", for: indexPath) as! replyCell
-
+            cell.senderName.isHidden = true 
                     cell.label.text = messages[indexPath.row].body
-                           cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
+                    cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
 
         //
                            if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
@@ -219,10 +219,12 @@ extension TeacherClassChatViewController: UITableViewDataSource {
         } else {
             if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
                             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell2", for: indexPath) as! messageSelfCell
+                cell.senderName.isHidden = true //TAKE NOTICE OF THIS THIS ISS WHERE THE SENDER: ID IS DELTED THIS IS THE LINE THIS IS THE LINE I REPEAT THIS IS THE LINE
+
                             cell.label.text = messages[indexPath.row].body
                             cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
 
-                            cell.messageBubble.backgroundColor =  UIColor(red: 235.0/255.0, green: 103.0/255.0, blue: 52.0/255.0, alpha: 0.3)
+                cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
                             cell.rightImage?.tintColor = UIColor.systemRed
 
                              if messages[indexPath.row].messageType == "Question" {
@@ -234,6 +236,7 @@ extension TeacherClassChatViewController: UITableViewDataSource {
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
+                cell.senderName.isHidden = true
                 cell.label.text = messages[indexPath.row].body
                 cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
                 cell.messageBubble.backgroundColor = UIColor(red: 235.0/255.0, green: 103.0/255.0, blue: 52.0/255.0, alpha: 0.3)

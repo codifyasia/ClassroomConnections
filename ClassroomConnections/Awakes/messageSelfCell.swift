@@ -23,6 +23,8 @@ class messageSelfCell: UITableViewCell {
     @IBOutlet weak var senderName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 3
+
         // Initialization code
     }
 

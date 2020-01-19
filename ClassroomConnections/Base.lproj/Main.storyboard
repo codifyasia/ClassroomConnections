@@ -393,7 +393,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Vub-v8-i20"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" image="message.fill" catalog="system" badgeValue="2" id="kax-wi-NRt"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="message.fill" catalog="system" badgeValue="2" id="kax-wi-NRt">
+                        <color key="badgeColor" red="0.95294117649999999" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="answerLabel" destination="X1D-3j-5zM" id="911-LI-8gr"/>
                         <outlet property="messageTextField" destination="WL4-gr-wzh" id="MYk-dE-KB0"/>

@@ -20,7 +20,7 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var messageBubble: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 5
+        messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 3
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
