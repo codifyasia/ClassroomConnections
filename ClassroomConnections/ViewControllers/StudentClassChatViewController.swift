@@ -258,7 +258,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
                    if messages[indexPath.row].messageType == "Question" {
                        cell.rightImage.image = UIImage(systemName: "questionmark.square")
                    } else if messages[indexPath.row].messageType == "Normal" {
-                       cell.rightImage.image = UIImage(systemName: "smiley")
+//                       cell.rightImage.image = UIImage(systemName: "smiley")
                    } else if messages[indexPath.row].messageType == "Answer" {
                        cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
                        print("This message is an answer")
@@ -267,6 +267,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
         } else {
             
             if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
+                print("im gay boi")
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell2", for: indexPath) as! messageSelfCell
 //                print("-----------------------------")
 //                print(messages[indexPath.row])
@@ -276,13 +277,13 @@ extension StudentClassChatViewController: UITableViewDataSource {
                 cell.label.text = messages[indexPath.row].body
                 cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
 
-                cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+                cell.messageBubble.backgroundColor = UIColor.systemIndigo
                 cell.rightImage?.tintColor = UIColor.systemTeal
 
                  if messages[indexPath.row].messageType == "Question" {
                      cell.rightImage.image = UIImage(systemName: "questionmark.square")
                  } else if messages[indexPath.row].messageType == "Normal" {
-                     cell.rightImage.image = UIImage(systemName: "smiley")
+//                     cell.rightImage.image = UIImage(systemName: "smiley")
                  } else if messages[indexPath.row].messageType == "Answer" {
                      cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
                      print("This message is an answer")
@@ -292,17 +293,17 @@ extension StudentClassChatViewController: UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
                 cell.label.text = messages[indexPath.row].body
                 cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
-                cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+                cell.messageBubble.backgroundColor = UIColor(red: 100.0*0.6/255.0, green: 96.0*0.6/255.0, blue: 255.0*0.6/255.0, alpha: 0.3)
                 cell.rightImage?.tintColor = UIColor.systemTeal
                  
-                 if messages[indexPath.row].messageType == "Question" {
-                     cell.rightImage.image = UIImage(systemName: "questionmark.square")
-                 } else if messages[indexPath.row].messageType == "Normal" {
-                     cell.rightImage.image = UIImage(systemName: "smiley")
-                 } else if messages[indexPath.row].messageType == "Answer" {
-                     cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
-                     print("This message is an answer")
-                 }
+//                 if messages[indexPath.row].messageType == "Question" {
+//                     cell.rightImage.image = UIImage(systemName: "questionmark.square")
+//                 } else if messages[indexPath.row].messageType == "Normal" {
+//                     cell.rightImage.image = UIImage(systemName: "smiley")
+//                 } else if messages[indexPath.row].messageType == "Answer" {
+//                     cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
+//                     print("This message is an answer")
+//                 }
                  return cell
             }
             

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,8 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="502" height="93"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m6h-XI-M5q">
-                        <rect key="frame" x="0.0" y="25" width="101" height="40"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6h-XI-M5q">
+                        <rect key="frame" x="0.0" y="25" width="101" height="74"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="101" id="DEP-m4-BIX"/>
@@ -73,6 +73,7 @@
                     <constraint firstItem="m6h-XI-M5q" firstAttribute="leading" secondItem="4MY-vm-q7a" secondAttribute="leading" id="kx8-pR-jbt"/>
                     <constraint firstItem="Utj-1V-3u7" firstAttribute="leading" secondItem="4MY-vm-q7a" secondAttribute="leading" constant="60" id="miK-tC-ngF"/>
                     <constraint firstItem="Utj-1V-3u7" firstAttribute="top" secondItem="4MY-vm-q7a" secondAttribute="top" constant="5" id="qMn-zV-iO0"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="m6h-XI-M5q" secondAttribute="bottom" constant="-17" id="swg-R1-71b"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.90900618649999998" green="0.76342624830000005" blue="0.53388658529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
