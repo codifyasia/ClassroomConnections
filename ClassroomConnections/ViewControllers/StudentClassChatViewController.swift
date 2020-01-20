@@ -255,14 +255,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
             
                     cell.rightImage?.tintColor = UIColor.systemTeal
 
-                   if messages[indexPath.row].messageType == "Question" {
-                       cell.rightImage.image = UIImage(systemName: "questionmark.square")
-                   } else if messages[indexPath.row].messageType == "Normal" {
-//                       cell.rightImage.image = UIImage(systemName: "smiley")
-                   } else if messages[indexPath.row].messageType == "Answer" {
-                       cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
-                       print("This message is an answer")
-                   }
+                   cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
                    return cell
         } else {
             
@@ -280,14 +273,11 @@ extension StudentClassChatViewController: UITableViewDataSource {
                 cell.messageBubble.backgroundColor = UIColor.systemIndigo
                 cell.rightImage?.tintColor = UIColor.systemTeal
 
-                 if messages[indexPath.row].messageType == "Question" {
-                     cell.rightImage.image = UIImage(systemName: "questionmark.square")
-                 } else if messages[indexPath.row].messageType == "Normal" {
-//                     cell.rightImage.image = UIImage(systemName: "smiley")
-                 } else if messages[indexPath.row].messageType == "Answer" {
-                     cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
-                     print("This message is an answer")
-                 }
+                  if messages[indexPath.row].messageType == "Question" {
+                        cell.rightImage.image = UIImage(systemName: "questionmark.square")
+                  } else if messages[indexPath.row].messageType == "Normal" {
+                        cell.rightImage.image = UIImage(systemName: "person")
+                  }
                  return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
@@ -296,14 +286,11 @@ extension StudentClassChatViewController: UITableViewDataSource {
                 cell.messageBubble.backgroundColor = UIColor(red: 100.0*0.6/255.0, green: 96.0*0.6/255.0, blue: 255.0*0.6/255.0, alpha: 0.3)
                 cell.rightImage?.tintColor = UIColor.systemTeal
                  
-//                 if messages[indexPath.row].messageType == "Question" {
-//                     cell.rightImage.image = UIImage(systemName: "questionmark.square")
-//                 } else if messages[indexPath.row].messageType == "Normal" {
-//                     cell.rightImage.image = UIImage(systemName: "smiley")
-//                 } else if messages[indexPath.row].messageType == "Answer" {
-//                     cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
-//                     print("This message is an answer")
-//                 }
+                 if messages[indexPath.row].messageType == "Question" {
+                     cell.rightImage.image = UIImage(systemName: "questionmark.square")
+                 } else if messages[indexPath.row].messageType == "Normal" {
+                    cell.rightImage.image = UIImage(systemName: "person")
+                }
                  return cell
             }
             
