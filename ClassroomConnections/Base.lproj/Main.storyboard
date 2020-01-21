@@ -885,6 +885,13 @@
                                     <action selector="answerOffSwitch:" destination="LRU-J3-kCs" eventType="touchUpInside" id="Tv6-jm-Ded"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Class" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdZ-iM-ynS">
+                                <rect key="frame" x="100" y="43" width="215" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PBR-30-Drz"/>
@@ -892,6 +899,7 @@
                     <tabBarItem key="tabBarItem" title="Messages" image="message.fill" catalog="system" badgeValue="2" id="3Le-fN-lRd"/>
                     <connections>
                         <outlet property="answerLabel" destination="l0Y-Pj-lCQ" id="162-nz-ToK"/>
+                        <outlet property="className" destination="WdZ-iM-ynS" id="7Xm-kz-p9A"/>
                         <outlet property="messageTextField" destination="M36-B1-w3g" id="b5S-l6-V74"/>
                         <outlet property="qSwitch" destination="dT6-uS-3MM" id="wnC-iS-zQE"/>
                         <outlet property="tableView" destination="cOL-Xf-OqT" id="h53-BU-jDt"/>
@@ -968,6 +976,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="f5H-xm-6mY"/>
         <segue reference="OYR-f7-Q6Y"/>
-        <segue reference="z2q-rs-LFr"/>
+        <segue reference="GjU-0t-bGD"/>
     </inferredMetricsTieBreakers>
 </document>

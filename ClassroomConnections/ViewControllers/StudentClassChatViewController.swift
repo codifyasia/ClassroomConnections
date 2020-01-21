@@ -21,6 +21,7 @@ class StudentClassChatViewController: UIViewController {
     
     var messages: [Message] = [Message]()
     var messagesID : [String] = [String]()
+    @IBOutlet weak var className: UILabel!
     
     //if question is on
     var questionOn : Bool = false
@@ -50,6 +51,8 @@ class StudentClassChatViewController: UIViewController {
             
             self.classRoomCode = identity
             
+            self.className.text =  value["Title"] as! String
+
             
             //            self.ref.child("Classrooms").child(identity).child("Messages").child("Message1").setValue(messageDictionary) {
             //                (error, reference) in
@@ -250,12 +253,12 @@ extension StudentClassChatViewController: UITableViewDataSource {
 //
                    if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
                        cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
-                       cell.rightImage?.tintColor = UIColor.systemTeal
+                    cell.rightImage?.tintColor = UIColor.systemIndigo
                    }
             
-                    cell.rightImage?.tintColor = UIColor.systemTeal
+//                    cell.rightImage?.tintColor = UIColor.systemIndigo
 
-                   cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
+//                   cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
                    return cell
         } else {
             
@@ -271,7 +274,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
                 cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
 
                 cell.messageBubble.backgroundColor = UIColor.systemIndigo
-                cell.rightImage?.tintColor = UIColor.systemTeal
+                cell.rightImage?.tintColor = UIColor.systemIndigo
 
                   if messages[indexPath.row].messageType == "Question" {
                         cell.rightImage.image = UIImage(systemName: "questionmark.square")
@@ -284,7 +287,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
                 cell.label.text = messages[indexPath.row].body
                 cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
                 cell.messageBubble.backgroundColor = UIColor(red: 100.0*0.6/255.0, green: 96.0*0.6/255.0, blue: 255.0*0.6/255.0, alpha: 0.3)
-                cell.rightImage?.tintColor = UIColor.systemTeal
+                cell.rightImage?.tintColor = UIColor.systemIndigo
                  
                  if messages[indexPath.row].messageType == "Question" {
                      cell.rightImage.image = UIImage(systemName: "questionmark.square")

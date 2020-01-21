@@ -44,8 +44,8 @@
                                     <constraint firstItem="pWd-QM-2dI" firstAttribute="top" secondItem="zHm-6i-4hl" secondAttribute="top" constant="10" id="pYm-RI-3fy"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="igt-Qo-DCM">
-                                <rect key="frame" x="351" y="1" width="40" height="37.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="igt-Qo-DCM">
+                                <rect key="frame" x="351" y="1.5" width="40" height="37.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Dfw-7m-G9x"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="GaM-J1-dU0"/>
@@ -88,6 +88,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="exclamationmark.square" catalog="system" width="64" height="56"/>
+        <image name="person" catalog="system" width="64" height="58"/>
     </resources>
 </document>
