@@ -60,6 +60,7 @@ class TeacherClasses: UIViewController {
                 }
                 let iden = value["id"] as! String
 
+                
                 self.ref.child("UserInfo").child(iden).child("Classrooms").child(removeID).removeValue()
                 self.getInfo()
             }
@@ -109,7 +110,7 @@ class TeacherClasses: UIViewController {
                     let title = value["Title"] as! String
                     let inden = value["ID"] as! String
                     print("\(lastName) hi hi")
-                    self.classes.append(Class(classTitle: title , teacher: lastName, id:inden))
+                    self.classes.append(Class(classTitle: title , teacher: lastName, id:inden , teacherID: Auth.auth().currentUser!.uid))
                     self.tableView.reloadData()
                 }
                 
@@ -139,7 +140,7 @@ class TeacherClasses: UIViewController {
                 let title = value["Title"] as! String
                 let iden = value["ID"] as! String
                 print("\(self.name) hi hi")
-                self.classes.append(Class(classTitle: title , teacher: self.name, id:iden))
+                self.classes.append(Class(classTitle: title , teacher: self.name, id:iden, teacherID: Auth.auth().currentUser!.uid))
                 self.tableView.reloadData()
             }
             
@@ -212,9 +213,9 @@ extension TeacherClasses: UITableViewDelegate {
                 //                self.classes.append(Class(classTitle: "APCSA", teacher: "Fulk"))
                 //                self.tableView.reloadData()
                 
-                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : self.topicTextField.text!, "Teacher" : self.name, "ID" : self.textField.text!])
+                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : self.topicTextField.text!, "Teacher" : self.name, "TeacherID": Auth.auth().currentUser!.uid, "ID" : self.textField.text!])
                 
-                self.ref.child("Classrooms").child(self.textField.text!).updateChildValues(["Teacher" : self.name, "Title" : self.topicTextField.text!, "ID" : self.textField.text!])
+                self.ref.child("Classrooms").child(self.textField.text!).updateChildValues(["Teacher" : self.name, "Title" : self.topicTextField.text!, "TeacherID": Auth.auth().currentUser!.uid, "ID" : self.textField.text!])
                 
                 self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0])
                 //update

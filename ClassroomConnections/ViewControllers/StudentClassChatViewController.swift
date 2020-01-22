@@ -17,6 +17,7 @@ class StudentClassChatViewController: UIViewController {
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var classRoomCode: String = "stuff"
+    var teacherID : String = "teacherId"
     @IBOutlet weak var qSwitch: UISwitch!
     
     var messages: [Message] = [Message]()

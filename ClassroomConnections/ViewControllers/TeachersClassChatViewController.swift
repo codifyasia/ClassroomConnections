@@ -204,11 +204,14 @@ extension TeacherClassChatViewController: UITableViewDataSource {
                     cell.label.text = messages[indexPath.row].body
                     cell.senderName.text = "Sender: " + messages[indexPath.row].sender
 
-        //
-                           if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
-                            cell.messageBubble.backgroundColor = UIColor(red: 235.0/255.0, green: 103.0/255.0, blue: 52.0/255.0, alpha: 0.3)
+                if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
+                            cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
                             cell.rightImage?.tintColor = UIColor.systemRed
-                           }
+                } else {
+                    cell.messageBubble.backgroundColor = UIColor(red: 100.0*0.6/255.0, green: 96.0*0.6/255.0, blue: 255.0*0.6/255.0, alpha: 0.3)
+                    cell.rightImage?.tintColor = UIColor.systemIndigo
+            }
+
                     
                             //cell.rightImage?.tintColor = UIColor.systemTeal
 
@@ -237,9 +240,8 @@ extension TeacherClassChatViewController: UITableViewDataSource {
 //                cell.senderName.isHidden = true
                 cell.label.text = messages[indexPath.row].body
                 cell.senderName.text = "Sender: " + messages[indexPath.row].sender
-                cell.messageBubble.backgroundColor = UIColor(red: 235.0/255.0, green: 103.0/255.0, blue: 52.0/255.0, alpha: 0.3)
-                cell.rightImage?.tintColor = UIColor.systemRed
-                 
+                cell.messageBubble.backgroundColor = UIColor(red: 100.0*0.6/255.0, green: 96.0*0.6/255.0, blue: 255.0*0.6/255.0, alpha: 0.3)
+                cell.rightImage?.tintColor = UIColor.systemIndigo
                  if messages[indexPath.row].messageType == "Question" {
                       cell.rightImage.image = UIImage(systemName: "questionmark.square")
                   } else if messages[indexPath.row].messageType == "Normal" {
@@ -260,7 +262,62 @@ extension TeacherClassChatViewController: UITableViewDelegate {
     // still need to do this
     // still need to do this
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("person selected row : " + String(indexPath.row) + " (starts from 0)")
+        let selected = indexPath.row
+                
+                let message = messages[selected]
+                
+                if (message.messageType == "Question") {
+                    let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
+                    let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                        
+                    }
+                    let upvote = UIAlertAction(title: "Upvote", style: .default) { (action) in
+                        self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+                            guard let value = snapshot.value as? NSDictionary else {
+                                print("No Data!!!")
+                                return
+                            }
+                            
+                            
+                            let identity = value["ID"] as! String
+            
+                            self.classRoomCode = identity
+            
+            
+            //            self.ref.child("Classrooms").child(identity).child("Messages").child("Message1").setValue(messageDictionary) {
+            //                (error, reference) in
+            //
+            //                if error != nil {
+            //                    print(error!)
+            //                } else {
+            //                    print("Message saved succesfully")
+            //                }
+                        //            }
+                            self.retrieveMessages()
+                        
+                        }) { (error) in
+                            print("error:\(error.localizedDescription)")
+                        }
+                                    
+                    }
+                    let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
+        //                if (self.questionOn) {
+        //                    self.questionSwitch(nil)
+        //                }
+                        self.answerOn = true
+                        self.answerLabel.isHidden = false
+                        self.answerIndex = indexPath.row+1
+                    }
+                    
+                   
+                    alert.addAction(answer)
+                    alert.addAction(upvote)
+                    alert.addAction(cancel)
+                    present(alert, animated: true)
+                    
+                }
+                
     }
     
 //    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
