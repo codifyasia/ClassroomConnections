@@ -281,30 +281,27 @@ extension StudentClassChatViewController: UITableViewDataSource {
             if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
                 print("im gay boi")
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell2", for: indexPath) as! messageSelfCell
-//                print("-----------------------------")
-//                print(messages[indexPath.row])
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "RC", for: indexPath) as! MessageSelf
-////                let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
-//                print("*****************************")
                 cell.label.text = messages[indexPath.row].body
                 cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
                 if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
                     cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
-                 cell.rightImage?.tintColor = UIColor.systemIndigo
+                    cell.rightImage?.tintColor = UIColor.systemIndigo
                 } else if (cell.senderName.text == "Sender: " + self.teacherID) {
-                 cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
-                 cell.rightImage?.tintColor = UIColor.systemRed
+                    cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
+                    cell.rightImage.image = UIImage(named: "synopsisscan")
+                    cell.rightImage?.tintColor = UIColor.systemRed
+                    return cell
                 } else {
                  cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
                  cell.rightImage?.tintColor = UIColor.systemIndigo
-                }
+                    }
                 cell.messageBubble.backgroundColor = UIColor.systemIndigo
-                cell.rightImage?.tintColor = UIColor.systemIndigo
+                    cell.rightImage?.tintColor = UIColor.systemIndigo
 
                   if messages[indexPath.row].messageType == "Question" {
                         cell.rightImage.image = UIImage(systemName: "questionmark.square")
                   } else if messages[indexPath.row].messageType == "Normal" {
-                        cell.rightImage.image = UIImage(systemName: "person")
+                        cell.rightImage.image = UIImage(named: "study")
                   }
                  return cell
             } else {
@@ -315,16 +312,18 @@ extension StudentClassChatViewController: UITableViewDataSource {
                      cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                   cell.rightImage?.tintColor = UIColor.systemIndigo
                  } else if (cell.senderName.text == "Sender: " + self.teacherID) {
-                  cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
-                  cell.rightImage?.tintColor = UIColor.systemRed
+                    cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
+                    cell.rightImage.image = UIImage(named: "synopsisscan")
+                    cell.rightImage?.tintColor = UIColor.systemRed
+                    return cell
                  } else {
-                  cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
-                  cell.rightImage?.tintColor = UIColor.systemIndigo
+                    cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+                    cell.rightImage?.tintColor = UIColor.systemIndigo
                 }
                  if messages[indexPath.row].messageType == "Question" {
                      cell.rightImage.image = UIImage(systemName: "questionmark.square")
                  } else if messages[indexPath.row].messageType == "Normal" {
-                    cell.rightImage.image = UIImage(systemName: "person")
+                    cell.rightImage.image = UIImage(named: "study")
                 }
                  return cell
             }

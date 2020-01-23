@@ -44,8 +44,8 @@
                                     <constraint firstItem="5JN-gW-c9L" firstAttribute="leading" secondItem="lXM-da-ar8" secondAttribute="leading" constant="10" id="wfk-1Q-MV4"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3gC-4T-WMp">
-                                <rect key="frame" x="445" y="1.5" width="40" height="37.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="study" translatesAutoresizingMaskIntoConstraints="NO" id="3gC-4T-WMp">
+                                <rect key="frame" x="445" y="0.0" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2q2-c2-ptI"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="3YJ-cc-4aP"/>
@@ -89,6 +89,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="person" catalog="system" width="64" height="58"/>
+        <image name="study" width="170.5" height="170.5"/>
     </resources>
 </document>
