@@ -862,27 +862,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qf7-9E-L1Z">
-                                <rect key="frame" x="331" y="44" width="63" height="30"/>
+                                <rect key="frame" x="313" y="43" width="81" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign-Out">
-                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="loginPressed:" destination="CMF-8L-1nv" eventType="touchUpInside" id="sfD-po-ITp"/>
                                     <action selector="signOut:" destination="xgg-yK-e4F" eventType="touchUpInside" id="YWk-xX-fkw"/>
                                     <action selector="signOut:" destination="LRU-J3-kCs" eventType="touchUpInside" id="fkE-ue-qit"/>
                                     <action selector="signUpPressed:" destination="XVg-8X-N20" eventType="touchUpInside" id="Om0-n5-yb4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0Y-Pj-lCQ">
-                                <rect key="frame" x="20" y="49" width="33" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="A">
-                                    <color key="titleColor" red="0.78713911800000003" green="0.22844523289999999" blue="0.17893076629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="answerOffSwitch:" destination="LRU-J3-kCs" eventType="touchUpInside" id="Tv6-jm-Ded"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Class" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdZ-iM-ynS">
@@ -892,6 +882,17 @@
                                 <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0Y-Pj-lCQ">
+                                <rect key="frame" x="26" y="42" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="A">
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="answerOffSwitch:" destination="LRU-J3-kCs" eventType="touchUpInside" id="Tv6-jm-Ded"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PBR-30-Drz"/>
@@ -902,6 +903,7 @@
                         <outlet property="className" destination="WdZ-iM-ynS" id="7Xm-kz-p9A"/>
                         <outlet property="messageTextField" destination="M36-B1-w3g" id="b5S-l6-V74"/>
                         <outlet property="qSwitch" destination="dT6-uS-3MM" id="wnC-iS-zQE"/>
+                        <outlet property="signOutButton" destination="qf7-9E-L1Z" id="fga-ud-90Z"/>
                         <outlet property="tableView" destination="cOL-Xf-OqT" id="h53-BU-jDt"/>
                         <segue destination="XVg-8X-N20" kind="presentation" identifier="backwards1" modalPresentationStyle="fullScreen" id="GjU-0t-bGD"/>
                     </connections>
@@ -975,7 +977,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="TKo-aY-hQL"/>
-        <segue reference="OYR-f7-Q6Y"/>
-        <segue reference="62K-NU-Mqj"/>
+        <segue reference="xfJ-Tr-35X"/>
+        <segue reference="GjU-0t-bGD"/>
     </inferredMetricsTieBreakers>
 </document>

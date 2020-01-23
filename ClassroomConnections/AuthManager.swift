@@ -42,7 +42,7 @@ class AuthManager {
                     let viewController: UIViewController = self.storyboard.instantiateViewController(withIdentifier: "TeacherClasses")
                     self.authHandler.present(viewController, animated: false, completion: nil)
                 }
-             
+
             }) { (error) in
                 print("error:\(error.localizedDescription)")
             } // go into firebae to find whether the user is sa teacher or a tsudent and then segue accordingly

@@ -29,9 +29,17 @@ class StudentClassChatViewController: UIViewController {
     var answerOn : Bool = false
     @IBOutlet weak var answerLabel: UIButton!
     var answerIndex : Int = 0
-    
+    @IBOutlet weak var signOutButton: UIButton!
     
     override func viewDidLoad() {
+        signOutButton.backgroundColor = .clear
+        signOutButton.layer.cornerRadius = 5
+        signOutButton.layer.borderWidth = 2
+        signOutButton.layer.borderColor = UIColor.systemIndigo.cgColor
+        answerLabel.backgroundColor = .clear
+        answerLabel.layer.cornerRadius = 5
+        answerLabel.layer.borderWidth = 2
+        answerLabel.layer.borderColor = UIColor.systemIndigo.cgColor
         answerLabel.isHidden = true
         tableView.dataSource = self
         tableView.delegate = self 
@@ -49,9 +57,9 @@ class StudentClassChatViewController: UIViewController {
                 return
             }
             let identity = value["ID"] as! String
-            
+            let eacherID = value["TeacherID"] as! String
             self.classRoomCode = identity
-            
+            self.teacherID = eacherID
             self.className.text =  value["Title"] as! String
 
             
@@ -253,9 +261,16 @@ extension StudentClassChatViewController: UITableViewDataSource {
 
 //
                    if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
-                       cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+                       cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                     cell.rightImage?.tintColor = UIColor.systemIndigo
-                   }
+                   } else if (cell.senderName.text == "Sender: " + self.teacherID) {
+                    cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
+                    cell.rightImage?.tintColor = UIColor.systemRed
+                   } else {
+                    cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+                    cell.rightImage?.tintColor = UIColor.systemIndigo
+
+            }
             
 //                    cell.rightImage?.tintColor = UIColor.systemIndigo
 
@@ -273,7 +288,16 @@ extension StudentClassChatViewController: UITableViewDataSource {
 //                print("*****************************")
                 cell.label.text = messages[indexPath.row].body
                 cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
-
+                if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
+                    cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
+                 cell.rightImage?.tintColor = UIColor.systemIndigo
+                } else if (cell.senderName.text == "Sender: " + self.teacherID) {
+                 cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
+                 cell.rightImage?.tintColor = UIColor.systemRed
+                } else {
+                 cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+                 cell.rightImage?.tintColor = UIColor.systemIndigo
+                }
                 cell.messageBubble.backgroundColor = UIColor.systemIndigo
                 cell.rightImage?.tintColor = UIColor.systemIndigo
 
@@ -287,9 +311,16 @@ extension StudentClassChatViewController: UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
                 cell.label.text = messages[indexPath.row].body
                 cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
-                cell.messageBubble.backgroundColor = UIColor(red: 100.0*0.6/255.0, green: 96.0*0.6/255.0, blue: 255.0*0.6/255.0, alpha: 0.3)
-                cell.rightImage?.tintColor = UIColor.systemIndigo
-                 
+                 if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
+                     cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
+                  cell.rightImage?.tintColor = UIColor.systemIndigo
+                 } else if (cell.senderName.text == "Sender: " + self.teacherID) {
+                  cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
+                  cell.rightImage?.tintColor = UIColor.systemRed
+                 } else {
+                  cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+                  cell.rightImage?.tintColor = UIColor.systemIndigo
+                }
                  if messages[indexPath.row].messageType == "Question" {
                      cell.rightImage.image = UIImage(systemName: "questionmark.square")
                  } else if messages[indexPath.row].messageType == "Normal" {
