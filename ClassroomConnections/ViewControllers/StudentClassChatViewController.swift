@@ -299,7 +299,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
                     cell.rightImage?.tintColor = UIColor.systemIndigo
 
                   if messages[indexPath.row].messageType == "Question" {
-                        cell.rightImage.image = UIImage(systemName: "questionmark.square")
+                        cell.rightImage.image = UIImage(named : "request")
                   } else if messages[indexPath.row].messageType == "Normal" {
                         cell.rightImage.image = UIImage(named: "study")
                   }
@@ -321,7 +321,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
                     cell.rightImage?.tintColor = UIColor.systemIndigo
                 }
                  if messages[indexPath.row].messageType == "Question" {
-                     cell.rightImage.image = UIImage(systemName: "questionmark.square")
+                     cell.rightImage.image = UIImage(named: "request")
                  } else if messages[indexPath.row].messageType == "Normal" {
                     cell.rightImage.image = UIImage(named: "study")
                 }
