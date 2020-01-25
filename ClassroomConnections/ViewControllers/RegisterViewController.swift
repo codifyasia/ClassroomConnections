@@ -22,6 +22,7 @@ class RegisterViewController: UIViewController {
     //Buttons
     @IBOutlet weak var studentButton: UIButton!
     @IBOutlet weak var TeachersButton: UIButton!
+    @IBOutlet var currView: UIView!
     
     //Firebase
     var ref: DatabaseReference!
@@ -61,7 +62,9 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func signUpPressed(_ sender: Any) {
+        var hi = UIOffset(horizontal: currView.frame.size.width/2 , vertical: currView.frame.size.height/2 )
         SVProgressHUD.show()
+        SVProgressHUD.setOffsetFromCenter(hi)
         if (FirstName.text?.isEmpty ?? true || LastName.text?.isEmpty ?? true || Email.text?.isEmpty ?? true || Password.text?.isEmpty ?? true) {
             SVProgressHUD.dismiss()
             print("THERE IS AN ERROR")

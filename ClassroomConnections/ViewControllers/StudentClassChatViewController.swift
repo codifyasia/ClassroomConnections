@@ -81,6 +81,11 @@ class StudentClassChatViewController: UIViewController {
         self.tableView.reloadData()
         
         
+        
+    }
+    
+    @objc func keyboradWillChange(notification: Notification) {
+        print("Keyboard will show: \(notification.name.rawValue)")
     }
     
     @IBAction func questionSwitch(_ sender: UISwitch?) {
@@ -156,6 +161,10 @@ class StudentClassChatViewController: UIViewController {
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {
+        
+        if (messageTextField.text == "" || messageTextField.text!.trimmingCharacters(in: .whitespaces).isEmpty) {
+            return
+        }
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
         print(messageTextField.text!)
         if (answerOn) {

@@ -212,6 +212,7 @@
                         <outlet property="LastName" destination="z9x-x0-NvJ" id="j0w-D3-hxZ"/>
                         <outlet property="Password" destination="ICx-IG-b1j" id="nCE-kA-Vwd"/>
                         <outlet property="TeachersButton" destination="MWR-6F-yS1" id="WKY-I5-m6W"/>
+                        <outlet property="currView" destination="0zM-a1-2J6" id="Oku-SP-2vM"/>
                         <outlet property="studentButton" destination="VJc-6k-dmx" id="Xxe-Us-bFO"/>
                         <segue destination="xgg-yK-e4F" kind="presentation" identifier="teacherToClassSelection" modalPresentationStyle="fullScreen" id="OYR-f7-Q6Y"/>
                         <segue destination="Dcl-mV-d4c" kind="presentation" identifier="studentToClassSelection" modalPresentationStyle="fullScreen" id="f5H-xm-6mY"/>
@@ -320,6 +321,7 @@
                         <viewLayoutGuide key="safeArea" id="bxe-wu-Jvv"/>
                     </view>
                     <connections>
+                        <outlet property="currView" destination="cMh-kd-eaA" id="lU9-1g-msc"/>
                         <outlet property="email" destination="OqU-Md-Y2c" id="IKI-qH-Kl5"/>
                         <outlet property="password" destination="JkF-f5-F2n" id="Lxa-34-Rf9"/>
                         <segue destination="Dcl-mV-d4c" kind="presentation" identifier="studentLogin" modalPresentationStyle="fullScreen" id="TKo-aY-hQL"/>
@@ -976,8 +978,9 @@
         <image name="paperplane.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TKo-aY-hQL"/>
-        <segue reference="xfJ-Tr-35X"/>
-        <segue reference="GjU-0t-bGD"/>
+        <segue reference="vPX-Gp-Lmx"/>
+        <segue reference="f5H-xm-6mY"/>
+        <segue reference="OYR-f7-Q6Y"/>
+        <segue reference="xiQ-aa-cgN"/>
     </inferredMetricsTieBreakers>
 </document>

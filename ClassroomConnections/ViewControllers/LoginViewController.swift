@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet var currView: UIView!
     
     var ref: DatabaseReference!
     
@@ -23,7 +24,9 @@ class LoginViewController: UIViewController {
         ref = Database.database().reference()
     }
     @IBAction func loginPressed(_ sender: Any) {
+        var hi = UIOffset(horizontal: currView.frame.size.width/2 , vertical: currView.frame.size.height/2 )
         SVProgressHUD.show()
+        SVProgressHUD.setOffsetFromCenter(hi)
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
             if (error == nil) {
                 
