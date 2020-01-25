@@ -254,53 +254,17 @@ extension TeacherClassChatViewController: UITableViewDataSource {
     
 }
 extension TeacherClassChatViewController: UITableViewDelegate {
-    // still need to do this
-    // still need to do this
-    // still need to do this
-    // still need to do this
-    // still need to do this
-    // still need to do this
-    // still need to do this
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = indexPath.row
                 
-                let message = messages[selected]
+        var message = messages[selected]
                 
                 if (message.messageType == "Question") {
                     let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
                     let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
                         
                     }
-                    let upvote = UIAlertAction(title: "Upvote", style: .default) { (action) in
-                        self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-                            guard let value = snapshot.value as? NSDictionary else {
-                                print("No Data!!!")
-                                return
-                            }
-                            
-                            
-                            let identity = value["ID"] as! String
-            
-                            self.classRoomCode = identity
-            
-            
-            //            self.ref.child("Classrooms").child(identity).child("Messages").child("Message1").setValue(messageDictionary) {
-            //                (error, reference) in
-            //
-            //                if error != nil {
-            //                    print(error!)
-            //                } else {
-            //                    print("Message saved succesfully")
-            //                }
-                        //            }
-                            self.retrieveMessages()
-                        
-                        }) { (error) in
-                            print("error:\(error.localizedDescription)")
-                        }
-                                    
-                    }
+                    
                     let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
         //                if (self.questionOn) {
         //                    self.questionSwitch(nil)
@@ -310,13 +274,29 @@ extension TeacherClassChatViewController: UITableViewDelegate {
                         self.answerIndex = indexPath.row+1
                     }
                     
+                    
                    
                     alert.addAction(answer)
-                    alert.addAction(upvote)
                     alert.addAction(cancel)
                     present(alert, animated: true)
                     
                 }
+        if (message.messageType == "Answer") {
+//            let alert = UIAlertController(title: "Approve of Answer", message: message.body, preferredStyle: .actionSheet)
+//            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+//
+//            }
+//
+//            let approve = UIAlertAction(title: "Approve Answer", style: .default) { (action) in
+//                message.messageType = "ApprovedAnswer"
+//                message.
+//
+//            }
+//            alert.addAction(approve)
+//            alert.addAction(cancel)
+//            present(alert, animated: true)
+        }
+
                 
     }
     

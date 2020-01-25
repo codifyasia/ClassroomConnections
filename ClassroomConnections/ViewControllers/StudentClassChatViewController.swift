@@ -273,6 +273,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
                        cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                     cell.rightImage?.tintColor = UIColor.systemIndigo
                    } else if (cell.senderName.text == "Sender: " + self.teacherID) {
+                    
                     cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
                     cell.rightImage?.tintColor = UIColor.systemRed
                    } else {
@@ -361,36 +362,7 @@ extension StudentClassChatViewController: UITableViewDelegate {
             let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
                 
             }
-            let upvote = UIAlertAction(title: "Upvote", style: .default) { (action) in
-                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").observeSingleEvent(of: .value, with: { (snapshot) in
-    
-                    guard let value = snapshot.value as? NSDictionary else {
-                        print("No Data!!!")
-                        return
-                    }
-                    
-                    
-                    let identity = value["ID"] as! String
-    
-                    self.classRoomCode = identity
-    
-    
-    //            self.ref.child("Classrooms").child(identity).child("Messages").child("Message1").setValue(messageDictionary) {
-    //                (error, reference) in
-    //
-    //                if error != nil {
-    //                    print(error!)
-    //                } else {
-    //                    print("Message saved succesfully")
-    //                }
-                //            }
-                    self.retrieveMessages()
-                
-                }) { (error) in
-                    print("error:\(error.localizedDescription)")
-                }
-                            
-            }
+            
             let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
 //                if (self.questionOn) {
 //                    self.questionSwitch(nil)
@@ -403,7 +375,6 @@ extension StudentClassChatViewController: UITableViewDelegate {
             
            
             alert.addAction(answer)
-            alert.addAction(upvote)
             alert.addAction(cancel)
             present(alert, animated: true)
             
