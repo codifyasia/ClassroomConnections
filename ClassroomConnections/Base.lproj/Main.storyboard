@@ -497,7 +497,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcX-HM-JzH" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1480" y="396"/>
+            <point key="canvasLocation" x="1501" y="508"/>
         </scene>
         <!--Student Classes-->
         <scene sceneID="fTh-yx-fH2">
@@ -978,9 +978,8 @@
         <image name="paperplane.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yIo-ba-i7d"/>
         <segue reference="f5H-xm-6mY"/>
         <segue reference="OYR-f7-Q6Y"/>
-        <segue reference="z2q-rs-LFr"/>
+        <segue reference="GjU-0t-bGD"/>
     </inferredMetricsTieBreakers>
 </document>

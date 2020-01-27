@@ -210,18 +210,43 @@ extension TeacherClasses: UITableViewDelegate {
             let alert = UIAlertController(title: "Enter code to create class", message: "", preferredStyle: .alert)
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
                 print(self.textField.text!)
-                //                self.classes.append(Class(classTitle: "APCSA", teacher: "Fulk"))
-                //                self.tableView.reloadData()
+                self.ref.child("Classrooms").observeSingleEvent(of: .value, with: { (snap) in
+                    if (self.topicTextField.text! == "" || self.textField.text! == "") {
+                        let alert1 = UIAlertController(title: "Error with creating class", message: "", preferredStyle: .alert)
+                        let cancelButton = UIAlertAction(title: "Cancel", style: .default) { (cancel) in
+                            //does nothing
+                        }
+                        let tryAgain = UIAlertAction(title: "Try again", style: .default) { (try) in
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        alert1.addAction(cancelButton)
+                        alert1.addAction(tryAgain)
+                        self.present(alert1, animated: true, completion: nil)
+                    } else if (snap.hasChild(self.textField.text!)) {
+                        let alert1 = UIAlertController(title: "This code already exists", message: "", preferredStyle: .alert)
+                        let cancelButton = UIAlertAction(title: "Cancel", style: .default) { (cancel) in
+                            //does nothing
+                        }
+                        let tryAgain = UIAlertAction(title: "Try again", style: .default) { (try) in
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        alert1.addAction(cancelButton)
+                        alert1.addAction(tryAgain)
+                        self.present(alert1, animated: true, completion: nil)
+                    }
+                    else {
+                        
+                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : self.topicTextField.text!, "Teacher" : self.name, "TeacherID": Auth.auth().currentUser!.uid, "ID" : self.textField.text!])
+                    
+                        self.ref.child("Classrooms").child(self.textField.text!).updateChildValues(["Teacher" : self.name, "Title" : self.topicTextField.text!, "TeacherID": Auth.auth().currentUser!.uid, "ID" : self.textField.text!])
+                    
+                        self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0])
+                    //update
+                        self.updateClasses()
+                    
+                    }
+                })
                 
-                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : self.topicTextField.text!, "Teacher" : self.name, "TeacherID": Auth.auth().currentUser!.uid, "ID" : self.textField.text!])
-                
-                self.ref.child("Classrooms").child(self.textField.text!).updateChildValues(["Teacher" : self.name, "Title" : self.topicTextField.text!, "TeacherID": Auth.auth().currentUser!.uid, "ID" : self.textField.text!])
-                
-                self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0])
-                //update
-                self.updateClasses()
-                
-                print("hi")
                 
                 
             }

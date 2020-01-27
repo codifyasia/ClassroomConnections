@@ -125,7 +125,9 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func sendMessage(_ sender: UIButton) {
 
-        
+        if (messageTextField.text! == "") {
+            return
+        }
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
         print(messageTextField.text!)
         print("entered sending message")
@@ -163,6 +165,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+        messageTextField.text = ""
     }
     
     
