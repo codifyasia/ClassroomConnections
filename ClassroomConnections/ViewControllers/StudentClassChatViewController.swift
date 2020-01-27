@@ -108,14 +108,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @IBAction func signOut(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            performSegue(withIdentifier: "backwards1", sender: self)
-        }catch let signOutError as NSError {
-            print("Logout Error")
-        }
-    }
+ 
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.hidesBottomBarWhenPushed = true
