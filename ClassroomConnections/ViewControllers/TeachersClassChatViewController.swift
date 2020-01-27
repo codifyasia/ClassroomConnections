@@ -206,17 +206,18 @@ extension TeacherClassChatViewController: UITableViewDataSource {
 
                 if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
                             cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
+                        cell.rightImage.image = UIImage(named : "synopsisscan")
                             cell.rightImage?.tintColor = UIColor.systemRed
+                   
                 } else {
                     cell.messageBubble.backgroundColor = UIColor(red: 100.0*0.6/255.0, green: 96.0*0.6/255.0, blue: 255.0*0.6/255.0, alpha: 0.3)
                     cell.rightImage?.tintColor = UIColor.systemIndigo
+                    cell.rightImage.image = UIImage(named : "study")
             }
 
                     
                             //cell.rightImage?.tintColor = UIColor.systemTeal
 
-                           cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
-                           print("This message is an answer")
                            return cell
         } else {
             if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
@@ -230,9 +231,9 @@ extension TeacherClassChatViewController: UITableViewDataSource {
                             cell.rightImage?.tintColor = UIColor.systemRed
 
                      if messages[indexPath.row].messageType == "Question" {
-                            cell.rightImage.image = UIImage(systemName: "questionmark.square")
+                            cell.rightImage.image = UIImage(named: "request")
                      } else if messages[indexPath.row].messageType == "Normal" {
-                            cell.rightImage.image = UIImage(systemName: "person")
+                            cell.rightImage.image = UIImage(named: "synopsisscan")
                     }
                 return cell
             } else {
@@ -243,9 +244,9 @@ extension TeacherClassChatViewController: UITableViewDataSource {
                 cell.messageBubble.backgroundColor = UIColor(red: 100.0*0.6/255.0, green: 96.0*0.6/255.0, blue: 255.0*0.6/255.0, alpha: 0.3)
                 cell.rightImage?.tintColor = UIColor.systemIndigo
                  if messages[indexPath.row].messageType == "Question" {
-                      cell.rightImage.image = UIImage(systemName: "questionmark.square")
+                      cell.rightImage.image = UIImage(named: "request")
                   } else if messages[indexPath.row].messageType == "Normal" {
-                     cell.rightImage.image = UIImage(systemName: "person")
+                     cell.rightImage.image = UIImage(named: "study")
                  }
                  return cell
             }

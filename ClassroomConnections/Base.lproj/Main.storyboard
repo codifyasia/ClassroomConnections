@@ -811,7 +811,7 @@
         <!--StudentClassChatViewController-->
         <scene sceneID="Dt7-1n-sMs">
             <objects>
-                <viewController title="StudentClassChatViewController" id="LRU-J3-kCs" customClass="StudentClassChatViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="StudentClassChatViewController" hidesBottomBarWhenPushed="YES" id="LRU-J3-kCs" customClass="StudentClassChatViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GUy-sT-H2m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -978,9 +978,9 @@
         <image name="paperplane.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vPX-Gp-Lmx"/>
+        <segue reference="yIo-ba-i7d"/>
         <segue reference="f5H-xm-6mY"/>
         <segue reference="OYR-f7-Q6Y"/>
-        <segue reference="xiQ-aa-cgN"/>
+        <segue reference="z2q-rs-LFr"/>
     </inferredMetricsTieBreakers>
 </document>

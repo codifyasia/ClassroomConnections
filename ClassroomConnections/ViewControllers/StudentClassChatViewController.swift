@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
-class StudentClassChatViewController: UIViewController {
+class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     
     var ref: DatabaseReference!
     
@@ -114,6 +115,14 @@ class StudentClassChatViewController: UIViewController {
         }catch let signOutError as NSError {
             print("Logout Error")
         }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.hidesBottomBarWhenPushed = true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.hidesBottomBarWhenPushed = false
     }
     
     func retrieveMessages() {
