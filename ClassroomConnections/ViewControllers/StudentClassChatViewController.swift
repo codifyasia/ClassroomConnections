@@ -13,6 +13,7 @@ import IQKeyboardManagerSwift
 class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     
     var ref: DatabaseReference!
+    var questionRow : Int! = 0
     
     
     @IBOutlet weak var messageTextField: UITextField!
@@ -152,8 +153,14 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 
                 
                 self.tableView.reloadData()
-                let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                if (self.questionRow == 0) {
+                    let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                } else {
+                    let indexPath = IndexPath(row: self.questionRow, section: 0)
+                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                }
+               
                 
                 
             }
@@ -360,6 +367,7 @@ extension StudentClassChatViewController: UITableViewDelegate {
         let message = messages[selected]
         
         if (message.messageType == "Question") {
+            questionRow = selected
             let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
             let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
                 
@@ -380,6 +388,9 @@ extension StudentClassChatViewController: UITableViewDelegate {
             alert.addAction(cancel)
             present(alert, animated: true)
             
+        }
+        else {
+            questionRow = 0
         }
         
 //        print(message.body)

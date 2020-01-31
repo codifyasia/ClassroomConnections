@@ -12,7 +12,9 @@ import Firebase
 class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     
     var ref: DatabaseReference!
+    var questionRow : Int! = 0
     
+    @IBOutlet weak var className: UILabel!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var classRoomCode : String = "stuff"
@@ -37,6 +39,17 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
 //        var messageDictionary = ["Sender" : Auth.auth().currentUser!.email, "MessageBody" : "Welcome to my class", "SenderID" : Auth.auth().currentUser!.uid]
 //        ref.child("Classroom")
         
+//        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//                guard let value = snapshot.value as? NSDictionary else {
+//                    print("No Data!!!")
+//                    return
+//                }
+//                let identity = value["ID"] as! String
+//                let eacherID = value["TeacherID"] as! String
+//                self.classRoomCode = identity
+//                self.teacherID = eacherID
+//                self.className.text =  value["Title"] as! String
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else {
@@ -44,6 +57,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             let identity = value["ID"] as! String
+            self.className.text = value["Title"] as! String
             
             self.classRoomCode = identity
             
@@ -116,8 +130,13 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                         
                         
                         self.tableView.reloadData()
-                        let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-                        self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                         if (self.questionRow == 0) {
+                                let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                        } else {
+                            let indexPath = IndexPath(row: self.questionRow, section: 0)
+                            self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                        }
             
                 }
         }
@@ -170,32 +189,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     
     
 }
-        //
-        //                self.ref.child("Classrooms").child(identity).child("Messages").child("Message \(index)").observeSingleEvent(of: .value, with: { (snapshot1) in
-        //
-        //
-        //                    guard let value1 = snapshot1.value as? NSDictionary else {
-        //                        print("No Data!!!")
-        //                        return
-        //                    }
-        //
-        //                    let Text = value1["MessageBody"]!
-        //                    print(Text)
-        //                    let Sender = value1["Sender"]!
-        //                    let SenderID = value1["SenderID"]
-        //
-        //                        print("ooooga \(Sender) \(Text) \(SenderID!)")
-        //
-        //                        let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID! as! String)
-        //                    self.messages.append(message)
-        //
-        //                    self.tableView.reloadData()
-        //
-        //
-        //
-        //                }) { (error) in
-        //                    print("error:\(error.localizedDescription)")
-        //                }
+
 extension TeacherClassChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
@@ -264,6 +258,7 @@ extension TeacherClassChatViewController: UITableViewDelegate {
         var message = messages[selected]
                 
                 if (message.messageType == "Question") {
+                    questionRow = selected
                     let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
                     let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
                         
@@ -284,28 +279,8 @@ extension TeacherClassChatViewController: UITableViewDelegate {
                     alert.addAction(cancel)
                     present(alert, animated: true)
                     
+                } else {
+                    questionRow = 0
                 }
-        if (message.messageType == "Answer") {
-//            let alert = UIAlertController(title: "Approve of Answer", message: message.body, preferredStyle: .actionSheet)
-//            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
-//
-//            }
-//
-//            let approve = UIAlertAction(title: "Approve Answer", style: .default) { (action) in
-//                message.messageType = "ApprovedAnswer"
-//                message.
-//
-//            }
-//            alert.addAction(approve)
-//            alert.addAction(cancel)
-//            present(alert, animated: true)
-        }
-
-                
     }
-    
-//    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        print("person swiped row: " + String(indexPath.row) +)
-//        
-//    }
 }
