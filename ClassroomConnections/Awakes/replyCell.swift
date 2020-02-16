@@ -12,6 +12,7 @@ class replyCell: UITableViewCell {
 
 
 //    @IBOutlet weak var upvoteImage: UIImageView!
+    @IBOutlet weak var checkmark: UIImageView!
     @IBOutlet weak var upvoteImage: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var senderName: UILabel!

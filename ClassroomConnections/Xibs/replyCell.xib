@@ -18,9 +18,19 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6h-XI-M5q">
                         <rect key="frame" x="0.0" y="25" width="101" height="74"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="N61-ye-wiS">
+                                <rect key="frame" x="48" y="0.5" width="45" height="44"/>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="N61-ye-wiS" secondAttribute="trailing" constant="8" id="0wb-5g-iuM"/>
+                            <constraint firstAttribute="bottom" secondItem="N61-ye-wiS" secondAttribute="bottom" constant="29" id="3R1-Hv-Yr6"/>
                             <constraint firstAttribute="width" constant="101" id="DEP-m4-BIX"/>
+                            <constraint firstItem="N61-ye-wiS" firstAttribute="leading" secondItem="m6h-XI-M5q" secondAttribute="leading" constant="48" id="HZ6-eD-QbD"/>
+                            <constraint firstItem="N61-ye-wiS" firstAttribute="top" secondItem="m6h-XI-M5q" secondAttribute="top" id="mjN-zy-6qw"/>
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SMj-y0-cSC">
@@ -79,6 +89,7 @@
             <color key="backgroundColor" red="0.90900618649999998" green="0.76342624830000005" blue="0.53388658529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <viewLayoutGuide key="safeArea" id="GgD-AJ-dfn"/>
             <connections>
+                <outlet property="checkmark" destination="N61-ye-wiS" id="eMb-WQ-3gr"/>
                 <outlet property="label" destination="pWd-QM-2dI" id="TvU-3w-edy"/>
                 <outlet property="messageBubble" destination="zHm-6i-4hl" id="9kd-Cz-Iwj"/>
                 <outlet property="rightImage" destination="igt-Qo-DCM" id="joQ-qz-IeH"/>
@@ -88,6 +99,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
         <image name="study" width="170.5" height="170.5"/>
     </resources>
 </document>
