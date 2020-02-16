@@ -15,7 +15,7 @@
 		47719D882389EA1300FC5350 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47719D872389EA1300FC5350 /* ChecklistViewController.swift */; };
 		4789B4D223CEC53000293268 /* messageSelfCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4789B4D023CEC53000293268 /* messageSelfCell.swift */; };
 		4789B4D323CEC53000293268 /* messageSelfCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4789B4D123CEC53000293268 /* messageSelfCell.xib */; };
-		478C88D623DD32560076178A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 478C88D523DD32560076178A /* IQKeyboardManagerSwift */; };
+		478C88D623DD32560076178A /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 478C88D523DD32560076178A /* SwiftPackageProductDependency */; };
 		47BD5872238A2D2C008FC1D7 /* AddClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD586E238A2D2C008FC1D7 /* AddClass.swift */; };
 		47BD5873238A2D2C008FC1D7 /* AddClass.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47BD586F238A2D2C008FC1D7 /* AddClass.xib */; };
 		47BD5874238A2D2C008FC1D7 /* TeacherClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD5870238A2D2C008FC1D7 /* TeacherClasses.swift */; };
@@ -26,6 +26,7 @@
 		47D507AA2389D955006E46EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D507A82389D955006E46EE /* Main.storyboard */; };
 		47D507AC2389D956006E46EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D507AB2389D956006E46EE /* Assets.xcassets */; };
 		47D507AF2389D956006E46EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D507AD2389D956006E46EE /* LaunchScreen.storyboard */; };
+		596A0BBDB303372907575299 /* Pods_ClassroomConnections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A37848AAE1EDA0B07366A8 /* Pods_ClassroomConnections.framework */; };
 		8951D3B3238A56D1002EC4F5 /* StudentClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951D3B2238A56D1002EC4F5 /* StudentClasses.swift */; };
 		898942E223AFF2DA00DF152B /* replyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898942E023AFF2D900DF152B /* replyCell.swift */; };
 		898942E323AFF2DA00DF152B /* replyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 898942E123AFF2DA00DF152B /* replyCell.xib */; };
@@ -37,11 +38,10 @@
 		9C79F79C23AEE9F6000CA232 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79F79B23AEE9F6000CA232 /* AuthManager.swift */; };
 		9CD6EB99238A4EC1000A6A33 /* StudentConflictCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6EB98238A4EC1000A6A33 /* StudentConflictCalendar.swift */; };
 		9CD6EB9B238A8129000A6A33 /* TeacherConflictCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6EB9A238A8129000A6A33 /* TeacherConflictCalendar.swift */; };
-		CA9DB956013315A567F8CA87 /* Pods_ClassroomConnections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D18991844FE128D42C95D7F /* Pods_ClassroomConnections.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3D18991844FE128D42C95D7F /* Pods_ClassroomConnections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassroomConnections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		128D7C30F7C0141AF480231D /* Pods-ClassroomConnections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassroomConnections.debug.xcconfig"; path = "Target Support Files/Pods-ClassroomConnections/Pods-ClassroomConnections.debug.xcconfig"; sourceTree = "<group>"; };
 		4707C9F0238A5B6F00871B0A /* StudentClassChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassChatViewController.swift; sourceTree = "<group>"; };
 		4718962B23B320C800F34C17 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		47719D742389DF0200FC5350 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -62,6 +62,7 @@
 		47D507AB2389D956006E46EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47D507AE2389D956006E46EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47D507B02389D956006E46EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59A37848AAE1EDA0B07366A8 /* Pods_ClassroomConnections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassroomConnections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8951D3B2238A56D1002EC4F5 /* StudentClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClasses.swift; sourceTree = "<group>"; };
 		898942E023AFF2D900DF152B /* replyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = replyCell.swift; sourceTree = "<group>"; };
 		898942E123AFF2DA00DF152B /* replyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = replyCell.xib; sourceTree = "<group>"; };
@@ -73,8 +74,7 @@
 		9C79F79B23AEE9F6000CA232 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		9CD6EB98238A4EC1000A6A33 /* StudentConflictCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentConflictCalendar.swift; sourceTree = "<group>"; };
 		9CD6EB9A238A8129000A6A33 /* TeacherConflictCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherConflictCalendar.swift; sourceTree = "<group>"; };
-		BB0E733F32220B8D3FDC306D /* Pods-ClassroomConnections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassroomConnections.debug.xcconfig"; path = "Target Support Files/Pods-ClassroomConnections/Pods-ClassroomConnections.debug.xcconfig"; sourceTree = "<group>"; };
-		F01804A34C0B7B8C09D1C5F7 /* Pods-ClassroomConnections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassroomConnections.release.xcconfig"; path = "Target Support Files/Pods-ClassroomConnections/Pods-ClassroomConnections.release.xcconfig"; sourceTree = "<group>"; };
+		C51E0EFEA1E1F5DBFBDE543B /* Pods-ClassroomConnections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassroomConnections.release.xcconfig"; path = "Target Support Files/Pods-ClassroomConnections/Pods-ClassroomConnections.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,14 +82,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA9DB956013315A567F8CA87 /* Pods_ClassroomConnections.framework in Frameworks */,
-				478C88D623DD32560076178A /* IQKeyboardManagerSwift in Frameworks */,
+				478C88D623DD32560076178A /* BuildFile in Frameworks */,
+				596A0BBDB303372907575299 /* Pods_ClassroomConnections.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13A0CD542F9F656B57AA6C38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59A37848AAE1EDA0B07366A8 /* Pods_ClassroomConnections.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		47BD5876238A2D45008FC1D7 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +137,7 @@
 				47D507A12389D955006E46EE /* ClassroomConnections */,
 				47D507A02389D955006E46EE /* Products */,
 				BB96B460F465233A28DA9A08 /* Pods */,
-				FFD028DE4324C1DE6FE5BFEE /* Frameworks */,
+				13A0CD542F9F656B57AA6C38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,18 +189,10 @@
 		BB96B460F465233A28DA9A08 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BB0E733F32220B8D3FDC306D /* Pods-ClassroomConnections.debug.xcconfig */,
-				F01804A34C0B7B8C09D1C5F7 /* Pods-ClassroomConnections.release.xcconfig */,
+				128D7C30F7C0141AF480231D /* Pods-ClassroomConnections.debug.xcconfig */,
+				C51E0EFEA1E1F5DBFBDE543B /* Pods-ClassroomConnections.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		FFD028DE4324C1DE6FE5BFEE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3D18991844FE128D42C95D7F /* Pods_ClassroomConnections.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,11 +202,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47D507B32389D956006E46EE /* Build configuration list for PBXNativeTarget "ClassroomConnections" */;
 			buildPhases = (
-				8BCD1E71199A18472FF5ECC0 /* [CP] Check Pods Manifest.lock */,
+				F6DB382AC559E0B88C78E51D /* [CP] Check Pods Manifest.lock */,
 				47D5079B2389D955006E46EE /* Sources */,
 				47D5079C2389D955006E46EE /* Frameworks */,
 				47D5079D2389D955006E46EE /* Resources */,
-				8279885792CC0285A4D3C233 /* [CP] Embed Pods Frameworks */,
+				26510DAC07D16F08CB2C233B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -214,7 +214,7 @@
 			);
 			name = ClassroomConnections;
 			packageProductDependencies = (
-				478C88D523DD32560076178A /* IQKeyboardManagerSwift */,
+				478C88D523DD32560076178A /* SwiftPackageProductDependency */,
 			);
 			productName = ClassroomConnections;
 			productReference = 47D5079F2389D955006E46EE /* ClassroomConnections.app */;
@@ -245,7 +245,7 @@
 			);
 			mainGroup = 47D507962389D955006E46EE;
 			packageReferences = (
-				478C88D423DD32560076178A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				478C88D423DD32560076178A /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 47D507A02389D955006E46EE /* Products */;
 			projectDirPath = "";
@@ -275,7 +275,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8279885792CC0285A4D3C233 /* [CP] Embed Pods Frameworks */ = {
+		26510DAC07D16F08CB2C233B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -292,7 +292,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClassroomConnections/Pods-ClassroomConnections-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8BCD1E71199A18472FF5ECC0 /* [CP] Check Pods Manifest.lock */ = {
+		F6DB382AC559E0B88C78E51D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -483,7 +483,7 @@
 		};
 		47D507B42389D956006E46EE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB0E733F32220B8D3FDC306D /* Pods-ClassroomConnections.debug.xcconfig */;
+			baseConfigurationReference = 128D7C30F7C0141AF480231D /* Pods-ClassroomConnections.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -502,7 +502,7 @@
 		};
 		47D507B52389D956006E46EE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F01804A34C0B7B8C09D1C5F7 /* Pods-ClassroomConnections.release.xcconfig */;
+			baseConfigurationReference = C51E0EFEA1E1F5DBFBDE543B /* Pods-ClassroomConnections.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -543,7 +543,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		478C88D423DD32560076178A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+		478C88D423DD32560076178A /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
 			requirement = {
@@ -554,9 +554,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		478C88D523DD32560076178A /* IQKeyboardManagerSwift */ = {
+		478C88D523DD32560076178A /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 478C88D423DD32560076178A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			package = 478C88D423DD32560076178A /* RemoteSwiftPackageReference */;
 			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

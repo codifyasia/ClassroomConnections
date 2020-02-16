@@ -34,6 +34,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signOutButton: UIButton!
     
     override func viewDidLoad() {
+        messageTextField.delegate = self
         signOutButton.backgroundColor = .clear
         signOutButton.layer.cornerRadius = 5
         signOutButton.layer.borderWidth = 2
@@ -112,11 +113,15 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
  
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.hidesBottomBarWhenPushed = true
+
+            self.tabBarController?.tabBar.isHidden = true
+            print("textfield start")
+        
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.hidesBottomBarWhenPushed = false
+            self.tabBarController?.tabBar.isHidden = false
+            print("textfield finish")
     }
     
     func retrieveMessages() {
