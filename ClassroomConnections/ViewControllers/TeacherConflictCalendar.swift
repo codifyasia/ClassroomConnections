@@ -13,9 +13,14 @@ class TeacherConflictCalendar: UIViewController {
     var ref : DatabaseReference!
     var ClassID: String!
     @IBOutlet weak var mon: UIButton!
+    @IBOutlet weak var monLabel: UILabel!
     @IBOutlet weak var tues: UIButton!
+    @IBOutlet weak var tuesLabel: UILabel!
     @IBOutlet weak var wed: UIButton!
+    @IBOutlet weak var wedLabel: UILabel!
     @IBOutlet weak var thurs: UIButton!
+    @IBOutlet weak var thursLabel: UILabel!
+    @IBOutlet weak var friLabel: UILabel!
     @IBOutlet weak var fri: UIButton!
     var numStudents : Int = 0
     var monValue: Double = 0
@@ -37,6 +42,11 @@ class TeacherConflictCalendar: UIViewController {
         fri.layer.cornerRadius = fri.frame.size.height / 5
         resetButton.layer.cornerRadius = fri.frame.size.height / 5
         
+        print(monValue)
+        print(tuesValue)
+        print(wedValue)
+        print(thursValue)
+        print(friValue)
 
         // Do any additional setup after loading the view.
     }
@@ -48,7 +58,13 @@ class TeacherConflictCalendar: UIViewController {
         thurs.backgroundColor = UIColor(red: 88.0/255.0, green: 86.0/255.0, blue: 214.0/255.0, alpha: 1.0)
         wed.backgroundColor = UIColor(red: 88.0/255.0, green: 86.0/255.0, blue: 214.0/255.0, alpha: 1.0)
     }
-    
+    func resetDayLabels() {
+        monLabel.text = (String)((Int)(monValue * 100)) + "%"
+        tuesLabel.text = (String)((Int)(tuesValue * 100)) + "%"
+        wedLabel.text = (String)((Int)(wedValue * 100)) + "%"
+        thursLabel.text = (String)((Int)(thursValue * 100)) + "%"
+        friLabel.text = (String)((Int)(friValue * 100)) + "%"
+    }
     func getClassID() {
         ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
@@ -84,6 +100,7 @@ class TeacherConflictCalendar: UIViewController {
                 self.thursValue = Double((value["thursday"] as! Double) / Double(self.numStudents))
                 self.friValue = Double((value["friday"] as! Double) / Double(self.numStudents))
                 }
+                self.resetDayLabels()
                 print("**************")
                 print(1-self.monValue)
                 print(1-self.tuesValue)
@@ -126,6 +143,7 @@ class TeacherConflictCalendar: UIViewController {
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["wednesday" : 0])
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["thursday" : 0])
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["friday" : 0])
+        resetDayLabels()
         
     }
     
