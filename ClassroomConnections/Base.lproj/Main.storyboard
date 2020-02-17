@@ -990,11 +990,13 @@
                     <tabBarItem key="tabBarItem" title="Messages" image="message.fill" catalog="system" badgeValue="2" id="3Le-fN-lRd"/>
                     <connections>
                         <outlet property="answerLabel" destination="l0Y-Pj-lCQ" id="162-nz-ToK"/>
+                        <outlet property="bottomView" destination="Jv2-K3-uJZ" id="D9J-k0-Hys"/>
                         <outlet property="className" destination="WdZ-iM-ynS" id="7Xm-kz-p9A"/>
                         <outlet property="messageTextField" destination="M36-B1-w3g" id="b5S-l6-V74"/>
                         <outlet property="qSwitch" destination="dT6-uS-3MM" id="wnC-iS-zQE"/>
                         <outlet property="signOutButton" destination="qf7-9E-L1Z" id="fga-ud-90Z"/>
                         <outlet property="tableView" destination="cOL-Xf-OqT" id="h53-BU-jDt"/>
+                        <outlet property="view" destination="Jv2-K3-uJZ" id="1DT-Qe-uOb"/>
                         <segue destination="XVg-8X-N20" kind="presentation" identifier="backwards1" modalPresentationStyle="fullScreen" id="GjU-0t-bGD"/>
                     </connections>
                 </viewController>
@@ -1067,8 +1069,8 @@
         <image name="paperplane.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TKo-aY-hQL"/>
+        <segue reference="cXv-5r-Tr3"/>
         <segue reference="xfJ-Tr-35X"/>
-        <segue reference="xiQ-aa-cgN"/>
+        <segue reference="GjU-0t-bGD"/>
     </inferredMetricsTieBreakers>
 </document>

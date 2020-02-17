@@ -26,6 +26,8 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     var messagesID : [String] = [String]()
     @IBOutlet weak var className: UILabel!
     
+    @IBOutlet weak var bottomView: UIView!
+    var currentY : CGFloat = 0
     //if question is on
     var questionOn : Bool = false
     var answerOn : Bool = false
@@ -34,6 +36,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signOutButton: UIButton!
     
     override func viewDidLoad() {
+        currentY = bottomView.frame.origin.y
         messageTextField.delegate = self
         signOutButton.backgroundColor = .clear
         signOutButton.layer.cornerRadius = 5
@@ -59,11 +62,17 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 print("No Data!!!")
                 return
             }
+            print("--------------------")
+            print(value["Title"])
+            print("--------------------")
             let identity = value["ID"] as! String
             let eacherID = value["TeacherID"] as! String
+            let title = value["Title"] as! String
+            print(title)
+            self.className.text = title
             self.classRoomCode = identity
             self.teacherID = eacherID
-            self.className.text =  value["Title"] as! String
+            
 
             
             //            self.ref.child("Classrooms").child(identity).child("Messages").child("Message1").setValue(messageDictionary) {
@@ -113,13 +122,14 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
  
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-
+        bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
             self.tabBarController?.tabBar.isHidden = true
             print("textfield start")
         
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+            bottomView.frame.origin.y = currentY
             self.tabBarController?.tabBar.isHidden = false
             print("textfield finish")
     }
