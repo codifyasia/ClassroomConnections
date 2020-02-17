@@ -147,7 +147,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 let messageT : String = snapshotValue["messageType"]! as! String
                 let messageIndex : Int = snapshotValue["Index"] as! Int
                 
-                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String)
+                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, childID: "whores")
                 
                 if (messageT == "Answer") {
                     self.messages.insert(message, at: messageIndex)
