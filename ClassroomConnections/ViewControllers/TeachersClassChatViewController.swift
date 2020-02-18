@@ -121,7 +121,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                 let SenderID = snapshotValue["SenderID"]!
                 let messageT : String = snapshotValue["messageType"]! as! String
                 let messageIndex : Int = snapshotValue["Index"] as! Int
-                let unique : String = snapshotValue["childID"] as! String
+//                let unique : String = snapshotValue["childID"] as! String
                 
                 let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, childID: unique)
                 
