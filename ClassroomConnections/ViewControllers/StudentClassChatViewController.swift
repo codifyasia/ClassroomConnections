@@ -157,7 +157,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 let messageT : String = snapshotValue["messageType"]! as! String
                 let messageIndex : Int = snapshotValue["Index"] as! Int
                 
-                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, num: 0)
+                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, num: 0, childID: "")
                 
                 if (messageT == "Answer") {
                     self.messages.insert(message, at: messageIndex)
@@ -192,12 +192,14 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         }
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
         print(messageTextField.text!)
+        let randomID = messagesDB.childByAutoId()
+        var childId : String = randomID.key!
         if (answerOn) {
             
             let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                      "MessageBody": messageTextField.text!,
                                      "SenderID": Auth.auth().currentUser?.uid,
-                                     "messageType" : "Answer", "Upvotes" : 0, "Index" : answerIndex] as [String : Any]
+                                     "messageType" : "Answer", "Upvotes" : 0, "Index" : answerIndex, "childId" : childId] as [String : Any]
             //            let hi =
             let randomID = messagesDB.childByAutoId()
             print(randomID.key ?? String.self)

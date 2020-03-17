@@ -14,6 +14,6 @@ struct Message {
     var senderID : String
     var messageType : String
     var num : Int
-//    var childID : String
+    var childID : String
     
 }
