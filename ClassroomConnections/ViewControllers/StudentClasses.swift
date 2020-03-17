@@ -259,7 +259,7 @@ extension StudentClasses: UITableViewDelegate {
                 
             }
             //                sel.classes.append(Class(classTitle: "APCSA", teacher: "Fulk"))
-            //                self.tableView.reloadData()
+                            self.tableView.reloadData()
             
         }
         

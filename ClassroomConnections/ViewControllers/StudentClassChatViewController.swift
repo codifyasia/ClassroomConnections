@@ -73,7 +73,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
             self.classRoomCode = identity
             self.teacherID = eacherID
             
-
+            
             
             //            self.ref.child("Classrooms").child(identity).child("Messages").child("Message1").setValue(messageDictionary) {
             //                (error, reference) in
@@ -119,19 +119,19 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         
     }
     
- 
+    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
-            self.tabBarController?.tabBar.isHidden = true
-            print("textfield start")
+        self.tabBarController?.tabBar.isHidden = true
+        print("textfield start")
         
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-            bottomView.frame.origin.y = currentY
-            self.tabBarController?.tabBar.isHidden = false
-            print("textfield finish")
+        bottomView.frame.origin.y = currentY
+        self.tabBarController?.tabBar.isHidden = false
+        print("textfield finish")
     }
     
     func retrieveMessages() {
@@ -157,7 +157,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 let messageT : String = snapshotValue["messageType"]! as! String
                 let messageIndex : Int = snapshotValue["Index"] as! Int
                 
-                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, childID: "whores")
+                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, num: 0)
                 
                 if (messageT == "Answer") {
                     self.messages.insert(message, at: messageIndex)
@@ -175,7 +175,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                     let indexPath = IndexPath(row: self.questionRow, section: 0)
                     self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
                 }
-               
+                
                 
                 
             }
@@ -185,6 +185,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {
+        print("hi bitch")
         
         if (messageTextField.text == "" || messageTextField.text!.trimmingCharacters(in: .whitespaces).isEmpty) {
             return
@@ -192,23 +193,21 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
         print(messageTextField.text!)
         if (answerOn) {
+            
             let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
-            "MessageBody": messageTextField.text!,
-            "SenderID": Auth.auth().currentUser?.uid,
-            "messageType" : "Answer", "Upvotes" : 0, "Index" : answerIndex] as [String : Any]
-//            let hi =
-            messagesDB.childByAutoId().setValue(messageDictionary) {
-                (error, reference) in
-                
-                if error != nil {
-                    print(error!)
-                }
-                else {
-                    print("Message saved successfully!")
-                }
-            }
+                                     "MessageBody": messageTextField.text!,
+                                     "SenderID": Auth.auth().currentUser?.uid,
+                                     "messageType" : "Answer", "Upvotes" : 0, "Index" : answerIndex] as [String : Any]
+            //            let hi =
+            let randomID = messagesDB.childByAutoId()
+            print(randomID.key ?? String.self)
+            
+            
+            messagesDB.child(randomID.key!).setValue(messageDictionary)
+            print(randomID.key ?? String.self)
             answerOn = false
             answerLabel.isHidden = true
+            
         }
         else if (questionOn) {
             print("message type is saved as question")
@@ -229,6 +228,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
             }
         }
         else {
+            
             print("message type is saved as normal")
             let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                      "MessageBody": messageTextField.text!,
@@ -285,31 +285,31 @@ extension StudentClassChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         print("checking the message type: the message type is" + messages[indexPath.row].messageType)
-//        print(messages)
+        //        print(messages)
         if (messages[indexPath.row].messageType == "Answer") {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell1", for: indexPath) as! replyCell
-
+            
             cell.label.text = messages[indexPath.row].body
-                   cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
-
-//
-                   if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
-                       cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
-                    cell.rightImage?.tintColor = UIColor.systemIndigo
-                   } else if (cell.senderName.text == "Sender: " + self.teacherID) {
-                    
-                    cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
-                    cell.rightImage?.tintColor = UIColor.systemRed
-                   } else {
-                    cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
-                    cell.rightImage?.tintColor = UIColor.systemIndigo
-
+            cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
+            
+            //
+            if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
+                cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
+                cell.rightImage?.tintColor = UIColor.systemIndigo
+            } else if (cell.senderName.text == "Sender: " + self.teacherID) {
+                
+                cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
+                cell.rightImage?.tintColor = UIColor.systemRed
+            } else {
+                cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+                cell.rightImage?.tintColor = UIColor.systemIndigo
+                
             }
             
-//                    cell.rightImage?.tintColor = UIColor.systemIndigo
-
-//                   cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
-                   return cell
+            //                    cell.rightImage?.tintColor = UIColor.systemIndigo
+            
+            //                   cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
+            return cell
         } else {
             
             if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
@@ -326,52 +326,52 @@ extension StudentClassChatViewController: UITableViewDataSource {
                     cell.rightImage?.tintColor = UIColor.systemRed
                     return cell
                 } else {
-                 cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
-                 cell.rightImage?.tintColor = UIColor.systemIndigo
-                    }
-                cell.messageBubble.backgroundColor = UIColor.systemIndigo
+                    cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
                     cell.rightImage?.tintColor = UIColor.systemIndigo
-
-                  if messages[indexPath.row].messageType == "Question" {
-                        cell.rightImage.image = UIImage(named : "request")
-                  } else if messages[indexPath.row].messageType == "Normal" {
-                        cell.rightImage.image = UIImage(named: "study")
-                  }
-                 return cell
+                }
+                cell.messageBubble.backgroundColor = UIColor.systemIndigo
+                cell.rightImage?.tintColor = UIColor.systemIndigo
+                
+                if messages[indexPath.row].messageType == "Question" {
+                    cell.rightImage.image = UIImage(named : "request")
+                } else if messages[indexPath.row].messageType == "Normal" {
+                    cell.rightImage.image = UIImage(named: "study")
+                }
+                return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
                 cell.label.text = messages[indexPath.row].body
                 cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
-                 if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
-                     cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
-                  cell.rightImage?.tintColor = UIColor.systemIndigo
-                 } else if (cell.senderName.text == "Sender: " + self.teacherID) {
+                if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
+                    cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
+                    cell.rightImage?.tintColor = UIColor.systemIndigo
+                } else if (cell.senderName.text == "Sender: " + self.teacherID) {
                     cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
                     cell.rightImage.image = UIImage(named: "synopsisscan")
                     cell.rightImage?.tintColor = UIColor.systemRed
                     return cell
-                 } else {
+                } else {
                     cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
                     cell.rightImage?.tintColor = UIColor.systemIndigo
                 }
-                 if messages[indexPath.row].messageType == "Question" {
-                     cell.rightImage.image = UIImage(named: "request")
-                 } else if messages[indexPath.row].messageType == "Normal" {
+                if messages[indexPath.row].messageType == "Question" {
+                    cell.rightImage.image = UIImage(named: "request")
+                } else if messages[indexPath.row].messageType == "Normal" {
                     cell.rightImage.image = UIImage(named: "study")
                 }
-                 return cell
+                return cell
             }
             
             
             
             
             
-                   
-                   
-                 
+            
+            
+            
         }
         
-       
+        
     }
 }
 extension StudentClassChatViewController: UITableViewDelegate {
@@ -381,6 +381,8 @@ extension StudentClassChatViewController: UITableViewDelegate {
         
         let message = messages[selected]
         
+        print(message.messageType)
+        
         if (message.messageType == "Question") {
             questionRow = selected
             let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
@@ -389,31 +391,50 @@ extension StudentClassChatViewController: UITableViewDelegate {
             }
             
             let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
-//                if (self.questionOn) {
-//                    self.questionSwitch(nil)
-//                }
+                //                if (self.questionOn) {
+                //                    self.questionSwitch(nil)
+                //                }
                 self.qSwitch.isOn = false
                 self.answerOn = true
                 self.answerLabel.isHidden = false
                 self.answerIndex = indexPath.row+1
             }
             
-           
+            
             alert.addAction(answer)
             alert.addAction(cancel)
             present(alert, animated: true)
             
         }
+        if (message.messageType == "Answer") {
+            let mark = UIAlertAction(title: "Mark as Correct", style: .default) { (action) in
+                //                if (self.questionOn) {
+                //                    self.questionSwitch(nil)
+                //                }
+                self.qSwitch.isOn = false
+                self.answerOn = true
+                self.answerLabel.isHidden = false
+                self.messages[indexPath.row].num = 1
+            }
+            let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                
+            }
+            alert.addAction(mark)
+            alert.addAction(cancel)
+            present(alert, animated: true)
+        
+        }
         else {
             questionRow = 0
         }
         
-//        print(message.body)
-//
-//
-//
-//        print("person selected row : " + String(indexPath.row) + " (starts from 0)")
-//        print(messages[indexPath.row].messageType)
+        //        print(message.body)
+        //
+        //
+        //
+        //        print("person selected row : " + String(indexPath.row) + " (starts from 0)")
+        //        print(messages[indexPath.row].messageType)
     }
-
+    
 }
