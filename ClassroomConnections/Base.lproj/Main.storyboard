@@ -27,11 +27,11 @@
             <objects>
                 <viewController id="XVg-8X-N20" customClass="RegisterViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0zM-a1-2J6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your first name" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="0k9-8d-eB9">
-                                <rect key="frame" x="31" y="135" width="352" height="34"/>
+                                <rect key="frame" x="31" y="91" width="352" height="34"/>
                                 <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText"/>
@@ -52,25 +52,25 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIRST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWl-Io-wgC">
-                                <rect key="frame" x="31" y="103" width="352" height="24"/>
+                                <rect key="frame" x="31" y="59" width="352" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tee-8Y-2vU">
-                                <rect key="frame" x="31" y="177" width="352" height="24"/>
+                                <rect key="frame" x="31" y="133" width="352" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6i5-51-vJe">
-                                <rect key="frame" x="31" y="399" width="352" height="24"/>
+                                <rect key="frame" x="31" y="355" width="352" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z9x-x0-NvJ">
-                                <rect key="frame" x="31" y="209" width="352" height="34"/>
+                                <rect key="frame" x="31" y="165" width="352" height="34"/>
                                 <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText"/>
@@ -91,7 +91,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Type your email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lam-JF-a5K">
-                                <rect key="frame" x="31" y="283" width="352" height="34"/>
+                                <rect key="frame" x="31" y="239" width="352" height="34"/>
                                 <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText"/>
@@ -112,7 +112,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICx-IG-b1j">
-                                <rect key="frame" x="31" y="357" width="352" height="34"/>
+                                <rect key="frame" x="31" y="313" width="352" height="34"/>
                                 <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText"/>
@@ -133,19 +133,19 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kQ-mh-cIR">
-                                <rect key="frame" x="31" y="251" width="352" height="24"/>
+                                <rect key="frame" x="31" y="207" width="352" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVw-Yr-HZ5">
-                                <rect key="frame" x="31" y="325" width="352" height="24"/>
+                                <rect key="frame" x="31" y="281" width="352" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oh-u4-iJC">
-                                <rect key="frame" x="119" y="543" width="176" height="30"/>
+                                <rect key="frame" x="119" y="499" width="176" height="30"/>
                                 <state key="normal" title="Already have an account?">
                                     <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -154,13 +154,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhC-Eh-Boc">
-                                <rect key="frame" x="146" y="54" width="122" height="41"/>
+                                <rect key="frame" x="146" y="10" width="122" height="41"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
                                 <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWR-6F-yS1">
-                                <rect key="frame" x="31" y="479" width="352" height="40"/>
+                                <rect key="frame" x="31" y="435" width="352" height="40"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hqQ-Db-cWZ"/>
@@ -173,7 +173,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJc-6k-dmx">
-                                <rect key="frame" x="31" y="431" width="352" height="40"/>
+                                <rect key="frame" x="31" y="387" width="352" height="40"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="MsM-Gm-ob8"/>
@@ -186,7 +186,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HZ-7Q-bSe">
-                                <rect key="frame" x="178.5" y="625" width="57" height="30"/>
+                                <rect key="frame" x="178.5" y="581" width="57" height="30"/>
                                 <state key="normal" title="Sign-Up">
                                     <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -240,6 +240,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cc6-Vg-guD"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xh3-0S-ara"/>
                     <connections>
                         <outlet property="Email" destination="Lam-JF-a5K" id="Ulw-Yi-hhV"/>
                         <outlet property="FirstName" destination="0k9-8d-eB9" id="bnL-pf-cXx"/>
@@ -341,6 +342,16 @@
                                 <connections>
                                     <action selector="loginPressed:" destination="CMF-8L-1nv" eventType="touchUpInside" id="hpf-YO-3Xw"/>
                                     <action selector="signUpPressed:" destination="XVg-8X-N20" eventType="touchUpInside" id="K8y-B4-5je"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjx-my-Ewi">
+                                <rect key="frame" x="150" y="318" width="115" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Forgot Password">
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gtc-8s-cMg" kind="presentation" id="Aax-EX-kVu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -463,6 +474,61 @@
             </objects>
             <point key="canvasLocation" x="2694.202898550725" y="1583.7053571428571"/>
         </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="uOO-hh-Ncn">
+            <objects>
+                <viewController id="gtc-8s-cMg" customClass="ForgotPasswordViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dRU-wS-Wb1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cK6-Zg-IYa">
+                                <rect key="frame" x="31" y="57" width="352" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="foregroundColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twr-cp-21M">
+                                <rect key="frame" x="144" y="158" width="126" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Recover Password">
+                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="recoverPassword:" destination="gtc-8s-cMg" eventType="touchUpInside" id="Nct-ny-riT"/>
+                                    <segue destination="XVg-8X-N20" kind="presentation" id="Ulf-TY-FqA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="met-EV-kGy"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wh7-uk-Pth"/>
+                    <connections>
+                        <outlet property="emailText" destination="cK6-Zg-IYa" id="R7I-0p-iWt"/>
+                        <segue destination="XVg-8X-N20" kind="show" identifier="returnBackToRegister" id="ToF-oS-XoI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jLv-k0-7ST" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="377"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qIj-BW-Tc1">
             <objects>
@@ -551,7 +617,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcX-HM-JzH" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114" y="1051"/>
+            <point key="canvasLocation" x="1142" y="1131"/>
         </scene>
         <!--Student Classes-->
         <scene sceneID="fTh-yx-fH2">
@@ -1069,8 +1135,8 @@
         <image name="paperplane.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cXv-5r-Tr3"/>
+        <segue reference="TKo-aY-hQL"/>
         <segue reference="xfJ-Tr-35X"/>
-        <segue reference="GjU-0t-bGD"/>
+        <segue reference="ToF-oS-XoI"/>
     </inferredMetricsTieBreakers>
 </document>
