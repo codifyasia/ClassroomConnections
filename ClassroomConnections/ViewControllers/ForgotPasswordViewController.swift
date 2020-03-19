@@ -25,10 +25,10 @@ class ForgotPasswordViewController: UIViewController {
             return
         }
         Auth.auth().sendPasswordReset(withEmail: email) { (error) in
-            self.view.endEditing(true)
-//            self.performSegue(withIdentifier: "returnBackToRegister", sender: self)
+            
             if error == nil {
-                SVProgressHUD.showSuccess(withStatus: "We have just sent you a password reset email. Please check your inbx and follow the instructions to reset your password")
+                self.view.endEditing(true)
+                SVProgressHUD.showSuccess(withStatus: "We have just sent you a password reset email. Please check your inbox and follow the instructions to reset your password")
             } else {
                 print(error)
                 SVProgressHUD.showError(withStatus: "There has been an error")
