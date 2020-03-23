@@ -149,6 +149,9 @@
                                 <state key="normal" title="Already have an account?">
                                     <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="CMF-8L-1nv" kind="presentation" id="gQ2-5Y-eq7"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhC-Eh-Boc">
                                 <rect key="frame" x="146" y="54" width="122" height="41"/>
@@ -1154,9 +1157,9 @@
         <image name="return" catalog="system" width="64" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xtz-uR-Dal"/>
         <segue reference="TKo-aY-hQL"/>
         <segue reference="xfJ-Tr-35X"/>
-        <segue reference="u7x-4l-w7a"/>
+        <segue reference="gQ2-5Y-eq7"/>
+        <segue reference="xiQ-aa-cgN"/>
     </inferredMetricsTieBreakers>
 </document>

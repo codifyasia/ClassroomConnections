@@ -15,5 +15,6 @@ struct Message {
     var messageType : String
     var num : Int
     var ID : Int
+    var correct: Bool
     
 }

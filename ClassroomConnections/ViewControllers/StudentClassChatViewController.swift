@@ -69,7 +69,8 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
             let eacherID = value["TeacherID"] as! String
             let title = value["Title"] as! String
             print(title)
-            self.className.text = title
+            print(Auth.auth().currentUser!.uid)
+//            self.className.text = title
             self.classRoomCode = identity
             self.teacherID = eacherID
             
@@ -157,8 +158,9 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 let messageT : String = snapshotValue["messageType"]! as! String
                 let messageIndex : Int = snapshotValue["Index"] as! Int
                 let Id : Int = snapshotValue["ID"] as! Int
+                let correct1 : Bool = snapshotValue["correct"] as! Bool
                 
-                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, num: 0, ID: Id)
+                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, num: 0, ID: Id, correct: correct1)
                 
                 if (messageT == "Answer") {
                     self.messages.insert(message, at: messageIndex)
@@ -217,7 +219,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                          "MessageBody": self.messageTextField.text!,
                                          "SenderID": Auth.auth().currentUser?.uid,
-                                         "messageType" : "Answer", "Upvotes" : 0, "Index" : self.answerIndex, "ID" : generatorNum+1] as [String : Any]
+                                         "messageType" : "Answer", "Upvotes" : 0, "Index" : self.answerIndex, "ID" : generatorNum+1, "correct" : false] as [String : Any]
                 //            let hi
                 
                 
@@ -231,7 +233,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                          "MessageBody": self.messageTextField.text!,
                                          "SenderID": Auth.auth().currentUser?.uid,
-                                         "messageType" : "Question", "Upvotes" : 0, "Index" : 0, "ID" : generatorNum+1] as [String : Any]
+                                         "messageType" : "Question", "Upvotes" : 0, "Index" : 0, "ID" : generatorNum+1, "correct": false] as [String : Any]
                 
                 messagesDB.child(String(generatorNum+1)).setValue(messageDictionary) {
                     (error, reference) in
@@ -250,7 +252,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                          "MessageBody": self.messageTextField.text!,
                                          "SenderID": Auth.auth().currentUser?.uid,
-                                         "messageType" : "Normal", "Index" : 0, "ID" : generatorNum+1] as [String : Any]
+                                         "messageType" : "Normal", "Index" : 0, "ID" : generatorNum+1, "correct": false] as [String : Any]
                 messagesDB.child(String(generatorNum+1)).setValue(messageDictionary) {
                     (error, reference) in
                     
@@ -323,6 +325,9 @@ extension StudentClassChatViewController: UITableViewDataSource {
                 cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
                 cell.rightImage?.tintColor = UIColor.systemIndigo
                 
+            }
+            if (!messages[indexPath.row].correct) {
+                cell.checkmark.isHidden = true
             }
             
             //                    cell.rightImage?.tintColor = UIColor.systemIndigo
