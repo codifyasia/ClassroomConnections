@@ -125,7 +125,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                 let correct1 : Bool = snapshotValue["correct"] as! Bool
                 //                let unique : String = snapshotValue["childID"] as! String
                 
-                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, num: 0, ID: id, correct: correct1)
+                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: id, correct: correct1)
                 
                 if (messageT == "Answer") {
                     self.messages.insert(message, at: messageIndex)

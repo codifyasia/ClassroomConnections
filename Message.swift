@@ -13,7 +13,7 @@ struct Message {
     var body : String
     var senderID : String
     var messageType : String
-    var num : Int
+    //var num : Int
     var ID : Int
     var correct: Bool
     

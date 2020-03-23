@@ -85,6 +85,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
             //                    print("Message saved succesfully")
             //                }
             //            }
+            
             self.retrieveMessages()
             
         }) { (error) in
@@ -138,6 +139,59 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     func retrieveMessages() {
         //        let messageDB =
         
+//        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value) { (snapshot) in
+//
+//            guard let value = snapshot.value as? NSDictionary else {
+//                print("No Data!!!")
+//                return
+//            }
+//            let identity = value["ID"] as! String
+//
+//            self.classRoomCode = identity
+//            let messageDB = self.ref.child("Classrooms").child(identity).child("Messages")
+//
+//            messageDB.observe(.childAdded) { (snapshot) in
+//
+//
+//
+//
+//
+//
+//                let snapshotValue = snapshot.value as! Dictionary<String,Any>
+//                let Text = snapshotValue["MessageBody"]!
+//                let Sender = snapshotValue["Sender"]!
+//                let SenderID = snapshotValue["SenderID"]!
+//                let messageT : String = snapshotValue["messageType"]! as! String
+//                let messageIndex : Int = snapshotValue["Index"] as! Int
+//                let Id : Int = snapshotValue["ID"] as! Int
+//                let correct1 : Bool = snapshotValue["correct"] as! Bool
+//
+//                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: Id, correct: correct1)
+//
+//                if (messageT == "Answer") {
+//                    self.messages.insert(message, at: messageIndex)
+//                }
+//                else {
+//                    self.messages.append(message)
+//                }
+//
+//
+//                self.tableView.reloadData()
+//                if (self.questionRow == 0) {
+//                    let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+//                } else {
+//                    let indexPath = IndexPath(row: self.questionRow, section: 0)
+//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+//                }
+//
+//
+//
+//            }
+//
+//        }
+        //        let messageDB =
+        
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value) { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else {
@@ -157,10 +211,11 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 let SenderID = snapshotValue["SenderID"]!
                 let messageT : String = snapshotValue["messageType"]! as! String
                 let messageIndex : Int = snapshotValue["Index"] as! Int
-                let Id : Int = snapshotValue["ID"] as! Int
+                let id : Int = snapshotValue["ID"] as! Int
                 let correct1 : Bool = snapshotValue["correct"] as! Bool
+                //                let unique : String = snapshotValue["childID"] as! String
                 
-                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, num: 0, ID: Id, correct: correct1)
+                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: id, correct: correct1)
                 
                 if (messageT == "Answer") {
                     self.messages.insert(message, at: messageIndex)
@@ -169,7 +224,8 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                     self.messages.append(message)
                 }
                 
-                
+                print("classcode:" + self.classRoomCode)
+                print("teacherID: " + self.teacherID)
                 self.tableView.reloadData()
                 if (self.questionRow == 0) {
                     let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
@@ -179,10 +235,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                     self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
                 }
                 
-                
-                
             }
-            
         }
         
     }
@@ -304,7 +357,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        print("playboi carti")
         print("checking the message type: the message type is" + messages[indexPath.row].messageType)
         //        print(messages)
         if (messages[indexPath.row].messageType == "Answer") {
@@ -438,7 +491,7 @@ extension StudentClassChatViewController: UITableViewDelegate {
                 self.qSwitch.isOn = false
                 self.answerOn = true
                 self.answerLabel.isHidden = false
-                self.messages[indexPath.row].num = 1
+                //self.messages[indexPath.row].num = 1
             }
             let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
             let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in

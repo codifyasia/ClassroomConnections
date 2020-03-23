@@ -22,10 +22,12 @@ class AuthManager {
     func showApp() {
         if (Auth.auth().currentUser == nil) {
             var viewController: UIViewController
+            print("auth is nil")
             viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
             authHandler.present(viewController, animated: false, completion: nil)
+        
         } else {
-            print(Auth.auth().currentUser!.uid)
+            print("auth is found:" + Auth.auth().currentUser!.uid)
             self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 guard let value = snapshot.value as? NSDictionary else {
