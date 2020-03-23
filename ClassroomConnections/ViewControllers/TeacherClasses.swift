@@ -238,7 +238,7 @@ extension TeacherClasses: UITableViewDelegate {
                         
                         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child( self.textField.text!).updateChildValues(["Title" : self.topicTextField.text!, "Teacher" : self.name, "TeacherID": Auth.auth().currentUser!.uid, "ID" : self.textField.text!])
                     
-                        self.ref.child("Classrooms").child(self.textField.text!).updateChildValues(["Teacher" : self.name, "Title" : self.topicTextField.text!, "TeacherID": Auth.auth().currentUser!.uid, "ID" : self.textField.text!])
+                        self.ref.child("Classrooms").child(self.textField.text!).updateChildValues(["Teacher" : self.name, "Title" : self.topicTextField.text!, "TeacherID": Auth.auth().currentUser!.uid, "ID" : self.textField.text!, "Generator" : 0])
                     
                         self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0])
                     //update

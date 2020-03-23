@@ -156,8 +156,9 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 let SenderID = snapshotValue["SenderID"]!
                 let messageT : String = snapshotValue["messageType"]! as! String
                 let messageIndex : Int = snapshotValue["Index"] as! Int
+                let Id : Int = snapshotValue["ID"] as! Int
                 
-                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, num: 0, childID: "")
+                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, num: 0, ID: Id)
                 
                 if (messageT == "Answer") {
                     self.messages.insert(message, at: messageIndex)
@@ -192,64 +193,80 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         }
         let messagesDB = Database.database().reference().child("Classrooms").child(classRoomCode).child("Messages")
         print(messageTextField.text!)
-        let randomID = messagesDB.childByAutoId()
-        var childId : String = randomID.key!
-        if (answerOn) {
+        
+        var generatorNum : Int = 5
+        ref.child("Classrooms").child(classRoomCode).observeSingleEvent(of: .value) { (snapshot) in
             
-            let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
-                                     "MessageBody": messageTextField.text!,
-                                     "SenderID": Auth.auth().currentUser?.uid,
-                                     "messageType" : "Answer", "Upvotes" : 0, "Index" : answerIndex, "childId" : childId] as [String : Any]
-            //            let hi =
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
+            
+            generatorNum = value["Generator"] as! Int
+            
+            
+            
+            
+            print(generatorNum+1)
+            self.ref.child("Classrooms").child(self.classRoomCode).updateChildValues(["Generator" : generatorNum+1])
+            
             let randomID = messagesDB.childByAutoId()
-            print(randomID.key ?? String.self)
-            
-            
-            messagesDB.child(randomID.key!).setValue(messageDictionary)
-            print(randomID.key ?? String.self)
-            answerOn = false
-            answerLabel.isHidden = true
-            
-        }
-        else if (questionOn) {
-            print("message type is saved as question")
-            let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
-                                     "MessageBody": messageTextField.text!,
-                                     "SenderID": Auth.auth().currentUser?.uid,
-                                     "messageType" : "Question", "Upvotes" : 0, "Index" : 0] as [String : Any]
-            
-            messagesDB.childByAutoId().setValue(messageDictionary) {
-                (error, reference) in
+            var childId : String = randomID.key!
+            if (self.answerOn) {
                 
-                if error != nil {
-                    print(error!)
-                }
-                else {
-                    print("Message saved successfully!")
+                let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+                                         "MessageBody": self.messageTextField.text!,
+                                         "SenderID": Auth.auth().currentUser?.uid,
+                                         "messageType" : "Answer", "Upvotes" : 0, "Index" : self.answerIndex, "ID" : generatorNum+1] as [String : Any]
+                //            let hi
+                
+                
+                messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
+                self.answerOn = false
+                self.answerLabel.isHidden = true
+                
+            }
+            else if (self.questionOn) {
+                print("message type is saved as question")
+                let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+                                         "MessageBody": self.messageTextField.text!,
+                                         "SenderID": Auth.auth().currentUser?.uid,
+                                         "messageType" : "Question", "Upvotes" : 0, "Index" : 0, "ID" : generatorNum+1] as [String : Any]
+                
+                messagesDB.child(String(generatorNum+1)).setValue(messageDictionary) {
+                    (error, reference) in
+                    
+                    if error != nil {
+                        print(error!)
+                    }
+                    else {
+                        print("Message saved successfully!")
+                    }
                 }
             }
-        }
-        else {
-            
-            print("message type is saved as normal")
-            let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
-                                     "MessageBody": messageTextField.text!,
-                                     "SenderID": Auth.auth().currentUser?.uid,
-                                     "messageType" : "Normal", "Index" : 0] as [String : Any]
-            messagesDB.childByAutoId().setValue(messageDictionary) {
-                (error, reference) in
+            else {
                 
-                if error != nil {
-                    print(error!)
-                }
-                else {
-                    print("Message saved successfully!")
+                print("message type is saved as normal")
+                let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+                                         "MessageBody": self.messageTextField.text!,
+                                         "SenderID": Auth.auth().currentUser?.uid,
+                                         "messageType" : "Normal", "Index" : 0, "ID" : generatorNum+1] as [String : Any]
+                messagesDB.child(String(generatorNum+1)).setValue(messageDictionary) {
+                    (error, reference) in
+                    
+                    if error != nil {
+                        print(error!)
+                    }
+                    else {
+                        print("Message saved successfully!")
+                    }
                 }
             }
+            self.messageTextField.text = ""
         }
         
         
-        messageTextField.text = ""
+        
     }
     
 }
@@ -425,7 +442,7 @@ extension StudentClassChatViewController: UITableViewDelegate {
             alert.addAction(mark)
             alert.addAction(cancel)
             present(alert, animated: true)
-        
+            
         }
         else {
             questionRow = 0

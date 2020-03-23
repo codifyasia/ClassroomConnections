@@ -121,9 +121,10 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                 let SenderID = snapshotValue["SenderID"]!
                 let messageT : String = snapshotValue["messageType"]! as! String
                 let messageIndex : Int = snapshotValue["Index"] as! Int
+                let id : Int = snapshotValue["ID"] as! Int
 //                let unique : String = snapshotValue["childID"] as! String
                 
-                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, num: 0, childID: "")
+                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, num: 0, ID: id)
                 
                 if (messageT == "Answer") {
                     self.messages.insert(message, at: messageIndex)
@@ -254,6 +255,7 @@ extension TeacherClassChatViewController: UITableViewDelegate {
         let selected = indexPath.row
         
         var message = messages[selected]
+        print(message.ID)
         
         if (message.messageType == "Question") {
             questionRow = selected
