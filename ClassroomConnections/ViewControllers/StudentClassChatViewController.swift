@@ -122,7 +122,6 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
         self.tabBarController?.tabBar.isHidden = true

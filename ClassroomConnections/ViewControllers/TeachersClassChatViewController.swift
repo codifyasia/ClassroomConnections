@@ -8,16 +8,19 @@
 
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
 class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     
     var ref: DatabaseReference!
     var questionRow : Int! = 0
     
+    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var className: UILabel!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var classRoomCode : String = "stuff"
+    var currentY : CGFloat = 0
     
     
     var messages: [Message] = [Message]()
@@ -32,6 +35,8 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         print("buh")
+        currentY = bottomView.frame.origin.y
+        messageTextField.delegate = self
         answerLabel.isHidden = false
         tableView.dataSource = self
         tableView.delegate = self
@@ -85,6 +90,20 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("textfield start")
+        bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
+        self.tabBarController?.tabBar.isHidden = true
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        bottomView.frame.origin.y = currentY
+        self.tabBarController?.tabBar.isHidden = false
+        print("textfield finish")
+    }
+    
     @IBAction func answerSwitch(_ sender: Any) {
         answerLabel.isHidden = true
         answerOn = false
@@ -94,7 +113,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             try Auth.auth().signOut()
             performSegue(withIdentifier: "backwards2", sender: self)
             
-        }catch let signOutError as NSError {
+        } catch let signOutError as NSError {
             print("Logout Error")
         }
         

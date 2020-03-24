@@ -405,7 +405,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Smz-SH-QrC" userLabel="TopView">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Smz-SH-QrC" userLabel="BottomView">
                                 <rect key="frame" x="0.0" y="738" width="414" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -466,6 +466,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="answerLabel" destination="X1D-3j-5zM" id="911-LI-8gr"/>
+                        <outlet property="bottomView" destination="Smz-SH-QrC" id="Kdf-VM-eeN"/>
                         <outlet property="className" destination="K92-jp-6N0" id="tKW-FB-m0L"/>
                         <outlet property="messageTextField" destination="WL4-gr-wzh" id="MYk-dE-KB0"/>
                         <outlet property="tableView" destination="710-dv-Gfr" id="LL4-nk-pLk"/>
@@ -1157,9 +1158,9 @@
         <image name="return" catalog="system" width="64" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TKo-aY-hQL"/>
-        <segue reference="xfJ-Tr-35X"/>
+        <segue reference="cXv-5r-Tr3"/>
+        <segue reference="sJO-IF-d3h"/>
         <segue reference="gQ2-5Y-eq7"/>
-        <segue reference="xiQ-aa-cgN"/>
+        <segue reference="z2q-rs-LFr"/>
     </inferredMetricsTieBreakers>
 </document>
