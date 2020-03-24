@@ -36,8 +36,8 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         print("buh")
         currentY = bottomView.frame.origin.y
+        answerLabel.isHidden = true
         messageTextField.delegate = self
-        answerLabel.isHidden = false
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
