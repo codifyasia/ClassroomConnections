@@ -76,16 +76,6 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
             
             
             
-            //            self.ref.child("Classrooms").child(identity).child("Messages").child("Message1").setValue(messageDictionary) {
-            //                (error, reference) in
-            //
-            //                if error != nil {
-            //                    print(error!)
-            //                } else {
-            //                    print("Message saved succesfully")
-            //                }
-            //            }
-            
             self.retrieveMessages()
             
         }) { (error) in
@@ -136,60 +126,6 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     }
     
     func retrieveMessages() {
-        //        let messageDB =
-        
-//        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value) { (snapshot) in
-//
-//            guard let value = snapshot.value as? NSDictionary else {
-//                print("No Data!!!")
-//                return
-//            }
-//            let identity = value["ID"] as! String
-//
-//            self.classRoomCode = identity
-//            let messageDB = self.ref.child("Classrooms").child(identity).child("Messages")
-//
-//            messageDB.observe(.childAdded) { (snapshot) in
-//
-//
-//
-//
-//
-//
-//                let snapshotValue = snapshot.value as! Dictionary<String,Any>
-//                let Text = snapshotValue["MessageBody"]!
-//                let Sender = snapshotValue["Sender"]!
-//                let SenderID = snapshotValue["SenderID"]!
-//                let messageT : String = snapshotValue["messageType"]! as! String
-//                let messageIndex : Int = snapshotValue["Index"] as! Int
-//                let Id : Int = snapshotValue["ID"] as! Int
-//                let correct1 : Bool = snapshotValue["correct"] as! Bool
-//
-//                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: Id, correct: correct1)
-//
-//                if (messageT == "Answer") {
-//                    self.messages.insert(message, at: messageIndex)
-//                }
-//                else {
-//                    self.messages.append(message)
-//                }
-//
-//
-//                self.tableView.reloadData()
-//                if (self.questionRow == 0) {
-//                    let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
-//                } else {
-//                    let indexPath = IndexPath(row: self.questionRow, section: 0)
-//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
-//                }
-//
-//
-//
-//            }
-//
-//        }
-        //        let messageDB =
         
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value) { (snapshot) in
             
@@ -272,7 +208,6 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                                          "MessageBody": self.messageTextField.text!,
                                          "SenderID": Auth.auth().currentUser?.uid,
                                          "messageType" : "Answer", "Upvotes" : 0, "Index" : self.answerIndex, "ID" : generatorNum+1, "correct" : false] as [String : Any]
-                //            let hi
                 
                 
                 messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
@@ -324,32 +259,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     }
     
 }
-//
-//                self.ref.child("Classrooms").child(identity).child("Messages").child("Message \(index)").observeSingleEvent(of: .value, with: { (snapshot1) in
-//
-//
-//                    guard let value1 = snapshot1.value as? NSDictionary else {
-//                        print("No Data!!!")
-//                        return
-//                    }
-//
-//                    let Text = value1["MessageBody"]!
-//                    print(Text)
-//                    let Sender = value1["Sender"]!
-//                    let SenderID = value1["SenderID"]
-//
-//                        print("ooooga \(Sender) \(Text) \(SenderID!)")
-//
-//                        let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID! as! String)
-//                    self.messages.append(message)
-//
-//                    self.tableView.reloadData()
-//
-//
-//
-//                }) { (error) in
-//                    print("error:\(error.localizedDescription)")
-//                }
+
 extension StudentClassChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
