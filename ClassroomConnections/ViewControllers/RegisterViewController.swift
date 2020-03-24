@@ -101,8 +101,7 @@ class RegisterViewController: UIViewController {
                     //                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)
                 } else {
                     SVProgressHUD.dismiss()
-                    
-                    let alert = UIAlertController(title: "Registration Error", message: "Please check to make sure you have met all the registration guidelines", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Registration Error", message: error?.localizedDescription as! String, preferredStyle: .alert)
                     
                     let OK = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
                         self.Password.text = ""
@@ -110,8 +109,9 @@ class RegisterViewController: UIViewController {
                     
                     alert.addAction(OK)
                     self.present(alert, animated: true, completion: nil)
-                    //
-                    print("Error: \(error)")
+                    print("--------------------------------")
+                    print("Error: \(error?.localizedDescription)")
+                    print("--------------------------------")
                 }
             }
         }
