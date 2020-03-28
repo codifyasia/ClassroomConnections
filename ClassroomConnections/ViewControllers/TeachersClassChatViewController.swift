@@ -120,7 +120,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     }
     func retrieveMessages() {
         //        let messageDB =
-        
+//        messages = []
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value) { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else {
@@ -132,6 +132,12 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             self.classRoomCode = identity
             let messageDB = self.ref.child("Classrooms").child(identity).child("Messages")
             
+            messageDB.observe(.childChanged) { (snapshot) in
+                
+                self.tableView.reloadData()
+
+                
+            }
             messageDB.observe(.childAdded) { (snapshot) in
                 
                 let snapshotValue = snapshot.value as! Dictionary<String,Any>
@@ -153,8 +159,9 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                     self.messages.append(message)
                 }
                 
-                
                 self.tableView.reloadData()
+                
+                
                 if (self.questionRow == 0) {
                     let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
                     self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
@@ -230,6 +237,10 @@ extension TeacherClassChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(messages.count)
+        for i in messages {
+            print(i.body)
+        }
         if (messages[indexPath.row].messageType == "Answer") {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell1", for: indexPath) as! replyCell
             cell.label.text = messages[indexPath.row].body
@@ -246,8 +257,11 @@ extension TeacherClassChatViewController: UITableViewDataSource {
                 cell.rightImage.image = UIImage(named : "study")
             }
             
+            print("\(messages[indexPath.row].body) + \(messages[indexPath.row].correct)")
+            
             if (!messages[indexPath.row].correct) {
                 cell.checkmark.isHidden = true
+//                print("BRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUH")
             }
             
             
@@ -331,6 +345,8 @@ extension TeacherClassChatViewController: UITableViewDelegate {
                 //                    self.questionSwitch(nil)
                 //                }
                 self.checkIndex = indexPath.row+1
+                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(message.ID)).updateChildValues(["correct": true])
+//                self.tableView.reloadData()
                 
             }
             
