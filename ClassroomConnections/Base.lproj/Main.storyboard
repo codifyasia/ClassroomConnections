@@ -1148,14 +1148,6 @@
                                     <segue destination="Dcl-mV-d4c" kind="presentation" identifier="returnToClasseStudent" id="cXv-5r-Tr3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emy-bV-pFd">
-                                <rect key="frame" x="286" y="40" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="debug:" destination="LRU-J3-kCs" eventType="touchUpInside" id="dxP-50-s6V"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PBR-30-Drz"/>

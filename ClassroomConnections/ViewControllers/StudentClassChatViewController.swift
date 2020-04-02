@@ -88,9 +88,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @IBAction func debug(_ sender: Any) {
-        tableView.reloadData()
-    }
+
     @objc func keyboradWillChange(notification: Notification) {
         print("Keyboard will show: \(notification.name.rawValue)")
     }
