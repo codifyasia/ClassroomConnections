@@ -242,10 +242,6 @@ extension TeacherClassChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(messages.count)
-        for i in messages {
-            print(i.body)
-        }
         if (messages[indexPath.row].messageType == "Answer") {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell1", for: indexPath) as! replyCell
             cell.label.text = messages[indexPath.row].body
@@ -264,9 +260,10 @@ extension TeacherClassChatViewController: UITableViewDataSource {
             
             print("\(messages[indexPath.row].body) + \(messages[indexPath.row].correct)")
             
-            if (!messages[indexPath.row].correct) {
+            if (messages[indexPath.row].correct) {
+                cell.checkmark.isHidden = false
+            } else {
                 cell.checkmark.isHidden = true
-//                print("BRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUH")
             }
             
             
@@ -346,12 +343,11 @@ extension TeacherClassChatViewController: UITableViewDelegate {
             }
             
             let answer = UIAlertAction(title: "Commend", style: .default) { (action) in
-                //                if (self.questionOn) {
-                //                    self.questionSwitch(nil)
-                //                }
+                print("----switching checkmark to visible------")
                 self.checkIndex = indexPath.row+1
                 self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(message.ID)).updateChildValues(["correct": true])
-//                self.tableView.reloadData()
+                self.messages[indexPath.row].correct = true
+                self.tableView.reloadData()
                 
             }
             
