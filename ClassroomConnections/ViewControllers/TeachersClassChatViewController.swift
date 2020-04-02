@@ -161,13 +161,18 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                 
                 self.tableView.reloadData()
                 
-                
+                var indexPath : IndexPath
                 if (self.questionRow == 0) {
-                    let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                    indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
                 } else {
-                    let indexPath = IndexPath(row: self.questionRow, section: 0)
-                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                    indexPath = IndexPath(row: self.questionRow, section: 0)
+//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                }
+                
+                
+                if (messageT != "Answer") {
+                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 }
                 
             }

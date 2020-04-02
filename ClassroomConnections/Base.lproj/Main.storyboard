@@ -1148,6 +1148,14 @@
                                     <segue destination="Dcl-mV-d4c" kind="presentation" identifier="returnToClasseStudent" id="cXv-5r-Tr3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emy-bV-pFd">
+                                <rect key="frame" x="286" y="40" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="debug:" destination="LRU-J3-kCs" eventType="touchUpInside" id="dxP-50-s6V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PBR-30-Drz"/>
@@ -1228,10 +1236,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TKo-aY-hQL"/>
-        <segue reference="xfJ-Tr-35X"/>
+        <segue reference="cXv-5r-Tr3"/>
+        <segue reference="u9c-qB-1hm"/>
         <segue reference="Xtz-uR-Dal"/>
-        <segue reference="u7x-4l-w7a"/>
+        <segue reference="GjU-0t-bGD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="98"/>

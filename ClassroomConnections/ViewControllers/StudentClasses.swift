@@ -184,7 +184,20 @@ extension StudentClasses: UITableViewDelegate {
         let alert = UIAlertController(title: "Enter code to join class", message: "", preferredStyle: .alert)
         let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
             print(self.textField.text!)
-            
+            if (self.textField.text! == "") {
+                let errorAlert = UIAlertController(title: "Invalid Code", message: "The code you entered does not exist", preferredStyle: .alert)
+                let tryAgain = UIAlertAction(title: "Enter Another Code", style: .default) { (tryAgainAction) in
+                    self.present(alert, animated: true, completion: nil)
+                }
+                let cancel = UIAlertAction(title: "Cancel", style: .default) { (cancelAction) in
+                
+                }
+                errorAlert.addAction(tryAgain)
+                errorAlert.addAction(cancel)
+                
+                self.present(errorAlert, animated: true, completion: nil)
+                return
+            }
             
             var index = 1
             

@@ -40,7 +40,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         messageTextField.delegate = self
         signOutButton.backgroundColor = .clear
         signOutButton.layer.cornerRadius = 5
-        signOutButton.layer.borderWidth = 2
+//        signOutButton.layer.borderWidth = 2
         signOutButton.layer.borderColor = UIColor.systemIndigo.cgColor
         answerLabel.backgroundColor = .clear
         answerLabel.layer.cornerRadius = 5
@@ -88,6 +88,9 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func debug(_ sender: Any) {
+        tableView.reloadData()
+    }
     @objc func keyboradWillChange(notification: Notification) {
         print("Keyboard will show: \(notification.name.rawValue)")
     }
@@ -162,12 +165,17 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 print("classcode:" + self.classRoomCode)
                 print("teacherID: " + self.teacherID)
                 self.tableView.reloadData()
+                var indexPath : IndexPath
                 if (self.questionRow == 0) {
-                    let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                    indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 } else {
-                    let indexPath = IndexPath(row: self.questionRow, section: 0)
-                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                    indexPath = IndexPath(row: self.questionRow, section: 0)
+//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                }
+                
+                if (messageT != "Answer") {
+                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 }
                 
             }
@@ -213,7 +221,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
                 self.answerOn = false
                 self.answerLabel.isHidden = true
-                
+//                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
             }
             else if (self.questionOn) {
                 print("message type is saved as question")
