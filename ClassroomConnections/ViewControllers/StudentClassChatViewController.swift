@@ -139,8 +139,16 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
             self.classRoomCode = identity
             let messageDB = self.ref.child("Classrooms").child(identity).child("Messages")
             
+            messageDB.observe(.childChanged) { (snapshot) in
+                           
+                self.tableView.reloadData()
+            }
+            
             messageDB.observe(.childAdded) { (snapshot) in
                 
+                if (!snapshot.hasChildren()) {
+                    return
+                }
                 let snapshotValue = snapshot.value as! Dictionary<String,Any>
                 let Text = snapshotValue["MessageBody"]!
                 let Sender = snapshotValue["Sender"]!
@@ -298,9 +306,11 @@ extension StudentClassChatViewController: UITableViewDataSource {
                 cell.checkmark.isHidden = true
             }
             
-            //                    cell.rightImage?.tintColor = UIColor.systemIndigo
-            
-            //                   cell.rightImage.image = UIImage(systemName: "exclamationmark.square")
+            if (messages[indexPath.row].correct) {
+                cell.checkmark.isHidden = false
+            } else {
+                cell.checkmark.isHidden = true
+            }
             return cell
         } else {
             

@@ -140,6 +140,9 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             }
             messageDB.observe(.childAdded) { (snapshot) in
                 
+                if (!snapshot.hasChildren()) {
+                    return
+                }
                 let snapshotValue = snapshot.value as! Dictionary<String,Any>
                 let Text = snapshotValue["MessageBody"]!
                 let Sender = snapshotValue["Sender"]!
@@ -346,6 +349,7 @@ extension TeacherClassChatViewController: UITableViewDelegate {
                 print("----switching checkmark to visible------")
                 self.checkIndex = indexPath.row+1
                 self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(message.ID)).updateChildValues(["correct": true])
+                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").updateChildValues(["last_commended id": indexPath.row])
                 self.messages[indexPath.row].correct = true
                 self.tableView.reloadData()
                 
