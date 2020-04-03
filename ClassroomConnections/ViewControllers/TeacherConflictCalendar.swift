@@ -33,8 +33,9 @@ class TeacherConflictCalendar: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        ClassID = "dlkgjdgldrkjgd"
         getClassID()
-
+        
         mon.layer.cornerRadius = mon.frame.size.height / 5
         tues.layer.cornerRadius = tues.frame.size.height / 5
         wed.layer.cornerRadius = wed.frame.size.height / 5
@@ -144,8 +145,20 @@ class TeacherConflictCalendar: UIViewController {
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["thursday" : 0])
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["friday" : 0])
         resetDayLabels()
-        
     }
+    func autoUpdateLabels () {
+        if (ClassID == "dlkgjdgldrkjgd") {
+            return
+        }
+        let messageDB = self.ref.child("Classrooms").child(ClassID).child("Calendar")
+                
+    messageDB.observe(.childChanged) { (snapshot) in
+            let snapshotValue = snapshot.value as! Dictionary<String,Any>
+        
+        //finish this later
+        }
+    }
+
     
 
     /*
