@@ -163,8 +163,7 @@ class TeacherConflictCalendar: UIViewController {
         messageDB.observe(.childChanged) { (snapshot) in
             self.updateEverything()
         print("faggots")
-        
-        //finish this later
+
         }
     }
     

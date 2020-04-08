@@ -135,6 +135,7 @@ class StudentConflictCalendar: UIViewController {
                 return
             }
             self.ClassID = value["ID"] as? String
+            self.checkIfResetSubmissions()
             print("uid: " + Auth.auth().currentUser!.uid)
             print("classid: " + self.ClassID)
             self.ref.child("Classrooms").child(self.ClassID).child("Students").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -158,15 +159,27 @@ class StudentConflictCalendar: UIViewController {
         }
 
     }
-    /*
-    // MARK: - Navigation
+    
+    func checkIfResetSubmissions() {
 
-     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        print("inside auto update lavbels")
+        let messageDB = self.ref.child("Classrooms").child(ClassID).child("Students")
+        messageDB.observe(.childChanged) { (snapshot) in
+            guard let value = snapshot.value as? NSDictionary else {
+                print("no data in uid in classrooms in students in updatesubmitbutton status")
+                return
+            }
+            if (snapshot.key == Auth.auth().currentUser!.uid) {
+                var SubmittedStatus = value["SubmitStatus"] as! Bool
+                print(SubmittedStatus)
+                if (SubmittedStatus == false) {
+                    self.Submit.isHidden = false
+                    self.submittedMessage.isHidden = true
+                }
+            }
+            
+        }
     }
-    */
+
 
 }
