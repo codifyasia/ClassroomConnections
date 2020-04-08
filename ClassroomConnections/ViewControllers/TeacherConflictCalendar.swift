@@ -48,7 +48,7 @@ class TeacherConflictCalendar: UIViewController {
         print(wedValue)
         print(thursValue)
         print(friValue)
-
+        //autoUpdateLabels()
         // Do any additional setup after loading the view.
     }
     
@@ -74,6 +74,7 @@ class TeacherConflictCalendar: UIViewController {
                 return
             }
             self.ClassID = value["ID"] as? String
+            self.autoUpdateLabels()
             self.ref.child("Classrooms").child(self.ClassID).child("Students").observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 guard let value = snapshot.value as? NSDictionary else {
@@ -146,17 +147,44 @@ class TeacherConflictCalendar: UIViewController {
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["friday" : 0])
         resetDayLabels()
     }
+    
     func autoUpdateLabels () {
         if (ClassID == "dlkgjdgldrkjgd") {
             return
         }
+        print("inside auto update lavbels")
         let messageDB = self.ref.child("Classrooms").child(ClassID).child("Calendar")
-                
-    messageDB.observe(.childChanged) { (snapshot) in
+        messageDB.observe(.childChanged) { (snapshot) in
+            self.updateEverything()
         print("faggots")
-            let snapshotValue = snapshot.value as! Dictionary<String,Any>
         
         //finish this later
         }
     }
+    
+    func updateEverything() {
+         ref.child("Classrooms").child(self.ClassID).child("Calendar").observeSingleEvent(of: .value) { snapshot in
+                guard let value = snapshot.value as? NSDictionary else {
+                    return
+                }
+            
+                if (self.numStudents != 0)
+                {
+                self.monValue = Double((value["monday"] as! Double) / Double(self.numStudents))
+                self.tuesValue = Double((value["tuesday"] as! Double) / Double(self.numStudents))
+                self.wedValue = Double((value["wednesday"] as! Double) / Double(self.numStudents))
+                self.thursValue = Double((value["thursday"] as! Double) / Double(self.numStudents))
+                self.friValue = Double((value["friday"] as! Double) / Double(self.numStudents))
+                }
+                self.resetDayLabels()
+                
+                self.mon.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.monValue))/255.0), green: CGFloat((86.0*(1-self.monValue))/255.0), blue: CGFloat((214.0*(1-self.monValue))/255.0), alpha: 1.0)
+                self.tues.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.tuesValue))/255.0), green: CGFloat((86.0*(1-self.tuesValue))/255.0), blue: CGFloat((214.0*(1-self.tuesValue))/255.0), alpha: 1.0)
+                self.wed.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.wedValue))/255.0), green: CGFloat((86.0*(1-self.wedValue))/255.0), blue: CGFloat((214.0*(1-self.wedValue))/255.0), alpha: 1.0)
+                self.thurs.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.thursValue))/255.0), green: CGFloat((86.0*(1-self.thursValue))/255.0), blue: CGFloat((214.0*(1-self.thursValue))/255.0), alpha: 1.0)
+                self.fri.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.friValue))/255.0), green: CGFloat((86.0*(1-self.friValue))/255.0), blue: CGFloat((214.0*(1-self.friValue))/255.0), alpha: 1.0)
+                     
+          }
+         }
 }
+
