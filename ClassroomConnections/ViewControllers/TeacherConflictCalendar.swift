@@ -145,9 +145,15 @@ class TeacherConflictCalendar: UIViewController {
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["wednesday" : 0])
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["thursday" : 0])
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["friday" : 0])
-        resetDayLabels()
+        setLabelsZero()
     }
-    
+    func setLabelsZero() {
+        monLabel.text = (String)(0) + "%"
+        tuesLabel.text = (String)((0)) + "%"
+        wedLabel.text = (String)(0) + "%"
+        thursLabel.text = (String)(0) + "%"
+        friLabel.text = (String)(0) + "%"
+    }
     func autoUpdateLabels () {
         if (ClassID == "dlkgjdgldrkjgd") {
             return
