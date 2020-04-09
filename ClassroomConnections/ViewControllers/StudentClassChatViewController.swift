@@ -140,12 +140,14 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
             let messageDB = self.ref.child("Classrooms").child(identity).child("Messages")
             
             messageDB.observe(.childChanged) { (snapshot) in
-                           
+                
+                print("something was changed")
                 self.tableView.reloadData()
             }
             
             messageDB.observe(.childAdded) { (snapshot) in
                 
+                print("something was added")
                 if (!snapshot.hasChildren()) {
                     return
                 }
@@ -167,9 +169,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 else {
                     self.messages.append(message)
                 }
-                
-                print("classcode:" + self.classRoomCode)
-                print("teacherID: " + self.teacherID)
+
                 self.tableView.reloadData()
                 var indexPath : IndexPath
                 if (self.questionRow == 0) {
@@ -190,7 +190,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {
-        print("hi bitch")
+        print("message sending")
         
         if (messageTextField.text == "" || messageTextField.text!.trimmingCharacters(in: .whitespaces).isEmpty) {
             return
@@ -280,9 +280,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("playboi carti")
         print("checking the message type: the message type is" + messages[indexPath.row].messageType)
-        //        print(messages)
         if (messages[indexPath.row].messageType == "Answer") {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell1", for: indexPath) as! replyCell
             
