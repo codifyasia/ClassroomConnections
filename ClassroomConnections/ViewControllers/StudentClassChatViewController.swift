@@ -141,13 +141,15 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
             
             messageDB.observe(.childChanged) { (snapshot) in
                 
-                print("something was changed")
+                print("something was changed in messageDB")
+                let rowChanged = snapshot.value as! Int
+                self.messages[rowChanged].correct = true
                 self.tableView.reloadData()
             }
             
             messageDB.observe(.childAdded) { (snapshot) in
                 
-                print("something was added")
+                print("something was added in messageDB")
                 if (!snapshot.hasChildren()) {
                     return
                 }
@@ -280,7 +282,6 @@ extension StudentClassChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("checking the message type: the message type is" + messages[indexPath.row].messageType)
         if (messages[indexPath.row].messageType == "Answer") {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell1", for: indexPath) as! replyCell
             
