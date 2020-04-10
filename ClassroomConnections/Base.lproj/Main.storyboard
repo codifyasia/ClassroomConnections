@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GKQ-ou-B53">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GKQ-ou-B53">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1264,18 +1264,107 @@
             </objects>
             <point key="canvasLocation" x="6307" y="1052"/>
         </scene>
+        <!--Instructions View Controller-->
+        <scene sceneID="2o5-wZ-EUI">
+            <objects>
+                <viewController id="o2m-jC-Qg9" customClass="InstructionsViewController" customModule="ClassroomConnections" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9qn-Pw-MKZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgY-qy-jAL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </scrollView>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZA-Nh-Myj">
+                                <rect key="frame" x="20" y="760.5" width="374" height="61.5"/>
+                                <color key="backgroundColor" red="0.87058823529999996" green="0.20784313730000001" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BZA-Nh-Myj" secondAttribute="height" multiplier="67:11" id="hQD-ea-uAk"/>
+                                </constraints>
+                                <state key="normal" title="Let's Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Mfa-HG-pCX">
+                                <rect key="frame" x="173.5" y="471" width="67" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="21X-CS-5Jt"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" red="0.87058823529999996" green="0.20784313730000001" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VbV-cr-kqe">
+                                <rect key="frame" x="68" y="284" width="278" height="149"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VbV-cr-kqe" secondAttribute="height" multiplier="239:128" id="Pkg-78-fo8"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Text Icon" translatesAutoresizingMaskIntoConstraints="NO" id="cpQ-p8-cHX">
+                                <rect key="frame" x="95.5" y="180" width="223" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="223" id="Hwl-Yp-HJC"/>
+                                    <constraint firstAttribute="height" constant="66" id="upb-3K-qkw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="SGu-0h-hkz">
+                                <rect key="frame" x="152.5" y="64" width="109" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="JLb-8J-Gd2"/>
+                                    <constraint firstAttribute="width" constant="109" id="aEF-fU-YHH"/>
+                                    <constraint firstAttribute="width" secondItem="SGu-0h-hkz" secondAttribute="height" multiplier="109:100" id="dNu-Ki-bLc"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JgY-qy-jAL" firstAttribute="bottom" secondItem="Ooi-4E-Kvo" secondAttribute="bottom" constant="34" id="1Lz-74-g6B"/>
+                            <constraint firstItem="Mfa-HG-pCX" firstAttribute="centerX" secondItem="9qn-Pw-MKZ" secondAttribute="centerX" id="4ch-7i-dYN"/>
+                            <constraint firstItem="cpQ-p8-cHX" firstAttribute="top" secondItem="SGu-0h-hkz" secondAttribute="bottom" constant="16" id="6S3-Ab-VVR"/>
+                            <constraint firstItem="JgY-qy-jAL" firstAttribute="leading" secondItem="Ooi-4E-Kvo" secondAttribute="leading" id="9MM-iG-Kj4"/>
+                            <constraint firstItem="VbV-cr-kqe" firstAttribute="top" secondItem="cpQ-p8-cHX" secondAttribute="bottom" constant="38" id="I9l-Bs-VMv"/>
+                            <constraint firstItem="Ooi-4E-Kvo" firstAttribute="bottom" secondItem="BZA-Nh-Myj" secondAttribute="bottom" constant="40" id="KlT-fd-raT"/>
+                            <constraint firstItem="Mfa-HG-pCX" firstAttribute="top" secondItem="VbV-cr-kqe" secondAttribute="bottom" constant="38" id="LQ1-Dq-RAa"/>
+                            <constraint firstItem="Ooi-4E-Kvo" firstAttribute="top" secondItem="JgY-qy-jAL" secondAttribute="top" constant="44" id="LZy-mq-NJE"/>
+                            <constraint firstItem="cpQ-p8-cHX" firstAttribute="centerX" secondItem="9qn-Pw-MKZ" secondAttribute="centerX" id="QyQ-7m-qeR"/>
+                            <constraint firstItem="BZA-Nh-Myj" firstAttribute="leading" secondItem="Ooi-4E-Kvo" secondAttribute="leading" constant="20" id="Sju-P2-0xb"/>
+                            <constraint firstItem="SGu-0h-hkz" firstAttribute="centerX" secondItem="9qn-Pw-MKZ" secondAttribute="centerX" id="amU-Wl-TMk"/>
+                            <constraint firstItem="SGu-0h-hkz" firstAttribute="top" secondItem="9qn-Pw-MKZ" secondAttribute="top" constant="64" id="kCM-h7-rwr"/>
+                            <constraint firstItem="VbV-cr-kqe" firstAttribute="leading" secondItem="Ooi-4E-Kvo" secondAttribute="leading" constant="68" id="kbr-cx-IEg"/>
+                            <constraint firstItem="Ooi-4E-Kvo" firstAttribute="trailing" secondItem="VbV-cr-kqe" secondAttribute="trailing" constant="68" id="mtI-ea-O0o"/>
+                            <constraint firstItem="Ooi-4E-Kvo" firstAttribute="trailing" secondItem="JgY-qy-jAL" secondAttribute="trailing" id="snJ-la-7nh"/>
+                            <constraint firstItem="BZA-Nh-Myj" firstAttribute="centerX" secondItem="9qn-Pw-MKZ" secondAttribute="centerX" id="u1q-AX-w1f"/>
+                            <constraint firstItem="VbV-cr-kqe" firstAttribute="centerX" secondItem="9qn-Pw-MKZ" secondAttribute="centerX" id="yer-Se-2uY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ooi-4E-Kvo"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="Mfa-HG-pCX" id="sgd-uX-7HE"/>
+                        <outlet property="scrollView" destination="JgY-qy-jAL" id="rXD-02-L9O"/>
+                        <outlet property="startButton" destination="BZA-Nh-Myj" id="qUA-87-HNT"/>
+                        <outlet property="textView" destination="VbV-cr-kqe" id="zW0-jM-XuQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ac-RK-8BF" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2055.072463768116" y="859.82142857142856"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="cXv-5r-Tr3"/>
-        <segue reference="u9c-qB-1hm"/>
-        <segue reference="Xtz-uR-Dal"/>
-        <segue reference="GjU-0t-bGD"/>
-    </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
-        <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="message.fill" catalog="system" width="128" height="113"/>
-        <image name="paperplane.fill" catalog="system" width="128" height="121"/>
-        <image name="return" catalog="system" width="128" height="101"/>
+        <image name="Icon" width="182.5" height="204.5"/>
+        <image name="Text Icon" width="223.5" height="54.5"/>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
+        <image name="calendar" catalog="system" width="64" height="52"/>
+        <image name="message.fill" catalog="system" width="64" height="56"/>
+        <image name="paperplane.fill" catalog="system" width="64" height="60"/>
+        <image name="return" catalog="system" width="64" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="TKo-aY-hQL"/>
+        <segue reference="xfJ-Tr-35X"/>
+        <segue reference="Xtz-uR-Dal"/>
+        <segue reference="xiQ-aa-cgN"/>
+    </inferredMetricsTieBreakers>
 </document>
