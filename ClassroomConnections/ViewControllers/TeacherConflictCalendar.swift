@@ -102,6 +102,7 @@ class TeacherConflictCalendar: UIViewController {
                 self.thursValue = Double((value["thursday"] as! Double) / Double(self.numStudents))
                 self.friValue = Double((value["friday"] as! Double) / Double(self.numStudents))
                 }
+           
                 self.resetDayLabels()
                 print("**************")
                 print(1-self.monValue)
