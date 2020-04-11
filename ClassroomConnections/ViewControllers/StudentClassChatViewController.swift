@@ -140,11 +140,19 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
             let messageDB = self.ref.child("Classrooms").child(identity).child("Messages")
             
             messageDB.observe(.childChanged) { (snapshot) in
-                
                 print("something was changed in messageDB")
-                let rowChanged = snapshot.value as! Int
-                self.messages[rowChanged].correct = true
-                self.tableView.reloadData()
+                messageDB.observeSingleEvent(of: .value) { (snapshot) in
+                    guard let val = snapshot.value as? NSDictionary else {
+                        print("No Data!!!")
+                        return
+                    }
+                    let rowChanged = val["last_commended id"] as! Int
+                    print(rowChanged)
+                    self.messages[rowChanged].correct = true
+                    self.tableView.reloadData()
+                }
+                
+                
             }
             
             messageDB.observe(.childAdded) { (snapshot) in
