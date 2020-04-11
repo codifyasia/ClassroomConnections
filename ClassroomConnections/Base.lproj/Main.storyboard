@@ -1362,9 +1362,10 @@
         <image name="return" catalog="system" width="64" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cXv-5r-Tr3"/>
+        <segue reference="Aax-EX-kVu"/>
+        <segue reference="TKo-aY-hQL"/>
         <segue reference="xfJ-Tr-35X"/>
         <segue reference="Xtz-uR-Dal"/>
-        <segue reference="GjU-0t-bGD"/>
+        <segue reference="xiQ-aa-cgN"/>
     </inferredMetricsTieBreakers>
 </document>
