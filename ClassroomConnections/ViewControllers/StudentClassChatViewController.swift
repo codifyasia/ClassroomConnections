@@ -300,7 +300,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
 //            cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
             
             //
-            if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
+            if messages[indexPath.row].senderID == Auth.auth().currentUser!.uid {
                 cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                 cell.rightImage?.tintColor = UIColor.systemIndigo
             } else if (cell.senderName.text == "Sender: " + self.teacherID) {
@@ -324,13 +324,15 @@ extension StudentClassChatViewController: UITableViewDataSource {
             cell.senderName.text = ""
             return cell
         } else {
-            
+             print("HELLO" + messages[indexPath.row].senderID + " " + Auth.auth().currentUser!.uid)
             if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
                 print("im gay boi")
+               
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell2", for: indexPath) as! messageSelfCell
                 cell.label.text = messages[indexPath.row].body
                 cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
-                if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
+                
+                if messages[indexPath.row].senderID == Auth.auth().currentUser!.uid {
                     cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                     cell.rightImage?.tintColor = UIColor.systemIndigo
                 } else if (cell.senderName.text == "Sender: " + self.teacherID) {
