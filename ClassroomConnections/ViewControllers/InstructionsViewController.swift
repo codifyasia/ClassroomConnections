@@ -14,26 +14,31 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var name: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        logo.isHidden = true
+        name.isHidden = true
          self.scrollView.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)
                 let scrollViewWidth:CGFloat = self.scrollView.frame.width
                 let scrollViewHeight:CGFloat = self.scrollView.frame.height
                 //2
                 textView.textAlignment = .center
-                textView.text = "Sweettutos.com is your blog of choice for Mobile tutorials"
-                textView.textColor = UIColor.black
+                textView.text = "Classroom connections is a remote chatting app that helps foster bonds between teachers and students to encourage a healthy  educational communities within classes."
+                textView.textColor = UIColor.red
                 self.startButton.layer.cornerRadius = 4.0
                 //3
                 let imgOne = UIImageView(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgOne.image = UIImage(named: "classDemo")
+                imgOne.image = UIImage(named: "slide1")
                 let imgTwo = UIImageView(frame: CGRect(x:scrollViewWidth, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgTwo.image = UIImage(named: "chatDemo")
+                imgTwo.image = UIImage(named: "slide2")
                 let imgThree = UIImageView(frame: CGRect(x:scrollViewWidth*2, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgThree.image = UIImage(named: "ccDemo")
+                imgThree.image = UIImage(named: "slide3")
                 let imgFour = UIImageView(frame: CGRect(x:scrollViewWidth*3, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgFour.image = UIImage(named: "Slide 1")
+                imgFour.image = UIImage(named: "Slide 4")
                 
+        
                 self.scrollView.addSubview(imgOne)
                 self.scrollView.addSubview(imgTwo)
                 self.scrollView.addSubview(imgThree)
@@ -60,16 +65,28 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
                 self.pageControl.currentPage = Int(currentPage);
                 // Change the text accordingly
                 if Int(currentPage) == 0{
-                    textView.text = "Sweettutos.com is your blog of choice for Mobile tutorials"
+                    textView.text = "Classroom connections is a remote chatting app that helps foster bonds between teachers and students to encourage a healthy  educational communities within classes."
                 }else if Int(currentPage) == 1{
-                    textView.text = "I write mobile tutorials mainly targeting iOS"
+                    
+                    
+                    textView.text = "Including many features such as conflict calenders, personalized chat rooms, and question and answer systems, classroom connections could be a teachers greatest tool to build educational bonds with their students."
                 }else if Int(currentPage) == 2{
-                    textView.text = "And sometimes I write games tutorials about Unity"
+                    textView.text = "Aside from these features, classroom connections also offers a lighthearted way to ..."
                 }else{
                     textView.text = "Keep visiting sweettutos.com for new coming tutorials, and don't forget to subscribe to be notified by email :)"
                     // Show the "Let's Start" button in the last slide (with a fade in animation)
+                    logo.isHidden = false
+                    name.isHidden = false
+                    logo.alpha = 0
+                    name.alpha = 0
                     UIView.animate(withDuration: 1.0, animations: { () -> Void in
                         self.startButton.alpha = 1.0
+                    })
+                    UIView.animate(withDuration: 1.0, animations: { () -> Void in
+                        self.logo.alpha = 1.0
+                    })
+                    UIView.animate(withDuration: 1.0, animations: { () -> Void in
+                        self.name.alpha = 1.0
                     })
                 }
             }

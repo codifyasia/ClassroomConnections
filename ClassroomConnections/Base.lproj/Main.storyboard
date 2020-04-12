@@ -12,11 +12,12 @@
             <objects>
                 <viewController id="GKQ-ou-B53" customClass="AuthHandler" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KDV-eh-Uwy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="LLf-XB-eLQ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="uoA-Qy-qe5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RvD-Om-WV1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1284,6 +1285,9 @@
                                 <state key="normal" title="Let's Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="GKQ-ou-B53" kind="show" id="cOp-p1-WEa"/>
+                                </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Mfa-HG-pCX">
                                 <rect key="frame" x="173.5" y="471" width="67" height="37"/>
@@ -1299,17 +1303,18 @@
                                     <constraint firstAttribute="width" secondItem="VbV-cr-kqe" secondAttribute="height" multiplier="239:128" id="Pkg-78-fo8"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.78713911800000003" green="0.22844523289999999" blue="0.17893076629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Text Icon" translatesAutoresizingMaskIntoConstraints="NO" id="cpQ-p8-cHX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text" translatesAutoresizingMaskIntoConstraints="NO" id="cpQ-p8-cHX">
                                 <rect key="frame" x="95.5" y="180" width="223" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="223" id="Hwl-Yp-HJC"/>
                                     <constraint firstAttribute="height" constant="66" id="upb-3K-qkw"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="SGu-0h-hkz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boat" translatesAutoresizingMaskIntoConstraints="NO" id="SGu-0h-hkz">
                                 <rect key="frame" x="152.5" y="64" width="109" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="JLb-8J-Gd2"/>
@@ -1341,6 +1346,8 @@
                         <viewLayoutGuide key="safeArea" id="Ooi-4E-Kvo"/>
                     </view>
                     <connections>
+                        <outlet property="logo" destination="SGu-0h-hkz" id="cpy-mM-EXT"/>
+                        <outlet property="name" destination="cpQ-p8-cHX" id="c2R-T3-gc2"/>
                         <outlet property="pageControl" destination="Mfa-HG-pCX" id="sgd-uX-7HE"/>
                         <outlet property="scrollView" destination="JgY-qy-jAL" id="rXD-02-L9O"/>
                         <outlet property="startButton" destination="BZA-Nh-Myj" id="qUA-87-HNT"/>
@@ -1353,16 +1360,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon" width="182.5" height="204.5"/>
-        <image name="Text Icon" width="223.5" height="54.5"/>
         <image name="arrow.left" catalog="system" width="64" height="48"/>
+        <image name="boat" width="333" height="222"/>
         <image name="calendar" catalog="system" width="64" height="52"/>
         <image name="message.fill" catalog="system" width="64" height="56"/>
         <image name="paperplane.fill" catalog="system" width="64" height="60"/>
         <image name="return" catalog="system" width="64" height="50"/>
+        <image name="text" width="1209" height="105"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Aax-EX-kVu"/>
         <segue reference="TKo-aY-hQL"/>
         <segue reference="xfJ-Tr-35X"/>
         <segue reference="Xtz-uR-Dal"/>
