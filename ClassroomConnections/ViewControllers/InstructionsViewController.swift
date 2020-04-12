@@ -71,9 +71,9 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
                     
                     textView.text = "Including many features such as conflict calenders, personalized chat rooms, and question and answer systems, classroom connections could be a teachers greatest tool to build educational bonds with their students."
                 }else if Int(currentPage) == 2{
-                    textView.text = "Aside from these features, classroom connections also offers a lighthearted way to ..."
+                    textView.text = "Classroom Connections is extremely user-friendly and very easy to use."
                 }else{
-                    textView.text = "Keep visiting sweettutos.com for new coming tutorials, and don't forget to subscribe to be notified by email :)"
+                    textView.text = "Get ready to build some amazing connections inside your classroom."
                     // Show the "Let's Start" button in the last slide (with a fade in animation)
                     logo.isHidden = false
                     name.isHidden = false
