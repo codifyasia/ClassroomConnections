@@ -372,8 +372,9 @@ extension TeacherClassChatViewController: UITableViewDelegate {
             let answer = UIAlertAction(title: "Commend", style: .default) { (action) in
                 print("----switching checkmark to visible------")
                 self.checkIndex = indexPath.row+1
-                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(message.ID)).updateChildValues(["correct": true])
                 self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").updateChildValues(["last_commended id": indexPath.row])
+                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(message.ID)).updateChildValues(["correct": true])
+                
                 self.messages[indexPath.row].correct = true
                 self.tableView.reloadData()
                 
