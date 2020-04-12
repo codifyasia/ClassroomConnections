@@ -26,7 +26,7 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
                 //2
                 textView.textAlignment = .center
                 textView.text = "Classroom connections is a remote chatting app that helps foster bonds between teachers and students to encourage a healthy  educational communities within classes."
-                textView.textColor = UIColor.red
+        textView.textColor = UIColor.black
                 self.startButton.layer.cornerRadius = 4.0
                 //3
                 let imgOne = UIImageView(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
