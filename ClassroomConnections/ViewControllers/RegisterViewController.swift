@@ -65,10 +65,10 @@ class RegisterViewController: UIViewController {
     
     @IBAction func signUpPressed(_ sender: Any) {
         var hi = UIOffset(horizontal: currView.frame.size.width/2 , vertical: currView.frame.size.height/2 )
-        SVProgressHUD.show()
-        SVProgressHUD.setOffsetFromCenter(hi)
+//        SVProgressHUD.show()
+//        SVProgressHUD.setOffsetFromCenter(hi)
         if (FirstName.text?.isEmpty ?? true || LastName.text?.isEmpty ?? true || Email.text?.isEmpty ?? true || Password.text?.isEmpty ?? true) {
-            SVProgressHUD.dismiss()
+//            SVProgressHUD.dismiss()
             print("THERE IS AN ERROR")
             let alert = UIAlertController(title: "Registration Error", message: "Please make sure you have completed filled out every textfield", preferredStyle: .alert)
             
@@ -91,7 +91,7 @@ class RegisterViewController: UIViewController {
                         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).updateChildValues(["Status" : "Teacher"])
                     }
                     
-                    SVProgressHUD.dismiss()
+//                    SVProgressHUD.dismiss()
                     if (self.isStudent) {
                         self.performSegue(withIdentifier: "studentToClassSelection", sender: self)
                     }
@@ -100,7 +100,7 @@ class RegisterViewController: UIViewController {
                     }
                     //                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)
                 } else {
-                    SVProgressHUD.dismiss()
+//                    SVProgressHUD.dismiss()
                     let alert = UIAlertController(title: "Registration Error", message: error?.localizedDescription as! String, preferredStyle: .alert)
                     
                     let OK = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in

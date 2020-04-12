@@ -160,12 +160,17 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                         return
                     }
                     
-                    let name = value2["FirstName"] as! String
+                    var name = value2["FirstName"] as! String
+                     let name1 = value2["LastName"] as! String
                     
+                    name = name + " " + name1
                     print("the name:\(name)")
                     
                     let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: id, correct: correct1, name: name)
                     
+
+                    print("yote" + String(self.messages.count))
+                    print(messageIndex)
                     if (messageT == "Answer") {
                         self.messages.insert(message, at: messageIndex)
                     }
@@ -257,12 +262,13 @@ extension TeacherClassChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(messages[indexPath.row].name)
         if (messages[indexPath.row].messageType == "Answer") {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell1", for: indexPath) as! replyCell
             cell.senderName.isHidden = false
             cell.senderName.text = messages[indexPath.row].name
             cell.label.text = messages[indexPath.row].body
-            cell.senderName.text = "Sender: " + messages[indexPath.row].sender
+//            cell.senderName.text = "Sender: " + messages[indexPath.row].sender
             
             if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
                 cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
@@ -295,7 +301,7 @@ extension TeacherClassChatViewController: UITableViewDataSource {
                 //cell.senderName.isHidden = true //TAKE NOTICE OF THIS THIS ISS WHERE THE SENDER: ID IS DELTED THIS IS THE LINE THIS IS THE LINE I REPEAT THIS IS THE LINE
                 
                 cell.label.text = messages[indexPath.row].body
-                cell.senderName.text = "Sender: " + messages[indexPath.row].sender
+//                cell.senderName.text = "Sender: " + messages[indexPath.row].sender
                 
                 cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
                 cell.rightImage?.tintColor = UIColor.systemRed
@@ -312,7 +318,7 @@ extension TeacherClassChatViewController: UITableViewDataSource {
                 cell.senderName.isHidden = false
                 cell.senderName.text = messages[indexPath.row].name
                 cell.label.text = messages[indexPath.row].body
-                cell.senderName.text = "Sender: " + messages[indexPath.row].sender
+//                cell.senderName.text = "Sender: " + messages[indexPath.row].sender
                 cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
                 cell.rightImage?.tintColor = UIColor.systemIndigo
                 if messages[indexPath.row].messageType == "Question" {

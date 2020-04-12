@@ -25,8 +25,8 @@ class LoginViewController: UIViewController {
     }
     @IBAction func loginPressed(_ sender: Any) {
         var hi = UIOffset(horizontal: currView.frame.size.width/2 , vertical: currView.frame.size.height/2 )
-        SVProgressHUD.show()
-        SVProgressHUD.setOffsetFromCenter(hi)
+//        SVProgressHUD.show()
+//        SVProgressHUD.setOffsetFromCenter(hi)
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
             if (error == nil) {
                 
@@ -53,11 +53,11 @@ class LoginViewController: UIViewController {
                 }
 //                
                 
-                SVProgressHUD.dismiss()
+//                SVProgressHUD.dismiss()
 //                self.performSegue(withIdentifier: "goToMainMenu", sender: self)
             } else {
                 
-                SVProgressHUD.dismiss()
+//                SVProgressHUD.dismiss()
                 
                 let alert = UIAlertController(title: "Login Error", message: "Incorrect username or password", preferredStyle: .alert)
                 let forgotPassword = UIAlertAction(title: "Forgot Password?", style: .default, handler: { (UIAlertAction) in

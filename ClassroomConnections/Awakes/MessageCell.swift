@@ -19,6 +19,7 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var senderName: UILabel!
     @IBOutlet weak var messageBubble: UIView!
     override func awakeFromNib() {
+        senderName.isHidden = true
         super.awakeFromNib()
         messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 3
     }
@@ -27,7 +28,7 @@ class MessageCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         
-        senderName.isHidden = false
+        
         // Configure the view for the selected state
     }
     

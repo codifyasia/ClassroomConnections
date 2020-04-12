@@ -291,10 +291,13 @@ extension StudentClassChatViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (messages[indexPath.row].messageType == "Answer") {
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell1", for: indexPath) as! replyCell
             
+            
+            
             cell.label.text = messages[indexPath.row].body
-            cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
+//            cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
             
             //
             if cell.senderName.text == "Sender: " + Auth.auth().currentUser!.uid {
@@ -318,6 +321,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
             } else {
                 cell.checkmark.isHidden = true
             }
+            cell.senderName.text = ""
             return cell
         } else {
             
