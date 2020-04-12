@@ -70,7 +70,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
             let title = value["Title"] as! String
             print(title)
             print(Auth.auth().currentUser!.uid)
-//            self.className.text = title
+            self.className.text = title
             self.classRoomCode = identity
             self.teacherID = eacherID
             
