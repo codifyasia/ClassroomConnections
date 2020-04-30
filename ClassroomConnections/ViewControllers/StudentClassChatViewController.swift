@@ -190,9 +190,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
 //                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 }
                 
-                if (messageT != "Answer") {
-                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-                }
+                self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 
             }
         }
@@ -419,30 +417,31 @@ extension StudentClassChatViewController: UITableViewDelegate {
             alert.addAction(answer)
             alert.addAction(cancel)
             present(alert, animated: true)
-            
-        }
-        if (message.messageType == "Answer") {
-            let mark = UIAlertAction(title: "Mark as Correct", style: .default) { (action) in
-                //                if (self.questionOn) {
-                //                    self.questionSwitch(nil)
-                //                }
-                self.qSwitch.isOn = false
-                self.answerOn = true
-                self.answerLabel.isHidden = false
-                //self.messages[indexPath.row].num = 1
-            }
-            let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
-            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
-                
-            }
-            alert.addAction(mark)
-            alert.addAction(cancel)
-            present(alert, animated: true)
-            
-        }
-        else {
+        } else {
             questionRow = 0
         }
+//        if (message.messageType == "Answer") {
+//            let mark = UIAlertAction(title: "Mark as Correct", style: .default) { (action) in
+//                //                if (self.questionOn) {
+//                //                    self.questionSwitch(nil)
+//                //                }
+//                self.qSwitch.isOn = false
+//                self.answerOn = true
+//                self.answerLabel.isHidden = false
+//                //self.messages[indexPath.row].num = 1
+//            }
+//            let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
+//            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+//
+//            }
+//            alert.addAction(mark)
+//            alert.addAction(cancel)
+//            present(alert, animated: true)
+//
+//        }
+//        else {
+//            questionRow = 0
+//        }
         
         //        print(message.body)
         //

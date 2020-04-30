@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
                 
                 let alert = UIAlertController(title: "Login Error", message: "Incorrect username or password", preferredStyle: .alert)
                 let forgotPassword = UIAlertAction(title: "Forgot Password?", style: .default, handler: { (UIAlertAction) in
-                    //do the forgot password shit
+                    self.performSegue(withIdentifier: "goToForgetPass", sender: self)
                 })
                 
                 let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { (UIAlertAction) in
