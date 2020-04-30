@@ -23,7 +23,7 @@ class AuthManager {
         if (Auth.auth().currentUser == nil) {
             var viewController: UIViewController
             print("auth is nil")
-            viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+            viewController = storyboard.instantiateViewController(withIdentifier: "Tutorial")
             authHandler.present(viewController, animated: false, completion: nil)
         
         } else {

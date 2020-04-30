@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o2m-jC-Qg9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1284,13 +1284,25 @@
         <!--Instructions View Controller-->
         <scene sceneID="2o5-wZ-EUI">
             <objects>
-                <viewController id="o2m-jC-Qg9" customClass="InstructionsViewController" customModule="ClassroomConnections" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tutorial" modalPresentationStyle="fullScreen" id="o2m-jC-Qg9" customClass="InstructionsViewController" customModule="ClassroomConnections" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9qn-Pw-MKZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgY-qy-jAL">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgY-qy-jAL">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Mfa-HG-pCX">
+                                        <rect key="frame" x="174" y="480" width="67" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="67" id="21X-CS-5Jt"/>
+                                        </constraints>
+                                        <color key="pageIndicatorTintColor" red="0.87058823529999996" green="0.20784313730000001" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </pageControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Mfa-HG-pCX" firstAttribute="centerX" secondItem="JgY-qy-jAL" secondAttribute="centerX" id="2aO-Zj-2d8"/>
+                                </constraints>
                             </scrollView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZA-Nh-Myj">
                                 <rect key="frame" x="20" y="760.5" width="374" height="61.5"/>
@@ -1302,16 +1314,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="GKQ-ou-B53" kind="show" id="cOp-p1-WEa"/>
+                                    <segue destination="XVg-8X-N20" kind="presentation" modalPresentationStyle="fullScreen" id="HIe-BA-17u"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Mfa-HG-pCX">
-                                <rect key="frame" x="173.5" y="471" width="67" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="67" id="21X-CS-5Jt"/>
-                                </constraints>
-                                <color key="pageIndicatorTintColor" red="0.87058823529999996" green="0.20784313730000001" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </pageControl>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VbV-cr-kqe">
                                 <rect key="frame" x="68" y="284" width="278" height="149"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1342,12 +1347,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JgY-qy-jAL" firstAttribute="bottom" secondItem="Ooi-4E-Kvo" secondAttribute="bottom" constant="34" id="1Lz-74-g6B"/>
-                            <constraint firstItem="Mfa-HG-pCX" firstAttribute="centerX" secondItem="9qn-Pw-MKZ" secondAttribute="centerX" id="4ch-7i-dYN"/>
                             <constraint firstItem="cpQ-p8-cHX" firstAttribute="top" secondItem="SGu-0h-hkz" secondAttribute="bottom" constant="16" id="6S3-Ab-VVR"/>
                             <constraint firstItem="JgY-qy-jAL" firstAttribute="leading" secondItem="Ooi-4E-Kvo" secondAttribute="leading" id="9MM-iG-Kj4"/>
                             <constraint firstItem="VbV-cr-kqe" firstAttribute="top" secondItem="cpQ-p8-cHX" secondAttribute="bottom" constant="38" id="I9l-Bs-VMv"/>
                             <constraint firstItem="Ooi-4E-Kvo" firstAttribute="bottom" secondItem="BZA-Nh-Myj" secondAttribute="bottom" constant="40" id="KlT-fd-raT"/>
-                            <constraint firstItem="Mfa-HG-pCX" firstAttribute="top" secondItem="VbV-cr-kqe" secondAttribute="bottom" constant="38" id="LQ1-Dq-RAa"/>
                             <constraint firstItem="Ooi-4E-Kvo" firstAttribute="top" secondItem="JgY-qy-jAL" secondAttribute="top" constant="44" id="LZy-mq-NJE"/>
                             <constraint firstItem="cpQ-p8-cHX" firstAttribute="centerX" secondItem="9qn-Pw-MKZ" secondAttribute="centerX" id="QyQ-7m-qeR"/>
                             <constraint firstItem="BZA-Nh-Myj" firstAttribute="leading" secondItem="Ooi-4E-Kvo" secondAttribute="leading" constant="20" id="Sju-P2-0xb"/>
@@ -1376,10 +1379,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cXv-5r-Tr3"/>
-        <segue reference="u9c-qB-1hm"/>
-        <segue reference="Xtz-uR-Dal"/>
-        <segue reference="z2q-rs-LFr"/>
+        <segue reference="TKo-aY-hQL"/>
+        <segue reference="xfJ-Tr-35X"/>
+        <segue reference="gQ2-5Y-eq7"/>
+        <segue reference="HIe-BA-17u"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
