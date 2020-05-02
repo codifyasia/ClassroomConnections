@@ -105,7 +105,6 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
         let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         NSLayoutConstraint.activate([bottomConstraint])
         self.tabBarController?.tabBar.isHidden = false
-        print("textfield finish")
     }
     
     @IBAction func answerSwitch(_ sender: Any) {

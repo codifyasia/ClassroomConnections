@@ -115,14 +115,17 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
+        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        NSLayoutConstraint.activate([bottomConstraint])
         self.tabBarController?.tabBar.isHidden = true
-        print("textfield start")
         
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         bottomView.frame.origin.y = currentY
         self.tabBarController?.tabBar.isHidden = false
+        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        NSLayoutConstraint.activate([bottomConstraint])
         print("textfield finish")
     }
     
