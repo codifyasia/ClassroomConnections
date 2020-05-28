@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o2m-jC-Qg9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o2m-jC-Qg9">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -1170,7 +1170,7 @@
                                         </connections>
                                     </switch>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98y-2R-kOX">
-                                        <rect key="frame" x="383" y="0.0" width="21" height="78"/>
+                                        <rect key="frame" x="385" y="28" width="21" height="22"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="paperplane.fill" catalog="system"/>
                                         <connections>
@@ -1180,16 +1180,18 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="98y-2R-kOX" firstAttribute="top" secondItem="Jv2-K3-uJZ" secondAttribute="top" id="5CV-li-LYP"/>
-                                    <constraint firstAttribute="bottom" secondItem="M36-B1-w3g" secondAttribute="bottom" constant="24" id="COV-B1-V5b"/>
+                                    <constraint firstAttribute="bottom" secondItem="M36-B1-w3g" secondAttribute="bottom" constant="24" id="5MF-VG-JsG"/>
+                                    <constraint firstAttribute="bottom" secondItem="98y-2R-kOX" secondAttribute="bottom" constant="30" id="5Oc-oX-yq6"/>
                                     <constraint firstItem="dT6-uS-3MM" firstAttribute="leading" secondItem="Jv2-K3-uJZ" secondAttribute="leading" constant="8" id="FQE-vn-F8o"/>
-                                    <constraint firstItem="M36-B1-w3g" firstAttribute="top" secondItem="Jv2-K3-uJZ" secondAttribute="top" constant="22" id="I61-Y3-1bw"/>
-                                    <constraint firstItem="M36-B1-w3g" firstAttribute="leading" secondItem="dT6-uS-3MM" secondAttribute="trailing" constant="8" id="Ni3-l6-3RH"/>
-                                    <constraint firstAttribute="trailing" secondItem="98y-2R-kOX" secondAttribute="trailing" constant="10" id="R19-qt-gDh"/>
+                                    <constraint firstAttribute="trailing" secondItem="dT6-uS-3MM" secondAttribute="trailing" constant="357" id="PnS-Jh-btt"/>
+                                    <constraint firstAttribute="trailing" secondItem="98y-2R-kOX" secondAttribute="trailing" constant="8" id="Rac-ge-K9J"/>
                                     <constraint firstAttribute="bottom" secondItem="dT6-uS-3MM" secondAttribute="bottom" constant="27" id="bSh-MP-Luh"/>
-                                    <constraint firstItem="98y-2R-kOX" firstAttribute="leading" secondItem="M36-B1-w3g" secondAttribute="trailing" constant="7.5" id="c8K-jH-Sr1"/>
-                                    <constraint firstItem="98y-2R-kOX" firstAttribute="centerY" secondItem="M36-B1-w3g" secondAttribute="centerY" id="mrG-cd-hGm"/>
+                                    <constraint firstItem="M36-B1-w3g" firstAttribute="top" secondItem="Jv2-K3-uJZ" secondAttribute="top" constant="22" id="cA2-Jq-OWT"/>
+                                    <constraint firstItem="98y-2R-kOX" firstAttribute="leading" secondItem="Jv2-K3-uJZ" secondAttribute="leading" constant="385" id="daF-zO-f4X"/>
+                                    <constraint firstItem="98y-2R-kOX" firstAttribute="top" secondItem="Jv2-K3-uJZ" secondAttribute="top" constant="28" id="nC2-ft-6UQ"/>
+                                    <constraint firstItem="98y-2R-kOX" firstAttribute="leading" secondItem="M36-B1-w3g" secondAttribute="trailing" constant="9.3333333333333144" id="w64-tR-X2j"/>
                                     <constraint firstItem="dT6-uS-3MM" firstAttribute="top" secondItem="Jv2-K3-uJZ" secondAttribute="top" constant="22" id="xTO-Gb-Wbh"/>
+                                    <constraint firstItem="M36-B1-w3g" firstAttribute="leading" secondItem="dT6-uS-3MM" secondAttribute="trailing" constant="8" id="y3L-of-LQZ"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="right" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qf7-9E-L1Z" userLabel="ReturnToClasses">
@@ -1406,7 +1408,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yIo-ba-i7d"/>
         <segue reference="cXv-5r-Tr3"/>
         <segue reference="u9c-qB-1hm"/>
         <segue reference="gQ2-5Y-eq7"/>

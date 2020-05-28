@@ -65,6 +65,13 @@ class TeacherConflictCalendar: UIViewController {
         wedLabel.text = (String)((Int)(wedValue * 100)) + "%"
         thursLabel.text = (String)((Int)(thursValue * 100)) + "%"
         friLabel.text = (String)((Int)(friValue * 100)) + "%"
+        
+        
+        self.mon.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.monValue))/255.0), green: CGFloat((86.0*(1-self.monValue))/255.0), blue: CGFloat((214.0*(1-self.monValue))/255.0), alpha: 1.0)
+        self.tues.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.tuesValue))/255.0), green: CGFloat((86.0*(1-self.tuesValue))/255.0), blue: CGFloat((214.0*(1-self.tuesValue))/255.0), alpha: 1.0)
+        self.wed.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.wedValue))/255.0), green: CGFloat((86.0*(1-self.wedValue))/255.0), blue: CGFloat((214.0*(1-self.wedValue))/255.0), alpha: 1.0)
+        self.thurs.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.thursValue))/255.0), green: CGFloat((86.0*(1-self.thursValue))/255.0), blue: CGFloat((214.0*(1-self.thursValue))/255.0), alpha: 1.0)
+        self.fri.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.friValue))/255.0), green: CGFloat((86.0*(1-self.friValue))/255.0), blue: CGFloat((214.0*(1-self.friValue))/255.0), alpha: 1.0)
     }
     func getClassID() {
         ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -156,15 +163,10 @@ class TeacherConflictCalendar: UIViewController {
         friLabel.text = (String)(0) + "%"
     }
     func autoUpdateLabels () {
-        if (ClassID == "dlkgjdgldrkjgd") {
-            return
-        }
         print("inside auto update lavbels")
         let messageDB = self.ref.child("Classrooms").child(ClassID).child("Calendar")
         messageDB.observe(.childChanged) { (snapshot) in
             self.updateEverything()
-        print("faggots")
-
         }
     }
     
@@ -184,11 +186,7 @@ class TeacherConflictCalendar: UIViewController {
                 }
                 self.resetDayLabels()
                 
-                self.mon.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.monValue))/255.0), green: CGFloat((86.0*(1-self.monValue))/255.0), blue: CGFloat((214.0*(1-self.monValue))/255.0), alpha: 1.0)
-                self.tues.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.tuesValue))/255.0), green: CGFloat((86.0*(1-self.tuesValue))/255.0), blue: CGFloat((214.0*(1-self.tuesValue))/255.0), alpha: 1.0)
-                self.wed.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.wedValue))/255.0), green: CGFloat((86.0*(1-self.wedValue))/255.0), blue: CGFloat((214.0*(1-self.wedValue))/255.0), alpha: 1.0)
-                self.thurs.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.thursValue))/255.0), green: CGFloat((86.0*(1-self.thursValue))/255.0), blue: CGFloat((214.0*(1-self.thursValue))/255.0), alpha: 1.0)
-                self.fri.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.friValue))/255.0), green: CGFloat((86.0*(1-self.friValue))/255.0), blue: CGFloat((214.0*(1-self.friValue))/255.0), alpha: 1.0)
+
                      
           }
          }

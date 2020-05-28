@@ -326,7 +326,6 @@ extension StudentClassChatViewController: UITableViewDataSource {
         } else {
              print("HELLO" + messages[indexPath.row].senderID + " " + Auth.auth().currentUser!.uid)
             if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
-                print("im gay boi")
                
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell2", for: indexPath) as! messageSelfCell
                 cell.label.text = messages[indexPath.row].body

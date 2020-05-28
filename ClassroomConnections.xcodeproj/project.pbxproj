@@ -495,13 +495,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2386LZ47TS;
+				DEVELOPMENT_TEAM = 25BKB2B8F3;
 				INFOPLIST_FILE = ClassroomConnections/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CodifyAsia.ClassroomConnections;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CodifyAsia1.ClassroomConnections;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -514,13 +514,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2386LZ47TS;
+				DEVELOPMENT_TEAM = 25BKB2B8F3;
 				INFOPLIST_FILE = ClassroomConnections/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CodifyAsia.ClassroomConnections;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CodifyAsia1.ClassroomConnections;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

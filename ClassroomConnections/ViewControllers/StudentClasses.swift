@@ -208,7 +208,6 @@ extension StudentClasses: UITableViewDelegate {
                 for children in Data.children.allObjects as! [DataSnapshot] {
                     
                     
-                    print("hii gay11")
                     
                    guard let classroom = children.value as? NSDictionary else {
                         print("could not collect label data")
@@ -220,7 +219,6 @@ extension StudentClasses: UITableViewDelegate {
                     let isEqual = (identification == self.textField.text!)
                     
                     if (isEqual) {
-                        print("hii gayasdfasdf")
                         self.ref.child("Classrooms").child(self.textField.text!).observeSingleEvent(of: .value, with: { (snapshot) in
                              
                              guard let value = snapshot.value as? NSDictionary else {

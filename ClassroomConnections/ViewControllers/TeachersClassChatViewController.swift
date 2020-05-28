@@ -372,6 +372,10 @@ extension TeacherClassChatViewController: UITableViewDelegate {
             }
             
             let answer = UIAlertAction(title: "Commend", style: .default) { (action) in
+                
+    
+                if (!self.messages[selected].correct) {
+                
                 print("----switching checkmark to visible------")
                 self.checkIndex = self.questionRow+1
                 self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").updateChildValues(["last_commended id": self.questionRow])
@@ -379,7 +383,8 @@ extension TeacherClassChatViewController: UITableViewDelegate {
                 
                 self.messages[self.questionRow].correct = true
                 self.tableView.reloadData()
-                
+                    
+                }
             }
             
             
