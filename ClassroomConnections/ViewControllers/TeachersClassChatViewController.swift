@@ -365,33 +365,36 @@ extension TeacherClassChatViewController: UITableViewDelegate {
             
         }
         else if(message.messageType == "Answer") {
-            questionRow = selected
-            let alert = UIAlertController(title: "Respond To Answer", message: message.body, preferredStyle: .actionSheet)
-            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+             if (!self.messages[selected].correct) {
+                questionRow = selected
+                        let alert = UIAlertController(title: "Respond To Answer", message: message.body, preferredStyle: .actionSheet)
+                        let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                            
+                        }
+                        
+                        let answer = UIAlertAction(title: "Commend", style: .default) { (action) in
+                            
                 
+                            
+                            
+                            print("----switching checkmark to visible------")
+                            self.checkIndex = self.questionRow+1
+                            self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").updateChildValues(["last_commended id": self.questionRow])
+                            self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(message.ID)).updateChildValues(["correct": true])
+                            
+                            self.messages[self.questionRow].correct = true
+                            self.tableView.reloadData()
+                                
+                                
+                        }
+                        
+                        
+                        
+                        alert.addAction(answer)
+                        alert.addAction(cancel)
+                        present(alert, animated: true)
             }
             
-            let answer = UIAlertAction(title: "Commend", style: .default) { (action) in
-                
-    
-                if (!self.messages[selected].correct) {
-                
-                print("----switching checkmark to visible------")
-                self.checkIndex = self.questionRow+1
-                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").updateChildValues(["last_commended id": self.questionRow])
-                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(message.ID)).updateChildValues(["correct": true])
-                
-                self.messages[self.questionRow].correct = true
-                self.tableView.reloadData()
-                    
-                }
-            }
-            
-            
-            
-            alert.addAction(answer)
-            alert.addAction(cancel)
-            present(alert, animated: true)
         }
         else {
             questionRow = 0
