@@ -22,7 +22,7 @@ class AuthHandler: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(fork'sdflkj segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(fork'sdflkjdf segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
