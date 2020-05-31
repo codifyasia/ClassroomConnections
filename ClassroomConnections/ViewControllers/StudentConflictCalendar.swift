@@ -87,6 +87,7 @@ class StudentConflictCalendar: UIViewController {
                     }
 //                    var bing = ""
                     numForADay = value[self.day] as! Int
+                    let numVote = value["numVoted"] as! Int
 //                    if (self.day == "monday") {
 //                        bing = "Monday"
 //                    }
@@ -103,6 +104,8 @@ class StudentConflictCalendar: UIViewController {
 //                        bing = "Friday"
 //                    }
                     self.ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues([self.day : numForADay + 1])
+                    self.ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["numVoted" : numVote + 1 ])
+
                     //self.ref.child("Classrooms").child(self.ClassID).child("Calendar").child(bing).updateChildValues([bing : numForADay + 1])
                     self.ref.child("Classrooms").child(self.ClassID).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : true, "id" : Auth.auth().currentUser!.uid])
                     self.Submit.isHidden = true

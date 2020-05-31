@@ -23,6 +23,7 @@ class TeacherConflictCalendar: UIViewController {
     @IBOutlet weak var friLabel: UILabel!
     @IBOutlet weak var fri: UIButton!
     var numStudents : Int = 0
+    var numVoters: Int = 0
     var monValue: Double = 0
     var tuesValue: Double = 0
     var wedValue: Double = 0
@@ -34,6 +35,7 @@ class TeacherConflictCalendar: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         ClassID = "dlkgjdgldrkjgd"
+        print("going into class id")
         getClassID()
         
         mon.layer.cornerRadius = mon.frame.size.height / 5
@@ -90,7 +92,6 @@ class TeacherConflictCalendar: UIViewController {
                 }
                 print("Int(snapshot.childrenCount): " + String(Int(snapshot.childrenCount)))
                 self.numStudents = Int(snapshot.childrenCount)
-                print("numstudents inside closure: " + String(self.numStudents))
             }) { (error) in
                 print("error:\(error.localizedDescription)")
             }
@@ -100,24 +101,18 @@ class TeacherConflictCalendar: UIViewController {
                     print("no data in uid in classrooms in students in updatesubmitbutton status")
                     return
                 }
-                print("numStudent" + String(self.numStudents))
-                if (self.numStudents != 0)
+                self.numVoters = value["numVoted"] as! Int
+
+                if (self.numVoters != 0)
                 {
-                self.monValue = Double((value["monday"] as! Double) / Double(self.numStudents))
-                self.tuesValue = Double((value["tuesday"] as! Double) / Double(self.numStudents))
-                self.wedValue = Double((value["wednesday"] as! Double) / Double(self.numStudents))
-                self.thursValue = Double((value["thursday"] as! Double) / Double(self.numStudents))
-                self.friValue = Double((value["friday"] as! Double) / Double(self.numStudents))
+                self.monValue = Double((value["monday"] as! Double) / Double(self.numVoters))
+                self.tuesValue = Double((value["tuesday"] as! Double) / Double(self.numVoters))
+                self.wedValue = Double((value["wednesday"] as! Double) / Double(self.numVoters))
+                self.thursValue = Double((value["thursday"] as! Double) / Double(self.numVoters))
+                self.friValue = Double((value["friday"] as! Double) / Double(self.numVoters))
                 }
            
                 self.resetDayLabels()
-                print("**************")
-                print(1-self.monValue)
-                print(1-self.tuesValue)
-                print(1-self.wedValue)
-                print(1-self.thursValue)
-                print(1-self.friValue)
-                print("**************")
                 
                 self.mon.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.monValue))/255.0), green: CGFloat((86.0*(1-self.monValue))/255.0), blue: CGFloat((214.0*(1-self.monValue))/255.0), alpha: 1.0)
                 self.tues.backgroundColor = UIColor(red: CGFloat((88.0 * (1-self.tuesValue))/255.0), green: CGFloat((86.0*(1-self.tuesValue))/255.0), blue: CGFloat((214.0*(1-self.tuesValue))/255.0), alpha: 1.0)
@@ -131,7 +126,6 @@ class TeacherConflictCalendar: UIViewController {
         }) { (error) in
             print("error:\(error.localizedDescription)")
         }
-        print("numstudents: " + String(numStudents))
         
     }
 
@@ -153,6 +147,7 @@ class TeacherConflictCalendar: UIViewController {
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["wednesday" : 0])
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["thursday" : 0])
         ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["friday" : 0])
+        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["numVoted" : 0])
         setLabelsZero()
     }
     func setLabelsZero() {
@@ -166,29 +161,33 @@ class TeacherConflictCalendar: UIViewController {
         print("inside auto update lavbels")
         let messageDB = self.ref.child("Classrooms").child(ClassID).child("Calendar")
         messageDB.observe(.childChanged) { (snapshot) in
-            self.updateEverything()
+            self.ref.child("Classrooms").child(self.ClassID).child("Calendar").observeSingleEvent(of: .value) { snapshot in
+                  guard let value = snapshot.value as? NSDictionary else {
+                      return
+                  }
+                self.numVoters = value["numVoted"] as! Int
+                  if (self.numVoters != 0)
+                  {
+                  self.monValue = Double((value["monday"] as! Double) / Double(self.numVoters))
+                  self.tuesValue = Double((value["tuesday"] as! Double) / Double(self.numVoters))
+                  self.wedValue = Double((value["wednesday"] as! Double) / Double(self.numVoters))
+                  self.thursValue = Double((value["thursday"] as! Double) / Double(self.numVoters))
+                  self.friValue = Double((value["friday"] as! Double) / Double(self.numVoters))
+                  }
+                print("**************")
+                print(self.monValue)
+                print(self.tuesValue)
+                print(self.wedValue)
+                print(self.thursValue)
+                print(self.friValue)
+                print("**************")
+                  self.resetDayLabels()
+
+
+                       
+            }
         }
     }
-    
-    func updateEverything() {
-         ref.child("Classrooms").child(self.ClassID).child("Calendar").observeSingleEvent(of: .value) { snapshot in
-                guard let value = snapshot.value as? NSDictionary else {
-                    return
-                }
-            
-                if (self.numStudents != 0)
-                {
-                self.monValue = Double((value["monday"] as! Double) / Double(self.numStudents))
-                self.tuesValue = Double((value["tuesday"] as! Double) / Double(self.numStudents))
-                self.wedValue = Double((value["wednesday"] as! Double) / Double(self.numStudents))
-                self.thursValue = Double((value["thursday"] as! Double) / Double(self.numStudents))
-                self.friValue = Double((value["friday"] as! Double) / Double(self.numStudents))
-                }
-                self.resetDayLabels()
-                
 
-                     
-          }
-         }
 }
 
