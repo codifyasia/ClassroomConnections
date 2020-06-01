@@ -308,7 +308,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
                 cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
                 cell.rightImage?.tintColor = UIColor.systemRed
             } else {
-                cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+                cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                 cell.rightImage?.tintColor = UIColor.systemIndigo
                 
             }
@@ -340,10 +340,10 @@ extension StudentClassChatViewController: UITableViewDataSource {
                     cell.rightImage?.tintColor = UIColor.systemRed
                     return cell
                 } else {
-                    cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+                    cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                     cell.rightImage?.tintColor = UIColor.systemIndigo
                 }
-                cell.messageBubble.backgroundColor = UIColor.systemIndigo
+//                cell.messageBubble.backgroundColor = UIColor.systemIndigo
                 cell.rightImage?.tintColor = UIColor.systemIndigo
                 
                 if messages[indexPath.row].messageType == "Question" {
@@ -365,7 +365,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
                     cell.rightImage?.tintColor = UIColor.systemRed
                     return cell
                 } else {
-                    cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 0.3)
+                    cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                     cell.rightImage?.tintColor = UIColor.systemIndigo
                 }
                 if messages[indexPath.row].messageType == "Question" {
