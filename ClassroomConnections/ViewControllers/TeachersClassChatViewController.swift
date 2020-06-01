@@ -278,7 +278,7 @@ extension TeacherClassChatViewController: UITableViewDataSource {
                 cell.rightImage?.tintColor = UIColor.systemRed
                 
             } else {
-                cell.messageBubble.backgroundColor = UIColor(red: 100.0*0.6/255.0, green: 96.0*0.6/255.0, blue: 255.0*0.6/255.0, alpha: 1)
+                cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                 cell.rightImage?.tintColor = UIColor.systemIndigo
                 cell.rightImage.image = UIImage(named : "study")
             }
