@@ -232,7 +232,8 @@ extension StudentClasses: UITableViewDelegate {
                                 
                                 
                                 self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue, "Teacher" : teacher, "TeacherID" : teacherID])
-                                
+                                self.getInfo()
+                                self.tableView.reloadData()
                             }) { (error) in
                                 print("error:\(error.localizedDescription)")
                             }
@@ -241,6 +242,8 @@ extension StudentClasses: UITableViewDelegate {
                             
                             self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false])
                             self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false, "id" : Auth.auth().currentUser!.uid])
+                            self.getInfo()
+                            self.tableView.reloadData()
                             //update
 //                            self.updateClasses()
                             return
