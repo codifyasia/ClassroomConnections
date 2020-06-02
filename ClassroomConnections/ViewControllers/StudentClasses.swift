@@ -39,7 +39,7 @@ class StudentClasses: UIViewController {
         
         
         getInfo()
-        //        updateClasses()
+//                updateClasses()
         
     }
     
@@ -55,8 +55,8 @@ class StudentClasses: UIViewController {
     
     func getInfo() {
         
-//        let lastName = value["LastName"] as! String
-//        self.name = lastName
+        //        let lastName = value["LastName"] as! String
+        //        self.name = lastName
         
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
             
@@ -99,29 +99,29 @@ class StudentClasses: UIViewController {
     
     
     func updateClasses() {
-
-//            let teacherName = value1["Teacher"] as! String
+        
+        //            let teacherName = value1["Teacher"] as! String
+        
+        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.classes.removeAll()
+            
+            print("retrieve data: " + String(snapshot.childrenCount))
+            
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let value = rest.value as? NSDictionary else {
+                    print("could not collect label data")
+                    return
+                }
+                let title = value["Title"] as! String
+                let iden = value["ID"] as! String
+                let teacherName = value["Teacher"] as! String
+                let eacherID = value["TeacherID"] as! String
+                print(title)
                 
-                self.classes.removeAll()
                 
-                print("retrieve data: " + String(snapshot.childrenCount))
-                
-                for rest in snapshot.children.allObjects as! [DataSnapshot] {
-                    guard let value = rest.value as? NSDictionary else {
-                        print("could not collect label data")
-                        return
-                    }
-                    let title = value["Title"] as! String
-                    let iden = value["ID"] as! String
-                    let teacherName = value["Teacher"] as! String
-                    let eacherID = value["TeacherID"] as! String
-                    print(title)
-                    
-                    
-                    self.classes.append(Class(classTitle: title , teacher: teacherName, id: iden, teacherID: eacherID))
-                    self.tableView.reloadData()
+                self.classes.append(Class(classTitle: title , teacher: teacherName, id: iden, teacherID: eacherID))
+                self.tableView.reloadData()
                 //                self.performSegue(withIdentifier: "studentToTabBar", sender: self)
             }
             
@@ -181,104 +181,110 @@ extension StudentClasses: UITableViewDataSource {
 extension StudentClasses: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.row == classes.count) {
-        let alert = UIAlertController(title: "Enter code to join class", message: "", preferredStyle: .alert)
-        let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
-            print(self.textField.text!)
-            if (self.textField.text! == "") {
-                let errorAlert = UIAlertController(title: "Invalid Code", message: "The code you entered does not exist", preferredStyle: .alert)
-                let tryAgain = UIAlertAction(title: "Enter Another Code", style: .default) { (tryAgainAction) in
-                    self.present(alert, animated: true, completion: nil)
-                }
-                let cancel = UIAlertAction(title: "Cancel", style: .default) { (cancelAction) in
-                
-                }
-                errorAlert.addAction(tryAgain)
-                errorAlert.addAction(cancel)
-                
-                self.present(errorAlert, animated: true, completion: nil)
-                return
-            }
-            
-            var index = 1
-            
-            self.ref.child("Classrooms").observeSingleEvent(of: .value) { (Data) in
-                
-                print("retrieve data: " + String(Data.childrenCount))
-                
-                for children in Data.children.allObjects as! [DataSnapshot] {
-                    
-                    
-                    
-                   guard let classroom = children.value as? NSDictionary else {
-                        print("could not collect label data")
-                        return
+            let alert = UIAlertController(title: "Enter code to join class", message: "", preferredStyle: .alert)
+            let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
+                print(self.textField.text!)
+                if (self.textField.text! == "") {
+                    let errorAlert = UIAlertController(title: "Invalid Code", message: "The code you entered does not exist", preferredStyle: .alert)
+                    let tryAgain = UIAlertAction(title: "Enter Another Code", style: .default) { (tryAgainAction) in
+                        self.present(alert, animated: true, completion: nil)
                     }
-                    
-                    let identification = classroom["ID"] as! String
-                    
-                    let isEqual = (identification == self.textField.text!)
-                    
-                    if (isEqual) {
-                        self.ref.child("Classrooms").child(self.textField.text!).observeSingleEvent(of: .value, with: { (snapshot) in
-                             
-                             guard let value = snapshot.value as? NSDictionary else {
-                                 print("No Data!!!")
-                                 return
-                             }
-                             let titleValue = value["Title"] as! String
-                             let teacher = value["Teacher"] as! String
-                             let teacherID = value["TeacherID"] as! String
-                             self.topic = titleValue
-                            
-                             
-                            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue, "Teacher" : teacher, "TeacherID" : teacherID])
-                             
-                         }) { (error) in
-                             print("error:\(error.localizedDescription)")
-                         }
+                    let cancel = UIAlertAction(title: "Cancel", style: .default) { (cancelAction) in
                         
-                            
-                         
-                         self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false])
-                         self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false, "id" : Auth.auth().currentUser!.uid])
-                         //update
-                         self.updateClasses()
-                        return
                     }
-                    else {
-                        if (index == Data.childrenCount) {
-                            let errorAlert = UIAlertController(title: "Invalid Code", message: "The code you entered does not exist", preferredStyle: .alert)
-                            let tryAgain = UIAlertAction(title: "Enter Another Code", style: .default) { (tryAgainAction) in
-                                self.present(alert, animated: true, completion: nil)
-                            }
-                            let cancel = UIAlertAction(title: "Cancel", style: .default) { (cancelAction) in
-                            
-                            }
-                            errorAlert.addAction(tryAgain)
-                            errorAlert.addAction(cancel)
-                            
-                            self.present(errorAlert, animated: true, completion: nil)
+                    errorAlert.addAction(tryAgain)
+                    errorAlert.addAction(cancel)
+                    
+                    self.present(errorAlert, animated: true, completion: nil)
+                    return
+                }
+                
+                var index = 1
+                
+                self.ref.child("Classrooms").observeSingleEvent(of: .value) { (Data) in
+                    
+                    print("retrieve data: " + String(Data.childrenCount))
+                    
+                    for children in Data.children.allObjects as! [DataSnapshot] {
+                        
+                        
+                        
+                        guard let classroom = children.value as? NSDictionary else {
+                            print("could not collect label data")
                             return
                         }
-                        index = index + 1
                         
+                        let identification = classroom["ID"] as! String
+                        
+                        let isEqual = (identification == self.textField.text!)
+                        
+                        if (isEqual) {
+                            self.ref.child("Classrooms").child(self.textField.text!).observeSingleEvent(of: .value, with: { (snapshot) in
+                                
+                                guard let value = snapshot.value as? NSDictionary else {
+                                    print("No Data!!!")
+                                    return
+                                }
+                                let titleValue = value["Title"] as! String
+                                let teacher = value["Teacher"] as! String
+                                let teacherID = value["TeacherID"] as! String
+                                self.topic = titleValue
+                                
+                                
+                                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Classrooms").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!, "Title" : titleValue, "Teacher" : teacher, "TeacherID" : teacherID])
+                                
+                            }) { (error) in
+                                print("error:\(error.localizedDescription)")
+                            }
+                            
+                            
+                            
+                            self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false])
+                            self.ref.child("Classrooms").child(self.textField.text!).child("Students").child(Auth.auth().currentUser!.uid).updateChildValues(["SubmitStatus" : false, "id" : Auth.auth().currentUser!.uid])
+                            //update
+//                            self.updateClasses()
+                            return
+                        }
+                        else {
+                            if (index == Data.childrenCount) {
+                                let errorAlert = UIAlertController(title: "Invalid Code", message: "The code you entered does not exist", preferredStyle: .alert)
+                                let tryAgain = UIAlertAction(title: "Enter Another Code", style: .default) { (tryAgainAction) in
+                                    self.present(alert, animated: true, completion: nil)
+                                }
+                                let cancel = UIAlertAction(title: "Cancel", style: .default) { (cancelAction) in
+                                    
+                                }
+                                errorAlert.addAction(tryAgain)
+                                errorAlert.addAction(cancel)
+                                
+                                self.present(errorAlert, animated: true, completion: nil)
+                                return
+                            }
+                            index = index + 1
+                            
+                            
+                        }
+                        
+                        self.getInfo()
+                        self.tableView.reloadData()
+
                         
                     }
                     
-                
                 }
+                //                sel.classes.append(Class(classTitle: "APCSA", teacher: "Fulk"))
+                
                 
             }
-            //                sel.classes.append(Class(classTitle: "APCSA", teacher: "Fulk"))
-                            self.tableView.reloadData()
             
-        }
-        
-        alert.addAction(doneButton)
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Class code"
-            self.textField = alertTextField
-            //                /Users/michaelpeng/Desktop/ClassroomConnections/Pods/PKRevealController/Source/PKRevealController/PKRevealController.m:1363:1: Conflicting return type in implementation of 'supportedInterfaceOrientations': 'UIInterfaceOrientationMask' (aka 'enum UIInterfaceOrientationMask') vs 'NSUInteger' (aka 'unsigned long')
+            let cancelButton = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            }
+            alert.addAction(doneButton)
+            alert.addAction(cancelButton)
+            alert.addTextField { (alertTextField) in
+                alertTextField.placeholder = "Class code"
+                self.textField = alertTextField
+                //                /Users/michaelpeng/Desktop/ClassroomConnections/Pods/PKRevealController/Source/PKRevealController/PKRevealController.m:1363:1: Conflicting return type in implementation of 'supportedInterfaceOrientations': 'UIInterfaceOrientationMask' (aka 'enum UIInterfaceOrientationMask') vs 'NSUInteger' (aka 'unsigned long')
             }
             
             

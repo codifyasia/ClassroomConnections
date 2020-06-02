@@ -26,7 +26,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     var messages: [Message] = [Message]()
     
     var answerOn: Bool = false
-    
+    var tappable : Bool = true
     
     
     @IBOutlet weak var answerLabel: UIButton!
@@ -92,6 +92,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        tappable = false
         bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
         let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         NSLayoutConstraint.activate([bottomConstraint])
@@ -337,6 +338,7 @@ extension TeacherClassChatViewController: UITableViewDataSource {
 extension TeacherClassChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = indexPath.row
+        if tappable {
         
         var message = messages[selected]
         print(message.ID)
@@ -398,6 +400,10 @@ extension TeacherClassChatViewController: UITableViewDelegate {
         }
         else {
             questionRow = 0
+        }
+        }
+        else {
+            tappable = true
         }
     }
 }

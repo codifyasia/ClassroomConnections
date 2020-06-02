@@ -35,12 +35,14 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     var answerIndex : Int = 0
     @IBOutlet weak var signOutButton: UIButton!
     
+    var tappable : Bool = true
+    
     override func viewDidLoad() {
         currentY = bottomView.frame.origin.y
         messageTextField.delegate = self
         signOutButton.backgroundColor = .clear
         signOutButton.layer.cornerRadius = 5
-//        signOutButton.layer.borderWidth = 2
+        //        signOutButton.layer.borderWidth = 2
         signOutButton.layer.borderColor = UIColor.systemIndigo.cgColor
         answerLabel.backgroundColor = .clear
         answerLabel.layer.cornerRadius = 5
@@ -88,7 +90,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-
+    
     @objc func keyboradWillChange(notification: Notification) {
         print("Keyboard will show: \(notification.name.rawValue)")
     }
@@ -119,6 +121,19 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         NSLayoutConstraint.activate([bottomConstraint])
         self.tabBarController?.tabBar.isHidden = true
         
+        tappable = false
+        
+        if textField == messageTextField {
+            print("pressed")
+        }
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        
+        if textField == messageTextField {
+            print("pressed")
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -181,15 +196,15 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 else {
                     self.messages.append(message)
                 }
-
+                
                 self.tableView.reloadData()
                 var indexPath : IndexPath
                 if (self.questionRow == 0) {
                     indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                    //                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 } else {
                     indexPath = IndexPath(row: self.questionRow, section: 0)
-//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                    //                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 }
                 
                 self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
@@ -237,7 +252,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
                 self.answerOn = false
                 self.answerLabel.isHidden = true
-//                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                //                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
             }
             else if (self.questionOn) {
                 print("message type is saved as question")
@@ -297,7 +312,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
             
             
             cell.label.text = messages[indexPath.row].body
-//            cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
+            //            cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
             
             //
             if messages[indexPath.row].senderID == Auth.auth().currentUser!.uid {
@@ -324,9 +339,9 @@ extension StudentClassChatViewController: UITableViewDataSource {
             cell.senderName.text = ""
             return cell
         } else {
-             print("HELLO" + messages[indexPath.row].senderID + " " + Auth.auth().currentUser!.uid)
+            print("HELLO" + messages[indexPath.row].senderID + " " + Auth.auth().currentUser!.uid)
             if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
-               
+                
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell2", for: indexPath) as! messageSelfCell
                 cell.label.text = messages[indexPath.row].body
                 cell.senderName.text = "Sender: " + messages[indexPath.row].senderID
@@ -343,7 +358,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
                     cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                     cell.rightImage?.tintColor = UIColor.systemIndigo
                 }
-//                cell.messageBubble.backgroundColor = UIColor.systemIndigo
+                //                cell.messageBubble.backgroundColor = UIColor.systemIndigo
                 cell.rightImage?.tintColor = UIColor.systemIndigo
                 
                 if messages[indexPath.row].messageType == "Question" {
@@ -398,51 +413,58 @@ extension StudentClassChatViewController: UITableViewDelegate {
         print(message.messageType)
         
         if (message.messageType == "Question") {
-            questionRow = selected
-            let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
-            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            
+            if tappable {
+                questionRow = selected
+                let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
+                let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                    
+                }
                 
+                let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
+                    //                if (self.questionOn) {
+                    //                    self.questionSwitch(nil)
+                    //                }
+                    self.qSwitch.isOn = false
+                    self.answerOn = true
+                    self.answerLabel.isHidden = false
+                    self.answerIndex = indexPath.row+1
+                }
+                
+                
+                alert.addAction(answer)
+                alert.addAction(cancel)
+                present(alert, animated: true)
             }
-            
-            let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
-                //                if (self.questionOn) {
-                //                    self.questionSwitch(nil)
-                //                }
-                self.qSwitch.isOn = false
-                self.answerOn = true
-                self.answerLabel.isHidden = false
-                self.answerIndex = indexPath.row+1
-            }
-            
-            
-            alert.addAction(answer)
-            alert.addAction(cancel)
-            present(alert, animated: true)
         } else {
             questionRow = 0
         }
-//        if (message.messageType == "Answer") {
-//            let mark = UIAlertAction(title: "Mark as Correct", style: .default) { (action) in
-//                //                if (self.questionOn) {
-//                //                    self.questionSwitch(nil)
-//                //                }
-//                self.qSwitch.isOn = false
-//                self.answerOn = true
-//                self.answerLabel.isHidden = false
-//                //self.messages[indexPath.row].num = 1
-//            }
-//            let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
-//            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
-//
-//            }
-//            alert.addAction(mark)
-//            alert.addAction(cancel)
-//            present(alert, animated: true)
-//
-//        }
-//        else {
-//            questionRow = 0
-//        }
+        
+        if !tappable {
+            tappable = true
+        }
+        //        if (message.messageType == "Answer") {
+        //            let mark = UIAlertAction(title: "Mark as Correct", style: .default) { (action) in
+        //                //                if (self.questionOn) {
+        //                //                    self.questionSwitch(nil)
+        //                //                }
+        //                self.qSwitch.isOn = false
+        //                self.answerOn = true
+        //                self.answerLabel.isHidden = false
+        //                //self.messages[indexPath.row].num = 1
+        //            }
+        //            let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
+        //            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+        //
+        //            }
+        //            alert.addAction(mark)
+        //            alert.addAction(cancel)
+        //            present(alert, animated: true)
+        //
+        //        }
+        //        else {
+        //            questionRow = 0
+        //        }
         
         //        print(message.body)
         //
