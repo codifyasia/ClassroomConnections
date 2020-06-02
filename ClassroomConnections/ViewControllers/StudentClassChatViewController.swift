@@ -326,7 +326,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
             } else {
                 cell.checkmark.isHidden = true
             }
-            cell.senderName.text = ""
+            cell.senderName.isHidden = true
             return cell
         } else {
             print("HELLO" + messages[indexPath.row].senderID + " " + Auth.auth().currentUser!.uid)
@@ -356,6 +356,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
                 } else if messages[indexPath.row].messageType == "Normal" {
                     cell.rightImage.image = UIImage(named: "study")
                 }
+                cell.senderName.isHidden = true
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
@@ -378,6 +379,7 @@ extension StudentClassChatViewController: UITableViewDataSource {
                 } else if messages[indexPath.row].messageType == "Normal" {
                     cell.rightImage.image = UIImage(named: "study")
                 }
+                cell.senderName.isHidden = true
                 return cell
             }
             
