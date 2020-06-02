@@ -120,21 +120,11 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         NSLayoutConstraint.activate([bottomConstraint])
         self.tabBarController?.tabBar.isHidden = true
-        
         tappable = false
         
-        if textField == messageTextField {
-            print("pressed")
-        }
         
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        
-        if textField == messageTextField {
-            print("pressed")
-        }
-    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         bottomView.frame.origin.y = currentY
