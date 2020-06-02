@@ -398,6 +398,8 @@ extension StudentClassChatViewController: UITableViewDataSource {
 extension StudentClassChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        print(tappable)
+        
         let selected = indexPath.row
         
         let message = messages[selected]
