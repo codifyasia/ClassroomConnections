@@ -25,7 +25,6 @@ class AuthManager {
             print("auth is nil")
             viewController = storyboard.instantiateViewController(withIdentifier: "Tutorial")
             authHandler.present(viewController, animated: false, completion: nil)
-        
         } else {
             print("auth is found:" + Auth.auth().currentUser!.uid)
             self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
