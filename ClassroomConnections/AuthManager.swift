@@ -23,7 +23,7 @@ class AuthManager {
         if (Auth.auth().currentUser == nil) {
             var viewController: UIViewController
             print("auth is nil")
-            viewController = storyboard.instantiateViewController(withIdentifier: "Tutorial")
+            viewController = storyboard.instantiateViewController(withIdentifier: "Register")
             authHandler.present(viewController, animated: false, completion: nil)
         } else {
             print("auth is found:" + Auth.auth().currentUser!.uid)

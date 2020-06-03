@@ -93,10 +93,10 @@ class RegisterViewController: UIViewController {
                     
 //                    SVProgressHUD.dismiss()
                     if (self.isStudent) {
-                        self.performSegue(withIdentifier: "studentToClassSelection", sender: self)
+                        self.performSegue(withIdentifier: "toInstructionsStudent", sender: self)
                     }
                     else {
-                        self.performSegue(withIdentifier: "teacherToClassSelection", sender: self)
+                        self.performSegue(withIdentifier: "toInstructionsTeacher", sender: self)
                     }
                     //                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)
                 } else {

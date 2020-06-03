@@ -23,10 +23,36 @@
             </objects>
             <point key="canvasLocation" x="-2055" y="104"/>
         </scene>
+        <!--StudentInstructions-->
+        <scene sceneID="ndN-yH-ZMA">
+            <objects>
+                <viewController title="StudentInstructions" modalPresentationStyle="fullScreen" id="iIB-oo-zSj" customClass="InstructionsStudent" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uZd-lg-4aI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxe-PW-ZfJ">
+                                <rect key="frame" x="10" y="209" width="394" height="226"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <state key="normal" title="Instructions Student"/>
+                                <connections>
+                                    <segue destination="Dcl-mV-d4c" kind="presentation" id="l0x-16-fRd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Z7v-Km-O56"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="01h-nn-L2l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-375" y="-779"/>
+        </scene>
         <!--Register View Controller-->
         <scene sceneID="xB0-A4-fXr">
             <objects>
-                <viewController id="XVg-8X-N20" customClass="RegisterViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" modalPresentationStyle="fullScreen" id="XVg-8X-N20" customClass="RegisterViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0zM-a1-2J6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -253,6 +279,8 @@
                         <outlet property="studentButton" destination="VJc-6k-dmx" id="Xxe-Us-bFO"/>
                         <segue destination="xgg-yK-e4F" kind="presentation" identifier="teacherToClassSelection" modalPresentationStyle="fullScreen" id="OYR-f7-Q6Y"/>
                         <segue destination="Dcl-mV-d4c" kind="presentation" identifier="studentToClassSelection" modalPresentationStyle="fullScreen" id="f5H-xm-6mY"/>
+                        <segue destination="vZR-au-R8q" kind="presentation" identifier="toInstructionsTeacher" id="d56-2h-I2E"/>
+                        <segue destination="iIB-oo-zSj" kind="presentation" identifier="toInstructionsStudent" id="bZQ-f5-dRA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dd0-eb-nH0" sceneMemberID="firstResponder"/>
@@ -393,7 +421,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W3X-Bl-yrL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416" y="329"/>
+            <point key="canvasLocation" x="283" y="104"/>
         </scene>
         <!--TeacherClassChatViewController-->
         <scene sceneID="tdD-1l-uKy">
@@ -505,7 +533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJu-60-6zR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3185.507246376812" y="2133.4821428571427"/>
+            <point key="canvasLocation" x="4541" y="1793"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="uOO-hh-Ncn">
@@ -588,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLv-k0-7ST" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="402"/>
+            <point key="canvasLocation" x="1900" y="104"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qIj-BW-Tc1">
@@ -606,7 +634,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hxx-QW-HAP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2986.9565217391305" y="313.39285714285711"/>
+            <point key="canvasLocation" x="3074" y="-779"/>
         </scene>
         <!--Teacher Classes-->
         <scene sceneID="V4b-bk-FZi">
@@ -678,7 +706,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcX-HM-JzH" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142" y="1131"/>
+            <point key="canvasLocation" x="1900" y="1177"/>
         </scene>
         <!--Student Classes-->
         <scene sceneID="fTh-yx-fH2">
@@ -751,7 +779,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9j-b7-p4u" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="687" y="-453"/>
+            <point key="canvasLocation" x="1900" y="-779"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="yuA-V1-xEg">
@@ -909,7 +937,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3M-JP-J5y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3276.811594202899" y="-501.5625"/>
+            <point key="canvasLocation" x="4541" y="-1280"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="6lT-44-MA4">
@@ -1104,7 +1132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Tt-JY-HhL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3775" y="1130"/>
+            <point key="canvasLocation" x="4541" y="804"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xsX-ip-UpY">
@@ -1122,7 +1150,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ui-Aq-jQG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="1738"/>
+            <point key="canvasLocation" x="3074" y="1177"/>
         </scene>
         <!--StudentClassChatViewController-->
         <scene sceneID="Dt7-1n-sMs">
@@ -1255,7 +1283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLn-tX-f6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4231.884057971015" y="220.98214285714286"/>
+            <point key="canvasLocation" x="4541" y="-128"/>
         </scene>
         <!--Hello-->
         <scene sceneID="gav-gO-Di7">
@@ -1312,7 +1340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5w-I7-HgT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6307" y="1052"/>
+            <point key="canvasLocation" x="-3855" y="2157"/>
         </scene>
         <!--Instructions View Controller-->
         <scene sceneID="2o5-wZ-EUI">
@@ -1346,9 +1374,6 @@
                                 <state key="normal" title="Let's Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="XVg-8X-N20" kind="presentation" modalPresentationStyle="fullScreen" id="HIe-BA-17u"/>
-                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VbV-cr-kqe">
                                 <rect key="frame" x="68" y="284" width="278" height="149"/>
@@ -1408,14 +1433,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ac-RK-8BF" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2055.072463768116" y="859.82142857142856"/>
+            <point key="canvasLocation" x="-3855" y="1051"/>
+        </scene>
+        <!--InstructionsTeacher-->
+        <scene sceneID="zDk-EV-mA4">
+            <objects>
+                <viewController title="InstructionsTeacher" modalPresentationStyle="fullScreen" id="vZR-au-R8q" customClass="InstructionsTeacher" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OJk-HU-jzj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3N-dn-sCd">
+                                <rect key="frame" x="10" y="226" width="394" height="226"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <state key="normal" title="Instructions Teacher"/>
+                                <connections>
+                                    <segue destination="xgg-yK-e4F" kind="presentation" id="P2M-eZ-fh6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Tv4-bW-yJ3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dye-Nh-R7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-374" y="1177"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cXv-5r-Tr3"/>
-        <segue reference="u9c-qB-1hm"/>
+        <segue reference="l0x-16-fRd"/>
+        <segue reference="P2M-eZ-fh6"/>
         <segue reference="gQ2-5Y-eq7"/>
-        <segue reference="GjU-0t-bGD"/>
+        <segue reference="Ytm-u5-bOS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
