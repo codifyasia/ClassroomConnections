@@ -432,7 +432,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="710-dv-Gfr">
-                                <rect key="frame" x="0.0" y="99" width="414" height="634"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="633"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Smz-SH-QrC" userLabel="BottomView">
@@ -457,13 +457,13 @@
                                     <constraint firstItem="TBv-hZ-Ugh" firstAttribute="centerY" secondItem="Smz-SH-QrC" secondAttribute="centerY" id="3ud-Vg-iIZ"/>
                                     <constraint firstItem="WL4-gr-wzh" firstAttribute="centerY" secondItem="Smz-SH-QrC" secondAttribute="centerY" id="6bx-gV-RMR"/>
                                     <constraint firstItem="WL4-gr-wzh" firstAttribute="leading" secondItem="Smz-SH-QrC" secondAttribute="leading" constant="22" id="Szq-km-gPX"/>
-                                    <constraint firstAttribute="height" constant="80" id="Xyw-np-yW0"/>
                                     <constraint firstAttribute="trailing" secondItem="TBv-hZ-Ugh" secondAttribute="trailing" constant="17" id="byp-9T-KzG"/>
+                                    <constraint firstAttribute="height" constant="80" id="rrZ-66-Ubf"/>
                                     <constraint firstItem="TBv-hZ-Ugh" firstAttribute="leading" secondItem="WL4-gr-wzh" secondAttribute="trailing" constant="22" id="tNE-tZ-EGg"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpy-Yd-jIG">
-                                <rect key="frame" x="345" y="46" width="49" height="46"/>
+                                <rect key="frame" x="345" y="46" width="49" height="47"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <state key="normal" title="A">
                                     <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -489,7 +489,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K92-jp-6N0">
-                                <rect key="frame" x="81" y="46" width="253" height="41"/>
+                                <rect key="frame" x="81" y="46" width="253" height="42"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
                                 <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -506,7 +506,7 @@
                             <constraint firstItem="vpy-Yd-jIG" firstAttribute="leading" secondItem="K92-jp-6N0" secondAttribute="trailing" constant="11" id="ED1-06-J7g"/>
                             <constraint firstItem="Smz-SH-QrC" firstAttribute="centerX" secondItem="LB5-eq-gtZ" secondAttribute="centerX" id="HVC-4I-C1j"/>
                             <constraint firstItem="Vub-v8-i20" firstAttribute="trailing" secondItem="Smz-SH-QrC" secondAttribute="trailing" id="IIE-yG-LGD"/>
-                            <constraint firstItem="710-dv-Gfr" firstAttribute="top" secondItem="txV-kn-Hl8" secondAttribute="bottom" constant="13" id="JhS-GE-Kr8"/>
+                            <constraint firstItem="710-dv-Gfr" firstAttribute="top" secondItem="txV-kn-Hl8" secondAttribute="bottom" constant="14" id="JhS-GE-Kr8"/>
                             <constraint firstItem="710-dv-Gfr" firstAttribute="leading" secondItem="Vub-v8-i20" secondAttribute="leading" id="aVw-nG-gYW"/>
                             <constraint firstItem="K92-jp-6N0" firstAttribute="top" secondItem="Vub-v8-i20" secondAttribute="top" constant="2" id="bOl-13-nVd"/>
                             <constraint firstItem="K92-jp-6N0" firstAttribute="leading" secondItem="txV-kn-Hl8" secondAttribute="trailing" constant="5" id="bol-Tr-XbZ"/>
@@ -1204,6 +1204,7 @@
                                     <constraint firstAttribute="bottom" secondItem="98y-2R-kOX" secondAttribute="bottom" constant="30" id="5Oc-oX-yq6"/>
                                     <constraint firstItem="dT6-uS-3MM" firstAttribute="leading" secondItem="Jv2-K3-uJZ" secondAttribute="leading" constant="8" id="FQE-vn-F8o"/>
                                     <constraint firstAttribute="trailing" secondItem="98y-2R-kOX" secondAttribute="trailing" constant="8" id="Rac-ge-K9J"/>
+                                    <constraint firstAttribute="height" constant="80" id="VRY-Hx-jJi"/>
                                     <constraint firstAttribute="bottom" secondItem="dT6-uS-3MM" secondAttribute="bottom" constant="27" id="bSh-MP-Luh"/>
                                     <constraint firstItem="M36-B1-w3g" firstAttribute="top" secondItem="Jv2-K3-uJZ" secondAttribute="top" constant="22" id="cA2-Jq-OWT"/>
                                     <constraint firstItem="98y-2R-kOX" firstAttribute="top" secondItem="Jv2-K3-uJZ" secondAttribute="top" constant="28" id="nC2-ft-6UQ"/>
@@ -1230,9 +1231,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cOL-Xf-OqT">
                                 <rect key="frame" x="0.0" y="100" width="414" height="633"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="633" id="yEo-rJ-ltx"/>
-                                </constraints>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0Y-Pj-lCQ">
                                 <rect key="frame" x="345" y="43" width="49" height="46"/>
