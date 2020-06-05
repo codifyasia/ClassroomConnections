@@ -308,14 +308,15 @@ extension StudentClassChatViewController: UITableViewDataSource {
             if messages[indexPath.row].senderID == Auth.auth().currentUser!.uid {
                 cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                 cell.rightImage?.tintColor = UIColor.systemIndigo
+                cell.rightImage.image = UIImage(named: "study")
             } else if (messages[indexPath.row].senderID == self.teacherID) {
-                
                 cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
-                cell.rightImage?.tintColor = UIColor.systemRed
                 cell.rightImage.image = UIImage(named: "synopsisscan")
+                cell.rightImage?.tintColor = UIColor.systemRed
             } else {
                 cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                 cell.rightImage?.tintColor = UIColor.systemIndigo
+                cell.rightImage.image = UIImage(named: "study")
                 
             }
             if (!messages[indexPath.row].correct) {
