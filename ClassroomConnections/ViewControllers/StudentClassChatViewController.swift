@@ -35,6 +35,9 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     var answerIndex : Int = 0
     @IBOutlet weak var signOutButton: UIButton!
     
+    var commended : Bool = false
+    
+    
     var tappable : Bool = true
     
     override func viewDidLoad() {
@@ -177,9 +180,10 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 let messageIndex : Int = snapshotValue["Index"] as! Int
                 let id : Int = snapshotValue["ID"] as! Int
                 let correct1 : Bool = snapshotValue["correct"] as! Bool
+                let ans : Int = snapshotValue["Answers"] as! Int
                 //                let unique : String = snapshotValue["childID"] as! String
                 
-                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: id, correct: correct1, name: "")
+                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: id, correct: correct1, name: "", answers: ans)
                 
                 if (messageT == "Answer") {
                     self.messages.insert(message, at: messageIndex)
@@ -234,10 +238,14 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
             var childId : String = randomID.key!
             if (self.answerOn) {
                 
+                print(self.messages[self.answerIndex-1].answers)
+                
+                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).updateChildValues(["Answers": self.messages[self.answerIndex-1].answers+1])
+                
                 let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                          "MessageBody": self.messageTextField.text!,
                                          "SenderID": Auth.auth().currentUser?.uid,
-                                         "messageType" : "Answer", "Upvotes" : 0, "Index" : self.answerIndex, "ID" : generatorNum+1, "correct" : false] as [String : Any]
+                                         "messageType" : "Answer", "Upvotes" : 0, "Index" : self.answerIndex, "ID" : generatorNum+1, "correct" : false, "Parent" : self.messages[self.answerIndex-1].ID, "Answers" : 0] as [String : Any]
                 
                 
                 messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
@@ -250,7 +258,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                          "MessageBody": self.messageTextField.text!,
                                          "SenderID": Auth.auth().currentUser?.uid,
-                                         "messageType" : "Question", "Upvotes" : 0, "Index" : 0, "ID" : generatorNum+1, "correct": false] as [String : Any]
+                                         "messageType" : "Question", "Upvotes" : 0, "Index" : 0, "ID" : generatorNum+1, "correct": false, "Answers" : 0] as [String : Any]
                 
                 messagesDB.child(String(generatorNum+1)).setValue(messageDictionary) {
                     (error, reference) in
@@ -269,7 +277,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                          "MessageBody": self.messageTextField.text!,
                                          "SenderID": Auth.auth().currentUser?.uid,
-                                         "messageType" : "Normal", "Index" : 0, "ID" : generatorNum+1, "correct": false] as [String : Any]
+                                         "messageType" : "Normal", "Index" : 0, "ID" : generatorNum+1, "correct": false, "Answers" : 0] as [String : Any]
                 messagesDB.child(String(generatorNum+1)).setValue(messageDictionary) {
                     (error, reference) in
                     

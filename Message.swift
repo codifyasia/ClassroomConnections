@@ -17,5 +17,6 @@ struct Message {
     var ID : Int
     var correct: Bool
     var name: String
+    var answers: Int
     
 }

@@ -169,7 +169,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                     name = name + " " + name1
                     print("the name:\(name)")
                     
-                    let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: id, correct: correct1, name: name)
+                    let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: id, correct: correct1, name: name, answers: 0)
                     
 
                     print("yote" + String(self.messages.count))
