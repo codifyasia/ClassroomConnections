@@ -130,7 +130,12 @@ class TeacherConflictCalendar: UIViewController {
     }
 
     @IBAction func resetPressed(_ sender: Any) {
+        print("reset pressed")
+        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["numVoted": 0, "monday" : 0, "tuesday": 0, "wednesday": 0, "thursday": 0, "friday": 0])
+
         resetAllButtonColors()
+        setLabelsZero()
+
         ref.child("Classrooms").child(self.ClassID).child("Students").observeSingleEvent(of: .value) { snapshot in
                 for rest in snapshot.children.allObjects as! [DataSnapshot] {
                     guard let value = rest.value as? NSDictionary else {
@@ -142,13 +147,7 @@ class TeacherConflictCalendar: UIViewController {
                     
                 }
         }
-        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["monday" : 0])
-        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["tuesday" : 0])
-        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["wednesday" : 0])
-        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["thursday" : 0])
-        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["friday" : 0])
-        ref.child("Classrooms").child(self.ClassID).child("Calendar").updateChildValues(["numVoted" : 0])
-        setLabelsZero()
+
     }
     func setLabelsZero() {
         monLabel.text = (String)(0) + "%"
@@ -173,6 +172,7 @@ class TeacherConflictCalendar: UIViewController {
                   self.wedValue = Double((value["wednesday"] as! Double) / Double(self.numVoters))
                   self.thursValue = Double((value["thursday"] as! Double) / Double(self.numVoters))
                   self.friValue = Double((value["friday"] as! Double) / Double(self.numVoters))
+                    self.resetDayLabels()
                   }
                 print("**************")
                 print(self.monValue)
@@ -181,13 +181,11 @@ class TeacherConflictCalendar: UIViewController {
                 print(self.thursValue)
                 print(self.friValue)
                 print("**************")
-                  self.resetDayLabels()
-
 
                        
             }
         }
-    }
 
+    }
 }
 
