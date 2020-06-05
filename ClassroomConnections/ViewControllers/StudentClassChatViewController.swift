@@ -116,11 +116,12 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        tappable = false
         bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
         let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         NSLayoutConstraint.activate([bottomConstraint])
         self.tabBarController?.tabBar.isHidden = true
-        tappable = false
+        
         
         
     }
