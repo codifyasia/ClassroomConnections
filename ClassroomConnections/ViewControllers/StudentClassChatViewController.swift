@@ -157,9 +157,15 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                         print("No Data!!!")
                         return
                     }
+                    
                     let rowChanged = val["last_commended id"] as! Int
+                    if (rowChanged != -1) {
+                        self.messages[rowChanged].correct = true
+                        self.ref.child("Classrooms").child(identity).child("Messages").updateChildValues(["last_commended id": -1])
+                    }
                     print(rowChanged)
-                    self.messages[rowChanged].correct = true
+                    
+                    
                     self.tableView.reloadData()
                 }
                 
@@ -238,19 +244,23 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
             var childId : String = randomID.key!
             if (self.answerOn) {
                 
-                print(self.messages[self.answerIndex-1].answers)
+                print("great" + String(self.messages[self.answerIndex-1].answers))
+        
                 
                 self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).updateChildValues(["Answers": self.messages[self.answerIndex-1].answers+1])
+                self.messages[self.answerIndex-1].answers = self.messages[self.answerIndex-1].answers+1
                 
+                let b = self.answerIndex+self.messages[self.answerIndex-1].answers
                 let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                          "MessageBody": self.messageTextField.text!,
                                          "SenderID": Auth.auth().currentUser?.uid,
-                                         "messageType" : "Answer", "Upvotes" : 0, "Index" : self.answerIndex, "ID" : generatorNum+1, "correct" : false, "Parent" : self.messages[self.answerIndex-1].ID, "Answers" : 0] as [String : Any]
-                
+                                         "messageType" : "Answer", "Upvotes" : 0, "Index" : b-1, "ID" : generatorNum+1, "correct" : false, "Parent" : self.messages[self.answerIndex-1].ID, "Answers" : 0] as [String : Any]
                 
                 messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
                 self.answerOn = false
                 self.answerLabel.isHidden = true
+                
+                
                 //                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
             }
             else if (self.questionOn) {

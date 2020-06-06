@@ -154,6 +154,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                 let messageIndex : Int = snapshotValue["Index"] as! Int
                 let id : Int = snapshotValue["ID"] as! Int
                 let correct1 : Bool = snapshotValue["correct"] as! Bool
+                let ans : Int = snapshotValue["Answers"] as! Int
                 //                let unique : String = snapshotValue["childID"] as! String
                 
                 self.ref.child("UserInfo").child(String(SenderID as! String)).observeSingleEvent(of: .value) { (snapshot2) in
@@ -169,7 +170,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                     name = name + " " + name1
                     print("the name:\(name)")
                     
-                    let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: id, correct: correct1, name: name, answers: 0)
+                    let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: id, correct: correct1, name: name, answers: ans)
                     
 
                     print("yote" + String(self.messages.count))
@@ -227,10 +228,14 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             print(self.messageTextField.text!)
             print("entered sending message")
             if (self.answerOn) {
+                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).updateChildValues(["Answers": self.messages[self.answerIndex-1].answers+1])
+                
+                let b = self.answerIndex+self.messages[self.answerIndex-1].answers
+                self.messages[self.answerIndex-1].answers = self.messages[self.answerIndex-1].answers+1
                 let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                          "MessageBody": self.messageTextField.text!,
                                          "SenderID": Auth.auth().currentUser?.uid,
-                                         "messageType" : "Answer", "Upvotes" : 0, "Index" : self.answerIndex, "ID" : generatorNum+1, "correct": false ] as [String : Any]
+                                         "messageType" : "Answer", "Upvotes" : 0, "Index" : b, "ID" : generatorNum+1, "correct": false, "Answers": 0 ] as [String : Any]
                 messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
                 
                 self.answerOn = false
@@ -240,7 +245,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                 let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                          "MessageBody": self.messageTextField.text!,
                                          "SenderID": Auth.auth().currentUser?.uid,
-                                         "messageType" : "Normal", "Index" : 0, "ID" : generatorNum+1, "correct": false] as [String : Any]
+                                         "messageType" : "Normal", "Index" : 0, "ID" : generatorNum+1, "correct": false, "Answers": 0] as [String : Any]
                 messagesDB.child(String(generatorNum+1)).setValue(messageDictionary) {
                     (error, reference) in
                     
