@@ -165,14 +165,14 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                     }
                     
                     var name = value2["FirstName"] as! String
-                     let name1 = value2["LastName"] as! String
+                    let name1 = value2["LastName"] as! String
                     
                     name = name + " " + name1
                     print("the name:\(name)")
                     
                     let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: id, correct: correct1, name: name, answers: ans)
                     
-
+                    
                     print("yote" + String(self.messages.count))
                     print(messageIndex)
                     if (messageT == "Answer") {
@@ -228,18 +228,32 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             print(self.messageTextField.text!)
             print("entered sending message")
             if (self.answerOn) {
-                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).updateChildValues(["Answers": self.messages[self.answerIndex-1].answers+1])
                 
-                let b = self.answerIndex+self.messages[self.answerIndex-1].answers
-                self.messages[self.answerIndex-1].answers = self.messages[self.answerIndex-1].answers+1
-                let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
-                                         "MessageBody": self.messageTextField.text!,
-                                         "SenderID": Auth.auth().currentUser?.uid,
-                                         "messageType" : "Answer", "Upvotes" : 0, "Index" : b, "ID" : generatorNum+1, "correct": false, "Answers": 0 ] as [String : Any]
-                messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
-                
-                self.answerOn = false
-                self.answerLabel.isHidden = true
+                self.ref.child("Classrooms").child(String(self.messages[self.answerIndex-1].ID)).observeSingleEvent(of: .value) { (snapshot) in
+                    guard let v1 = snapshot.value as? NSDictionary else {
+                        print("No Data!!!")
+                        return
+                    }
+                    
+                    
+                    let ans = v1["Answers"] as! Int
+                    print(ans)
+                    
+                    
+                    self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).updateChildValues(["Answers": ans+1])
+                    self.messages[self.answerIndex-1].answers = ans+1
+                    
+                    let b = self.answerIndex+ans 
+                    
+                    let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+                                             "MessageBody": self.messageTextField.text!,
+                                             "SenderID": Auth.auth().currentUser?.uid,
+                                             "messageType" : "Answer", "Upvotes" : 0, "Index" : b, "ID" : generatorNum+1, "correct": false, "Answers": 0 ] as [String : Any]
+                    messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
+                    
+                    self.answerOn = false
+                    self.answerLabel.isHidden = true
+                }
             } else {
                 print("message type is saved as normal")
                 let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
@@ -276,7 +290,7 @@ extension TeacherClassChatViewController: UITableViewDataSource {
             cell.senderName.isHidden = false
             cell.senderName.text = messages[indexPath.row].name
             cell.label.text = messages[indexPath.row].body
-//            cell.senderName.text = "Sender: " + messages[indexPath.row].sender
+            //            cell.senderName.text = "Sender: " + messages[indexPath.row].sender
             
             if (messages[indexPath.row].senderID == Auth.auth().currentUser!.uid) {
                 cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
@@ -309,7 +323,7 @@ extension TeacherClassChatViewController: UITableViewDataSource {
                 //cell.senderName.isHidden = true //TAKE NOTICE OF THIS THIS ISS WHERE THE SENDER: ID IS DELTED THIS IS THE LINE THIS IS THE LINE I REPEAT THIS IS THE LINE
                 
                 cell.label.text = messages[indexPath.row].body
-//                cell.senderName.text = "Sender: " + messages[indexPath.row].sender
+                //                cell.senderName.text = "Sender: " + messages[indexPath.row].sender
                 
                 cell.messageBubble.backgroundColor =  UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
                 cell.rightImage?.tintColor = UIColor.systemRed
@@ -326,7 +340,7 @@ extension TeacherClassChatViewController: UITableViewDataSource {
                 cell.senderName.isHidden = false
                 cell.senderName.text = messages[indexPath.row].name
                 cell.label.text = messages[indexPath.row].body
-//                cell.senderName.text = "Sender: " + messages[indexPath.row].sender
+                //                cell.senderName.text = "Sender: " + messages[indexPath.row].sender
                 cell.messageBubble.backgroundColor = UIColor(red: 100.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1)
                 cell.rightImage?.tintColor = UIColor.systemIndigo
                 if messages[indexPath.row].messageType == "Question" {
@@ -344,68 +358,68 @@ extension TeacherClassChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = indexPath.row
         if tappable {
-        
-        var message = messages[selected]
-        print(message.ID)
-        
-        if (message.messageType == "Question") {
-            questionRow = selected
-            let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
-            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
-                
-            }
             
-            let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
-                //                if (self.questionOn) {
-                //                    self.questionSwitch(nil)
-                //                }
-                self.answerOn = true
-                self.answerLabel.isHidden = false
-                self.answerIndex = indexPath.row+1
-            }
+            var message = messages[selected]
+            print(message.ID)
             
-            
-            
-            alert.addAction(answer)
-            alert.addAction(cancel)
-            present(alert, animated: true)
-            
-        }
-        else if(message.messageType == "Answer") {
-             if (!self.messages[selected].correct) {
+            if (message.messageType == "Question") {
                 questionRow = selected
-                        let alert = UIAlertController(title: "Respond To Answer", message: message.body, preferredStyle: .actionSheet)
-                        let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
-                            
-                        }
-                        
-                        let answer = UIAlertAction(title: "Commend", style: .default) { (action) in
-                            
+                let alert = UIAlertController(title: "Respond to Question", message: message.body, preferredStyle: .actionSheet)
+                let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                    
+                }
                 
-                            
-                            
-                            print("----switching checkmark to visible------")
-                            self.checkIndex = self.questionRow+1
-                            self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").updateChildValues(["last_commended id": self.questionRow])
-                            self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(message.ID)).updateChildValues(["correct": true])
-                            
-                            self.messages[self.questionRow].correct = true
-                            self.tableView.reloadData()
-                                
-                                
-                        }
-                        
-                        
-                        
-                        alert.addAction(answer)
-                        alert.addAction(cancel)
-                        present(alert, animated: true)
+                let answer = UIAlertAction(title: "Answer", style: .default) { (action) in
+                    //                if (self.questionOn) {
+                    //                    self.questionSwitch(nil)
+                    //                }
+                    self.answerOn = true
+                    self.answerLabel.isHidden = false
+                    self.answerIndex = indexPath.row+1
+                }
+                
+                
+                
+                alert.addAction(answer)
+                alert.addAction(cancel)
+                present(alert, animated: true)
+                
             }
-            
-        }
-        else {
-            questionRow = 0
-        }
+            else if(message.messageType == "Answer") {
+                if (!self.messages[selected].correct) {
+                    questionRow = selected
+                    let alert = UIAlertController(title: "Respond To Answer", message: message.body, preferredStyle: .actionSheet)
+                    let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                        
+                    }
+                    
+                    let answer = UIAlertAction(title: "Commend", style: .default) { (action) in
+                        
+                        
+                        
+                        
+                        print("----switching checkmark to visible------")
+                        self.checkIndex = self.questionRow+1
+                        self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").updateChildValues(["last_commended id": self.questionRow])
+                        self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(message.ID)).updateChildValues(["correct": true])
+                        
+                        self.messages[self.questionRow].correct = true
+                        self.tableView.reloadData()
+                        
+                        
+                    }
+                    
+                    
+                    
+                    alert.addAction(answer)
+                    alert.addAction(cancel)
+                    present(alert, animated: true)
+                }
+                
+            }
+            else {
+                questionRow = 0
+            }
         }
         else {
             tappable = true

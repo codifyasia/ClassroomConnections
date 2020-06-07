@@ -137,7 +137,11 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    
+//
     func retrieveMessages() {
+        
+        
         
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("current").observeSingleEvent(of: .value) { (snapshot) in
             
@@ -247,18 +251,34 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                 print("great" + String(self.messages[self.answerIndex-1].answers))
         
                 
-                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).updateChildValues(["Answers": self.messages[self.answerIndex-1].answers+1])
-                self.messages[self.answerIndex-1].answers = self.messages[self.answerIndex-1].answers+1
                 
-                let b = self.answerIndex+self.messages[self.answerIndex-1].answers
-                let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
-                                         "MessageBody": self.messageTextField.text!,
-                                         "SenderID": Auth.auth().currentUser?.uid,
-                                         "messageType" : "Answer", "Upvotes" : 0, "Index" : b-1, "ID" : generatorNum+1, "correct" : false, "Parent" : self.messages[self.answerIndex-1].ID, "Answers" : 0] as [String : Any]
+                self.ref.child("Classrooms").child(String(self.messages[self.answerIndex-1].ID)).observeSingleEvent(of: .value) { (snapshot) in
+                    guard let v1 = snapshot.value as? NSDictionary else {
+                        print("No Data!!!")
+                        return
+                    }
+                    
+                    
+                    let ans = v1["Answers"] as! Int
+                    print(ans)
+                    
+                    
+                    self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).updateChildValues(["Answers": ans+1])
+                    self.messages[self.answerIndex-1].answers = ans+1
+                    
+                    let b = self.answerIndex+ans as! Int
+                    let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+                                             "MessageBody": self.messageTextField.text!,
+                                             "SenderID": Auth.auth().currentUser?.uid,
+                                             "messageType" : "Answer", "Upvotes" : 0, "Index" : b-1, "ID" : generatorNum+1, "correct" : false, "Parent" : self.messages[self.answerIndex-1].ID, "Answers" : 0] as [String : Any]
+                    
+                    messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
+                    self.answerOn = false
+                    self.answerLabel.isHidden = true
+                }
                 
-                messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
-                self.answerOn = false
-                self.answerLabel.isHidden = true
+                
+                
                 
                 
                 //                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
