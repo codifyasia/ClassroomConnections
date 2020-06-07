@@ -252,8 +252,8 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
         
                 
                 
-                self.ref.child("Classrooms").child(String(self.messages[self.answerIndex-1].ID)).observeSingleEvent(of: .value) { (snapshot) in
-                    guard let v1 = snapshot.value as? NSDictionary else {
+                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).observeSingleEvent(of: .value) { (snapshot5) in
+                    guard let v1 = snapshot5.value as? NSDictionary else {
                         print("No Data!!!")
                         return
                     }
@@ -275,6 +275,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                     messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
                     self.answerOn = false
                     self.answerLabel.isHidden = true
+                    self.messageTextField.text = ""
                 }
                 
                 
@@ -300,6 +301,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                         print("Message saved successfully!")
                     }
                 }
+                self.messageTextField.text = ""
             }
             else {
                 
@@ -318,8 +320,9 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
                         print("Message saved successfully!")
                     }
                 }
+                self.messageTextField.text = ""
             }
-            self.messageTextField.text = ""
+            
         }
         
         

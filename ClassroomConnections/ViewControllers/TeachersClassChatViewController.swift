@@ -229,8 +229,9 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             print("entered sending message")
             if (self.answerOn) {
                 
-                self.ref.child("Classrooms").child(String(self.messages[self.answerIndex-1].ID)).observeSingleEvent(of: .value) { (snapshot) in
-                    guard let v1 = snapshot.value as? NSDictionary else {
+                print(String(self.messages[self.answerIndex-1].ID))
+                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).observeSingleEvent(of: .value) { (snapshot5) in
+                    guard let v1 = snapshot5.value as? NSDictionary else {
                         print("No Data!!!")
                         return
                     }
@@ -243,7 +244,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                     self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).updateChildValues(["Answers": ans+1])
                     self.messages[self.answerIndex-1].answers = ans+1
                     
-                    let b = self.answerIndex+ans 
+                    let b = self.answerIndex+ans
                     
                     let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                              "MessageBody": self.messageTextField.text!,
@@ -253,6 +254,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                     
                     self.answerOn = false
                     self.answerLabel.isHidden = true
+                    self.messageTextField.text = ""
                 }
             } else {
                 print("message type is saved as normal")
@@ -269,9 +271,11 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                     else {
                         print("Message saved successfully!")
                     }
+                    
                 }
+                self.messageTextField.text = ""
             }
-            self.messageTextField.text = ""
+            
         }
     }
     
