@@ -17,6 +17,7 @@
 		4789B4D223CEC53000293268 /* messageSelfCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4789B4D023CEC53000293268 /* messageSelfCell.swift */; };
 		4789B4D323CEC53000293268 /* messageSelfCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4789B4D123CEC53000293268 /* messageSelfCell.xib */; };
 		478C88D623DD32560076178A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 478C88D523DD32560076178A /* IQKeyboardManagerSwift */; };
+		47B0B9D2248DADA3000D4FBC /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B0B9D1248DADA3000D4FBC /* Test.swift */; };
 		47B5D2A62488327D0013B906 /* InstructionsTeacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5D2A52488327D0013B906 /* InstructionsTeacher.swift */; };
 		47B5D2A8248836720013B906 /* InstructionsStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5D2A7248836720013B906 /* InstructionsStudent.swift */; };
 		47BD5872238A2D2C008FC1D7 /* AddClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD586E238A2D2C008FC1D7 /* AddClass.swift */; };
@@ -55,6 +56,7 @@
 		47719D872389EA1300FC5350 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		4789B4D023CEC53000293268 /* messageSelfCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageSelfCell.swift; sourceTree = "<group>"; };
 		4789B4D123CEC53000293268 /* messageSelfCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = messageSelfCell.xib; sourceTree = "<group>"; };
+		47B0B9D1248DADA3000D4FBC /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		47B5D2A52488327D0013B906 /* InstructionsTeacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTeacher.swift; sourceTree = "<group>"; };
 		47B5D2A7248836720013B906 /* InstructionsStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsStudent.swift; sourceTree = "<group>"; };
 		47BD586E238A2D2C008FC1D7 /* AddClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClass.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				47D507A62389D955006E46EE /* RegisterViewController.swift */,
 				47719D812389E9A600FC5350 /* LoginViewController.swift */,
 				47719D832389E9C500FC5350 /* TeachersClassChatViewController.swift */,
+				47B0B9D1248DADA3000D4FBC /* Test.swift */,
 				4707C9F0238A5B6F00871B0A /* StudentClassChatViewController.swift */,
 				47719D872389EA1300FC5350 /* ChecklistViewController.swift */,
 				47BD5870238A2D2C008FC1D7 /* TeacherClasses.swift */,
@@ -352,6 +355,7 @@
 				4707C9F1238A5B6F00871B0A /* StudentClassChatViewController.swift in Sources */,
 				9CD6EB9B238A8129000A6A33 /* TeacherConflictCalendar.swift in Sources */,
 				47719D842389E9C500FC5350 /* TeachersClassChatViewController.swift in Sources */,
+				47B0B9D2248DADA3000D4FBC /* Test.swift in Sources */,
 				47B5D2A8248836720013B906 /* InstructionsStudent.swift in Sources */,
 				9C79F79823AEE96C000CA232 /* AuthHandler.swift in Sources */,
 				89E2F1A6243FFEB400138365 /* InstructionsViewController.swift in Sources */,

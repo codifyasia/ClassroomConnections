@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import IQKeyboardManagerSwift
 
 class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     
@@ -37,10 +36,20 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     
     var commended : Bool = false
     
-    
     var tappable : Bool = true
     
+    var bottomViewY : CGFloat = 0
+    var tableViewH : CGFloat = 0
+    
     override func viewDidLoad() {
+        
+        //Keyboard and textfield
+        bottomViewY = bottomView.frame.origin.y
+        tableViewH = tableView.frame.height
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         currentY = bottomView.frame.origin.y
         messageTextField.delegate = self
         signOutButton.backgroundColor = .clear
@@ -118,23 +127,44 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        tappable = false
-        bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
-        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        NSLayoutConstraint.activate([bottomConstraint])
-        self.tabBarController?.tabBar.isHidden = true
-        
-        
-        
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        tappable = false
+//        bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
+//        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+//        NSLayoutConstraint.activate([bottomConstraint])
+//        self.tabBarController?.tabBar.isHidden = true
+//
+//    }
+//
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        bottomView.frame.origin.y = currentY
+//        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+//        NSLayoutConstraint.activate([bottomConstraint])
+//        self.tabBarController?.tabBar.isHidden = false
+//    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let height = self.tabBarController?.tabBar.frame.size.height
+            self.bottomView.frame.origin.y -= (keyboardSize.height - height!)
+            self.tableView.frame.size.height -= (keyboardSize.height - height!)
+            if let lastIndexPath = tableView.indexPathsForVisibleRows?.last {
+                tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+            }
+            
+        }
     }
     
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        bottomView.frame.origin.y = currentY
-        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        NSLayoutConstraint.activate([bottomConstraint])
-        self.tabBarController?.tabBar.isHidden = false
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            self.bottomView.frame.origin.y = bottomViewY
+            self.tableView.frame.size.height = tableViewH
+            if let lastIndexPath = tableView.indexPathsForVisibleRows?.last {
+                tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+            }
+        }
     }
     
     
