@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import IQKeyboardManagerSwift
 
 class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     
@@ -91,21 +90,21 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        tappable = false
-        bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
-        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        NSLayoutConstraint.activate([bottomConstraint])
-        self.tabBarController?.tabBar.isHidden = true
-        
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        bottomView.frame.origin.y = currentY
-        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        NSLayoutConstraint.activate([bottomConstraint])
-        self.tabBarController?.tabBar.isHidden = false
-    }
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        tappable = false
+//        bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
+//        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+//        NSLayoutConstraint.activate([bottomConstraint])
+//        self.tabBarController?.tabBar.isHidden = true
+//
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        bottomView.frame.origin.y = currentY
+//        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+//        NSLayoutConstraint.activate([bottomConstraint])
+//        self.tabBarController?.tabBar.isHidden = false
+//    }
     
     @IBAction func answerSwitch(_ sender: Any) {
         answerLabel.isHidden = true

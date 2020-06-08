@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(StudentClassChatViewController.self)
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(TeacherClassChatViewController.self)
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
