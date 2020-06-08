@@ -547,7 +547,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cK6-Zg-IYa">
-                                <rect key="frame" x="30" y="110" width="354" height="34"/>
+                                <rect key="frame" x="30" y="102" width="354" height="34"/>
                                 <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText"/>
@@ -568,7 +568,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twr-cp-21M">
-                                <rect key="frame" x="127.5" y="211" width="159" height="34"/>
+                                <rect key="frame" x="127.5" y="203" width="159" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Recover Password">
                                     <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -578,10 +578,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4m-49-oUI">
-                                <rect key="frame" x="30" y="53" width="89" height="21"/>
+                                <rect key="frame" x="30" y="53" width="103" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="89" id="QMV-9U-Qq6"/>
-                                    <constraint firstAttribute="height" constant="29" id="hb0-Lq-KgY"/>
+                                    <constraint firstAttribute="width" constant="103" id="sQO-Qg-1j4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -596,16 +595,14 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Twr-cp-21M" firstAttribute="top" secondItem="cK6-Zg-IYa" secondAttribute="bottom" constant="67" id="6Bw-Q7-g00"/>
-                            <constraint firstItem="met-EV-kGy" firstAttribute="trailing" secondItem="T4m-49-oUI" secondAttribute="trailing" constant="295" id="MAJ-3q-Adf"/>
-                            <constraint firstItem="cK6-Zg-IYa" firstAttribute="centerX" secondItem="dRU-wS-Wb1" secondAttribute="centerX" id="NhL-Fy-RLp"/>
-                            <constraint firstItem="cK6-Zg-IYa" firstAttribute="top" secondItem="T4m-49-oUI" secondAttribute="bottom" constant="36" id="R17-xX-gLC"/>
+                            <constraint firstItem="met-EV-kGy" firstAttribute="trailing" secondItem="cK6-Zg-IYa" secondAttribute="trailing" constant="30" id="Jsw-0l-fxd"/>
                             <constraint firstItem="Twr-cp-21M" firstAttribute="centerX" secondItem="dRU-wS-Wb1" secondAttribute="centerX" id="RZo-7s-wnj"/>
-                            <constraint firstItem="T4m-49-oUI" firstAttribute="top" secondItem="met-EV-kGy" secondAttribute="top" constant="9" id="XMK-x8-aek"/>
-                            <constraint firstItem="cK6-Zg-IYa" firstAttribute="leading" secondItem="met-EV-kGy" secondAttribute="leading" constant="30" id="hf2-MJ-EXz"/>
-                            <constraint firstItem="cK6-Zg-IYa" firstAttribute="top" secondItem="met-EV-kGy" secondAttribute="top" constant="66" id="mTz-JX-3Mn"/>
-                            <constraint firstItem="met-EV-kGy" firstAttribute="trailing" secondItem="cK6-Zg-IYa" secondAttribute="trailing" constant="30" id="xf8-k6-Tuu"/>
-                            <constraint firstItem="T4m-49-oUI" firstAttribute="leading" secondItem="met-EV-kGy" secondAttribute="leading" constant="30" id="z7w-5k-tiU"/>
+                            <constraint firstItem="cK6-Zg-IYa" firstAttribute="leading" secondItem="met-EV-kGy" secondAttribute="leading" constant="30" id="RkX-RM-7Ga"/>
+                            <constraint firstItem="T4m-49-oUI" firstAttribute="top" secondItem="met-EV-kGy" secondAttribute="top" constant="9" id="XyI-8e-hIF"/>
+                            <constraint firstItem="Twr-cp-21M" firstAttribute="top" secondItem="cK6-Zg-IYa" secondAttribute="bottom" constant="67" id="YUh-hc-q8I"/>
+                            <constraint firstItem="cK6-Zg-IYa" firstAttribute="centerX" secondItem="dRU-wS-Wb1" secondAttribute="centerX" id="efG-hW-3vI"/>
+                            <constraint firstItem="T4m-49-oUI" firstAttribute="leading" secondItem="met-EV-kGy" secondAttribute="leading" constant="30" id="g74-vc-pkb"/>
+                            <constraint firstItem="cK6-Zg-IYa" firstAttribute="top" secondItem="T4m-49-oUI" secondAttribute="bottom" constant="28" id="rih-ci-218"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="met-EV-kGy"/>
                     </view>
@@ -619,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLv-k0-7ST" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="104"/>
+            <point key="canvasLocation" x="1900.0000000000002" y="103.79464285714285"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qIj-BW-Tc1">
@@ -678,18 +675,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Host Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eB-zK-pnZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eB-zK-pnZ">
                                 <rect key="frame" x="116" y="44" width="182" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
                                 <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-uV-B40">
-                                <rect key="frame" x="331" y="49" width="63" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-uV-B40">
+                                <rect key="frame" x="330" y="49" width="65" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Sign-Out">
-                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="loginPressed:" destination="CMF-8L-1nv" eventType="touchUpInside" id="rfE-gD-PeX"/>
@@ -699,6 +695,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gl7-uV-B40" firstAttribute="top" secondItem="YAL-dF-33L" secondAttribute="top" constant="5" id="nyM-sx-Tuf"/>
+                            <constraint firstItem="0eB-zK-pnZ" firstAttribute="top" secondItem="YAL-dF-33L" secondAttribute="top" id="qck-tY-47c"/>
+                            <constraint firstItem="0eB-zK-pnZ" firstAttribute="centerX" secondItem="MTS-OW-x4U" secondAttribute="centerX" id="uYp-Wx-wZ8"/>
+                            <constraint firstItem="YAL-dF-33L" firstAttribute="trailing" secondItem="gl7-uV-B40" secondAttribute="trailing" constant="19" id="wBH-j0-sWL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YAL-dF-33L"/>
                     </view>
                     <connections>
@@ -750,16 +752,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Join Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaU-L1-iRT">
-                                <rect key="frame" x="119" y="44" width="177" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaU-L1-iRT">
+                                <rect key="frame" x="118.5" y="44" width="177" height="41"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
                                 <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fl1-98-rrm">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fl1-98-rrm">
                                 <rect key="frame" x="330" y="49" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Sign-Out">
                                     <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -772,6 +772,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iHc-fW-kMc" firstAttribute="trailing" secondItem="Fl1-98-rrm" secondAttribute="trailing" constant="19" id="7t3-fg-VAK"/>
+                            <constraint firstItem="UaU-L1-iRT" firstAttribute="top" secondItem="iHc-fW-kMc" secondAttribute="top" id="c2h-qQ-iSA"/>
+                            <constraint firstItem="Fl1-98-rrm" firstAttribute="top" secondItem="iHc-fW-kMc" secondAttribute="top" constant="5" id="vRD-EI-I2h"/>
+                            <constraint firstItem="UaU-L1-iRT" firstAttribute="centerX" secondItem="HHd-bv-gq0" secondAttribute="centerX" id="zdv-8X-6Bx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iHc-fW-kMc"/>
                     </view>
                     <connections>
@@ -1438,10 +1444,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="dTL-WP-PjD"/>
+        <segue reference="wop-wy-hsC"/>
         <segue reference="cXv-5r-Tr3"/>
         <segue reference="u9c-qB-1hm"/>
-        <segue reference="gQ2-5Y-eq7"/>
-        <segue reference="GjU-0t-bGD"/>
+        <segue reference="Xtz-uR-Dal"/>
+        <segue reference="u7x-4l-w7a"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
