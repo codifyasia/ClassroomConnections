@@ -135,6 +135,8 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             self.classRoomCode = identity
             let messageDB = self.ref.child("Classrooms").child(identity).child("Messages")
             
+//            messageDB.queryOrderedByKey()
+            
             messageDB.observe(.childChanged) { (snapshot) in
                 
                 self.tableView.reloadData()
@@ -157,6 +159,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                 let ans : Int = snapshotValue["Answers"] as! Int
                 //                let unique : String = snapshotValue["childID"] as! String
                 
+//                self.ref.child("Classrooms").child(String(classRoomCode)).child("Messages").queryOrdered(byChild: <#T##String#>)
                 self.ref.child("UserInfo").child(String(SenderID as! String)).observeSingleEvent(of: .value) { (snapshot2) in
                     
                     guard let value2 = snapshot2.value as? NSDictionary else {
@@ -175,12 +178,12 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                     
                     print("yote:" + String(Text))
                     print(messageIndex)
-                    
+                    self.messages.append(message)
                     if (messageT == "Answer") {
-                        self.messages.insert(message, at: messageIndex)
+//                        self.messages.insert(message, at: messageIndex)
                     }
                     else {
-                        self.messages.append(message)
+//                        self.messages.append(message)
                     }
                     
                     self.tableView.reloadData()
