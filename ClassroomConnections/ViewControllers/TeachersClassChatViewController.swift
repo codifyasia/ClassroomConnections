@@ -27,13 +27,22 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     var answerOn: Bool = false
     var tappable : Bool = true
     
+    var bottomViewY : CGFloat = 0
+    var tableViewH : CGFloat = 0
+    
     
     @IBOutlet weak var answerLabel: UIButton!
     var answerIndex: Int = 0
     var checkIndex: Int = 0
     
     override func viewDidLoad() {
-//        print("buh")
+        
+        bottomViewY = bottomView.frame.origin.y
+        tableViewH = tableView.frame.height
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         currentY = bottomView.frame.origin.y
         answerLabel.isHidden = true
         messageTextField.delegate = self
@@ -87,6 +96,29 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
         self.tableView.reloadData()
         
         
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let height = self.tabBarController?.tabBar.frame.size.height
+            self.bottomView.frame.origin.y -= (keyboardSize.height - height!)
+            self.tableView.frame.size.height -= (keyboardSize.height - height!)
+            if let lastIndexPath = tableView.indexPathsForVisibleRows?.last {
+                tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+            }
+            
+        }
+    }
+    
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            self.bottomView.frame.origin.y = bottomViewY
+            self.tableView.frame.size.height = tableViewH
+            if let lastIndexPath = tableView.indexPathsForVisibleRows?.last {
+                tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+            }
+        }
     }
     
     
