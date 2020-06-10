@@ -101,28 +101,33 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let lastIndexPath = tableView.indexPathsForVisibleRows?.last
-            let height = self.tabBarController?.tabBar.frame.size.height
-            bottomConstraints.constant = -(keyboardSize.height-height!)
-            self.updateViewConstraints()
-            self.bottomView.frame.origin.y -= (keyboardSize.height - height!)
-            self.tableView.frame.size.height -= (keyboardSize.height - height!)
-            tableView.scrollToRow(at: lastIndexPath!, at: .bottom, animated: true)
-            
+        if messages.capacity != 0 {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                let lastIndexPath = tableView.indexPathsForVisibleRows?.last
+                let height = self.tabBarController?.tabBar.frame.size.height
+                bottomConstraints.constant = -(keyboardSize.height-height!)
+                self.updateViewConstraints()
+                self.bottomView.frame.origin.y -= (keyboardSize.height - height!)
+                self.tableView.frame.size.height -= (keyboardSize.height - height!)
+                tableView.scrollToRow(at: lastIndexPath!, at: .bottom, animated: true)
+                
+            }
         }
+        
     }
     
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//            let lastIndexPath = tableView.indexPathsForVisibleRows?.last
+        
+        if messages.capacity != 0 {
+            let lastIndexPath = tableView.indexPathsForVisibleRows?.last
+            let nextIndexPath = NSIndexPath(row: lastIndexPath!.row + 1, section: lastIndexPath!.section)
             bottomConstraints.constant = 0
             self.updateViewConstraints()
             self.bottomView.frame.origin.y = bottomViewY
             self.tableView.frame.size.height = tableViewH
-//            tableView.scrollToRow(at: lastIndexPath!, at: .bottom, animated: true)
-//            print(lastIndexPath?.row)
+            tableView.scrollToRow(at: lastIndexPath!, at: .bottom, animated: true)
+            print(lastIndexPath?.row)
         }
     }
     
