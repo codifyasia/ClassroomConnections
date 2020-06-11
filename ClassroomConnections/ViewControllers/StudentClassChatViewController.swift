@@ -40,6 +40,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     
     var bottomViewY : CGFloat = 0
     var tableViewH : CGFloat = 0
+    @IBOutlet weak var bottomConstraints: NSLayoutConstraint!
     
     override func viewDidLoad() {
         
