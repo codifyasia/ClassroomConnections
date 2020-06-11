@@ -36,8 +36,12 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     var answerIndex: Int = 0
     var checkIndex: Int = 0
     
+    //    var firstName : String = "error"
+    //    var lastName : String = "error"
+    
+    
     override func viewDidLoad() {
-
+        
         
         bottomViewY = bottomView.frame.origin.y
         tableViewH = tableView.frame.height
@@ -76,7 +80,8 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             }
             let identity = value["ID"] as! String
             self.className.text = value["Title"] as! String
-            
+            //            self.firstName = value["FirstName"] as! String
+            //            self.lastName = value["LastName"] as! String
             self.classRoomCode = identity
             
             
@@ -94,7 +99,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
         }) { (error) in
             print("error:\(error.localizedDescription)")
         }
-//        print("retrieving")
+        //        print("retrieving")
         self.tableView.reloadData()
         
         
@@ -110,9 +115,9 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             self.tableView.frame.size.height -= (keyboardSize.height - height!)
             if messages.capacity != 0 {
                 let lastIndexPath = tableView.indexPathsForVisibleRows?.last
-                 tableView.scrollToRow(at: lastIndexPath!, at: .bottom, animated: true)
+                tableView.scrollToRow(at: lastIndexPath!, at: .bottom, animated: true)
             }
-           
+            
             
         }
         
@@ -129,7 +134,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             self.tableView.frame.size.height = tableViewH
             if messages.capacity != 0 {
                 let lastIndexPath = tableView.indexPathsForVisibleRows?.last
-                 tableView.scrollToRow(at: lastIndexPath!, at: .bottom, animated: true)
+                tableView.scrollToRow(at: lastIndexPath!, at: .bottom, animated: true)
                 print(lastIndexPath?.row)
             }
             
@@ -137,21 +142,21 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        tappable = false
-//        bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
-//        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-//        NSLayoutConstraint.activate([bottomConstraint])
-//        self.tabBarController?.tabBar.isHidden = true
-//
-//    }
-//
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        bottomView.frame.origin.y = currentY
-//        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-//        NSLayoutConstraint.activate([bottomConstraint])
-//        self.tabBarController?.tabBar.isHidden = false
-//    }
+    //    func textFieldDidBeginEditing(_ textField: UITextField) {
+    //        tappable = false
+    //        bottomView.frame.origin.y = self.view!.bounds.height - bottomView.frame.height
+    //        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    //        NSLayoutConstraint.activate([bottomConstraint])
+    //        self.tabBarController?.tabBar.isHidden = true
+    //
+    //    }
+    //
+    //    func textFieldDidEndEditing(_ textField: UITextField) {
+    //        bottomView.frame.origin.y = currentY
+    //        let bottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+    //        NSLayoutConstraint.activate([bottomConstraint])
+    //        self.tabBarController?.tabBar.isHidden = false
+    //    }
     
     @IBAction func answerSwitch(_ sender: Any) {
         answerLabel.isHidden = true
@@ -181,7 +186,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             self.classRoomCode = identity
             let messageDB = self.ref.child("Classrooms").child(identity).child("Messages")
             
-//            messageDB.queryOrderedByKey()
+            //            messageDB.queryOrderedByKey()
             
             messageDB.observe(.childChanged) { (snapshot) in
                 
@@ -203,53 +208,55 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
                 let id : Int = snapshotValue["ID"] as! Int
                 let correct1 : Bool = snapshotValue["correct"] as! Bool
                 let ans : Int = snapshotValue["Answers"] as! Int
+                let first : String = snapshotValue["FirstName"] as! String
+                let last : String = snapshotValue["LastName"] as! String
                 //                let unique : String = snapshotValue["childID"] as! String
                 
-//                self.ref.child("Classrooms").child(String(classRoomCode)).child("Messages").queryOrdered(byChild: <#T##String#>)
-                self.ref.child("UserInfo").child(String(SenderID as! String)).observeSingleEvent(of: .value) { (snapshot2) in
-                    
-                    guard let value2 = snapshot2.value as? NSDictionary else {
-                        print("No Data!!!")
-                        return
-                    }
-                    
-                    var name = value2["FirstName"] as! String
-                    let name1 = value2["LastName"] as! String
-                    
-                    name = name + " " + name1
-//                    print("the name:\(name)")
-                    
-                    let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: id, correct: correct1, name: name, answers: ans)
-                    
-                    
-                    print("yote:" + String(Text))
-                    print(messageIndex)
+                //                self.ref.child("Classrooms").child(String(classRoomCode)).child("Messages").queryOrdered(byChild: <#T##String#>)
+                //                self.ref.child("UserInfo").child(String(SenderID as! String)).observeSingleEvent(of: .value) { (snapshot2) in
+                //
+                //                    guard let value2 = snapshot2.value as? NSDictionary else {
+                //                        print("No Data!!!")
+                //                        return
+                //                    }
+                
+                
+                //                    let name1 = value2["LastName"] as! String
+                
+                //                    let name = self.firstName + " " + self.lastName
+                //                    print("the name:\(name)")
+                
+                let message = Message(sender: Sender as! String, body: Text as! String, senderID: SenderID as! String, messageType: messageT as! String, ID: id, correct: correct1, name: first + " " + last, answers: ans)
+                
+                
+                print("yote:" + String(Text))
+                print(messageIndex)
+                //                self.messages.append(message)
+                if (messageT == "Answer") {
+                    self.messages.insert(message, at: messageIndex)
+                }
+                else {
                     self.messages.append(message)
-                    if (messageT == "Answer") {
-//                        self.messages.insert(message, at: messageIndex)
-                    }
-                    else {
-//                        self.messages.append(message)
-                    }
-                    
-                    self.tableView.reloadData()
-                    
-                    var indexPath : IndexPath
-                    if (self.questionRow == 0) {
-                        indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-                        //                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
-                    } else {
-                        indexPath = IndexPath(row: self.questionRow, section: 0)
-                        //                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
-                    }
-                    
-                    
-                    if (messageT != "Answer") {
-                        self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-                    }
                 }
                 
+                self.tableView.reloadData()
+                
+                var indexPath : IndexPath
+                if (self.questionRow == 0) {
+                    indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                    //                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                } else {
+                    indexPath = IndexPath(row: self.questionRow, section: 0)
+                    //                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                }
+                
+                
+                if (messageT != "Answer") {
+                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                }
             }
+            
+            //            }
         }
     }
     
@@ -276,71 +283,91 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
             
             self.ref.child("Classrooms").child(self.classRoomCode).updateChildValues(["Generator" : generatorNum+1])
             
-            if (self.answerOn) {
+            
+            
+            
+            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { (snapshot6) in
                 
-//                print(String(self.messages[self.answerIndex-1].ID))
-//                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).observeSingleEvent(of: .value) { (snapshot5) in
-//                    guard let v1 = snapshot5.value as? NSDictionary else {
-//                        print("No Data!!!")
-//                        return
-//                    }
-//
-//
-//                    let ans = v1["Answers"] as! Int
-//                    print(ans)
-//
-//
-//                    self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).updateChildValues(["Answers": ans+1])
-//                    self.messages[self.answerIndex-1].answers = ans+1
-//
-//                    let b = self.answerIndex+ans
-                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).observeSingleEvent(of: .value) { (snapshot5) in
-                guard let v1 = snapshot5.value as? NSDictionary else {
+                guard let store = snapshot6.value as? NSDictionary else {
                     print("No Data!!!")
                     return
                 }
                 
-                
-                let ans = v1["Answers"] as! Int
-                
-                
-                
-                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).updateChildValues(["Answers": ans+1])
-                self.messages[self.answerIndex-1].answers = ans+1
-                
-                let b = self.answerIndex+ans as! Int
-                
-                print("Answers:"+String(ans) + "Index" + String(self.answerIndex))
-                print("b:" + String(b))
+                let firstName = store["FirstName"] as! String
+                let lastName = store["LastName"] as! String
+                if (self.answerOn) {
                     
+                    //                print(String(self.messages[self.answerIndex-1].ID))
+                    //                self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).observeSingleEvent(of: .value) { (snapshot5) in
+                    //                    guard let v1 = snapshot5.value as? NSDictionary else {
+                    //                        print("No Data!!!")
+                    //                        return
+                    //                    }
+                    //
+                    //
+                    //                    let ans = v1["Answers"] as! Int
+                    //                    print(ans)
+                    //
+                    //
+                    //                    self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).updateChildValues(["Answers": ans+1])
+                    //                    self.messages[self.answerIndex-1].answers = ans+1
+                    //
+                    //                    let b = self.answerIndex+ans
+                    
+                    
+                    
+                    
+                    
+                    
+                    self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).observeSingleEvent(of: .value) { (snapshot5) in
+                        guard let v1 = snapshot5.value as? NSDictionary else {
+                            print("No Data!!!")
+                            return
+                        }
+                        
+                        
+                        let ans = v1["Answers"] as! Int
+                        
+                        
+                        
+                        self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(self.messages[self.answerIndex-1].ID)).updateChildValues(["Answers": ans+1])
+                        self.messages[self.answerIndex-1].answers = ans+1
+                        
+                        let b = self.answerIndex+ans as! Int
+                        
+                        print("Answers:"+String(ans) + "Index" + String(self.answerIndex))
+                        print("b:" + String(b))
+                        
+                        let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
+                                                 "MessageBody": self.messageTextField.text!,
+                                                 "SenderID": Auth.auth().currentUser?.uid,
+                                                 "messageType" : "Answer", "Upvotes" : 0, "Index" : b, "ID" : generatorNum+1, "correct": false, "Answers": 0, "FirstName" : firstName, "LastName": lastName  ] as [String : Any]
+                        messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
+                        
+                        self.answerOn = false
+                        self.answerLabel.isHidden = true
+                        self.messageTextField.text = ""
+                        
+                    }
+                } else {
+                    //                print("message type is saved as normal")
                     let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
                                              "MessageBody": self.messageTextField.text!,
                                              "SenderID": Auth.auth().currentUser?.uid,
-                                             "messageType" : "Answer", "Upvotes" : 0, "Index" : b, "ID" : generatorNum+1, "correct": false, "Answers": 0 ] as [String : Any]
-                    messagesDB.child(String(generatorNum+1)).setValue(messageDictionary)
-                    
-                    self.answerOn = false
-                    self.answerLabel.isHidden = true
+                                             "messageType" : "Normal", "Index" : 0, "ID" : generatorNum+1, "correct": false, "Answers": 0, "FirstName" : firstName, "LastName": lastName  ] as [String : Any]
+                    messagesDB.child(String(generatorNum+1)).setValue(messageDictionary) {
+                        (error, reference) in
+                        
+                        if error != nil {
+                            print(error!)
+                        }
+                        else {
+                            //                        print("Message saved successfully!")
+                        }
+                        
+                    }
                     self.messageTextField.text = ""
                 }
-            } else {
-//                print("message type is saved as normal")
-                let messageDictionary = ["Sender": Auth.auth().currentUser?.email,
-                                         "MessageBody": self.messageTextField.text!,
-                                         "SenderID": Auth.auth().currentUser?.uid,
-                                         "messageType" : "Normal", "Index" : 0, "ID" : generatorNum+1, "correct": false, "Answers": 0] as [String : Any]
-                messagesDB.child(String(generatorNum+1)).setValue(messageDictionary) {
-                    (error, reference) in
-                    
-                    if error != nil {
-                        print(error!)
-                    }
-                    else {
-//                        print("Message saved successfully!")
-                    }
-                    
-                }
-                self.messageTextField.text = ""
             }
             
         }
@@ -355,7 +382,7 @@ extension TeacherClassChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        print(messages[indexPath.row].name)
+        //        print(messages[indexPath.row].name)
         if (messages[indexPath.row].messageType == "Answer") {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell1", for: indexPath) as! replyCell
             cell.senderName.isHidden = false
@@ -374,7 +401,7 @@ extension TeacherClassChatViewController: UITableViewDataSource {
                 cell.rightImage.image = UIImage(named : "study")
             }
             
-//            print("\(messages[indexPath.row].body) + \(messages[indexPath.row].correct)")
+            //            print("\(messages[indexPath.row].body) + \(messages[indexPath.row].correct)")
             
             if (messages[indexPath.row].correct) {
                 cell.checkmark.isHidden = false
@@ -431,7 +458,7 @@ extension TeacherClassChatViewController: UITableViewDelegate {
         if tappable {
             
             var message = messages[selected]
-//            print(message.ID)
+            //            print(message.ID)
             
             if (message.messageType == "Question") {
                 questionRow = selected
@@ -469,7 +496,7 @@ extension TeacherClassChatViewController: UITableViewDelegate {
                         
                         
                         
-//                        print("----switching checkmark to visible------")
+                        //                        print("----switching checkmark to visible------")
                         self.checkIndex = self.questionRow+1
                         self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").updateChildValues(["last_commended id": self.questionRow])
                         self.ref.child("Classrooms").child(self.classRoomCode).child("Messages").child(String(message.ID)).updateChildValues(["correct": true])
