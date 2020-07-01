@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GKQ-ou-B53">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o2m-jC-Qg9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -1154,11 +1154,42 @@
                     <connections>
                         <segue destination="EKz-8Q-GH6" kind="relationship" relationship="viewControllers" id="yIo-ba-i7d"/>
                         <segue destination="P9n-O8-NRY" kind="relationship" relationship="viewControllers" id="Qqg-db-5ID"/>
+                        <segue destination="iwP-nO-4Lz" kind="relationship" relationship="viewControllers" id="guV-kO-xyn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ui-Aq-jQG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3074" y="1177"/>
+        </scene>
+        <!--Students-->
+        <scene sceneID="fcR-h7-c4v">
+            <objects>
+                <viewController id="iwP-nO-4Lz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oB0-cG-DFD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aZW-tg-gG1">
+                                <rect key="frame" x="0.0" y="93" width="414" height="720"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Students" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSL-kb-xkK">
+                                <rect key="frame" x="143" y="44" width="129" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="uyl-A5-h8C"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Students" image="person" catalog="system" id="Tn6-jX-Jt4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QLI-vd-IME" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2844.9275362318845" y="1842.8571428571427"/>
         </scene>
         <!--StudentClassChatViewController-->
         <scene sceneID="Dt7-1n-sMs">
@@ -1357,20 +1388,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgY-qy-jAL">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgY-qy-jAL">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <subviews>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Mfa-HG-pCX">
-                                        <rect key="frame" x="174" y="480" width="67" height="37"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="67" id="21X-CS-5Jt"/>
-                                        </constraints>
-                                        <color key="pageIndicatorTintColor" red="0.87058823529999996" green="0.20784313730000001" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    </pageControl>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Mfa-HG-pCX" firstAttribute="centerX" secondItem="JgY-qy-jAL" secondAttribute="centerX" id="2aO-Zj-2d8"/>
-                                </constraints>
                             </scrollView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZA-Nh-Myj">
                                 <rect key="frame" x="20" y="760.5" width="374" height="61.5"/>
@@ -1382,17 +1401,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VbV-cr-kqe">
-                                <rect key="frame" x="68" y="284" width="278" height="149"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="VbV-cr-kqe" secondAttribute="height" multiplier="239:128" id="Pkg-78-fo8"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" red="0.78713911800000003" green="0.22844523289999999" blue="0.17893076629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text" translatesAutoresizingMaskIntoConstraints="NO" id="cpQ-p8-cHX">
                                 <rect key="frame" x="95.5" y="180" width="223" height="66"/>
                                 <constraints>
@@ -1400,7 +1408,7 @@
                                     <constraint firstAttribute="height" constant="66" id="upb-3K-qkw"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boat" translatesAutoresizingMaskIntoConstraints="NO" id="SGu-0h-hkz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="SGu-0h-hkz">
                                 <rect key="frame" x="152.5" y="64" width="109" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="JLb-8J-Gd2"/>
@@ -1414,28 +1422,22 @@
                             <constraint firstItem="JgY-qy-jAL" firstAttribute="bottom" secondItem="Ooi-4E-Kvo" secondAttribute="bottom" constant="34" id="1Lz-74-g6B"/>
                             <constraint firstItem="cpQ-p8-cHX" firstAttribute="top" secondItem="SGu-0h-hkz" secondAttribute="bottom" constant="16" id="6S3-Ab-VVR"/>
                             <constraint firstItem="JgY-qy-jAL" firstAttribute="leading" secondItem="Ooi-4E-Kvo" secondAttribute="leading" id="9MM-iG-Kj4"/>
-                            <constraint firstItem="VbV-cr-kqe" firstAttribute="top" secondItem="cpQ-p8-cHX" secondAttribute="bottom" constant="38" id="I9l-Bs-VMv"/>
                             <constraint firstItem="Ooi-4E-Kvo" firstAttribute="bottom" secondItem="BZA-Nh-Myj" secondAttribute="bottom" constant="40" id="KlT-fd-raT"/>
                             <constraint firstItem="Ooi-4E-Kvo" firstAttribute="top" secondItem="JgY-qy-jAL" secondAttribute="top" constant="44" id="LZy-mq-NJE"/>
                             <constraint firstItem="cpQ-p8-cHX" firstAttribute="centerX" secondItem="9qn-Pw-MKZ" secondAttribute="centerX" id="QyQ-7m-qeR"/>
                             <constraint firstItem="BZA-Nh-Myj" firstAttribute="leading" secondItem="Ooi-4E-Kvo" secondAttribute="leading" constant="20" id="Sju-P2-0xb"/>
                             <constraint firstItem="SGu-0h-hkz" firstAttribute="centerX" secondItem="9qn-Pw-MKZ" secondAttribute="centerX" id="amU-Wl-TMk"/>
                             <constraint firstItem="SGu-0h-hkz" firstAttribute="top" secondItem="9qn-Pw-MKZ" secondAttribute="top" constant="64" id="kCM-h7-rwr"/>
-                            <constraint firstItem="VbV-cr-kqe" firstAttribute="leading" secondItem="Ooi-4E-Kvo" secondAttribute="leading" constant="68" id="kbr-cx-IEg"/>
-                            <constraint firstItem="Ooi-4E-Kvo" firstAttribute="trailing" secondItem="VbV-cr-kqe" secondAttribute="trailing" constant="68" id="mtI-ea-O0o"/>
                             <constraint firstItem="Ooi-4E-Kvo" firstAttribute="trailing" secondItem="JgY-qy-jAL" secondAttribute="trailing" id="snJ-la-7nh"/>
                             <constraint firstItem="BZA-Nh-Myj" firstAttribute="centerX" secondItem="9qn-Pw-MKZ" secondAttribute="centerX" id="u1q-AX-w1f"/>
-                            <constraint firstItem="VbV-cr-kqe" firstAttribute="centerX" secondItem="9qn-Pw-MKZ" secondAttribute="centerX" id="yer-Se-2uY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ooi-4E-Kvo"/>
                     </view>
                     <connections>
                         <outlet property="logo" destination="SGu-0h-hkz" id="cpy-mM-EXT"/>
                         <outlet property="name" destination="cpQ-p8-cHX" id="c2R-T3-gc2"/>
-                        <outlet property="pageControl" destination="Mfa-HG-pCX" id="sgd-uX-7HE"/>
                         <outlet property="scrollView" destination="JgY-qy-jAL" id="rXD-02-L9O"/>
                         <outlet property="startButton" destination="BZA-Nh-Myj" id="qUA-87-HNT"/>
-                        <outlet property="textView" destination="VbV-cr-kqe" id="zW0-jM-XuQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ac-RK-8BF" sceneMemberID="firstResponder"/>
@@ -1473,14 +1475,15 @@
         <segue reference="cXv-5r-Tr3"/>
         <segue reference="u9c-qB-1hm"/>
         <segue reference="Xtz-uR-Dal"/>
-        <segue reference="GjU-0t-bGD"/>
+        <segue reference="Ytm-u5-bOS"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Icon-1" width="1024" height="1024"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
-        <image name="boat" width="333" height="222"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="paperplane.fill" catalog="system" width="128" height="121"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="return" catalog="system" width="128" height="101"/>
         <image name="text" width="1209" height="105"/>
     </resources>
