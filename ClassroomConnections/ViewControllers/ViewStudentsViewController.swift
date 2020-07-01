@@ -14,7 +14,7 @@ class ViewStudentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ref = Database.database().reference()
+//        ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
     

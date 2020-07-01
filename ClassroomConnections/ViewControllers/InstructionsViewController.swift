@@ -28,7 +28,7 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
                 self.startButton.layer.cornerRadius = 4.0
                 //3
                 let imgOne = UIImageView(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgOne.image = UIImage(named: "questionansweringstudentclasschat")
+                imgOne.image = UIImage(named: "student1")
                 let imgTwo = UIImageView(frame: CGRect(x:scrollViewWidth, y:0,width:scrollViewWidth, height:scrollViewHeight))
                 imgTwo.image = UIImage(named: "slide2")
                 let imgThree = UIImageView(frame: CGRect(x:scrollViewWidth*2, y:0,width:scrollViewWidth, height:scrollViewHeight))
