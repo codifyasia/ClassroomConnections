@@ -28,16 +28,16 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
                 self.startButton.layer.cornerRadius = 4.0
                 //3
                 let imgOne = UIImageView(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgOne.image = UIImage(named: "student1")
+                imgOne.image = UIImage(named: "s1")
                 let imgTwo = UIImageView(frame: CGRect(x:scrollViewWidth, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgTwo.image = UIImage(named: "student2")
+                imgTwo.image = UIImage(named: "s2")
                 let imgThree = UIImageView(frame: CGRect(x:scrollViewWidth*2, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgThree.image = UIImage(named: "student3")
+                imgThree.image = UIImage(named: "s3")
                 let imgFour = UIImageView(frame: CGRect(x:scrollViewWidth*3, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgFour.image = UIImage(named: "student4")
+                imgFour.image = UIImage(named: "s4")
                 
                 let imgFive = UIImageView(frame: CGRect(x:scrollViewWidth*4, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgFive.image = UIImage(named: "studentclasses")
+                imgFive.image = UIImage(named: "s5")
                 
         
                 self.scrollView.addSubview(imgOne)
