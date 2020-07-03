@@ -30,22 +30,23 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
                 let imgOne = UIImageView(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
                 imgOne.image = UIImage(named: "student1")
                 let imgTwo = UIImageView(frame: CGRect(x:scrollViewWidth, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgTwo.image = UIImage(named: "slide2")
+                imgTwo.image = UIImage(named: "student2")
                 let imgThree = UIImageView(frame: CGRect(x:scrollViewWidth*2, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgThree.image = UIImage(named: "slide3")
+                imgThree.image = UIImage(named: "student3")
                 let imgFour = UIImageView(frame: CGRect(x:scrollViewWidth*3, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgFour.image = UIImage(named: "Slide 4")
+                imgFour.image = UIImage(named: "student4")
                 
                 let imgFive = UIImageView(frame: CGRect(x:scrollViewWidth*4, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgFive.image = UIImage(named: "Slide 4")
+                imgFive.image = UIImage(named: "studentclasses")
                 
         
                 self.scrollView.addSubview(imgOne)
                 self.scrollView.addSubview(imgTwo)
                 self.scrollView.addSubview(imgThree)
                 self.scrollView.addSubview(imgFour)
+                self.scrollView.addSubview(imgFive)
                 //4
-                self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width * 4, height:self.scrollView.frame.height)
+                self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width * 5, height:self.scrollView.frame.height)
                 self.scrollView.delegate = self
 //                self.pageControl.currentPage = 0
             }
@@ -74,7 +75,11 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
 //                    textView.text = "Including many features such as conflict calenders, personalized chat rooms, and question and answer systems, classroom connections could be a teachers greatest tool to build educational bonds with their students."
                 }else if Int(currentPage) == 2{
 //                    textView.text = "In addition, classroom connections is extremely user-friendly and very easy to use. It is designed to create the most pleasent user experience suitable in an educational environement."
-                }else{
+                }
+                else if Int(currentPage) == 3{
+                    
+                }
+                else{
 //                    textView.text = "Get ready to build some amazing connections inside your classroom."
                     // Show the "Let's Start" button in the last slide (with a fade in animation)
                     logo.isHidden = false
@@ -84,12 +89,12 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
                     UIView.animate(withDuration: 1.0, animations: { () -> Void in
                         self.startButton.alpha = 1.0
                     })
-                    UIView.animate(withDuration: 1.0, animations: { () -> Void in
-                        self.logo.alpha = 1.0
-                    })
-                    UIView.animate(withDuration: 1.0, animations: { () -> Void in
-                        self.name.alpha = 1.0
-                    })
+//                    UIView.animate(withDuration: 1.0, animations: { () -> Void in
+//                        self.logo.alpha = 1.0
+//                    })
+//                    UIView.animate(withDuration: 1.0, animations: { () -> Void in
+//                        self.name.alpha = 1.0
+//                    })
                 }
             }
         }

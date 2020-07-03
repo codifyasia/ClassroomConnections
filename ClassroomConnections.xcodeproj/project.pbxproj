@@ -36,6 +36,7 @@
 		898942E323AFF2DA00DF152B /* replyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 898942E123AFF2DA00DF152B /* replyCell.xib */; };
 		89D145EF24AC78EE00A1854C /* ViewStudentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D145EE24AC78EE00A1854C /* ViewStudentsViewController.swift */; };
 		89E2F1A6243FFEB400138365 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2F1A5243FFEB400138365 /* InstructionsViewController.swift */; };
+		89EECCE724AEB11B006A3085 /* InstructionsTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EECCE624AEB11B006A3085 /* InstructionsTeacherViewController.swift */; };
 		9C6D239C2389F44F0072CE2B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D239B2389F44F0072CE2B /* Message.swift */; };
 		9C6D23AB238A02620072CE2B /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D23A9238A02620072CE2B /* MessageCell.swift */; };
 		9C6D23AC238A02620072CE2B /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6D23AA238A02620072CE2B /* MessageCell.xib */; };
@@ -78,6 +79,7 @@
 		898942E123AFF2DA00DF152B /* replyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = replyCell.xib; sourceTree = "<group>"; };
 		89D145EE24AC78EE00A1854C /* ViewStudentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStudentsViewController.swift; sourceTree = "<group>"; };
 		89E2F1A5243FFEB400138365 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		89EECCE624AEB11B006A3085 /* InstructionsTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTeacherViewController.swift; sourceTree = "<group>"; };
 		9C6D239B2389F44F0072CE2B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9C6D23A9238A02620072CE2B /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		9C6D23AA238A02620072CE2B /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				9CD6EB9A238A8129000A6A33 /* TeacherConflictCalendar.swift */,
 				476D3B0724218FC800C3200A /* ForgotPasswordViewController.swift */,
 				89E2F1A5243FFEB400138365 /* InstructionsViewController.swift */,
+				89EECCE624AEB11B006A3085 /* InstructionsTeacherViewController.swift */,
 				89D145EE24AC78EE00A1854C /* ViewStudentsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -361,6 +364,7 @@
 				89D145EF24AC78EE00A1854C /* ViewStudentsViewController.swift in Sources */,
 				47B0B9D2248DADA3000D4FBC /* Test.swift in Sources */,
 				47B5D2A8248836720013B906 /* InstructionsStudent.swift in Sources */,
+				89EECCE724AEB11B006A3085 /* InstructionsTeacherViewController.swift in Sources */,
 				9C79F79823AEE96C000CA232 /* AuthHandler.swift in Sources */,
 				89E2F1A6243FFEB400138365 /* InstructionsViewController.swift in Sources */,
 				47D507A52389D955006E46EE /* SceneDelegate.swift in Sources */,

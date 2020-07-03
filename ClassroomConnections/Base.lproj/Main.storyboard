@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o2m-jC-Qg9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XVg-8X-N20">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -36,9 +36,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <state key="normal" title="Instructions Student"/>
-                                <connections>
-                                    <segue destination="Dcl-mV-d4c" kind="presentation" id="l0x-16-fRd"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -279,8 +276,8 @@
                         <outlet property="studentButton" destination="VJc-6k-dmx" id="Xxe-Us-bFO"/>
                         <segue destination="xgg-yK-e4F" kind="presentation" identifier="teacherToClassSelection" modalPresentationStyle="fullScreen" id="OYR-f7-Q6Y"/>
                         <segue destination="Dcl-mV-d4c" kind="presentation" identifier="studentToClassSelection" modalPresentationStyle="fullScreen" id="f5H-xm-6mY"/>
-                        <segue destination="vZR-au-R8q" kind="presentation" identifier="toInstructionsTeacher" id="d56-2h-I2E"/>
-                        <segue destination="iIB-oo-zSj" kind="presentation" identifier="toInstructionsStudent" id="bZQ-f5-dRA"/>
+                        <segue destination="fO0-gi-el8" kind="show" identifier="toInstructionsTeacher" id="6ti-65-WWj"/>
+                        <segue destination="o2m-jC-Qg9" kind="show" identifier="toInstructionsStudent" id="j6X-N6-eMX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dd0-eb-nH0" sceneMemberID="firstResponder"/>
@@ -702,6 +699,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YAL-dF-33L"/>
                     </view>
+                    <navigationItem key="navigationItem" id="eBV-ah-Ge9"/>
                     <connections>
                         <outlet property="tableView" destination="Vaz-XI-WeX" id="02M-EW-ffq"/>
                         <segue destination="MW7-UR-oc1" kind="presentation" identifier="teacherToTabView" modalPresentationStyle="fullScreen" id="dTL-WP-PjD"/>
@@ -779,6 +777,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iHc-fW-kMc"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sfq-eG-G98"/>
                     <connections>
                         <outlet property="tableView" destination="lMw-T8-Rii" id="QGJ-N0-Nwv"/>
                         <segue destination="nzk-H6-z0c" kind="presentation" identifier="studentToTabBar" modalPresentationStyle="fullScreen" id="wop-wy-hsC"/>
@@ -1400,6 +1399,9 @@
                                 <state key="normal" title="Let's Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Dcl-mV-d4c" kind="show" id="mWa-no-b2B"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text" translatesAutoresizingMaskIntoConstraints="NO" id="cpQ-p8-cHX">
                                 <rect key="frame" x="95.5" y="180" width="223" height="66"/>
@@ -1433,6 +1435,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ooi-4E-Kvo"/>
                     </view>
+                    <navigationItem key="navigationItem" id="OMU-IL-an7"/>
                     <connections>
                         <outlet property="logo" destination="SGu-0h-hkz" id="cpy-mM-EXT"/>
                         <outlet property="name" destination="cpQ-p8-cHX" id="c2R-T3-gc2"/>
@@ -1442,39 +1445,81 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ac-RK-8BF" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3855" y="1051"/>
+            <point key="canvasLocation" x="829" y="-779"/>
         </scene>
-        <!--InstructionsTeacher-->
-        <scene sceneID="zDk-EV-mA4">
+        <!--Instructions Teacher View Controller-->
+        <scene sceneID="2oT-ms-Uuc">
             <objects>
-                <viewController title="InstructionsTeacher" modalPresentationStyle="fullScreen" id="vZR-au-R8q" customClass="InstructionsTeacher" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OJk-HU-jzj">
+                <viewController modalPresentationStyle="fullScreen" id="fO0-gi-el8" customClass="InstructionsTeacherViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pLv-dn-Y1H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3N-dn-sCd">
-                                <rect key="frame" x="10" y="226" width="394" height="226"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <state key="normal" title="Instructions Teacher"/>
+                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59P-cv-gLk">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </scrollView>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMx-j3-Rrz">
+                                <rect key="frame" x="20" y="760.5" width="374" height="61.5"/>
+                                <color key="backgroundColor" red="0.87058823529999996" green="0.20784313730000001" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bMx-j3-Rrz" secondAttribute="height" multiplier="67:11" id="5Qf-ZO-SA4"/>
+                                </constraints>
+                                <state key="normal" title="Let's Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <segue destination="xgg-yK-e4F" kind="presentation" id="P2M-eZ-fh6"/>
+                                    <segue destination="xgg-yK-e4F" kind="show" id="d6v-aV-gwr"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-hf-hdB">
+                                <rect key="frame" x="95.5" y="180" width="223" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="76H-QH-o3G"/>
+                                    <constraint firstAttribute="width" constant="223" id="r2w-Bs-bCB"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="oMJ-6s-kZD">
+                                <rect key="frame" x="152.5" y="64" width="109" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="109" id="ETC-YW-1LL"/>
+                                    <constraint firstAttribute="width" secondItem="oMJ-6s-kZD" secondAttribute="height" multiplier="109:100" id="oFL-V4-BW4"/>
+                                    <constraint firstAttribute="height" constant="100" id="uq8-ay-zN1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Tv4-bW-yJ3"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5EZ-Bf-hRf" firstAttribute="bottom" secondItem="bMx-j3-Rrz" secondAttribute="bottom" constant="40" id="1Yg-Ji-qGS"/>
+                            <constraint firstItem="zMu-hf-hdB" firstAttribute="centerX" secondItem="pLv-dn-Y1H" secondAttribute="centerX" id="5ys-b0-s6S"/>
+                            <constraint firstItem="oMJ-6s-kZD" firstAttribute="top" secondItem="pLv-dn-Y1H" secondAttribute="top" constant="64" id="IL3-V4-se2"/>
+                            <constraint firstItem="5EZ-Bf-hRf" firstAttribute="top" secondItem="59P-cv-gLk" secondAttribute="top" constant="44" id="KVZ-is-cOK"/>
+                            <constraint firstItem="bMx-j3-Rrz" firstAttribute="centerX" secondItem="pLv-dn-Y1H" secondAttribute="centerX" id="SwP-lG-02s"/>
+                            <constraint firstItem="59P-cv-gLk" firstAttribute="leading" secondItem="5EZ-Bf-hRf" secondAttribute="leading" id="dDb-Yz-ROE"/>
+                            <constraint firstItem="zMu-hf-hdB" firstAttribute="top" secondItem="oMJ-6s-kZD" secondAttribute="bottom" constant="16" id="dWP-B9-grh"/>
+                            <constraint firstItem="oMJ-6s-kZD" firstAttribute="centerX" secondItem="pLv-dn-Y1H" secondAttribute="centerX" id="k3L-y6-CcH"/>
+                            <constraint firstItem="59P-cv-gLk" firstAttribute="bottom" secondItem="5EZ-Bf-hRf" secondAttribute="bottom" constant="34" id="luC-vK-xx4"/>
+                            <constraint firstItem="bMx-j3-Rrz" firstAttribute="leading" secondItem="5EZ-Bf-hRf" secondAttribute="leading" constant="20" id="mdo-C6-fzI"/>
+                            <constraint firstItem="5EZ-Bf-hRf" firstAttribute="trailing" secondItem="59P-cv-gLk" secondAttribute="trailing" id="xcy-2I-59S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5EZ-Bf-hRf"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kH2-cE-ykG"/>
+                    <connections>
+                        <outlet property="logo" destination="oMJ-6s-kZD" id="9GG-Vs-qKk"/>
+                        <outlet property="name" destination="zMu-hf-hdB" id="C7l-nW-RbY"/>
+                        <outlet property="scrollView" destination="59P-cv-gLk" id="kaD-2t-Hej"/>
+                        <outlet property="startButton" destination="bMx-j3-Rrz" id="buv-1T-vym"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dye-Nh-R7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4em-tQ-coU" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-374" y="1177"/>
+            <point key="canvasLocation" x="86" y="1096"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cXv-5r-Tr3"/>
-        <segue reference="u9c-qB-1hm"/>
-        <segue reference="Xtz-uR-Dal"/>
+        <segue reference="mWa-no-b2B"/>
+        <segue reference="d6v-aV-gwr"/>
+        <segue reference="gQ2-5Y-eq7"/>
         <segue reference="Ytm-u5-bOS"/>
     </inferredMetricsTieBreakers>
     <resources>
