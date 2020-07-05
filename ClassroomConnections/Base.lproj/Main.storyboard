@@ -435,8 +435,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Smz-SH-QrC" userLabel="BottomView">
                                 <rect key="frame" x="0.0" y="733" width="414" height="80"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WL4-gr-wzh">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WL4-gr-wzh">
                                         <rect key="frame" x="22" y="23" width="332" height="34"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -1208,7 +1209,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jv2-K3-uJZ">
                                 <rect key="frame" x="0.0" y="733" width="414" height="80"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M36-B1-w3g">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M36-B1-w3g">
                                         <rect key="frame" x="65" y="23" width="310.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1517,10 +1518,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mWa-no-b2B"/>
-        <segue reference="d6v-aV-gwr"/>
+        <segue reference="cXv-5r-Tr3"/>
+        <segue reference="u9c-qB-1hm"/>
         <segue reference="gQ2-5Y-eq7"/>
-        <segue reference="Ytm-u5-bOS"/>
+        <segue reference="z2q-rs-LFr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Icon-1" width="1024" height="1024"/>
