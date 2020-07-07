@@ -40,10 +40,10 @@ class InstructionsTeacherViewController: UIViewController, UIScrollViewDelegate 
         imgFive.image = UIImage(named: "t4")
         
         
-        let imgSix = UIImageView(frame: CGRect(x:scrollViewWidth*4, y:0,width:scrollViewWidth, height:scrollViewHeight))
+        let imgSix = UIImageView(frame: CGRect(x:scrollViewWidth*5, y:0,width:scrollViewWidth, height:scrollViewHeight))
         imgSix.image = UIImage(named: "t5")
         
-        let imgSeven = UIImageView(frame: CGRect(x:scrollViewWidth*4, y:0,width:scrollViewWidth, height:scrollViewHeight))
+        let imgSeven = UIImageView(frame: CGRect(x:scrollViewWidth*6, y:0,width:scrollViewWidth, height:scrollViewHeight))
         imgSeven.image = UIImage(named: "tutorialending")
         
         self.scrollView.addSubview(imgOne)
@@ -54,7 +54,7 @@ class InstructionsTeacherViewController: UIViewController, UIScrollViewDelegate 
         self.scrollView.addSubview(imgSix)
         self.scrollView.addSubview(imgSeven)
         //4
-        self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width * 5, height:self.scrollView.frame.height)
+        self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width * 7, height:self.scrollView.frame.height)
         self.scrollView.delegate = self
         //                self.pageControl.currentPage = 0
     }
@@ -85,6 +85,10 @@ extension ScrollView
             //                    textView.text = "In addition, classroom connections is extremely user-friendly and very easy to use. It is designed to create the most pleasent user experience suitable in an educational environement."
         }
         else if Int(currentPage) == 3{
+        }
+        else if Int(currentPage) == 4{
+        }
+        else if Int(currentPage) == 5{
         }
         else{
             //                    textView.text = "Get ready to build some amazing connections inside your classroom."

@@ -39,10 +39,10 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
                 let imgFive = UIImageView(frame: CGRect(x:scrollViewWidth*4, y:0,width:scrollViewWidth, height:scrollViewHeight))
                 imgFive.image = UIImage(named: "s4")
         
-                let imgSix = UIImageView(frame: CGRect(x:scrollViewWidth*4, y:0,width:scrollViewWidth, height:scrollViewHeight))
+                let imgSix = UIImageView(frame: CGRect(x:scrollViewWidth*5, y:0,width:scrollViewWidth, height:scrollViewHeight))
                 imgSix.image = UIImage(named: "s5")
                 
-                let imgSeven = UIImageView(frame: CGRect(x:scrollViewWidth*4, y:0,width:scrollViewWidth, height:scrollViewHeight))
+                let imgSeven = UIImageView(frame: CGRect(x:scrollViewWidth*6, y:0,width:scrollViewWidth, height:scrollViewHeight))
                 imgSeven.image = UIImage(named: "tutorialending")
         
         
@@ -54,7 +54,7 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
                 self.scrollView.addSubview(imgSix)
                 self.scrollView.addSubview(imgSeven)
                 //4
-                self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width * 5, height:self.scrollView.frame.height)
+                self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width * 7, height:self.scrollView.frame.height)
                 self.scrollView.delegate = self
 //                self.pageControl.currentPage = 0
             }
@@ -86,6 +86,12 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
                 }
                 else if Int(currentPage) == 3{
                     
+                }
+                else if Int(currentPage) == 4{
+                    
+                }
+                else if Int(currentPage) == 5{
+                        
                 }
                 else{
 //                    textView.text = "Get ready to build some amazing connections inside your classroom."
