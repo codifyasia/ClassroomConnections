@@ -28,23 +28,31 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
                 self.startButton.layer.cornerRadius = 4.0
                 //3
                 let imgOne = UIImageView(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgOne.image = UIImage(named: "s1")
+                imgOne.image = UIImage(named: "tutorial")
                 let imgTwo = UIImageView(frame: CGRect(x:scrollViewWidth, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgTwo.image = UIImage(named: "s2")
+                imgTwo.image = UIImage(named: "s1")
                 let imgThree = UIImageView(frame: CGRect(x:scrollViewWidth*2, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgThree.image = UIImage(named: "s3")
+                imgThree.image = UIImage(named: "s2")
                 let imgFour = UIImageView(frame: CGRect(x:scrollViewWidth*3, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgFour.image = UIImage(named: "s4")
+                imgFour.image = UIImage(named: "s3")
                 
                 let imgFive = UIImageView(frame: CGRect(x:scrollViewWidth*4, y:0,width:scrollViewWidth, height:scrollViewHeight))
-                imgFive.image = UIImage(named: "s5")
+                imgFive.image = UIImage(named: "s4")
+        
+                let imgSix = UIImageView(frame: CGRect(x:scrollViewWidth*4, y:0,width:scrollViewWidth, height:scrollViewHeight))
+                imgSix.image = UIImage(named: "s5")
                 
+                let imgSeven = UIImageView(frame: CGRect(x:scrollViewWidth*4, y:0,width:scrollViewWidth, height:scrollViewHeight))
+                imgSeven.image = UIImage(named: "tutorialending")
+        
         
                 self.scrollView.addSubview(imgOne)
                 self.scrollView.addSubview(imgTwo)
                 self.scrollView.addSubview(imgThree)
                 self.scrollView.addSubview(imgFour)
                 self.scrollView.addSubview(imgFive)
+                self.scrollView.addSubview(imgSix)
+                self.scrollView.addSubview(imgSeven)
                 //4
                 self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width * 5, height:self.scrollView.frame.height)
                 self.scrollView.delegate = self

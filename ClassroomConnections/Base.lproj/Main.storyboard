@@ -640,9 +640,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vaz-XI-WeX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vaz-XI-WeX">
                                 <rect key="frame" x="0.0" y="99" width="414" height="797"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReusableCell" textLabel="9ql-nW-Ort" detailTextLabel="WwK-Q3-wO3" style="IBUITableViewCellStyleSubtitle" id="FgU-Wv-STZ">
@@ -692,8 +691,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="YAL-dF-33L" firstAttribute="trailing" secondItem="Vaz-XI-WeX" secondAttribute="trailing" id="YFw-bU-I4J"/>
+                            <constraint firstItem="Vaz-XI-WeX" firstAttribute="top" secondItem="YAL-dF-33L" secondAttribute="top" constant="55" id="eON-cZ-E98"/>
+                            <constraint firstItem="Vaz-XI-WeX" firstAttribute="leading" secondItem="YAL-dF-33L" secondAttribute="leading" id="eyt-GT-dSH"/>
                             <constraint firstItem="gl7-uV-B40" firstAttribute="top" secondItem="YAL-dF-33L" secondAttribute="top" constant="5" id="nyM-sx-Tuf"/>
                             <constraint firstItem="0eB-zK-pnZ" firstAttribute="top" secondItem="YAL-dF-33L" secondAttribute="top" id="qck-tY-47c"/>
+                            <constraint firstItem="Vaz-XI-WeX" firstAttribute="bottom" secondItem="YAL-dF-33L" secondAttribute="bottom" constant="34" id="rb0-gP-d5T"/>
                             <constraint firstItem="0eB-zK-pnZ" firstAttribute="centerX" secondItem="MTS-OW-x4U" secondAttribute="centerX" id="uYp-Wx-wZ8"/>
                             <constraint firstItem="YAL-dF-33L" firstAttribute="trailing" secondItem="gl7-uV-B40" secondAttribute="trailing" constant="19" id="wBH-j0-sWL"/>
                         </constraints>
@@ -718,9 +721,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lMw-T8-Rii">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lMw-T8-Rii">
                                 <rect key="frame" x="0.0" y="99" width="414" height="797"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReusableCell" textLabel="kEX-UN-YGg" detailTextLabel="iW4-JU-rPH" style="IBUITableViewCellStyleSubtitle" id="WHP-kp-eAW">
@@ -770,8 +772,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="iHc-fW-kMc" firstAttribute="trailing" secondItem="lMw-T8-Rii" secondAttribute="trailing" id="0ZK-B0-M19"/>
                             <constraint firstItem="iHc-fW-kMc" firstAttribute="trailing" secondItem="Fl1-98-rrm" secondAttribute="trailing" constant="19" id="7t3-fg-VAK"/>
+                            <constraint firstItem="lMw-T8-Rii" firstAttribute="bottom" secondItem="iHc-fW-kMc" secondAttribute="bottom" constant="34" id="b0t-7B-C10"/>
+                            <constraint firstItem="lMw-T8-Rii" firstAttribute="leading" secondItem="iHc-fW-kMc" secondAttribute="leading" id="bJU-Iv-T54"/>
                             <constraint firstItem="UaU-L1-iRT" firstAttribute="top" secondItem="iHc-fW-kMc" secondAttribute="top" id="c2h-qQ-iSA"/>
+                            <constraint firstItem="lMw-T8-Rii" firstAttribute="top" secondItem="iHc-fW-kMc" secondAttribute="top" constant="55" id="rql-9Q-iOM"/>
                             <constraint firstItem="Fl1-98-rrm" firstAttribute="top" secondItem="iHc-fW-kMc" secondAttribute="top" constant="5" id="vRD-EI-I2h"/>
                             <constraint firstItem="UaU-L1-iRT" firstAttribute="centerX" secondItem="HHd-bv-gq0" secondAttribute="centerX" id="zdv-8X-6Bx"/>
                         </constraints>
@@ -1517,10 +1523,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="dTL-WP-PjD"/>
         <segue reference="cXv-5r-Tr3"/>
         <segue reference="u9c-qB-1hm"/>
         <segue reference="gQ2-5Y-eq7"/>
-        <segue reference="z2q-rs-LFr"/>
+        <segue reference="Ytm-u5-bOS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Icon-1" width="1024" height="1024"/>
