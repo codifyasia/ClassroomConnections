@@ -214,6 +214,7 @@ extension TeacherClasses: UITableViewDelegate {
                     if (self.topicTextField.text! == "" || self.textField.text! == "") {
                         let alert1 = UIAlertController(title: "Error with creating class", message: "", preferredStyle: .alert)
                         let cancelButton = UIAlertAction(title: "Cancel", style: .default) { (cancel) in
+                            self.tableView.reloadData()
                             //does nothing
                         }
                         let tryAgain = UIAlertAction(title: "Try again", style: .default) { (try) in

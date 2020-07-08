@@ -281,6 +281,8 @@ extension StudentClasses: UITableViewDelegate {
             }
             
             let cancelButton = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                
+                self.tableView.reloadData()
             }
             alert.addAction(doneButton)
             alert.addAction(cancelButton)
