@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         ref = Database.database().reference()
+        self.hideKeyboardWhenTappedAround() 
     }
     @IBAction func loginPressed(_ sender: Any) {
         var hi = UIOffset(horizontal: currView.frame.size.width/2 , vertical: currView.frame.size.height/2 )

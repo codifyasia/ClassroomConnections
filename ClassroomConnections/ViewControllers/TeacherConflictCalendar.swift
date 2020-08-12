@@ -33,6 +33,7 @@ class TeacherConflictCalendar: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
         ref = Database.database().reference()
         ClassID = "dlkgjdgldrkjgd"
         print("going into class id")

@@ -45,6 +45,7 @@ class StudentClassChatViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         
         //Keyboard and textfield
+        self.hideKeyboardWhenTappedAround() 
         bottomViewY = bottomView.frame.origin.y
         tableViewH = tableView.frame.height
         

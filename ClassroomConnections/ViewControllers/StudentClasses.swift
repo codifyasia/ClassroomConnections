@@ -32,6 +32,7 @@ class StudentClasses: UIViewController {
     //    var colors : [UIColor] = [UIColor.brown, UIColor.green]
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "AddClass", bundle: nil), forCellReuseIdentifier: "Cell")

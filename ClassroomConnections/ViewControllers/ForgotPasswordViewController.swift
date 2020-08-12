@@ -15,6 +15,7 @@ class ForgotPasswordViewController: UIViewController {
     @IBOutlet weak var emailText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
         
         // Do any additional setup after loading the view.
     }

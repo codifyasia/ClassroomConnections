@@ -42,7 +42,7 @@ class TeacherClassChatViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         
-        
+        self.hideKeyboardWhenTappedAround() 
         bottomViewY = bottomView.frame.origin.y
         tableViewH = tableView.frame.height
         

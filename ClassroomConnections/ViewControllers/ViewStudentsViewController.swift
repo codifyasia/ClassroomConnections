@@ -13,7 +13,7 @@ class ViewStudentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
 //        ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }

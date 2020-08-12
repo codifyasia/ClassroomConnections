@@ -12,6 +12,6 @@ class ChecklistViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        
+        self.hideKeyboardWhenTappedAround() 
     }
 }

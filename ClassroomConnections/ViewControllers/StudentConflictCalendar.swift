@@ -24,6 +24,7 @@ class StudentConflictCalendar: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         getClassID()
+        self.hideKeyboardWhenTappedAround() 
         mon.layer.cornerRadius = mon.frame.size.height / 5
         tues.layer.cornerRadius = tues.frame.size.height / 5
         wed.layer.cornerRadius = wed.frame.size.height / 5

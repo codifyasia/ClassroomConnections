@@ -16,6 +16,7 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var name: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
         logo.isHidden = true
         name.isHidden = true
          self.scrollView.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)

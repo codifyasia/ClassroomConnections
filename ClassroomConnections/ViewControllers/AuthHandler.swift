@@ -12,6 +12,8 @@ class AuthHandler: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        self.hideKeyboardWhenTappedAround() 
 
         AuthManager.shared.authHandler = self
         AuthManager.shared.showApp()
