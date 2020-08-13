@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GKQ-ou-B53">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GKQ-ou-B53">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,7 +10,7 @@
         <!--Auth Handler-->
         <scene sceneID="LPP-fK-g6q">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="GKQ-ou-B53" customClass="AuthHandler" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="GKQ-ou-B53" customClass="AuthHandler" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KDV-eh-Uwy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
         <!--StudentInstructions-->
         <scene sceneID="ndN-yH-ZMA">
             <objects>
-                <viewController title="StudentInstructions" modalPresentationStyle="fullScreen" id="iIB-oo-zSj" customClass="InstructionsStudent" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="StudentInstructions" modalPresentationStyle="fullScreen" id="iIB-oo-zSj" customClass="InstructionsStudent" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uZd-lg-4aI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,7 +49,7 @@
         <!--Register View Controller-->
         <scene sceneID="xB0-A4-fXr">
             <objects>
-                <viewController storyboardIdentifier="Register" modalPresentationStyle="fullScreen" id="XVg-8X-N20" customClass="RegisterViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" modalPresentationStyle="fullScreen" id="XVg-8X-N20" customClass="RegisterViewController" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0zM-a1-2J6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -287,7 +287,7 @@
         <!--Login View Controller-->
         <scene sceneID="W7Y-KE-JIh">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" modalPresentationStyle="fullScreen" id="CMF-8L-1nv" customClass="LoginViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" modalPresentationStyle="fullScreen" id="CMF-8L-1nv" customClass="LoginViewController" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cMh-kd-eaA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -423,7 +423,7 @@
         <!--TeacherClassChatViewController-->
         <scene sceneID="tdD-1l-uKy">
             <objects>
-                <viewController title="TeacherClassChatViewController" id="EKz-8Q-GH6" customClass="TeacherClassChatViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="TeacherClassChatViewController" id="EKz-8Q-GH6" customClass="TeacherClassChatViewController" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LB5-eq-gtZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -436,12 +436,12 @@
                                 <rect key="frame" x="0.0" y="733" width="414" height="80"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WL4-gr-wzh">
-                                        <rect key="frame" x="22" y="23" width="332" height="34"/>
+                                        <rect key="frame" x="22" y="23" width="338" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBv-hZ-Ugh">
-                                        <rect key="frame" x="376" y="29" width="21" height="22"/>
+                                        <rect key="frame" x="368" y="22" width="38" height="37"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="paperplane.fill" catalog="system"/>
                                         <connections>
@@ -451,12 +451,16 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="TBv-hZ-Ugh" firstAttribute="leading" secondItem="WL4-gr-wzh" secondAttribute="trailing" constant="22" id="01l-9P-XVG"/>
                                     <constraint firstAttribute="height" constant="80" id="5bE-Cy-NIW"/>
-                                    <constraint firstItem="WL4-gr-wzh" firstAttribute="leading" secondItem="Smz-SH-QrC" secondAttribute="leading" constant="22" id="6cT-tH-fDT"/>
-                                    <constraint firstItem="TBv-hZ-Ugh" firstAttribute="centerY" secondItem="Smz-SH-QrC" secondAttribute="centerY" id="Jia-Yr-5O9"/>
-                                    <constraint firstAttribute="trailing" secondItem="TBv-hZ-Ugh" secondAttribute="trailing" constant="17" id="aH8-ld-gxU"/>
-                                    <constraint firstItem="WL4-gr-wzh" firstAttribute="centerY" secondItem="Smz-SH-QrC" secondAttribute="centerY" id="cco-ix-0Rh"/>
+                                    <constraint firstItem="TBv-hZ-Ugh" firstAttribute="leading" secondItem="Smz-SH-QrC" secondAttribute="leading" constant="368" id="9kj-CB-uCf"/>
+                                    <constraint firstAttribute="bottom" secondItem="TBv-hZ-Ugh" secondAttribute="bottom" constant="21" id="CbX-nK-wYi"/>
+                                    <constraint firstAttribute="bottom" secondItem="WL4-gr-wzh" secondAttribute="bottom" constant="23" id="Ju1-oo-4si"/>
+                                    <constraint firstAttribute="trailing" secondItem="WL4-gr-wzh" secondAttribute="trailing" constant="54" id="U4d-1u-cpC"/>
+                                    <constraint firstAttribute="trailing" secondItem="TBv-hZ-Ugh" secondAttribute="trailing" constant="8" id="gqh-Rn-h7t"/>
+                                    <constraint firstItem="WL4-gr-wzh" firstAttribute="top" secondItem="Smz-SH-QrC" secondAttribute="top" constant="23" id="itq-ee-L8G"/>
+                                    <constraint firstItem="TBv-hZ-Ugh" firstAttribute="leading" secondItem="WL4-gr-wzh" secondAttribute="trailing" constant="8" id="nF2-VV-VvW"/>
+                                    <constraint firstItem="WL4-gr-wzh" firstAttribute="leading" secondItem="Smz-SH-QrC" secondAttribute="leading" constant="22" id="rV2-xA-ZW2"/>
+                                    <constraint firstItem="TBv-hZ-Ugh" firstAttribute="top" secondItem="Smz-SH-QrC" secondAttribute="top" constant="22" id="rfh-ko-GMf"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpy-Yd-jIG">
@@ -537,7 +541,7 @@
         <!--Forgot Password View Controller-->
         <scene sceneID="uOO-hh-Ncn">
             <objects>
-                <viewController id="gtc-8s-cMg" customClass="ForgotPasswordViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gtc-8s-cMg" customClass="ForgotPasswordViewController" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dRU-wS-Wb1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -635,7 +639,7 @@
         <!--Teacher Classes-->
         <scene sceneID="V4b-bk-FZi">
             <objects>
-                <viewController storyboardIdentifier="TeacherClasses" modalPresentationStyle="fullScreen" id="xgg-yK-e4F" customClass="TeacherClasses" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TeacherClasses" modalPresentationStyle="fullScreen" id="xgg-yK-e4F" customClass="TeacherClasses" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MTS-OW-x4U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -716,7 +720,7 @@
         <!--Student Classes-->
         <scene sceneID="fTh-yx-fH2">
             <objects>
-                <viewController storyboardIdentifier="StudentClasses" modalPresentationStyle="fullScreen" id="Dcl-mV-d4c" customClass="StudentClasses" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudentClasses" modalPresentationStyle="fullScreen" id="Dcl-mV-d4c" customClass="StudentClasses" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HHd-bv-gq0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -797,7 +801,7 @@
         <!--Calendar-->
         <scene sceneID="yuA-V1-xEg">
             <objects>
-                <viewController id="J99-fh-5bN" customClass="StudentConflictCalendar" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="J99-fh-5bN" customClass="StudentConflictCalendar" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uW6-Yc-hAZ" customClass="Student">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -955,7 +959,7 @@
         <!--Calendar-->
         <scene sceneID="6lT-44-MA4">
             <objects>
-                <viewController id="P9n-O8-NRY" customClass="TeacherConflictCalendar" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="P9n-O8-NRY" customClass="TeacherConflictCalendar" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JkM-5q-haP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1168,7 +1172,7 @@
         <!--StudentClassChatViewController-->
         <scene sceneID="Dt7-1n-sMs">
             <objects>
-                <viewController title="StudentClassChatViewController" hidesBottomBarWhenPushed="YES" id="LRU-J3-kCs" customClass="StudentClassChatViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="StudentClassChatViewController" hidesBottomBarWhenPushed="YES" id="LRU-J3-kCs" customClass="StudentClassChatViewController" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GUy-sT-H2m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1184,7 +1188,7 @@
                                 <rect key="frame" x="0.0" y="733" width="414" height="80"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M36-B1-w3g">
-                                        <rect key="frame" x="65" y="23" width="310.5" height="34"/>
+                                        <rect key="frame" x="65" y="23" width="284" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -1197,7 +1201,7 @@
                                         </connections>
                                     </switch>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98y-2R-kOX">
-                                        <rect key="frame" x="385" y="29" width="21" height="22"/>
+                                        <rect key="frame" x="364" y="21" width="42" height="38"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="paperplane.fill" catalog="system"/>
                                         <connections>
@@ -1207,14 +1211,19 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="M36-B1-w3g" firstAttribute="leading" secondItem="Jv2-K3-uJZ" secondAttribute="leading" constant="65" id="0u7-PA-l36"/>
                                     <constraint firstItem="dT6-uS-3MM" firstAttribute="centerY" secondItem="Jv2-K3-uJZ" secondAttribute="centerY" id="Bl4-oW-xvM"/>
-                                    <constraint firstItem="98y-2R-kOX" firstAttribute="centerY" secondItem="Jv2-K3-uJZ" secondAttribute="centerY" id="Own-6e-XkR"/>
-                                    <constraint firstItem="M36-B1-w3g" firstAttribute="centerY" secondItem="Jv2-K3-uJZ" secondAttribute="centerY" id="RJb-xH-eBv"/>
+                                    <constraint firstItem="98y-2R-kOX" firstAttribute="leading" secondItem="Jv2-K3-uJZ" secondAttribute="leading" constant="364" id="Gmi-94-45X"/>
+                                    <constraint firstItem="98y-2R-kOX" firstAttribute="top" secondItem="Jv2-K3-uJZ" secondAttribute="top" constant="21" id="Loa-mz-9YN"/>
+                                    <constraint firstAttribute="bottom" secondItem="98y-2R-kOX" secondAttribute="bottom" constant="21" id="Muo-o1-LNu"/>
                                     <constraint firstItem="dT6-uS-3MM" firstAttribute="leading" secondItem="Jv2-K3-uJZ" secondAttribute="leading" constant="8" id="ROJ-qs-VHK"/>
+                                    <constraint firstAttribute="trailing" secondItem="98y-2R-kOX" secondAttribute="trailing" constant="8" id="YHa-Rp-nfu"/>
                                     <constraint firstAttribute="height" constant="80" id="Z95-AK-VIB"/>
-                                    <constraint firstAttribute="trailing" secondItem="98y-2R-kOX" secondAttribute="trailing" constant="8" id="gfn-hO-h1j"/>
-                                    <constraint firstItem="98y-2R-kOX" firstAttribute="leading" secondItem="M36-B1-w3g" secondAttribute="trailing" constant="9.5" id="j6g-UD-lbu"/>
-                                    <constraint firstItem="M36-B1-w3g" firstAttribute="leading" secondItem="dT6-uS-3MM" secondAttribute="trailing" constant="8" id="twZ-bm-UPT"/>
+                                    <constraint firstAttribute="trailing" secondItem="M36-B1-w3g" secondAttribute="trailing" constant="65" id="l2A-ht-eMz"/>
+                                    <constraint firstAttribute="bottom" secondItem="M36-B1-w3g" secondAttribute="bottom" constant="23" id="oVQ-Pn-Hms"/>
+                                    <constraint firstItem="98y-2R-kOX" firstAttribute="leading" secondItem="M36-B1-w3g" secondAttribute="trailing" constant="15" id="og3-76-tiA"/>
+                                    <constraint firstItem="M36-B1-w3g" firstAttribute="top" secondItem="Jv2-K3-uJZ" secondAttribute="top" constant="23" id="plO-Zy-ezt"/>
+                                    <constraint firstItem="M36-B1-w3g" firstAttribute="leading" secondItem="dT6-uS-3MM" secondAttribute="trailing" constant="8" id="t0F-aK-LgP"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="right" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qf7-9E-L1Z" userLabel="ReturnToClasses">
@@ -1425,7 +1434,7 @@
         <!--Instructions Teacher View Controller-->
         <scene sceneID="2oT-ms-Uuc">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="fO0-gi-el8" customClass="InstructionsTeacherViewController" customModule="ClassroomConnections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="fO0-gi-el8" customClass="InstructionsTeacherViewController" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pLv-dn-Y1H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1492,10 +1501,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mWa-no-b2B"/>
-        <segue reference="d6v-aV-gwr"/>
+        <segue reference="cXv-5r-Tr3"/>
+        <segue reference="u9c-qB-1hm"/>
         <segue reference="gQ2-5Y-eq7"/>
-        <segue reference="Ytm-u5-bOS"/>
+        <segue reference="GjU-0t-bGD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Icon" width="182.5" height="204.5"/>
