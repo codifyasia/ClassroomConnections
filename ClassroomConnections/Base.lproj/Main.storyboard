@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GKQ-ou-B53">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GKQ-ou-B53">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -277,7 +277,7 @@
                         <segue destination="xgg-yK-e4F" kind="presentation" identifier="teacherToClassSelection" modalPresentationStyle="fullScreen" id="OYR-f7-Q6Y"/>
                         <segue destination="Dcl-mV-d4c" kind="presentation" identifier="studentToClassSelection" modalPresentationStyle="fullScreen" id="f5H-xm-6mY"/>
                         <segue destination="fO0-gi-el8" kind="show" identifier="toInstructionsTeacher" id="6ti-65-WWj"/>
-                        <segue destination="o2m-jC-Qg9" kind="show" identifier="toInstructionsStudent" id="j6X-N6-eMX"/>
+                        <segue destination="Dcl-mV-d4c" kind="show" identifier="toInstructionsStudent" id="8hO-MK-G9C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dd0-eb-nH0" sceneMemberID="firstResponder"/>
@@ -436,12 +436,12 @@
                                 <rect key="frame" x="0.0" y="733" width="414" height="80"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WL4-gr-wzh">
-                                        <rect key="frame" x="22" y="23" width="338" height="34"/>
+                                        <rect key="frame" x="22" y="23" width="316" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBv-hZ-Ugh">
-                                        <rect key="frame" x="368" y="22" width="38" height="37"/>
+                                        <rect key="frame" x="359" y="20" width="38" height="40"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="paperplane.fill" catalog="system"/>
                                         <connections>
@@ -452,15 +452,14 @@
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="5bE-Cy-NIW"/>
-                                    <constraint firstItem="TBv-hZ-Ugh" firstAttribute="leading" secondItem="Smz-SH-QrC" secondAttribute="leading" constant="368" id="9kj-CB-uCf"/>
-                                    <constraint firstAttribute="bottom" secondItem="TBv-hZ-Ugh" secondAttribute="bottom" constant="21" id="CbX-nK-wYi"/>
-                                    <constraint firstAttribute="bottom" secondItem="WL4-gr-wzh" secondAttribute="bottom" constant="23" id="Ju1-oo-4si"/>
-                                    <constraint firstAttribute="trailing" secondItem="WL4-gr-wzh" secondAttribute="trailing" constant="54" id="U4d-1u-cpC"/>
-                                    <constraint firstAttribute="trailing" secondItem="TBv-hZ-Ugh" secondAttribute="trailing" constant="8" id="gqh-Rn-h7t"/>
-                                    <constraint firstItem="WL4-gr-wzh" firstAttribute="top" secondItem="Smz-SH-QrC" secondAttribute="top" constant="23" id="itq-ee-L8G"/>
-                                    <constraint firstItem="TBv-hZ-Ugh" firstAttribute="leading" secondItem="WL4-gr-wzh" secondAttribute="trailing" constant="8" id="nF2-VV-VvW"/>
-                                    <constraint firstItem="WL4-gr-wzh" firstAttribute="leading" secondItem="Smz-SH-QrC" secondAttribute="leading" constant="22" id="rV2-xA-ZW2"/>
-                                    <constraint firstItem="TBv-hZ-Ugh" firstAttribute="top" secondItem="Smz-SH-QrC" secondAttribute="top" constant="22" id="rfh-ko-GMf"/>
+                                    <constraint firstItem="WL4-gr-wzh" firstAttribute="top" secondItem="Smz-SH-QrC" secondAttribute="top" constant="23" id="7dg-Ae-ebc"/>
+                                    <constraint firstItem="WL4-gr-wzh" firstAttribute="leading" secondItem="Smz-SH-QrC" secondAttribute="leading" constant="22" id="J7m-eh-nyg"/>
+                                    <constraint firstAttribute="trailing" secondItem="WL4-gr-wzh" secondAttribute="trailing" constant="76" id="cZj-rD-SWq"/>
+                                    <constraint firstItem="TBv-hZ-Ugh" firstAttribute="leading" secondItem="WL4-gr-wzh" secondAttribute="trailing" constant="21" id="ggR-4h-KIs"/>
+                                    <constraint firstAttribute="bottom" secondItem="TBv-hZ-Ugh" secondAttribute="bottom" constant="20" id="jZS-Co-Ma1"/>
+                                    <constraint firstAttribute="trailing" secondItem="TBv-hZ-Ugh" secondAttribute="trailing" constant="17" id="jaH-2p-g06"/>
+                                    <constraint firstAttribute="bottom" secondItem="WL4-gr-wzh" secondAttribute="bottom" constant="23" id="let-bK-sUb"/>
+                                    <constraint firstItem="TBv-hZ-Ugh" firstAttribute="top" secondItem="Smz-SH-QrC" secondAttribute="top" constant="20" id="pv3-c2-2Ub"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpy-Yd-jIG">
@@ -1201,7 +1200,7 @@
                                         </connections>
                                     </switch>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98y-2R-kOX">
-                                        <rect key="frame" x="364" y="21" width="42" height="38"/>
+                                        <rect key="frame" x="357" y="21" width="42" height="39"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="paperplane.fill" catalog="system"/>
                                         <connections>
@@ -1211,18 +1210,17 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="98y-2R-kOX" secondAttribute="trailing" constant="15" id="0Go-Fw-SPS"/>
                                     <constraint firstItem="M36-B1-w3g" firstAttribute="leading" secondItem="Jv2-K3-uJZ" secondAttribute="leading" constant="65" id="0u7-PA-l36"/>
                                     <constraint firstItem="dT6-uS-3MM" firstAttribute="centerY" secondItem="Jv2-K3-uJZ" secondAttribute="centerY" id="Bl4-oW-xvM"/>
-                                    <constraint firstItem="98y-2R-kOX" firstAttribute="leading" secondItem="Jv2-K3-uJZ" secondAttribute="leading" constant="364" id="Gmi-94-45X"/>
-                                    <constraint firstItem="98y-2R-kOX" firstAttribute="top" secondItem="Jv2-K3-uJZ" secondAttribute="top" constant="21" id="Loa-mz-9YN"/>
-                                    <constraint firstAttribute="bottom" secondItem="98y-2R-kOX" secondAttribute="bottom" constant="21" id="Muo-o1-LNu"/>
+                                    <constraint firstItem="98y-2R-kOX" firstAttribute="top" secondItem="Jv2-K3-uJZ" secondAttribute="top" constant="21" id="DHy-5J-8x8"/>
                                     <constraint firstItem="dT6-uS-3MM" firstAttribute="leading" secondItem="Jv2-K3-uJZ" secondAttribute="leading" constant="8" id="ROJ-qs-VHK"/>
-                                    <constraint firstAttribute="trailing" secondItem="98y-2R-kOX" secondAttribute="trailing" constant="8" id="YHa-Rp-nfu"/>
                                     <constraint firstAttribute="height" constant="80" id="Z95-AK-VIB"/>
                                     <constraint firstAttribute="trailing" secondItem="M36-B1-w3g" secondAttribute="trailing" constant="65" id="l2A-ht-eMz"/>
                                     <constraint firstAttribute="bottom" secondItem="M36-B1-w3g" secondAttribute="bottom" constant="23" id="oVQ-Pn-Hms"/>
-                                    <constraint firstItem="98y-2R-kOX" firstAttribute="leading" secondItem="M36-B1-w3g" secondAttribute="trailing" constant="15" id="og3-76-tiA"/>
+                                    <constraint firstAttribute="bottom" secondItem="98y-2R-kOX" secondAttribute="bottom" constant="20" id="phn-VY-rab"/>
                                     <constraint firstItem="M36-B1-w3g" firstAttribute="top" secondItem="Jv2-K3-uJZ" secondAttribute="top" constant="23" id="plO-Zy-ezt"/>
+                                    <constraint firstItem="98y-2R-kOX" firstAttribute="leading" secondItem="M36-B1-w3g" secondAttribute="trailing" constant="8" id="pot-up-gpT"/>
                                     <constraint firstItem="M36-B1-w3g" firstAttribute="leading" secondItem="dT6-uS-3MM" secondAttribute="trailing" constant="8" id="t0F-aK-LgP"/>
                                 </constraints>
                             </view>
@@ -1502,7 +1500,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="cXv-5r-Tr3"/>
-        <segue reference="u9c-qB-1hm"/>
+        <segue reference="OYR-f7-Q6Y"/>
         <segue reference="gQ2-5Y-eq7"/>
         <segue reference="GjU-0t-bGD"/>
     </inferredMetricsTieBreakers>
